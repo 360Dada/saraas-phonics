@@ -2,7 +2,7 @@
   "name": "Saraa's Phonics by 360Dada",
   "short_name": "Saraa's Phonics",
   "description": "Free phonics learning app created by 360Dada. No ads, no subscriptions - just pure learning fun for kids!",
-  "start_url": "./phonics-app-enhanced.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#87CEEB",
   "theme_color": "#C17FFF",
