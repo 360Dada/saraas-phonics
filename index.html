@@ -387,6 +387,21 @@
             font-size: 0.95rem;
             font-weight: 700;
         }
+
+        .exam-hint {
+            margin-top: 6px;
+            color: #5b6a7d;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .exam-section-result {
+            margin-top: 10px;
+            font-family: "Trebuchet MS", Verdana, sans-serif;
+            font-size: 1.05rem;
+            color: #1f2a38;
+            font-weight: 700;
+        }
         
         /* Game Screens */
         .game-screen {
@@ -978,21 +993,25 @@
             }
             
             .user-profile {
-                padding: 12px 20px;
-                top: 15px;
-                right: 15px;
+                padding: 8px 12px;
+                top: 10px;
+                right: 10px;
+                gap: 8px;
+                border-radius: 24px;
+                max-width: min(60vw, 230px);
+                animation: none;
             }
             
             .user-avatar {
-                font-size: 2.8rem;
+                font-size: 2rem;
             }
             
             .user-name {
-                font-size: 1.1rem;
+                font-size: 0.95rem;
             }
             
             .user-age {
-                font-size: 0.9rem;
+                font-size: 0.78rem;
             }
             
             .edit-hint {
@@ -1007,6 +1026,34 @@
             .footer-links {
                 flex-direction: column;
                 gap: 10px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .user-profile {
+                top: 14px;
+                right: 14px;
+                padding: 10px 16px;
+                gap: 10px;
+                border-radius: 32px;
+                max-width: min(42vw, 300px);
+                animation: none;
+            }
+
+            .user-avatar {
+                font-size: 2.3rem;
+            }
+
+            .user-name {
+                font-size: 1.05rem;
+            }
+
+            .user-age {
+                font-size: 0.85rem;
+            }
+
+            .edit-hint {
+                display: none;
             }
         }
         
@@ -1285,6 +1332,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             animation: profileBounce 3s ease-in-out infinite;
+            max-width: min(72vw, 420px);
         }
         
         @keyframes profileBounce {
@@ -1312,6 +1360,7 @@
         
         .user-info {
             text-align: left;
+            min-width: 0;
         }
         
         .user-name {
@@ -1320,6 +1369,9 @@
             font-weight: 700;
             color: var(--purple-fun);
             line-height: 1.2;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
         .user-age {
@@ -2001,12 +2053,43 @@
                 questions: [
                     { type: 'mcq', q: 'Which key erases anything typed to the left of the cursor?', options: ['Enter', 'Backspace', 'Delete'], answer: 'Backspace' },
                     { type: 'mcq', q: 'Which is not an alphabet key?', options: ['B', 'K', 'Enter'], answer: 'Enter' },
+                    { type: 'mcq', q: 'Which key erases anything typed to the right of the cursor?', options: ['DELETE', 'Backspace', 'Enter'], answer: 'DELETE' },
                     { type: 'mcq', q: 'Which key adds a blank space between words?', options: ['Enter', 'Spacebar', 'Backspace'], answer: 'Spacebar' },
+                    { type: 'mcq', q: 'Which of these is the Rectangle tool?', options: ['Square', 'Big Circle', 'Triangle'], answer: 'Square' },
                     { type: 'mcq', q: 'Which tool helps to draw a line?', options: ['Line Tool', 'Eraser Tool', 'Brush Tool'], answer: 'Line Tool' },
+                    { type: 'mcq', q: 'Which tool fills color in a shape?', options: ['Pencil', 'Fill with color', 'Text'], answer: 'Fill with color' },
                     { type: 'mcq', q: 'The character in ScratchJr is called:', options: ['Sprite', 'Block', 'Stage'], answer: 'Sprite' },
-                    { type: 'tf', q: 'There are 10 number keys on the keyboard.', answer: 'True' },
-                    { type: 'tf', q: 'MS Paint is used to play games.', answer: 'False' },
-                    { type: 'text', q: 'Fill in the blank: The longest key on keyboard is _______.', answers: ['spacebar'] }
+                    { type: 'mcq', q: 'Which button adds text in ScratchJr?', options: ['AAA', '+', 'B'], answer: 'AAA' },
+                    { type: 'mcq', q: 'Which button adds a background in ScratchJr?', options: ['Image Icon', 'Plus Icon', 'Grid Icon'], answer: 'Image Icon' },
+
+                    { type: 'text', q: 'Fill in the blank: The buttons on a keyboard are called _______.', answers: ['keys'] },
+                    { type: 'text', q: 'Fill in the blank: The longest key on keyboard is _______.', answers: ['spacebar'] },
+                    { type: 'text', q: 'Fill in the blank: The _______ is a small blinking line.', answers: ['cursor'] },
+                    { type: 'text', q: 'Fill in the blank: There are 26 _______ keys on a keyboard.', answers: ['alphabet'] },
+                    { type: 'text', q: 'Fill in the blank: _______ is the area where action takes place in a ScratchJr project.', answers: ['stage'] },
+                    { type: 'text', q: 'Fill in the blank: _______ are snapped together to make characters move or dance.', answers: ['blocks'] },
+                    { type: 'text', q: 'Fill in the blank: We add a new sprite by clicking the _______ button.', answers: ['plus'] },
+                    { type: 'text', q: 'Fill in the blank: The _______ button is used to add words on the Stage area.', answers: ['text', 'text button'] },
+                    { type: 'text', q: 'Fill in the blank: You can draw and color using _______ program.', answers: ['paint'] },
+                    { type: 'text', q: 'Fill in the blank: Press the _______ key to draw a perfect square.', answers: ['shift'] },
+                    { type: 'text', q: 'Fill in the blank: _______ is the white space where you can draw and color.', answers: ['drawing area'] },
+                    { type: 'text', q: 'Fill in the blank: The _______ tool changes the thickness of a line.', answers: ['size'] },
+
+                    { type: 'tf', q: 'There are 10 number keys.', answer: 'True' },
+                    { type: 'tf', q: 'Number keys are also known as numeric keys.', answer: 'True' },
+                    { type: 'tf', q: 'The Enter key moves the cursor up and down.', answer: 'False' },
+                    { type: 'tf', q: 'Alphabet keys are used to type sentences.', answer: 'True' },
+                    { type: 'tf', q: 'The Line tool is present in the Shapes group.', answer: 'False' },
+                    { type: 'tf', q: 'The Save option is present on the Title bar.', answer: 'False' },
+                    { type: 'tf', q: 'The default name of a Paint file is Untitled.', answer: 'True' },
+                    { type: 'tf', q: 'Title bar displays the name of the file.', answer: 'True' },
+                    { type: 'tf', q: 'A group contains a set of tabs.', answer: 'False' },
+                    { type: 'tf', q: 'MS Paint program is used to play games.', answer: 'False' },
+
+                    { type: 'text', q: 'Fill missing letters: G _ O U _ _', answers: ['groups'] },
+                    { type: 'text', q: 'Fill missing letters: _ H _ P E S', answers: ['shapes'] },
+                    { type: 'text', q: 'Fill missing letters: _ V _ L', answers: ['oval'] },
+                    { type: 'text', q: 'Fill missing letters: S H _ _ T', answers: ['shift'] }
                 ]
             },
             'english': {
@@ -2014,49 +2097,215 @@
                 questions: [
                     { type: 'mcq', q: 'We ______ a new Maths Teacher.', options: ['has', 'have', 'had'], answer: 'have' },
                     { type: 'mcq', q: 'The sailor ______ two babies.', options: ['has', 'have', 'are'], answer: 'has' },
+                    { type: 'mcq', q: 'Manas ______ a new bicycle.', options: ['has', 'have', 'am'], answer: 'has' },
+                    { type: 'mcq', q: 'He ______ running fast.', options: ['is', 'am', 'are'], answer: 'is' },
                     { type: 'mcq', q: 'I ______ writing a story.', options: ['is', 'am', 'are'], answer: 'am' },
                     { type: 'mcq', q: 'They ______ playing with toys.', options: ['is', 'am', 'are'], answer: 'are' },
-                    { type: 'mcq', q: 'Opposite of angry', options: ['happy', 'crooked', 'small'], answer: 'happy' },
-                    { type: 'mcq', q: 'Female of lion', options: ['lioness', 'tigress', 'mare'], answer: 'lioness' },
+                    { type: 'mcq', q: 'She ______ singing a song.', options: ['is', 'am', 'are'], answer: 'is' },
+                    { type: 'mcq', q: 'We ______ drawing pictures.', options: ['is', 'am', 'are'], answer: 'are' },
+
+                    { type: 'mcq', q: 'Opposite of angry is:', options: ['happy', 'small', 'old'], answer: 'happy' },
+                    { type: 'mcq', q: 'Opposite of straight is:', options: ['crooked', 'inside', 'rest'], answer: 'crooked' },
+                    { type: 'mcq', q: 'Opposite of work is:', options: ['rest', 'outside', 'new'], answer: 'rest' },
+                    { type: 'mcq', q: 'Opposite of outside is:', options: ['inside', 'small', 'old'], answer: 'inside' },
+                    { type: 'mcq', q: 'Opposite of big is:', options: ['small', 'rest', 'crooked'], answer: 'small' },
+                    { type: 'mcq', q: 'Opposite of new is:', options: ['old', 'inside', 'happy'], answer: 'old' },
+
                     { type: 'text', q: 'Unscramble: ARFURBEY', answers: ['february'] },
+                    { type: 'text', q: 'Unscramble: IPRLA', answers: ['april'] },
+                    { type: 'text', q: 'Unscramble: GAUSTAU', answers: ['augusta', 'august'] },
+                    { type: 'text', q: 'Unscramble: EMOVRNBE', answers: ['november'] },
+                    { type: 'text', q: 'Unscramble: DCUK', answers: ['duck'] },
+                    { type: 'text', q: 'Unscramble: VGETEALBES', answers: ['vegetables'] },
                     { type: 'text', q: 'Unscramble: PNOD', answers: ['pond'] },
                     { type: 'text', q: 'Unscramble: ESGG', answers: ['eggs'] },
-                    { type: 'text', q: 'Unscramble: VGETEALBES', answers: ['vegetables'] }
+                    { type: 'text', q: 'Unscramble: FRTUIS', answers: ['fruits'] },
+
+                    { type: 'text', q: 'Gender word: Father = ______', answers: ['mother'] },
+                    { type: 'text', q: 'Gender word: Grand Mother = ______', answers: ['grandfather'] },
+                    { type: 'text', q: 'Gender word: Horse = ______', answers: ['mare'] },
+                    { type: 'text', q: 'Gender word: Lion = ______', answers: ['lioness'] },
+                    { type: 'text', q: 'Gender word: Cock = ______', answers: ['hen'] },
+                    { type: 'text', q: 'Gender word: Husband = ______', answers: ['wife'] },
+                    { type: 'text', q: 'Gender word: Madam = ______', answers: ['sir'] },
+                    { type: 'text', q: 'Gender word: Actress = ______', answers: ['actor'] }
                 ]
             },
             'hindi': {
                 title: 'Hindi',
                 questions: [
                     { type: 'text', q: 'एक के अनेक: चूहा = ______', answers: ['चूहे'] },
+                    { type: 'text', q: 'एक के अनेक: पौधा = ______', answers: ['पौधे'] },
+                    { type: 'text', q: 'एक के अनेक: झूला = ______', answers: ['झूले'] },
                     { type: 'text', q: 'एक के अनेक: बच्चा = ______', answers: ['बच्चे'] },
-                    { type: 'text', q: 'एक के अनेक: पत्ती = ______', answers: ['पत्तियाँ', 'पत्ितयाँ', 'पत्तियां'] },
+                    { type: 'text', q: 'एक के अनेक: थैला = ______', answers: ['थैले'] },
+                    { type: 'text', q: 'एक के अनेक: पत्ती = ______', answers: ['पत्तियाँ', 'पत्तियां'] },
+                    { type: 'text', q: 'एक के अनेक: आँख = ______', answers: ['आँखें', 'आंखें'] },
+                    { type: 'text', q: 'एक के अनेक: तितली = ______', answers: ['तितलियाँ', 'तितलियां'] },
+
                     { type: 'mcq', q: 'लाल में पीला मिलाकर ______ बनता है।', options: ['नारंगी', 'हरा', 'जामुनी'], answer: 'नारंगी' },
+                    { type: 'mcq', q: 'नीले में लाल डालने से ______ बनता है।', options: ['जामुनी', 'हरा', 'नारंगी'], answer: 'जामुनी' },
                     { type: 'mcq', q: 'पीला और नीला मिलाने से ______ बनता है।', options: ['हरा', 'गुलदस्ता', 'जामुनी'], answer: 'हरा' },
+                    { type: 'mcq', q: 'चाचू ने थैले से ______ निकाला।', options: ['गुलदस्ता', 'नारंगी', 'हरा'], answer: 'गुलदस्ता' },
+
+                    { type: 'mcq', q: 'किस शब्द में "ी" की मात्रा है?', options: ['छोटी', 'बहुत', 'शनि'], answer: 'छोटी' },
+                    { type: 'mcq', q: 'किस शब्द में "ु" की मात्रा है?', options: ['खुश', 'नीम', 'पूछा'], answer: 'खुश' },
+                    { type: 'mcq', q: 'किस शब्द में "ू" की मात्रा है?', options: ['पूछा', 'शनि', 'नीम'], answer: 'पूछा' },
+                    { type: 'mcq', q: 'किस शब्द में "ी" की मात्रा है?', options: ['नीम', 'बहुत', 'शनि'], answer: 'नीम' },
+
+                    { type: 'text', q: 'संख्या 1 का शब्द रूप लिखो।', answers: ['एक'] },
+                    { type: 'text', q: 'संख्या 2 का शब्द रूप लिखो।', answers: ['दो'] },
+                    { type: 'text', q: 'संख्या 3 का शब्द रूप लिखो।', answers: ['तीन'] },
+                    { type: 'text', q: 'संख्या 4 का शब्द रूप लिखो।', answers: ['चार'] },
+                    { type: 'text', q: 'संख्या 5 का शब्द रूप लिखो।', answers: ['पाँच', 'पांच'] },
+                    { type: 'text', q: 'संख्या 6 का शब्द रूप लिखो।', answers: ['छह'] },
+                    { type: 'text', q: 'संख्या 7 का शब्द रूप लिखो।', answers: ['सात'] },
                     { type: 'text', q: 'संख्या 8 का शब्द रूप लिखो।', answers: ['आठ'] },
+                    { type: 'text', q: 'संख्या 9 का शब्द रूप लिखो।', answers: ['नौ'] },
+                    { type: 'text', q: 'संख्या 10 का शब्द रूप लिखो।', answers: ['दस'] },
+
+                    { type: 'text', q: 'विलोम शब्द: आज — ______', answers: ['कल'] },
+                    { type: 'text', q: 'विलोम शब्द: गुरु — ______', answers: ['शिष्य'] },
+                    { type: 'text', q: 'विलोम शब्द: छोटा — ______', answers: ['बड़ा', 'बड़ा'] },
                     { type: 'text', q: 'विलोम शब्द: खुश — ______', answers: ['उदास'] },
+                    { type: 'text', q: 'विलोम शब्द: आई — ______', answers: ['गई'] },
+                    { type: 'text', q: 'विलोम शब्द: लेकर — ______', answers: ['देकर'] },
+                    { type: 'text', q: 'विलोम शब्द: भारी — ______', answers: ['हलका', 'हल्का'] },
+
+                    { type: 'text', q: 'अर्थ लिखो: मुश्किल — ______', answers: ['कठिन'] },
+                    { type: 'text', q: 'अर्थ लिखो: गुणकारी — ______', answers: ['लाभदायक'] },
+                    { type: 'text', q: 'अर्थ लिखो: शुद्ध — ______', answers: ['साफ', 'साफ़'] },
                     { type: 'text', q: 'अर्थ लिखो: वायु — ______', answers: ['हवा'] },
+                    { type: 'text', q: 'अर्थ लिखो: उपयोगी — ______', answers: ['काम में आने वाला'] },
+                    { type: 'text', q: 'अर्थ लिखो: तरकारी — ______', answers: ['सब्जी', 'सब्ज़ी'] },
+                    { type: 'text', q: 'अर्थ लिखो: मदद — ______', answers: ['सहायता'] },
+                    { type: 'text', q: 'अर्थ लिखो: तन — ______', answers: ['शरीर'] },
+
                     { type: 'mcq', q: 'चूहा किसमें छिपकर बैठा था?', options: ['रज़ाई में', 'बगीचे में', 'थैले में'], answer: 'रज़ाई में' },
-                    { type: 'mcq', q: 'अध्यापिका बच्चों को कहाँ ले गई?', options: ['बगीचे में', 'घर में', 'तालाब में'], answer: 'बगीचे में' }
+                    { type: 'mcq', q: 'अध्यापिका बच्चों को कहाँ ले गई?', options: ['बगीचे में', 'घर में', 'तालाब में'], answer: 'बगीचे में' },
+                    { type: 'mcq', q: 'बच्चे किसके साथ घूमने आए थे?', options: ['चाचू के साथ', 'माँ के साथ', 'अध्यापक के साथ'], answer: 'चाचू के साथ' }
                 ]
             },
             'kannada': {
                 title: 'Kannada',
                 questions: [
                     { type: 'mcq', q: 'ಧನ = ?', options: ['money', 'fruit', 'shop'], answer: 'money' },
-                    { type: 'mcq', q: 'ಫಲ = ?', options: ['bird', 'fruit', 'soldier'], answer: 'fruit' },
-                    { type: 'mcq', q: 'ಖಗ = ?', options: ['bird', 'bell', 'stomach'], answer: 'bird' },
-                    { type: 'mcq', q: 'ಜಠರ = ?', options: ['stomach', 'chariot', 'mud pot'], answer: 'stomach' },
-                    { type: 'mcq', q: 'ಅಂಗಡಿ = ?', options: ['shop', 'coins sound', 'soldier'], answer: 'shop' },
+                    { type: 'mcq', q: 'ರಥ = ?', options: ['chariot', 'bird', 'soldier'], answer: 'chariot' },
+                    { type: 'mcq', q: 'ಘಟ = ?', options: ['mud pot', 'stomach', 'shop'], answer: 'mud pot' },
+                    { type: 'mcq', q: 'ಢಣಢಣ = ?', options: ['sound of bell', 'sound of coins', 'fruit'], answer: 'sound of bell' },
+                    { type: 'mcq', q: 'ಜಠರ = ?', options: ['stomach', 'shop', 'bird'], answer: 'stomach' },
+                    { type: 'mcq', q: 'ಫಲ = ?', options: ['fruit', 'money', 'chariot'], answer: 'fruit' },
+                    { type: 'mcq', q: 'ಖಗ = ?', options: ['bird', 'soldier', 'shop'], answer: 'bird' },
+                    { type: 'mcq', q: 'ಝಣಝಣ = ?', options: ['sound of coins', 'sound of bell', 'stomach'], answer: 'sound of coins' },
+                    { type: 'mcq', q: 'ಭಟ = ?', options: ['soldier', 'fruit', 'money'], answer: 'soldier' },
+                    { type: 'mcq', q: 'ಅಂಗಡಿ = ?', options: ['shop', 'bird', 'coins sound'], answer: 'shop' },
+
+                    { type: 'mcq', q: 'Complete the word correctly: ಧ _ ನ', options: ['ಧ', 'ಠ', 'ನ'], answer: 'ಧ' },
+                    { type: 'mcq', q: 'Complete the word correctly: ಜ _ ಠ _ ರ', options: ['ತ', 'ಠ', 'ರ'], answer: 'ಠ' },
+                    { type: 'mcq', q: 'Complete the word correctly: ಢ _ ಣ _ ಣ', options: ['ಣ', 'ಢ', 'ಪ'], answer: 'ಢ' },
+                    { type: 'mcq', q: 'Complete the word correctly: ಘ _ ಟ', options: ['ಟ', 'ಬ', 'ಗ'], answer: 'ಟ' },
+                    { type: 'mcq', q: 'Complete the word correctly: ಖ _ ಗ', options: ['ಠ', 'ಗ', 'ನ'], answer: 'ಗ' },
+                    { type: 'mcq', q: 'Complete the word correctly: ಫ _ ಲ', options: ['ಲ', 'ಪ', 'ಸ'], answer: 'ಲ' },
+                    { type: 'mcq', q: 'Complete the word correctly: ರ _', options: ['ಜ', 'ಠ', 'ಥ'], answer: 'ಥ' },
+                    { type: 'mcq', q: 'Complete the word correctly: ಭ _ ಟ', options: ['ಟ', 'ಬ', 'ಗ'], answer: 'ಟ' },
+                    { type: 'mcq', q: 'Complete the word correctly: ಝ _ ಣ ಝ _ ಣ', options: ['ಣ', 'ಢ', 'ಪ'], answer: 'ಣ' },
+
                     { type: 'text', q: 'Join and write: ಧ + ನ = ______', answers: ['ಧನ'] },
+                    { type: 'text', q: 'Join and write: ರ + ಥ = ______', answers: ['ರಥ'] },
+                    { type: 'text', q: 'Join and write: ಘ + ಟ = ______', answers: ['ಘಟ'] },
                     { type: 'text', q: 'Join and write: ಫ + ಲ = ______', answers: ['ಫಲ'] },
                     { type: 'text', q: 'Join and write: ಖ + ಗ = ______', answers: ['ಖಗ'] },
-                    { type: 'mcq', q: 'ಢಣಢಣ means:', options: ['sound of bell', 'sound of coins', 'bird'], answer: 'sound of bell' },
-                    { type: 'mcq', q: 'ಭಟ means:', options: ['soldier', 'fruit', 'money'], answer: 'soldier' }
+                    { type: 'text', q: 'Join and write: ಝ + ಣ + ಝ + ಣ = ______', answers: ['ಝಣಝಣ'] },
+                    { type: 'text', q: 'Join and write: ಜ + ಠ + ರ = ______', answers: ['ಜಠರ'] },
+                    { type: 'text', q: 'Join and write: ಢ + ಣ + ಢ + ಣ = ______', answers: ['ಢಣಢಣ'] },
+                    { type: 'text', q: 'Write the word: soldier in Kannada = ______', answers: ['ಭಟ'] },
+
+                    { type: 'mcq', q: 'ಶಂಕರಣನ ಮಗಳ ಹೆಸರು ಏನು?', options: ['ಗೌರಿ', 'ಅಬಾಬಸ', 'ಸಿೀಬ'], answer: 'ಗೌರಿ' },
+                    { type: 'mcq', q: 'ಒಂದು ಪರಂಗಿ ಹಣ್ಣಿನ ಬೆಲೆ ಎಷ್ಟು?', options: ['ಇಪ್ಪತ್ತು ರೂಪಾಯಿ', 'ಮೂರು ರೂಪಾಯಿ', 'ಒಂದು ರೂಪಾಯಿ'], answer: 'ಇಪ್ಪತ್ತು ರೂಪಾಯಿ' },
+                    { type: 'mcq', q: 'ಯಾವ ಹಣ್ಣಿನ ಬೆಲೆ ಮೂರು ರೂಪಾಯಿ?', options: ['ಸೀಬೆ ಹಣ್ಣು', 'ಮೊಸಂಬಿ', 'ಪರಂಗಿ ಹಣ್ಣು'], answer: 'ಸೀಬೆ ಹಣ್ಣು' },
+                    { type: 'mcq', q: 'ಶಂಕರಣ ಯಾವ ಮೊಸಂಬಿ ಹಣ್ಣನ್ನು ಕೇಳಿದರು?', options: ['ಚೆನ್ನಾಗಿರುವ', 'ಕಾಚಾ', 'ಹುಳಿ'], answer: 'ಚೆನ್ನಾಗಿರುವ' },
+                    { type: 'mcq', q: 'ಶಂಕರಣ ಮತ್ತು ಗೌರಿ ಯಾರ ಅಂಗಡಿಗೆ ಹೋದರು?', options: ['ಅಬಾಬಸ ಹಣ್ಣಿನ ಅಂಗಡಿ', 'ತರಕಾರಿ ಅಂಗಡಿ', 'ಬಟ್ಟೆ ಅಂಗಡಿ'], answer: 'ಅಬಾಬಸ ಹಣ್ಣಿನ ಅಂಗಡಿ' }
                 ]
             }
         };
 
 let activeExamSubject = 'computer-science';
+        let currentExamSections = [];
+        const examSectionBlueprints = {
+            'computer-science': [
+                { title: 'A. Multiple Choice Questions', count: 10 },
+                { title: 'B. Fill in the Blanks', count: 12 },
+                { title: 'C. True or False', count: 10 },
+                { title: 'D. Fill in the Missing Letters', count: 4 }
+            ],
+            'english': [
+                { title: 'II. Fill in with has/have/is/am/are', count: 8 },
+                { title: 'III. Match/Opposites Practice', count: 6 },
+                { title: 'IV. Jumbled Words', count: 9 },
+                { title: 'VI. Gender Words', count: 8 }
+            ],
+            'hindi': [
+                { title: '1. एक के अनेक शब्द', count: 8 },
+                { title: '2. रिक्त स्थान भरो', count: 4 },
+                { title: '3. मात्रा अभ्यास', count: 4 },
+                { title: '4. अंकों को शब्दों में लिखो', count: 10 },
+                { title: '5. विलोम शब्द', count: 7 },
+                { title: '6. अर्थ लिखो', count: 8 },
+                { title: '7. प्रश्नों के उत्तर', count: 3 }
+            ],
+            'kannada': [
+                { title: 'I. English Meanings', count: 10 },
+                { title: 'II. Missing Letters', count: 9 },
+                { title: 'IV. Join and Write', count: 9 },
+                { title: 'IX. One-sentence Q&A', count: 5 }
+            ]
+        };
+
+        function shuffleArray(arr) {
+            const copy = [...arr];
+            for (let i = copy.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [copy[i], copy[j]] = [copy[j], copy[i]];
+            }
+            return copy;
+        }
+
+        function getShuffledQuestions(subject) {
+            const subjectData = examPrepData[subject];
+            if (!subjectData) return [];
+            const cloned = subjectData.questions.map((item) => ({
+                ...item,
+                options: item.options ? shuffleArray(item.options) : undefined,
+                answers: item.answers ? [...item.answers] : undefined
+            }));
+            return shuffleArray(cloned);
+        }
+
+        function buildSectionsForSubject(subject) {
+            const subjectData = examPrepData[subject];
+            if (!subjectData) return [];
+            const blueprint = examSectionBlueprints[subject];
+            const sourceQuestions = subjectData.questions.map((item) => ({
+                ...item,
+                options: item.options ? shuffleArray(item.options) : undefined,
+                answers: item.answers ? [...item.answers] : undefined
+            }));
+            if (!blueprint || blueprint.length === 0) {
+                return [{ title: 'Practice Questions', questions: shuffleArray(sourceQuestions) }];
+            }
+
+            const sections = [];
+            let cursor = 0;
+            blueprint.forEach((part) => {
+                const chunk = sourceQuestions.slice(cursor, cursor + part.count);
+                cursor += part.count;
+                sections.push({ title: part.title, questions: shuffleArray(chunk) });
+            });
+            if (cursor < sourceQuestions.length) {
+                sections.push({ title: 'Extra Practice', questions: shuffleArray(sourceQuestions.slice(cursor)) });
+            }
+            return sections;
+        }
 
         function initExamPrep() {
             showExamSubject(activeExamSubject);
@@ -2066,16 +2315,27 @@ let activeExamSubject = 'computer-science';
             return (value || '').toString().trim().toLowerCase().replace(/\s+/g, ' ');
         }
 
-        function renderExamInput(item, idx) {
+        function getQuestionHint(item) {
+            if (item.hint) return item.hint;
             if (item.type === 'text') {
-                return `<input type="text" id="exam-input-${idx}" class="exam-input" placeholder="Type your answer">`;
+                const ans = (item.answers && item.answers[0]) || item.answer || '';
+                if (!ans) return 'Hint: Write the most suitable word.';
+                return `Hint: Starts with "${String(ans).trim().charAt(0)}"`;
+            }
+            if (item.type === 'tf') return 'Hint: Choose True or False.';
+            return 'Hint: Read all options carefully and pick the best one.';
+        }
+
+        function renderExamInput(item, sectionIdx, questionIdx) {
+            if (item.type === 'text') {
+                return `<input type="text" id="exam-input-${sectionIdx}-${questionIdx}" class="exam-input" placeholder="Type your answer">`;
             }
 
             const options = item.type === 'tf' ? ['True', 'False'] : item.options;
             let html = '';
             options.forEach(opt => {
                 const safeOpt = opt.replace(/"/g, '&quot;');
-                html += `<label class="exam-option"><input type="radio" name="exam-q-${idx}" value="${safeOpt}"> ${opt}</label>`;
+                html += `<label class="exam-option"><input type="radio" name="exam-q-${sectionIdx}-${questionIdx}" value="${safeOpt}"> ${opt}</label>`;
             });
             return html;
         }
@@ -2095,49 +2355,55 @@ let activeExamSubject = 'computer-science';
                 return;
             }
 
-            const questions = subjectData.questions;
+            currentExamSections = buildSectionsForSubject(subject);
             let html = '';
             html += `<div class="exam-hero">`;
             html += `<h3>Grade 1 ${subjectData.title} Practice Quiz</h3>`;
-            html += `<p>Based on your worksheet. Click <b>Check My Answers</b> to see score and corrections.<br>Tip: You can practice multiple times with <b>Reset</b>.</p>`;
+            html += `<p>Based on your worksheet sections. Each section has its own submit button and reshuffles on every open/reset.</p>`;
             html += `</div>`;
-            html += `<div class="exam-section">`;
-            html += `<div class="exam-section-head"><h4>Practice Questions</h4><span class="exam-count-pill">${questions.length} questions</span></div>`;
-            questions.forEach((item, idx) => {
-                html += `<div class="exam-question" data-question-index="${idx}">`;
-                html += `<p>${idx + 1}. ${item.q}</p>`;
-                html += renderExamInput(item, idx);
-                html += `<div class="exam-feedback" id="exam-feedback-${idx}"></div>`;
+            currentExamSections.forEach((section, sectionIdx) => {
+                html += `<div class="exam-section">`;
+                html += `<div class="exam-section-head"><h4>${section.title}</h4><span class="exam-count-pill">${section.questions.length} questions</span></div>`;
+                section.questions.forEach((item, questionIdx) => {
+                    html += `<div class="exam-question">`;
+                    html += `<p>${questionIdx + 1}. ${item.q}</p>`;
+                    html += renderExamInput(item, sectionIdx, questionIdx);
+                    html += `<div class="exam-hint">${getQuestionHint(item)}</div>`;
+                    html += `<div class="exam-feedback" id="exam-feedback-${sectionIdx}-${questionIdx}"></div>`;
+                    html += `</div>`;
+                });
+                html += `<div class="exam-actions">`;
+                html += `<button class="exam-action-btn" onclick="checkExamSection(${sectionIdx}); playClickSound();">Submit ${section.title}</button>`;
+                html += `</div>`;
+                html += `<div class="exam-section-result" id="exam-section-result-${sectionIdx}"></div>`;
                 html += `</div>`;
             });
 
             html += `<div class="exam-actions">`;
-            html += `<button class="exam-action-btn" onclick="checkExamPrepAnswers(); playClickSound();">Check My Answers</button>`;
-            html += `<button class="exam-action-btn secondary" onclick="resetExamPrep(); playClickSound();">Reset</button>`;
-            html += `</div>`;
-            html += `<div class="exam-result" id="examResult"></div>`;
+            html += `<button class="exam-action-btn secondary" onclick="resetExamPrep(); playClickSound();">Reset & Reshuffle</button>`;
             html += `</div>`;
 
             container.innerHTML = html;
         }
 
-        function checkExamPrepAnswers() {
+        function checkExamSection(sectionIdx) {
             const subjectData = examPrepData[activeExamSubject];
             if (!subjectData) return;
-            const questions = subjectData.questions;
+            const section = currentExamSections[sectionIdx];
+            if (!section || !section.questions || section.questions.length === 0) return;
             let score = 0;
 
-            questions.forEach((item, idx) => {
-                const feedback = document.getElementById(`exam-feedback-${idx}`);
+            section.questions.forEach((item, questionIdx) => {
+                const feedback = document.getElementById(`exam-feedback-${sectionIdx}-${questionIdx}`);
                 let correct = false;
 
                 if (item.type === 'text') {
-                    const input = document.getElementById(`exam-input-${idx}`);
+                    const input = document.getElementById(`exam-input-${sectionIdx}-${questionIdx}`);
                     const userVal = normalizeExamAnswer(input ? input.value : '');
                     const answers = (item.answers || [item.answer]).map(normalizeExamAnswer);
                     correct = answers.includes(userVal);
                 } else {
-                    const picked = document.querySelector(`input[name="exam-q-${idx}"]:checked`);
+                    const picked = document.querySelector(`input[name="exam-q-${sectionIdx}-${questionIdx}"]:checked`);
                     const selected = normalizeExamAnswer(picked ? picked.value : '');
                     correct = selected === normalizeExamAnswer(item.answer);
                 }
@@ -2153,9 +2419,9 @@ let activeExamSubject = 'computer-science';
                 }
             });
 
-            const result = document.getElementById('examResult');
-            const percent = Math.round((score / questions.length) * 100);
-            result.textContent = `Score: ${score} / ${questions.length} (${percent}%)`;
+            const result = document.getElementById(`exam-section-result-${sectionIdx}`);
+            const percent = Math.round((score / section.questions.length) * 100);
+            result.textContent = `Section Score: ${score} / ${section.questions.length} (${percent}%)`;
         }
 
 function resetExamPrep() {
