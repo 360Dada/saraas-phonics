@@ -1386,6 +1386,63 @@
             font-weight: 600;
             margin-top: 2px;
         }
+
+        /* Final responsive overrides for name plate (must be after base .user-profile rules) */
+        @media (max-width: 768px) {
+            .user-profile {
+                top: 10px;
+                right: 10px;
+                padding: 8px 12px;
+                gap: 8px;
+                border-radius: 24px;
+                max-width: min(60vw, 230px);
+                animation: none;
+            }
+
+            .user-avatar {
+                font-size: 2rem;
+            }
+
+            .user-name {
+                font-size: 0.95rem;
+            }
+
+            .user-age {
+                font-size: 0.78rem;
+            }
+
+            .edit-hint {
+                display: none;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .user-profile {
+                top: 14px;
+                right: 14px;
+                padding: 10px 16px;
+                gap: 10px;
+                border-radius: 32px;
+                max-width: min(42vw, 300px);
+                animation: none;
+            }
+
+            .user-avatar {
+                font-size: 2.3rem;
+            }
+
+            .user-name {
+                font-size: 1.05rem;
+            }
+
+            .user-age {
+                font-size: 0.85rem;
+            }
+
+            .edit-hint {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
