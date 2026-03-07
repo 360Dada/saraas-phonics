@@ -177,6 +177,7 @@
         .game-card:nth-child(4) { animation-delay: 0.4s; }
         .game-card:nth-child(5) { animation-delay: 0.5s; }
         .game-card:nth-child(6) { animation-delay: 0.6s; }
+        .game-card:nth-child(7) { animation-delay: 0.7s; }
         
         @keyframes popIn {
             0% {
@@ -212,6 +213,179 @@
             font-size: 1rem;
             color: #666;
             line-height: 1.4;
+        }
+
+        .word-card.exam-card {
+            text-align: left;
+            background: #ecd8b7;
+            border-radius: 20px;
+            box-shadow: none;
+            animation: none;
+            padding: 26px;
+            font-family: "Trebuchet MS", Verdana, sans-serif;
+        }
+
+        .word-card.exam-card .quiz-question,
+        .word-card.exam-card .example-sentence,
+        .word-card.exam-card .exam-result,
+        .word-card.exam-card .exam-feedback,
+        .word-card.exam-card .exam-hero,
+        .word-card.exam-card .exam-hero p,
+        .word-card.exam-card .exam-section,
+        .word-card.exam-card .exam-question,
+        .word-card.exam-card .exam-question p,
+        .word-card.exam-card .exam-option {
+            text-align: left;
+        }
+
+        .exam-subjects {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+        }
+
+        .exam-subject-btn {
+            font-family: "Trebuchet MS", Verdana, sans-serif;
+            border: 1px solid #c9d1db;
+            background: #f4f6f8;
+            color: #243041;
+            border-radius: 999px;
+            padding: 8px 14px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .exam-subject-btn.active {
+            background: #e2e7ed;
+            border-color: #b5becb;
+            color: #1f2a38;
+        }
+
+        .exam-hero {
+            background: #ececec;
+            border: 2px solid #d3d3d3;
+            border-radius: 18px;
+            padding: 18px;
+            margin-bottom: 14px;
+        }
+
+        .exam-hero h3 {
+            margin: 0 0 8px;
+            font-size: 2.1rem;
+            color: #9b470f;
+            font-family: "Trebuchet MS", Verdana, sans-serif;
+        }
+
+        .exam-hero p {
+            margin: 0;
+            color: #4d5d73;
+            font-size: 1.05rem;
+            line-height: 1.35;
+        }
+
+        .exam-section {
+            background: #ececec;
+            border: 2px solid #d3d3d3;
+            border-radius: 18px;
+            padding: 16px;
+        }
+
+        .exam-section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .exam-section-head h4 {
+            margin: 0;
+            font-size: 2rem;
+            color: #1f2a38;
+            font-family: "Trebuchet MS", Verdana, sans-serif;
+        }
+
+        .exam-count-pill {
+            border: 1px solid #f1c57f;
+            border-radius: 999px;
+            padding: 5px 12px;
+            color: #324053;
+            background: #f8edd8;
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .exam-question {
+            margin: 12px 0;
+            padding: 14px;
+            border: 1px solid #d6d6d6;
+            border-radius: 12px;
+            background: #efedea;
+        }
+
+        .exam-question p {
+            font-family: "Trebuchet MS", Verdana, sans-serif;
+            color: #1f2a38;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .exam-option {
+            display: block;
+            margin: 7px 0;
+            font-size: 1.05rem;
+            color: #1f2a38;
+        }
+
+        .exam-input {
+            width: min(420px, 100%);
+            padding: 10px 12px;
+            font-size: 1rem;
+            border: 1px solid #bac3cf;
+            border-radius: 10px;
+            font-family: "Trebuchet MS", Verdana, sans-serif;
+            color: #1f2a38;
+            background: #fff;
+        }
+
+        .exam-actions {
+            margin-top: 16px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .exam-action-btn {
+            border: 0;
+            border-radius: 10px;
+            padding: 10px 15px;
+            font-family: "Trebuchet MS", Verdana, sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            color: #fff;
+            background: #a14d11;
+        }
+
+        .exam-action-btn.secondary {
+            background: #5f7084;
+        }
+
+        .exam-result {
+            font-family: "Trebuchet MS", Verdana, sans-serif;
+            font-size: 1.35rem;
+            color: #1f2a38;
+            margin-top: 12px;
+            font-weight: 700;
+        }
+
+        .exam-feedback {
+            margin-top: 8px;
+            font-size: 0.95rem;
+            font-weight: 700;
         }
         
         /* Game Screens */
@@ -1257,9 +1431,31 @@
                     <div class="game-title">Memory Match</div>
                     <p class="game-description">Flip cards to find matching pairs!</p>
                 </div>
+
+                <div class="game-card" onclick="startGame('examPrep')">
+                    <span class="game-icon">📝</span>
+                    <div class="game-title">Exam Preparation</div>
+                    <p class="game-description">Open subject-wise exam practice</p>
+                </div>
             </div>
         </div>
         
+        <!-- Exam Preparation -->
+        <div id="examPrepGame" class="game-screen">
+            <button class="back-btn" onclick="backToMenu(); playClickSound();">⬅ Back to Menu</button>
+
+            <div class="word-card exam-card">
+                <div class="quiz-question">Exam Preparation</div>
+                <div class="exam-subjects">
+                    <button class="exam-subject-btn active" data-subject="computer-science" onclick="showExamSubject('computer-science'); playClickSound();">Computer Science</button>
+                    <button class="exam-subject-btn" data-subject="english" onclick="showExamSubject('english'); playClickSound();">English</button>
+                    <button class="exam-subject-btn" data-subject="hindi" onclick="showExamSubject('hindi'); playClickSound();">Hindi</button>
+                    <button class="exam-subject-btn" data-subject="kannada" onclick="showExamSubject('kannada'); playClickSound();">Kannada</button>
+                </div>
+                <div id="examPrepContent"></div>
+            </div>
+        </div>
+
         <!-- Learn Words Game -->
         <div id="learnGame" class="game-screen">
             <button class="back-btn" onclick="backToMenu()">⬅ Back to Menu</button>
@@ -1798,6 +1994,174 @@
             ]
         };
         
+
+        const examPrepData = {
+            'computer-science': {
+                title: 'Computer Science',
+                questions: [
+                    { type: 'mcq', q: 'Which key erases anything typed to the left of the cursor?', options: ['Enter', 'Backspace', 'Delete'], answer: 'Backspace' },
+                    { type: 'mcq', q: 'Which is not an alphabet key?', options: ['B', 'K', 'Enter'], answer: 'Enter' },
+                    { type: 'mcq', q: 'Which key adds a blank space between words?', options: ['Enter', 'Spacebar', 'Backspace'], answer: 'Spacebar' },
+                    { type: 'mcq', q: 'Which tool helps to draw a line?', options: ['Line Tool', 'Eraser Tool', 'Brush Tool'], answer: 'Line Tool' },
+                    { type: 'mcq', q: 'The character in ScratchJr is called:', options: ['Sprite', 'Block', 'Stage'], answer: 'Sprite' },
+                    { type: 'tf', q: 'There are 10 number keys on the keyboard.', answer: 'True' },
+                    { type: 'tf', q: 'MS Paint is used to play games.', answer: 'False' },
+                    { type: 'text', q: 'Fill in the blank: The longest key on keyboard is _______.', answers: ['spacebar'] }
+                ]
+            },
+            'english': {
+                title: 'English',
+                questions: [
+                    { type: 'mcq', q: 'We ______ a new Maths Teacher.', options: ['has', 'have', 'had'], answer: 'have' },
+                    { type: 'mcq', q: 'The sailor ______ two babies.', options: ['has', 'have', 'are'], answer: 'has' },
+                    { type: 'mcq', q: 'I ______ writing a story.', options: ['is', 'am', 'are'], answer: 'am' },
+                    { type: 'mcq', q: 'They ______ playing with toys.', options: ['is', 'am', 'are'], answer: 'are' },
+                    { type: 'mcq', q: 'Opposite of angry', options: ['happy', 'crooked', 'small'], answer: 'happy' },
+                    { type: 'mcq', q: 'Female of lion', options: ['lioness', 'tigress', 'mare'], answer: 'lioness' },
+                    { type: 'text', q: 'Unscramble: ARFURBEY', answers: ['february'] },
+                    { type: 'text', q: 'Unscramble: PNOD', answers: ['pond'] },
+                    { type: 'text', q: 'Unscramble: ESGG', answers: ['eggs'] },
+                    { type: 'text', q: 'Unscramble: VGETEALBES', answers: ['vegetables'] }
+                ]
+            },
+            'hindi': {
+                title: 'Hindi',
+                questions: [
+                    { type: 'text', q: 'एक के अनेक: चूहा = ______', answers: ['चूहे'] },
+                    { type: 'text', q: 'एक के अनेक: बच्चा = ______', answers: ['बच्चे'] },
+                    { type: 'text', q: 'एक के अनेक: पत्ती = ______', answers: ['पत्तियाँ', 'पत्ितयाँ', 'पत्तियां'] },
+                    { type: 'mcq', q: 'लाल में पीला मिलाकर ______ बनता है।', options: ['नारंगी', 'हरा', 'जामुनी'], answer: 'नारंगी' },
+                    { type: 'mcq', q: 'पीला और नीला मिलाने से ______ बनता है।', options: ['हरा', 'गुलदस्ता', 'जामुनी'], answer: 'हरा' },
+                    { type: 'text', q: 'संख्या 8 का शब्द रूप लिखो।', answers: ['आठ'] },
+                    { type: 'text', q: 'विलोम शब्द: खुश — ______', answers: ['उदास'] },
+                    { type: 'text', q: 'अर्थ लिखो: वायु — ______', answers: ['हवा'] },
+                    { type: 'mcq', q: 'चूहा किसमें छिपकर बैठा था?', options: ['रज़ाई में', 'बगीचे में', 'थैले में'], answer: 'रज़ाई में' },
+                    { type: 'mcq', q: 'अध्यापिका बच्चों को कहाँ ले गई?', options: ['बगीचे में', 'घर में', 'तालाब में'], answer: 'बगीचे में' }
+                ]
+            },
+            'kannada': {
+                title: 'Kannada',
+                questions: [
+                    { type: 'mcq', q: 'ಧನ = ?', options: ['money', 'fruit', 'shop'], answer: 'money' },
+                    { type: 'mcq', q: 'ಫಲ = ?', options: ['bird', 'fruit', 'soldier'], answer: 'fruit' },
+                    { type: 'mcq', q: 'ಖಗ = ?', options: ['bird', 'bell', 'stomach'], answer: 'bird' },
+                    { type: 'mcq', q: 'ಜಠರ = ?', options: ['stomach', 'chariot', 'mud pot'], answer: 'stomach' },
+                    { type: 'mcq', q: 'ಅಂಗಡಿ = ?', options: ['shop', 'coins sound', 'soldier'], answer: 'shop' },
+                    { type: 'text', q: 'Join and write: ಧ + ನ = ______', answers: ['ಧನ'] },
+                    { type: 'text', q: 'Join and write: ಫ + ಲ = ______', answers: ['ಫಲ'] },
+                    { type: 'text', q: 'Join and write: ಖ + ಗ = ______', answers: ['ಖಗ'] },
+                    { type: 'mcq', q: 'ಢಣಢಣ means:', options: ['sound of bell', 'sound of coins', 'bird'], answer: 'sound of bell' },
+                    { type: 'mcq', q: 'ಭಟ means:', options: ['soldier', 'fruit', 'money'], answer: 'soldier' }
+                ]
+            }
+        };
+
+let activeExamSubject = 'computer-science';
+
+        function initExamPrep() {
+            showExamSubject(activeExamSubject);
+        }
+
+        function normalizeExamAnswer(value) {
+            return (value || '').toString().trim().toLowerCase().replace(/\s+/g, ' ');
+        }
+
+        function renderExamInput(item, idx) {
+            if (item.type === 'text') {
+                return `<input type="text" id="exam-input-${idx}" class="exam-input" placeholder="Type your answer">`;
+            }
+
+            const options = item.type === 'tf' ? ['True', 'False'] : item.options;
+            let html = '';
+            options.forEach(opt => {
+                const safeOpt = opt.replace(/"/g, '&quot;');
+                html += `<label class="exam-option"><input type="radio" name="exam-q-${idx}" value="${safeOpt}"> ${opt}</label>`;
+            });
+            return html;
+        }
+
+        function showExamSubject(subject) {
+            activeExamSubject = subject;
+            document.querySelectorAll('.exam-subject-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.subject === subject);
+            });
+
+            const container = document.getElementById('examPrepContent');
+            if (!container) return;
+
+            const subjectData = examPrepData[subject];
+            if (!subjectData) {
+                container.innerHTML = '<p class="example-sentence">Subject not available yet.</p>';
+                return;
+            }
+
+            const questions = subjectData.questions;
+            let html = '';
+            html += `<div class="exam-hero">`;
+            html += `<h3>Grade 1 ${subjectData.title} Practice Quiz</h3>`;
+            html += `<p>Based on your worksheet. Click <b>Check My Answers</b> to see score and corrections.<br>Tip: You can practice multiple times with <b>Reset</b>.</p>`;
+            html += `</div>`;
+            html += `<div class="exam-section">`;
+            html += `<div class="exam-section-head"><h4>Practice Questions</h4><span class="exam-count-pill">${questions.length} questions</span></div>`;
+            questions.forEach((item, idx) => {
+                html += `<div class="exam-question" data-question-index="${idx}">`;
+                html += `<p>${idx + 1}. ${item.q}</p>`;
+                html += renderExamInput(item, idx);
+                html += `<div class="exam-feedback" id="exam-feedback-${idx}"></div>`;
+                html += `</div>`;
+            });
+
+            html += `<div class="exam-actions">`;
+            html += `<button class="exam-action-btn" onclick="checkExamPrepAnswers(); playClickSound();">Check My Answers</button>`;
+            html += `<button class="exam-action-btn secondary" onclick="resetExamPrep(); playClickSound();">Reset</button>`;
+            html += `</div>`;
+            html += `<div class="exam-result" id="examResult"></div>`;
+            html += `</div>`;
+
+            container.innerHTML = html;
+        }
+
+        function checkExamPrepAnswers() {
+            const subjectData = examPrepData[activeExamSubject];
+            if (!subjectData) return;
+            const questions = subjectData.questions;
+            let score = 0;
+
+            questions.forEach((item, idx) => {
+                const feedback = document.getElementById(`exam-feedback-${idx}`);
+                let correct = false;
+
+                if (item.type === 'text') {
+                    const input = document.getElementById(`exam-input-${idx}`);
+                    const userVal = normalizeExamAnswer(input ? input.value : '');
+                    const answers = (item.answers || [item.answer]).map(normalizeExamAnswer);
+                    correct = answers.includes(userVal);
+                } else {
+                    const picked = document.querySelector(`input[name="exam-q-${idx}"]:checked`);
+                    const selected = normalizeExamAnswer(picked ? picked.value : '');
+                    correct = selected === normalizeExamAnswer(item.answer);
+                }
+
+                if (correct) {
+                    score += 1;
+                    feedback.textContent = 'Correct!';
+                    feedback.style.color = '#2e9f54';
+                } else {
+                    const correctAnswer = item.type === 'text' ? ((item.answers && item.answers[0]) || item.answer) : item.answer;
+                    feedback.textContent = `Correct answer: ${correctAnswer}`;
+                    feedback.style.color = '#d94b4b';
+                }
+            });
+
+            const result = document.getElementById('examResult');
+            const percent = Math.round((score / questions.length) * 100);
+            result.textContent = `Score: ${score} / ${questions.length} (${percent}%)`;
+        }
+
+function resetExamPrep() {
+            showExamSubject(activeExamSubject);
+        }
+
         // Global game state
         let currentGame = '';
         let currentLevel = 'beginner';
@@ -1815,6 +2179,11 @@
         let memoryMoves = 0;
         
         // Navigation functions
+        function openExamSubject(subject) {
+            startGame('examPrep');
+            showExamSubject(subject);
+        }
+
         function startGame(game) {
             document.getElementById('menuScreen').classList.add('hidden');
             currentGame = game;
@@ -1838,6 +2207,7 @@
             else if (game === 'spell') initSpellGame();
             else if (game === 'jumble') initJumbleGame();
             else if (game === 'memory') initMemoryGame();
+            else if (game === 'examPrep') initExamPrep();
         }
         
         function backToMenu() {
