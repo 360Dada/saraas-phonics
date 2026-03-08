@@ -402,6 +402,67 @@
             color: #1f2a38;
             font-weight: 700;
         }
+
+        .exam-question-image {
+            width: min(260px, 100%);
+            border-radius: 10px;
+            border: 1px solid #cfd6de;
+            margin: 6px 0 10px;
+            display: block;
+        }
+
+        .exam-drop-zone {
+            width: min(420px, 100%);
+            min-height: 44px;
+            border: 2px dashed #9aa8b8;
+            border-radius: 10px;
+            background: #f7f9fb;
+            color: #607086;
+            display: flex;
+            align-items: center;
+            padding: 8px 10px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .exam-drop-zone.filled {
+            border-style: solid;
+            border-color: #6d7f95;
+            background: #edf3f8;
+            color: #1f2a38;
+        }
+
+        .exam-wordbank {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #d3dbe4;
+            border-radius: 10px;
+            background: #f7f9fb;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .exam-word-chip {
+            border: 1px solid #b6c1ce;
+            border-radius: 999px;
+            padding: 6px 10px;
+            background: #fff;
+            color: #2f3d50;
+            font-weight: 700;
+            font-size: 0.92rem;
+            cursor: pointer;
+        }
+
+        .exam-word-chip.selected {
+            border-color: #5f7084;
+            box-shadow: 0 0 0 2px rgba(95, 112, 132, 0.2);
+        }
+
+        .exam-word-chip.used {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
         
         /* Game Screens */
         .game-screen {
@@ -1557,6 +1618,8 @@
                 <div class="quiz-question">Exam Preparation</div>
                 <div class="exam-subjects">
                     <button class="exam-subject-btn active" data-subject="computer-science" onclick="showExamSubject('computer-science'); playClickSound();">Computer Science</button>
+                    <button class="exam-subject-btn" data-subject="maths" onclick="showExamSubject('maths'); playClickSound();">Maths</button>
+                    <button class="exam-subject-btn" data-subject="evs" onclick="showExamSubject('evs'); playClickSound();">EVS</button>
                     <button class="exam-subject-btn" data-subject="english" onclick="showExamSubject('english'); playClickSound();">English</button>
                     <button class="exam-subject-btn" data-subject="hindi" onclick="showExamSubject('hindi'); playClickSound();">Hindi</button>
                     <button class="exam-subject-btn" data-subject="kannada" onclick="showExamSubject('kannada'); playClickSound();">Kannada</button>
@@ -2149,6 +2212,106 @@
                     { type: 'text', q: 'Fill missing letters: S H _ _ T', answers: ['shift'] }
                 ]
             },
+            'maths': {
+                title: 'Maths',
+                questions: [
+                    { type: 'text', q: 'The Sun rises in the _________.', answers: ['morning'], image: 'maths_images/maths_p1_img1.png' },
+                    { type: 'text', q: 'The Sun is very hot in the _________.', answers: ['afternoon'], image: 'maths_images/maths_p1_img2.png' },
+                    { type: 'text', q: 'The Sun sets in the _________.', answers: ['evening'], image: 'maths_images/maths_p1_img3.png' },
+                    { type: 'text', q: 'Moon and stars are seen at ________ of the day.', answers: ['night'], image: 'maths_images/maths_p1_img4.png' },
+
+                    { type: 'practice', q: 'Read the time and draw the hands: 8 O’clock.', image: 'maths_images/maths_p1_img5.png', hint: 'Image-based task: Draw on paper/notebook and self-check.' },
+                    { type: 'practice', q: 'Read the time and draw the hands: 5 O’clock.', image: 'maths_images/maths_p1_img5.png', hint: 'Image-based task: Draw on paper/notebook and self-check.' },
+
+                    { type: 'text', q: 'Fill missing letters: M__ND__Y', answers: ['monday'] },
+                    { type: 'text', q: 'Fill missing letters: TH__RSD__Y', answers: ['thursday'] },
+                    { type: 'text', q: 'Fill missing letters: S__ND__Y', answers: ['sunday'] },
+                    { type: 'text', q: 'Fill missing letters: FR__D__Y', answers: ['friday'] },
+                    { type: 'text', q: 'Fill missing letters: F__BR__AR__', answers: ['february'] },
+                    { type: 'text', q: 'Fill missing letters: DE__EMB__R', answers: ['december'] },
+
+                    { type: 'text', q: '9 × 4 = ______', answers: ['36'] },
+                    { type: 'text', q: '5 × 8 = ______', answers: ['40'] },
+                    { type: 'text', q: '6 × 6 = ______', answers: ['36'] },
+                    { type: 'text', q: '7 × 3 = ______', answers: ['21'] },
+                    { type: 'text', q: '10 × 6 = ______', answers: ['60'] },
+                    { type: 'text', q: '2 × 6 = ______', answers: ['12'] },
+                    { type: 'text', q: '8 × 9 = ______', answers: ['72'] },
+
+                    { type: 'practice', q: 'Count and write: How many squares are there?', image: 'maths_images/maths_p2_img1.png', hint: 'Image-based counting task from worksheet.' },
+                    { type: 'practice', q: 'Count and write: How many ovals are there?', image: 'maths_images/maths_p2_img1.png', hint: 'Image-based counting task from worksheet.' },
+                    { type: 'practice', q: 'Count and write: How many circles are there?', image: 'maths_images/maths_p2_img1.png', hint: 'Image-based counting task from worksheet.' },
+                    { type: 'practice', q: 'Count and write: How many triangles are there?', image: 'maths_images/maths_p2_img1.png', hint: 'Image-based counting task from worksheet.' },
+
+                    { type: 'mcq', q: '₹10 can be made by:', options: ['₹5 + ₹5', '₹5 + ₹2'], answer: '₹5 + ₹5' },
+                    { type: 'mcq', q: '₹30 can be made by:', options: ['₹10 + ₹5 + ₹1', '₹10 + ₹10 + ₹10'], answer: '₹10 + ₹10 + ₹10' },
+                    { type: 'mcq', q: '₹5 can be made by:', options: ['₹2 + ₹3', '₹2 + ₹2 + ₹1'], answer: '₹2 + ₹3' },
+
+                    { type: 'practice', q: 'Learn and write tables from 2 to 10.', hint: 'Practice task: write tables in notebook.' }
+                ]
+            },
+            'evs': {
+                title: 'EVS',
+                questions: [
+                    { type: 'text', q: 'Fill missing letters: Flo__r', answers: ['flower'] },
+                    { type: 'text', q: 'Fill missing letters: S__l', answers: ['soil'] },
+                    { type: 'text', q: 'Fill missing letters: F_u_t', answers: ['fruit'] },
+                    { type: 'text', q: 'Fill missing letters: W__er', answers: ['water'] },
+                    { type: 'text', q: 'Fill missing letters: T__ck', answers: ['truck'] },
+                    { type: 'text', q: 'Fill missing letters: C__p', answers: ['coop'] },
+                    { type: 'text', q: 'Fill missing letters: E_rt_', answers: ['earth'] },
+                    { type: 'text', q: 'Fill missing letters: F_re_t', answers: ['forest'] },
+                    { type: 'text', q: 'Fill missing letters: Co__on', answers: ['cocoon'] },
+                    { type: 'text', q: 'Fill missing letters: E__s', answers: ['eggs'] },
+
+                    { type: 'mcq', q: 'Which vehicle moves in the air?', options: ['Train', 'Helicopter'], answer: 'Helicopter' },
+                    { type: 'mcq', q: 'A pumpkin plant is a ______ plant.', options: ['Creeper', 'Climber'], answer: 'Creeper' },
+                    { type: 'mcq', q: 'Which is not obtained from plants?', options: ['Medicines', 'Eggs'], answer: 'Eggs' },
+                    { type: 'mcq', q: 'Which animal lives in a coop?', options: ['Cat', 'Chicken'], answer: 'Chicken' },
+                    { type: 'mcq', q: 'Which is not a pet animal?', options: ['Lion', 'Cow'], answer: 'Lion' },
+                    { type: 'mcq', q: 'Which gives us heat and light?', options: ['Sun', 'Moon'], answer: 'Sun' },
+                    { type: 'mcq', q: 'Sky is the big open space above the land and ______.', options: ['Earth', 'Water'], answer: 'Water' },
+                    { type: 'mcq', q: 'Fish and whale live ______.', options: ['On land', 'In water'], answer: 'In water' },
+                    { type: 'mcq', q: 'The moon and _____ are seen at night.', options: ['Sun', 'Stars'], answer: 'Stars' },
+                    { type: 'mcq', q: 'Railway tracks are used for ______.', options: ['Car', 'Train'], answer: 'Train' },
+
+                    { type: 'tf', q: 'We go to school on an aeroplane.', answer: 'False' },
+                    { type: 'tf', q: 'Trees are small plants with soft stems.', answer: 'False' },
+                    { type: 'tf', q: 'A bird lives in a nest.', answer: 'True' },
+                    { type: 'tf', q: 'Horses give us milk.', answer: 'False' },
+                    { type: 'tf', q: 'The earth is made up of land, water and sky.', answer: 'True' },
+                    { type: 'tf', q: 'We can use a hot air balloon to travel by air.', answer: 'True' },
+
+                    { type: 'text', q: 'Match animal-home: Lion lives in a ______.', answers: ['den'] },
+                    { type: 'text', q: 'Match animal-home: Horse lives in a ______.', answers: ['stable'] },
+                    { type: 'text', q: 'Match animal-home: Rabbit lives in a ______.', answers: ['burrow'] },
+                    { type: 'text', q: 'Match animal-home: Chicken lives in a ______.', answers: ['coop'] },
+                    { type: 'text', q: 'Match animal-home: Bird lives in a ______.', answers: ['nest'] },
+
+                    { type: 'text', q: 'A sheep gives us ______.', answers: ['wool'] },
+                    { type: 'text', q: 'A chicken gives us ______.', answers: ['eggs'] },
+                    { type: 'text', q: 'We get ______ from a cow.', answers: ['milk'] },
+                    { type: 'text', q: '______ is made up of land and water.', answers: ['earth'] },
+                    { type: 'text', q: 'Most plants are ______ in color.', answers: ['green'] },
+                    { type: 'text', q: '______ has fruits that touch the ground.', answers: ['creeper', 'pumpkin plant'] },
+                    { type: 'text', q: 'Boats ______ on rivers, lakes, oceans or seas.', answers: ['float'] },
+
+                    { type: 'text', q: 'Plant type: Identify this plant.', answers: ['tree'], image: 'evs_images/evs_p3_img1.png', hint: 'This is Banyan tree.' },
+                    { type: 'text', q: 'Plant type: Identify this plant.', answers: ['shrub'], image: 'evs_images/evs_p3_img2.png', hint: 'This is Jasmine plant.' },
+                    { type: 'text', q: 'Plant type: Identify this plant.', answers: ['climber'], image: 'evs_images/evs_p3_img3.png', hint: 'This is Grape vine.' },
+                    { type: 'text', q: 'Plant type: Identify this plant.', answers: ['creeper'], image: 'evs_images/evs_p3_img4.png', hint: 'This is Pumpkin plant.' },
+                    { type: 'text', q: 'Plant type: Identify this plant.', answers: ['herb'], image: 'evs_images/evs_p3_img5.png', hint: 'This is Spinach plant.' },
+
+                    { type: 'practice', q: 'What are modes of transport?', hint: 'Open-ended answer: write in your own words.' },
+                    { type: 'practice', q: 'Which are the modes of transport?', hint: 'Open-ended answer: land, water, and air.' },
+                    { type: 'practice', q: 'What do plants need to prepare food?', hint: 'Open-ended: think sunlight, water, air.' },
+                    { type: 'practice', q: 'Why do climbers need support to grow?', hint: 'Open-ended concept question.' },
+                    { type: 'practice', q: 'Where does a lion live?', hint: 'Short answer based on homes of animals.' },
+                    { type: 'practice', q: 'Why is the Earth called the Blue Planet?', hint: 'Think about how much water Earth has.' },
+                    { type: 'practice', q: 'What do we get from the sun?', hint: 'Short answer based on EVS lesson.' },
+                    { type: 'practice', q: 'Draw a plant and label its parts.', hint: 'Image/drawing task: do in notebook.' }
+                ]
+            },
             'english': {
                 title: 'English',
                 questions: [
@@ -2286,14 +2449,33 @@
             }
         };
 
-let activeExamSubject = 'computer-science';
+        let activeExamSubject = 'computer-science';
         let currentExamSections = [];
+        let selectedWordChipId = null;
         const examSectionBlueprints = {
             'computer-science': [
                 { title: 'A. Multiple Choice Questions', count: 10 },
                 { title: 'B. Fill in the Blanks', count: 12 },
                 { title: 'C. True or False', count: 10 },
                 { title: 'D. Fill in the Missing Letters', count: 4 }
+            ],
+            'maths': [
+                { title: 'I. Part of the Day', count: 4 },
+                { title: 'II. Read Time and Draw Hands', count: 2 },
+                { title: 'III. Missing Letters', count: 6 },
+                { title: 'IV. Complete the Following', count: 7 },
+                { title: 'V. Count and Write (Image-based)', count: 4 },
+                { title: 'VI. Tick the Correct Answer', count: 3 },
+                { title: 'VII. Tables Practice', count: 1 }
+            ],
+            'evs': [
+                { title: 'I. Missing Letters', count: 10 },
+                { title: 'II. Tick the Correct Answer', count: 10 },
+                { title: 'III. True or False', count: 6 },
+                { title: 'IV. Match Animals and Homes', count: 5 },
+                { title: 'V. Fill in the Blanks', count: 7 },
+                { title: 'VI. Identify Plant Types', count: 5 },
+                { title: 'VII-VIII. Q&A and Drawing', count: 8 }
             ],
             'english': [
                 { title: 'II. Fill in with has/have/is/am/are', count: 8 },
@@ -2374,6 +2556,7 @@ let activeExamSubject = 'computer-science';
 
         function getQuestionHint(item) {
             if (item.hint) return item.hint;
+            if (item.type === 'practice') return 'Hint: Practice question. Write/draw in notebook and self-check.';
             if (item.type === 'text') {
                 const ans = (item.answers && item.answers[0]) || item.answer || '';
                 if (!ans) return 'Hint: Write the most suitable word.';
@@ -2383,7 +2566,89 @@ let activeExamSubject = 'computer-science';
             return 'Hint: Read all options carefully and pick the best one.';
         }
 
-        function renderExamInput(item, sectionIdx, questionIdx) {
+        function shouldUseWordBank(subject, item) {
+            return (subject === 'hindi' || subject === 'kannada') && item.type === 'text';
+        }
+
+        function renderQuestionMedia(item) {
+            if (!item.image) return '';
+            return `<img src="${item.image}" alt="Worksheet reference image" class="exam-question-image">`;
+        }
+
+        function startWordDrag(event) {
+            const chip = event.target;
+            if (!chip || chip.classList.contains('used')) return;
+            event.dataTransfer.setData('text/plain', chip.dataset.word || '');
+            event.dataTransfer.setData('chipId', chip.id || '');
+        }
+
+        function allowWordDrop(event) {
+            event.preventDefault();
+        }
+
+        function resetWordChip(chipId) {
+            if (!chipId) return;
+            const chip = document.getElementById(chipId);
+            if (!chip) return;
+            chip.classList.remove('used', 'selected');
+        }
+
+        function markWordChipUsed(chipId) {
+            if (!chipId) return;
+            const chip = document.getElementById(chipId);
+            if (!chip) return;
+            chip.classList.remove('selected');
+            chip.classList.add('used');
+            selectedWordChipId = null;
+        }
+
+        function placeWordInBlank(sectionIdx, questionIdx, word, chipId) {
+            if (!word) return;
+            const zone = document.getElementById(`exam-drop-${sectionIdx}-${questionIdx}`);
+            const input = document.getElementById(`exam-input-${sectionIdx}-${questionIdx}`);
+            if (!zone || !input) return;
+
+            const oldChipId = zone.dataset.chipId || '';
+            if (oldChipId && oldChipId !== chipId) {
+                resetWordChip(oldChipId);
+            }
+
+            zone.textContent = word;
+            zone.dataset.chipId = chipId || '';
+            zone.classList.add('filled');
+            input.value = word;
+            markWordChipUsed(chipId);
+        }
+
+        function dropWordInBlank(event, sectionIdx, questionIdx) {
+            event.preventDefault();
+            const word = event.dataTransfer.getData('text/plain');
+            const chipId = event.dataTransfer.getData('chipId');
+            placeWordInBlank(sectionIdx, questionIdx, word, chipId);
+        }
+
+        function selectWordChip(chipId) {
+            const chip = document.getElementById(chipId);
+            if (!chip || chip.classList.contains('used')) return;
+            document.querySelectorAll('.exam-word-chip').forEach(c => c.classList.remove('selected'));
+            chip.classList.add('selected');
+            selectedWordChipId = chipId;
+        }
+
+        function fillBlankFromSelected(sectionIdx, questionIdx) {
+            if (!selectedWordChipId) return;
+            const chip = document.getElementById(selectedWordChipId);
+            if (!chip || chip.classList.contains('used')) return;
+            placeWordInBlank(sectionIdx, questionIdx, chip.dataset.word || '', chip.id);
+        }
+
+        function renderExamInput(item, sectionIdx, questionIdx, useWordBank) {
+            if (item.type === 'practice') {
+                return `<textarea id="exam-practice-${sectionIdx}-${questionIdx}" class="exam-input" rows="2" placeholder="Write your answer / notes here"></textarea>`;
+            }
+            if (useWordBank && item.type === 'text') {
+                return `<div class="exam-drop-zone" id="exam-drop-${sectionIdx}-${questionIdx}" ondragover="allowWordDrop(event)" ondrop="dropWordInBlank(event, ${sectionIdx}, ${questionIdx})" onclick="fillBlankFromSelected(${sectionIdx}, ${questionIdx})">Drop or tap a word here</div><input type="hidden" id="exam-input-${sectionIdx}-${questionIdx}" value="">`;
+            }
             if (item.type === 'text') {
                 return `<input type="text" id="exam-input-${sectionIdx}-${questionIdx}" class="exam-input" placeholder="Type your answer">`;
             }
@@ -2421,14 +2686,31 @@ let activeExamSubject = 'computer-science';
             currentExamSections.forEach((section, sectionIdx) => {
                 html += `<div class="exam-section">`;
                 html += `<div class="exam-section-head"><h4>${section.title}</h4><span class="exam-count-pill">${section.questions.length} questions</span></div>`;
+                const sectionWordBank = [];
                 section.questions.forEach((item, questionIdx) => {
+                    const useWordBank = shouldUseWordBank(activeExamSubject, item);
+                    if (useWordBank && item.answers && item.answers[0]) {
+                        sectionWordBank.push(String(item.answers[0]));
+                    }
                     html += `<div class="exam-question">`;
                     html += `<p>${questionIdx + 1}. ${item.q}</p>`;
-                    html += renderExamInput(item, sectionIdx, questionIdx);
+                    html += renderQuestionMedia(item);
+                    html += renderExamInput(item, sectionIdx, questionIdx, useWordBank);
                     html += `<div class="exam-hint">${getQuestionHint(item)}</div>`;
                     html += `<div class="exam-feedback" id="exam-feedback-${sectionIdx}-${questionIdx}"></div>`;
                     html += `</div>`;
                 });
+
+                const uniqueWordBank = [...new Set(sectionWordBank)];
+                if (uniqueWordBank.length > 0) {
+                    const shuffledWordBank = shuffleArray(uniqueWordBank);
+                    html += `<div class="exam-wordbank">`;
+                    shuffledWordBank.forEach((word, wordIdx) => {
+                        const chipId = `exam-chip-${sectionIdx}-${wordIdx}`;
+                        html += `<button type="button" id="${chipId}" class="exam-word-chip" data-word="${word.replace(/"/g, '&quot;')}" draggable="true" ondragstart="startWordDrag(event)" onclick="selectWordChip('${chipId}')">${word}</button>`;
+                    });
+                    html += `</div>`;
+                }
                 html += `<div class="exam-actions">`;
                 html += `<button class="exam-action-btn" onclick="checkExamSection(${sectionIdx}); playClickSound();">Submit ${section.title}</button>`;
                 html += `</div>`;
@@ -2449,10 +2731,17 @@ let activeExamSubject = 'computer-science';
             const section = currentExamSections[sectionIdx];
             if (!section || !section.questions || section.questions.length === 0) return;
             let score = 0;
+            let scorable = 0;
 
             section.questions.forEach((item, questionIdx) => {
                 const feedback = document.getElementById(`exam-feedback-${sectionIdx}-${questionIdx}`);
+                if (item.type === 'practice') {
+                    feedback.textContent = 'Practice item: self-check using worksheet/notes.';
+                    feedback.style.color = '#5b6a7d';
+                    return;
+                }
                 let correct = false;
+                scorable += 1;
 
                 if (item.type === 'text') {
                     const input = document.getElementById(`exam-input-${sectionIdx}-${questionIdx}`);
@@ -2477,8 +2766,12 @@ let activeExamSubject = 'computer-science';
             });
 
             const result = document.getElementById(`exam-section-result-${sectionIdx}`);
-            const percent = Math.round((score / section.questions.length) * 100);
-            result.textContent = `Section Score: ${score} / ${section.questions.length} (${percent}%)`;
+            if (scorable === 0) {
+                result.textContent = `Section Score: Practice-only section (self-check).`;
+                return;
+            }
+            const percent = Math.round((score / scorable) * 100);
+            result.textContent = `Section Score: ${score} / ${scorable} (${percent}%)`;
         }
 
 function resetExamPrep() {
