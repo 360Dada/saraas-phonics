@@ -395,6 +395,14 @@
             font-style: italic;
         }
 
+        .exam-hinglish {
+            margin-top: -2px;
+            margin-bottom: 8px;
+            color: #6a7280;
+            font-size: 0.86rem;
+            font-style: italic;
+        }
+
         .exam-section-result {
             margin-top: 10px;
             font-family: "Trebuchet MS", Verdana, sans-serif;
@@ -433,7 +441,7 @@
         }
 
         .exam-wordbank {
-            margin-top: 10px;
+            margin: 10px 0 12px;
             padding: 10px;
             border: 1px solid #d3dbe4;
             border-radius: 10px;
@@ -441,6 +449,21 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
+        }
+
+        .exam-wordbank.sticky {
+            position: sticky;
+            top: 8px;
+            z-index: 8;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .exam-wordbank-title {
+            width: 100%;
+            font-weight: 800;
+            color: #2f3d50;
+            margin-bottom: 4px;
+            font-size: 0.92rem;
         }
 
         .exam-word-chip {
@@ -2570,6 +2593,48 @@
             return (subject === 'hindi' || subject === 'kannada') && item.type === 'text';
         }
 
+        function hasDevanagari(text) {
+            return /[\u0900-\u097F]/.test(String(text || ''));
+        }
+
+        function hasKannada(text) {
+            return /[\u0C80-\u0CFF]/.test(String(text || ''));
+        }
+
+        function toHinglish(text) {
+            const t = String(text || '');
+            const map = {
+                'अ':'a','आ':'aa','इ':'i','ई':'ee','उ':'u','ऊ':'oo','ए':'e','ऐ':'ai','ओ':'o','औ':'au','ऋ':'ri',
+                'ा':'aa','ि':'i','ी':'ee','ु':'u','ू':'oo','े':'e','ै':'ai','ो':'o','ौ':'au','ं':'n','ँ':'n','ः':'h',
+                'क':'k','ख':'kh','ग':'g','घ':'gh','ङ':'ng','च':'ch','छ':'chh','ज':'j','झ':'jh','ञ':'ny',
+                'ट':'t','ठ':'th','ड':'d','ढ':'dh','ण':'n','त':'t','थ':'th','द':'d','ध':'dh','न':'n',
+                'प':'p','फ':'ph','ब':'b','भ':'bh','म':'m','य':'y','र':'r','ल':'l','व':'v','श':'sh','ष':'sh','स':'s','ह':'h',
+                'ळ':'l','क्ष':'ksh','ज्ञ':'gya','्':''
+            };
+            return t.split('').map(ch => map[ch] ?? ch).join('').replace(/\s+/g, ' ').trim();
+        }
+
+        function toKannadaRoman(text) {
+            const t = String(text || '');
+            const map = {
+                'ಅ':'a','ಆ':'aa','ಇ':'i','ಈ':'ee','ಉ':'u','ಊ':'oo','ಋ':'ru','ಎ':'e','ಏ':'ee','ಐ':'ai','ಒ':'o','ಓ':'oo','ಔ':'au','ಂ':'m','ಃ':'h',
+                'ಾ':'aa','ಿ':'i','ೀ':'ee','ು':'u','ೂ':'oo','ೆ':'e','ೇ':'ee','ೈ':'ai','ೊ':'o','ೋ':'oo','ೌ':'au','ೃ':'ru','್':'',
+                'ಕ':'ka','ಖ':'kha','ಗ':'ga','ಘ':'gha','ಙ':'nga',
+                'ಚ':'cha','ಛ':'chha','ಜ':'ja','ಝ':'jha','ಞ':'nya',
+                'ಟ':'ta','ಠ':'tha','ಡ':'da','ಢ':'dha','ಣ':'na',
+                'ತ':'ta','ಥ':'tha','ದ':'da','ಧ':'dha','ನ':'na',
+                'ಪ':'pa','ಫ':'pha','ಬ':'ba','ಭ':'bha','ಮ':'ma',
+                'ಯ':'ya','ರ':'ra','ಲ':'la','ವ':'va','ಶ':'sha','ಷ':'sha','ಸ':'sa','ಹ':'ha','ಳ':'la'
+            };
+            return t.split('').map(ch => map[ch] ?? ch).join('').replace(/\s+/g, ' ').trim();
+        }
+
+        function getReadableText(subject, text) {
+            if (subject === 'hindi' && hasDevanagari(text)) return `${text} (${toHinglish(text)})`;
+            if (subject === 'kannada' && hasKannada(text)) return `${text} (${toKannadaRoman(text)})`;
+            return text;
+        }
+
         function renderQuestionMedia(item) {
             if (!item.image) return '';
             return `<img src="${item.image}" alt="Worksheet reference image" class="exam-question-image">`;
@@ -2657,7 +2722,8 @@
             let html = '';
             options.forEach(opt => {
                 const safeOpt = opt.replace(/"/g, '&quot;');
-                html += `<label class="exam-option"><input type="radio" name="exam-q-${sectionIdx}-${questionIdx}" value="${safeOpt}"> ${opt}</label>`;
+                const displayOpt = getReadableText(activeExamSubject, opt);
+                html += `<label class="exam-option"><input type="radio" name="exam-q-${sectionIdx}-${questionIdx}" value="${safeOpt}"> ${displayOpt}</label>`;
             });
             return html;
         }
@@ -2686,31 +2752,38 @@
             currentExamSections.forEach((section, sectionIdx) => {
                 html += `<div class="exam-section">`;
                 html += `<div class="exam-section-head"><h4>${section.title}</h4><span class="exam-count-pill">${section.questions.length} questions</span></div>`;
-                const sectionWordBank = [];
+                const sectionWordBank = [...new Set(
+                    section.questions
+                        .filter(item => shouldUseWordBank(activeExamSubject, item) && item.answers && item.answers[0])
+                        .map(item => String(item.answers[0]))
+                )];
+                if (sectionWordBank.length > 0) {
+                    const shuffledWordBank = shuffleArray(sectionWordBank);
+                    html += `<div class="exam-wordbank sticky">`;
+                    html += `<div class="exam-wordbank-title">Word Bank (drag or tap):</div>`;
+                    shuffledWordBank.forEach((word, wordIdx) => {
+                        const chipId = `exam-chip-${sectionIdx}-${wordIdx}`;
+                        const displayWord = getReadableText(activeExamSubject, word);
+                        html += `<button type="button" id="${chipId}" class="exam-word-chip" data-word="${word.replace(/"/g, '&quot;')}" draggable="true" ondragstart="startWordDrag(event)" onclick="selectWordChip('${chipId}')">${displayWord}</button>`;
+                    });
+                    html += `</div>`;
+                }
                 section.questions.forEach((item, questionIdx) => {
                     const useWordBank = shouldUseWordBank(activeExamSubject, item);
-                    if (useWordBank && item.answers && item.answers[0]) {
-                        sectionWordBank.push(String(item.answers[0]));
-                    }
                     html += `<div class="exam-question">`;
                     html += `<p>${questionIdx + 1}. ${item.q}</p>`;
+                    if (activeExamSubject === 'hindi' && hasDevanagari(item.q)) {
+                        html += `<div class="exam-hinglish">Hinglish: ${toHinglish(item.q)}</div>`;
+                    }
+                    if (activeExamSubject === 'kannada' && hasKannada(item.q)) {
+                        html += `<div class="exam-hinglish">Kannada Reading: ${toKannadaRoman(item.q)}</div>`;
+                    }
                     html += renderQuestionMedia(item);
                     html += renderExamInput(item, sectionIdx, questionIdx, useWordBank);
                     html += `<div class="exam-hint">${getQuestionHint(item)}</div>`;
                     html += `<div class="exam-feedback" id="exam-feedback-${sectionIdx}-${questionIdx}"></div>`;
                     html += `</div>`;
                 });
-
-                const uniqueWordBank = [...new Set(sectionWordBank)];
-                if (uniqueWordBank.length > 0) {
-                    const shuffledWordBank = shuffleArray(uniqueWordBank);
-                    html += `<div class="exam-wordbank">`;
-                    shuffledWordBank.forEach((word, wordIdx) => {
-                        const chipId = `exam-chip-${sectionIdx}-${wordIdx}`;
-                        html += `<button type="button" id="${chipId}" class="exam-word-chip" data-word="${word.replace(/"/g, '&quot;')}" draggable="true" ondragstart="startWordDrag(event)" onclick="selectWordChip('${chipId}')">${word}</button>`;
-                    });
-                    html += `</div>`;
-                }
                 html += `<div class="exam-actions">`;
                 html += `<button class="exam-action-btn" onclick="checkExamSection(${sectionIdx}); playClickSound();">Submit ${section.title}</button>`;
                 html += `</div>`;
