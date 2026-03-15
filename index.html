@@ -486,6 +486,272 @@
             opacity: 0.4;
             cursor: not-allowed;
         }
+
+        .exam-match-grid {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            align-items: start;
+            padding: 8px 0;
+        }
+
+        .exam-match-col-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: #4b586b;
+            margin-bottom: 8px;
+        }
+
+        .exam-match-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .exam-match-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border: 1px solid #cfd6de;
+            border-radius: 10px;
+            background: #fff;
+            min-height: 52px;
+        }
+
+        .exam-match-index {
+            width: 24px;
+            flex: 0 0 24px;
+            font-weight: 800;
+            color: #7a8797;
+        }
+
+        .exam-match-text {
+            flex: 1;
+            color: #1f2a38;
+            font-weight: 700;
+        }
+
+        .exam-match-item.clickable {
+            cursor: pointer;
+        }
+
+        .exam-match-item.active {
+            border-color: #7b8ea6;
+            box-shadow: 0 0 0 2px rgba(123, 142, 166, 0.16);
+            background: #eef4f9;
+        }
+
+        .exam-match-item.matched {
+            border-color: #8fb788;
+            background: #eef8eb;
+        }
+
+        .exam-match-svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: visible;
+        }
+
+        .exam-wordsearch {
+            display: inline-grid;
+            grid-template-columns: repeat(8, 34px);
+            gap: 4px;
+            padding: 10px;
+            border: 1px solid #cfd6de;
+            border-radius: 10px;
+            background: #fff;
+            margin: 6px 0 10px;
+        }
+
+        .exam-wordsearch-cell {
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: #f4f7fa;
+            color: #1f2a38;
+            font-weight: 800;
+            cursor: pointer;
+            border: 1px solid transparent;
+            user-select: none;
+        }
+
+        .exam-wordsearch-cell.selected {
+            background: #ffd36c;
+            border-color: #e2a93d;
+            color: #6b3a00;
+        }
+
+        .exam-wordsearch-words {
+            margin-top: 8px;
+            color: #4b586b;
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .exam-color-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 8px 0 12px;
+        }
+
+        .exam-color-swatch {
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            border: 2px solid #c7d0db;
+            cursor: pointer;
+        }
+
+        .exam-color-swatch.active {
+            border-color: #1f2a38;
+            box-shadow: 0 0 0 2px rgba(31, 42, 56, 0.15);
+        }
+
+        .exam-duck-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .exam-duck-builder {
+            display: grid;
+            grid-template-columns: minmax(130px, 170px) minmax(220px, 1fr);
+            gap: 12px;
+            width: 100%;
+        }
+
+        .exam-duck-panel {
+            background: #fff;
+            border: 1px solid #d6dce3;
+            border-radius: 14px;
+            padding: 10px;
+        }
+
+        .exam-duck-parts {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .exam-duck-piece {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #cfd6de;
+            border-radius: 10px;
+            background: #f8fafc;
+            padding: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            color: #2c3b4c;
+        }
+
+        .exam-duck-piece.active {
+            border-color: #7b8ea6;
+            box-shadow: 0 0 0 2px rgba(123, 142, 166, 0.15);
+            background: #eef4f9;
+        }
+
+        .exam-duck-piece.used {
+            opacity: 0.45;
+        }
+
+        .exam-duck-svg {
+            width: min(320px, 100%);
+            display: block;
+        }
+
+        .exam-duck-part,
+        .exam-duck-slot {
+            cursor: pointer;
+            transition: filter 0.2s ease;
+        }
+
+        .exam-duck-part:hover,
+        .exam-duck-slot:hover {
+            filter: brightness(0.96);
+        }
+
+        .exam-duck-help {
+            color: #526276;
+            font-size: 0.92rem;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .exam-duck-builder {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .exam-poem-box {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 12px;
+            border: 1px solid #d5dde6;
+            border-radius: 12px;
+            background: #fff;
+        }
+
+        .exam-poem-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .exam-poem-speed {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            color: #405166;
+        }
+
+        .exam-poem-stanzas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .exam-poem-stanza-btn {
+            border: 1px solid #c7d0db;
+            background: #f7f9fb;
+            color: #304154;
+            border-radius: 999px;
+            padding: 6px 10px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .exam-poem-stanza-btn.active {
+            background: #e7eef6;
+            border-color: #8aa0b8;
+        }
+
+        .exam-poem-text {
+            white-space: pre-line;
+            line-height: 1.6;
+            color: #1f2a38;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .exam-match-grid {
+                grid-template-columns: 1fr;
+            }
+        }
         
         /* Game Screens */
         .game-screen {
@@ -2347,12 +2613,28 @@
                     { type: 'mcq', q: 'She ______ singing a song.', options: ['is', 'am', 'are'], answer: 'is' },
                     { type: 'mcq', q: 'We ______ drawing pictures.', options: ['is', 'am', 'are'], answer: 'are' },
 
-                    { type: 'mcq', q: 'Opposite of angry is:', options: ['happy', 'small', 'old'], answer: 'happy' },
-                    { type: 'mcq', q: 'Opposite of straight is:', options: ['crooked', 'inside', 'rest'], answer: 'crooked' },
-                    { type: 'mcq', q: 'Opposite of work is:', options: ['rest', 'outside', 'new'], answer: 'rest' },
-                    { type: 'mcq', q: 'Opposite of outside is:', options: ['inside', 'small', 'old'], answer: 'inside' },
-                    { type: 'mcq', q: 'Opposite of big is:', options: ['small', 'rest', 'crooked'], answer: 'small' },
-                    { type: 'mcq', q: 'Opposite of new is:', options: ['old', 'inside', 'happy'], answer: 'old' },
+                    {
+                        type: 'match_lines',
+                        q: 'Match Column B with Column A by drawing lines.',
+                        left: ['angry', 'straight', 'work', 'outside', 'big', 'new'],
+                        right: ['happy', 'crooked', 'rest', 'inside', 'small', 'old'],
+                        hint: 'Tap one word in Column A, then tap its correct match in Column B.'
+                    },
+
+                    {
+                        type: 'word_search',
+                        q: 'Find and circle the female naming words in the puzzle.',
+                        grid: [
+                            ['P','R','I','N','C','E','S','S'],
+                            ['Q','F','W','D','O','Q','H','M'],
+                            ['W','N','U','R','W','U','G','A'],
+                            ['E','U','I','T','J','E','I','R'],
+                            ['R','N','M','A','R','E','R','E'],
+                            ['Y','G','I','R','L','K','H','N']
+                        ],
+                        words: ['PRINCESS', 'MARE', 'GIRL'],
+                        hint: 'Visual puzzle: find the female naming words in the letter box.'
+                    },
 
                     { type: 'text', q: 'Unscramble: ARFURBEY', answers: ['february'] },
                     { type: 'text', q: 'Unscramble: IPRLA', answers: ['april'] },
@@ -2371,7 +2653,28 @@
                     { type: 'text', q: 'Gender word: Cock = ______', answers: ['hen'] },
                     { type: 'text', q: 'Gender word: Husband = ______', answers: ['wife'] },
                     { type: 'text', q: 'Gender word: Madam = ______', answers: ['sir'] },
-                    { type: 'text', q: 'Gender word: Actress = ______', answers: ['actor'] }
+                    { type: 'text', q: 'Gender word: Actress = ______', answers: ['actor'] },
+
+                    {
+                        type: 'color_label',
+                        q: 'Colour the diagram and write its name.',
+                        answer: 'duck',
+                        hint: 'Tap a color, then tap parts of the duck to fill them. Type the diagram name below.'
+                    },
+
+                    {
+                        type: 'poem_recite',
+                        q: 'Recitation Practice: Ducks Ditty',
+                        audioSrc: 'Ducks_Ditty.mp3',
+                        stanzas: [
+                            "All along the backwater,\nThrough the rushes tall,\nDucks are a-dabbling\nUp tails all!",
+                            "Ducks’ tails, drakes’ tails,\nYellow feet a-quiver,\nYellow bills all out of sight\nBusy in the river!",
+                            "Slushy green undergrowth\nWhere the roach swim—\nHere we keep our larder,\nCool and full and dim.",
+                            "Everyone for what he likes!\nWe like to be\nHeads down, tails up,\nDabbling free!",
+                            "High in the blue above\nSwifts whirl and call—\nWe are down a-dabbling\nUp tails all!"
+                        ],
+                        hint: 'Listen stanza by stanza, then press Repeat After Me and say it aloud.'
+                    }
                 ]
             },
             'hindi': {
@@ -2475,6 +2778,7 @@
         let activeExamSubject = 'computer-science';
         let currentExamSections = [];
         let selectedWordChipId = null;
+        let activePoemAudio = null;
         const examSectionBlueprints = {
             'computer-science': [
                 { title: 'A. Multiple Choice Questions', count: 10 },
@@ -2502,9 +2806,12 @@
             ],
             'english': [
                 { title: 'II. Fill in with has/have/is/am/are', count: 8 },
-                { title: 'III. Match/Opposites Practice', count: 6 },
+                { title: 'III. Match/Opposites Practice', count: 1 },
+                { title: 'V. Female Naming Words Puzzle', count: 1 },
                 { title: 'IV. Jumbled Words', count: 9 },
-                { title: 'VI. Gender Words', count: 8 }
+                { title: 'VI. Gender Words', count: 8 },
+                { title: 'VII. Colour and Write the Diagram Name', count: 1 },
+                { title: 'VIII. Recitation of Poem', count: 1 }
             ],
             'hindi': [
                 { title: '1. एक के अनेक शब्द', count: 8 },
@@ -2707,9 +3014,304 @@
             placeWordInBlank(sectionIdx, questionIdx, chip.dataset.word || '', chip.id);
         }
 
+        function selectMatchLeft(sectionIdx, questionIdx, leftIdx) {
+            const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
+            if (!item || item.type !== 'match_lines') return;
+            if (!item.matches) item.matches = {};
+            item.activeLeft = item.activeLeft === leftIdx ? null : leftIdx;
+            showExamSubject(activeExamSubject, true);
+        }
+
+        function selectMatchRight(sectionIdx, questionIdx, rightIdx) {
+            const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
+            if (!item || item.type !== 'match_lines') return;
+            if (item.activeLeft === undefined || item.activeLeft === null) return;
+            if (!item.matches) item.matches = {};
+
+            Object.keys(item.matches).forEach((leftKey) => {
+                if (item.matches[leftKey] === rightIdx) delete item.matches[leftKey];
+            });
+
+            item.matches[item.activeLeft] = rightIdx;
+            item.activeLeft = null;
+            showExamSubject(activeExamSubject, true);
+        }
+
+        function renderMatchLines(item, sectionIdx, questionIdx) {
+            if (!item.rightOrder) {
+                item.rightOrder = shuffleArray([...(item.right || [])]);
+            }
+            if (!item.matches) item.matches = {};
+
+            const rowGap = 60;
+            const topOffset = 34;
+            const svgHeight = Math.max(item.left.length, item.rightOrder.length) * rowGap + 12;
+            let lineSvg = `<svg class="exam-match-svg" viewBox="0 0 700 ${svgHeight}" preserveAspectRatio="none">`;
+            Object.entries(item.matches).forEach(([leftIdxStr, rightIdx]) => {
+                const leftIdx = Number(leftIdxStr);
+                const startY = topOffset + (leftIdx * rowGap);
+                const endY = topOffset + (rightIdx * rowGap);
+                lineSvg += `<path d="M 300 ${startY} C 380 ${startY}, 320 ${endY}, 400 ${endY}" stroke="#5d87b1" stroke-width="4" fill="none" stroke-linecap="round"/>`;
+            });
+            lineSvg += `</svg>`;
+
+            let html = `<div class="exam-match-grid">`;
+            html += lineSvg;
+            html += `<div><div class="exam-match-col-title">Column A</div><div class="exam-match-list">`;
+            item.left.forEach((word, idx) => {
+                const active = item.activeLeft === idx ? ' active' : '';
+                const matched = item.matches[idx] !== undefined ? ' matched' : '';
+                html += `<button type="button" class="exam-match-item clickable${active}${matched}" onclick="selectMatchLeft(${sectionIdx}, ${questionIdx}, ${idx})"><div class="exam-match-index">${idx + 1}.</div><div class="exam-match-text">${word}</div></button>`;
+            });
+            html += `</div></div>`;
+
+            html += `<div><div class="exam-match-col-title">Column B</div><div class="exam-match-list">`;
+            item.rightOrder.forEach((word, idx) => {
+                const matched = Object.values(item.matches).includes(idx) ? ' matched' : '';
+                html += `<button type="button" class="exam-match-item clickable${matched}" onclick="selectMatchRight(${sectionIdx}, ${questionIdx}, ${idx})"><div class="exam-match-index">${String.fromCharCode(97 + idx)}.</div><div class="exam-match-text">${word}</div></button>`;
+            });
+            html += `</div></div></div>`;
+            return html;
+        }
+
+        function toggleWordSearchCell(sectionIdx, questionIdx, rowIdx, colIdx) {
+            const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
+            if (!item || item.type !== 'word_search') return;
+            if (!item.selectedCells) item.selectedCells = {};
+            const key = `${rowIdx}-${colIdx}`;
+            if (item.selectedCells[key]) delete item.selectedCells[key];
+            else item.selectedCells[key] = true;
+            showExamSubject(activeExamSubject, true);
+        }
+
+        function selectDuckColor(sectionIdx, questionIdx, color) {
+            const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
+            if (!item || item.type !== 'color_label') return;
+            item.selectedColor = color;
+            showExamSubject(activeExamSubject, true);
+        }
+
+        function selectDuckPiece(sectionIdx, questionIdx, part) {
+            const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
+            if (!item || item.type !== 'color_label') return;
+            item.selectedPiece = item.selectedPiece === part ? '' : part;
+            showExamSubject(activeExamSubject, true);
+        }
+
+        function placeDuckPiece(sectionIdx, questionIdx, slot) {
+            const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
+            if (!item || item.type !== 'color_label') return;
+            if (!item.selectedPiece) return;
+            if (item.selectedPiece !== slot) return;
+            item.duckPlaced = item.duckPlaced || {};
+            Object.keys(item.duckPlaced).forEach((key) => {
+                if (item.duckPlaced[key] === item.selectedPiece) delete item.duckPlaced[key];
+            });
+            item.duckPlaced[slot] = item.selectedPiece;
+            item.selectedPiece = '';
+            showExamSubject(activeExamSubject, true);
+        }
+
+        function paintDuckPart(sectionIdx, questionIdx, part) {
+            const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
+            if (!item || item.type !== 'color_label') return;
+            const color = item.selectedColor || '#ffd54f';
+            item.duckColors = item.duckColors || {
+                body: '#ffd54f',
+                wing: '#ffec99',
+                beak: '#ff9f1c',
+                eye: '#2d3436'
+            };
+            item.duckColors[part] = color;
+            showExamSubject(activeExamSubject, true);
+        }
+
+        function setDuckLabel(sectionIdx, questionIdx, value) {
+            const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
+            if (!item || item.type !== 'color_label') return;
+            item.userLabel = value;
+        }
+
+        function renderColorLabel(item, sectionIdx, questionIdx) {
+            if (!item.duckColors) {
+                item.duckColors = {
+                    body: '#ffd54f',
+                    wing: '#ffec99',
+                    beak: '#ff9f1c',
+                    eye: '#2d3436'
+                };
+            }
+            if (!item.duckPlaced) item.duckPlaced = {};
+            if (!item.selectedPiece) item.selectedPiece = '';
+            if (!item.selectedColor) item.selectedColor = '#ffd54f';
+            const palette = ['#ffd54f', '#ff9f1c', '#8ecae6', '#90be6d', '#f28482', '#cdb4db'];
+            const pieceLabels = {
+                body: 'Body',
+                head: 'Head',
+                wing: 'Wing',
+                beak: 'Beak',
+                eye: 'Eye'
+            };
+            const piecePreview = {
+                body: '<svg viewBox="0 0 70 44" width="36" height="24"><ellipse cx="35" cy="22" rx="28" ry="16" fill="' + item.duckColors.body + '" stroke="#6b5b3e" stroke-width="3"/></svg>',
+                head: '<svg viewBox="0 0 44 44" width="28" height="28"><circle cx="22" cy="22" r="16" fill="' + item.duckColors.body + '" stroke="#6b5b3e" stroke-width="3"/></svg>',
+                wing: '<svg viewBox="0 0 54 34" width="34" height="22"><ellipse cx="27" cy="17" rx="20" ry="11" fill="' + item.duckColors.wing + '" stroke="#6b5b3e" stroke-width="3"/></svg>',
+                beak: '<svg viewBox="0 0 44 28" width="34" height="22"><polygon points="4,14 38,4 38,24" fill="' + item.duckColors.beak + '" stroke="#6b5b3e" stroke-width="3"/></svg>',
+                eye: '<svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="6" fill="' + item.duckColors.eye + '"/></svg>'
+            };
+
+            const slotFill = (slot, markup) => {
+                if (item.duckPlaced[slot] !== slot) return '';
+                return markup;
+            };
+
+            let html = `<div class="exam-duck-wrap">`;
+            html += `<div class="exam-color-tools">`;
+            palette.forEach((color) => {
+                const active = item.selectedColor === color ? ' active' : '';
+                html += `<button type="button" class="exam-color-swatch${active}" style="background:${color}" onclick="selectDuckColor(${sectionIdx}, ${questionIdx}, '${color}')"></button>`;
+            });
+            html += `</div>`;
+            html += `<div class="exam-duck-builder">`;
+            html += `<div class="exam-duck-panel"><div class="exam-duck-help">Pick one shape, then tap the empty duck on the right.</div><div class="exam-duck-parts">`;
+            ['body', 'head', 'wing', 'beak', 'eye'].forEach((part) => {
+                const active = item.selectedPiece === part ? ' active' : '';
+                const used = Object.values(item.duckPlaced).includes(part) ? ' used' : '';
+                html += `<button type="button" class="exam-duck-piece${active}${used}" onclick="selectDuckPiece(${sectionIdx}, ${questionIdx}, '${part}')">${piecePreview[part]}<span>${pieceLabels[part]}</span></button>`;
+            });
+            html += `</div></div>`;
+            html += `<div class="exam-duck-panel"><svg viewBox="0 0 320 220" class="exam-duck-svg" aria-label="Duck shape arrangement activity">`;
+            html += `<rect x="0" y="0" width="320" height="220" fill="#f8fbff"/>`;
+            html += `<ellipse class="exam-duck-slot" onclick="placeDuckPiece(${sectionIdx}, ${questionIdx}, 'body')" cx="150" cy="135" rx="86" ry="52" fill="#ffffff" stroke="#c5ced8" stroke-width="3" stroke-dasharray="8 6"/>`;
+            html += `${slotFill('body', `<ellipse class="exam-duck-part" onclick="paintDuckPart(${sectionIdx}, ${questionIdx}, 'body')" cx="150" cy="135" rx="86" ry="52" fill="${item.duckColors.body}" stroke="#6b5b3e" stroke-width="4"/>`)}`;
+            html += `<circle class="exam-duck-slot" onclick="placeDuckPiece(${sectionIdx}, ${questionIdx}, 'head')" cx="232" cy="92" r="38" fill="#ffffff" stroke="#c5ced8" stroke-width="3" stroke-dasharray="8 6"/>`;
+            html += `${slotFill('head', `<circle class="exam-duck-part" onclick="paintDuckPart(${sectionIdx}, ${questionIdx}, 'body')" cx="232" cy="92" r="38" fill="${item.duckColors.body}" stroke="#6b5b3e" stroke-width="4"/>`)}`;
+            html += `<ellipse class="exam-duck-slot" onclick="placeDuckPiece(${sectionIdx}, ${questionIdx}, 'wing')" cx="145" cy="136" rx="40" ry="25" fill="#ffffff" stroke="#c5ced8" stroke-width="3" stroke-dasharray="8 6"/>`;
+            html += `${slotFill('wing', `<ellipse class="exam-duck-part" onclick="paintDuckPart(${sectionIdx}, ${questionIdx}, 'wing')" cx="145" cy="136" rx="40" ry="25" fill="${item.duckColors.wing}" stroke="#6b5b3e" stroke-width="3"/>`)}`;
+            html += `<polygon class="exam-duck-slot" onclick="placeDuckPiece(${sectionIdx}, ${questionIdx}, 'beak')" points="266,92 308,106 266,118" fill="#ffffff" stroke="#c5ced8" stroke-width="3" stroke-dasharray="8 6"/>`;
+            html += `${slotFill('beak', `<polygon class="exam-duck-part" onclick="paintDuckPart(${sectionIdx}, ${questionIdx}, 'beak')" points="266,92 308,106 266,118" fill="${item.duckColors.beak}" stroke="#6b5b3e" stroke-width="3"/>`)}`;
+            html += `<circle class="exam-duck-slot" onclick="placeDuckPiece(${sectionIdx}, ${questionIdx}, 'eye')" cx="244" cy="84" r="6" fill="#ffffff" stroke="#c5ced8" stroke-width="2" stroke-dasharray="4 3"/>`;
+            html += `${slotFill('eye', `<circle class="exam-duck-part" onclick="paintDuckPart(${sectionIdx}, ${questionIdx}, 'eye')" cx="244" cy="84" r="6" fill="${item.duckColors.eye}"/>`)}`;
+            html += `<line x1="112" y1="179" x2="112" y2="214" stroke="#c77d00" stroke-width="4"/>`;
+            html += `<line x1="182" y1="179" x2="182" y2="214" stroke="#c77d00" stroke-width="4"/>`;
+            html += `<line x1="112" y1="214" x2="98" y2="220" stroke="#c77d00" stroke-width="4"/>`;
+            html += `<line x1="182" y1="214" x2="196" y2="220" stroke="#c77d00" stroke-width="4"/>`;
+            html += `</svg></div></div>`;
+            html += `<input type="text" id="exam-input-${sectionIdx}-${questionIdx}" class="exam-input" placeholder="Write the diagram name" value="${item.userLabel || ''}" oninput="setDuckLabel(${sectionIdx}, ${questionIdx}, this.value)">`;
+            html += `</div>`;
+            return html;
+        }
+
+        function selectPoemStanza(sectionIdx, questionIdx, stanzaIdx) {
+            const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
+            if (!item || item.type !== 'poem_recite') return;
+            item.selectedStanza = stanzaIdx;
+            showExamSubject(activeExamSubject, true);
+        }
+
+        function setPoemSpeed(sectionIdx, questionIdx, speed) {
+            const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
+            if (!item || item.type !== 'poem_recite') return;
+            item.speed = Number(speed);
+            const audio = document.getElementById(`exam-poem-audio-${sectionIdx}-${questionIdx}`);
+            if (audio) audio.playbackRate = item.speed;
+        }
+
+        function speakPoemStanza(sectionIdx, questionIdx, repeatMode = false) {
+            const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
+            if (!item || item.type !== 'poem_recite') return;
+            const stanzaIdx = item.selectedStanza || 0;
+            const stanza = (item.stanzas || [])[stanzaIdx] || '';
+            if (!stanza) return;
+            const utterance = new SpeechSynthesisUtterance(stanza);
+            utterance.rate = Number(item.speed || 0.85);
+            utterance.pitch = repeatMode ? 1.0 : 1.1;
+            speechSynthesis.cancel();
+            speechSynthesis.speak(utterance);
+        }
+
+        function playPoemAudio(sectionIdx, questionIdx) {
+            const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
+            if (!item || item.type !== 'poem_recite') return;
+            if (!item.audioSrc) {
+                speakPoemStanza(sectionIdx, questionIdx, false);
+                return;
+            }
+            const audio = document.getElementById(`exam-poem-audio-${sectionIdx}-${questionIdx}`);
+            if (!audio) return;
+            speechSynthesis.cancel();
+            if (activePoemAudio && activePoemAudio !== audio) {
+                activePoemAudio.pause();
+                activePoemAudio.currentTime = 0;
+            }
+            audio.playbackRate = Number(item.speed || 0.85);
+            audio.currentTime = 0;
+            audio.play();
+            activePoemAudio = audio;
+        }
+
+        function pausePoemAudio(sectionIdx, questionIdx) {
+            const audio = document.getElementById(`exam-poem-audio-${sectionIdx}-${questionIdx}`);
+            if (!audio) return;
+            audio.pause();
+            if (activePoemAudio === audio) activePoemAudio = null;
+        }
+
+        function renderPoemRecite(item, sectionIdx, questionIdx) {
+            if (typeof item.selectedStanza !== 'number') item.selectedStanza = 0;
+            if (!item.speed) item.speed = 0.85;
+            const stanza = (item.stanzas || [])[item.selectedStanza] || '';
+            let html = `<div class="exam-poem-box">`;
+            html += `<div class="exam-poem-controls">`;
+            html += `<button type="button" class="exam-action-btn" onclick="playPoemAudio(${sectionIdx}, ${questionIdx})">Listen</button>`;
+            html += `<button type="button" class="exam-action-btn secondary" onclick="pausePoemAudio(${sectionIdx}, ${questionIdx})">Pause Audio</button>`;
+            html += `<button type="button" class="exam-action-btn secondary" onclick="speakPoemStanza(${sectionIdx}, ${questionIdx}, true)">Repeat After Me</button>`;
+            html += `<label class="exam-poem-speed">Voice Speed <input type="range" min="0.6" max="1.1" step="0.05" value="${item.speed}" oninput="setPoemSpeed(${sectionIdx}, ${questionIdx}, this.value)"></label>`;
+            html += `</div>`;
+            if (item.audioSrc) {
+                html += `<audio id="exam-poem-audio-${sectionIdx}-${questionIdx}" preload="auto" src="${item.audioSrc}"></audio>`;
+            }
+            html += `<div class="exam-poem-stanzas">`;
+            (item.stanzas || []).forEach((_, idx) => {
+                const active = idx === item.selectedStanza ? ' active' : '';
+                html += `<button type="button" class="exam-poem-stanza-btn${active}" onclick="selectPoemStanza(${sectionIdx}, ${questionIdx}, ${idx})">Paragraph ${idx + 1}</button>`;
+            });
+            html += `</div>`;
+            html += `<div class="exam-poem-text">${stanza}</div>`;
+            html += `</div>`;
+            return html;
+        }
+
+        function renderWordSearch(item, sectionIdx, questionIdx) {
+            if (!item.selectedCells) item.selectedCells = {};
+            let html = `<div class="exam-wordsearch">`;
+            (item.grid || []).forEach((row, rowIdx) => {
+                row.forEach((cell, colIdx) => {
+                    const key = `${rowIdx}-${colIdx}`;
+                    const selectedClass = item.selectedCells[key] ? ' selected' : '';
+                    html += `<button type="button" class="exam-wordsearch-cell${selectedClass}" onclick="toggleWordSearchCell(${sectionIdx}, ${questionIdx}, ${rowIdx}, ${colIdx})">${cell}</button>`;
+                });
+            });
+            html += `</div>`;
+            html += `<div class="exam-wordsearch-words">Find: ${(item.words || []).join(', ')}</div>`;
+            return html;
+        }
+
         function renderExamInput(item, sectionIdx, questionIdx, useWordBank) {
             if (item.type === 'practice') {
                 return `<textarea id="exam-practice-${sectionIdx}-${questionIdx}" class="exam-input" rows="2" placeholder="Write your answer / notes here"></textarea>`;
+            }
+            if (item.type === 'poem_recite') {
+                return renderPoemRecite(item, sectionIdx, questionIdx);
+            }
+            if (item.type === 'color_label') {
+                return renderColorLabel(item, sectionIdx, questionIdx);
+            }
+            if (item.type === 'match_lines') {
+                return renderMatchLines(item, sectionIdx, questionIdx);
+            }
+            if (item.type === 'word_search') {
+                return renderWordSearch(item, sectionIdx, questionIdx);
             }
             if (useWordBank && item.type === 'text') {
                 return `<div class="exam-drop-zone" id="exam-drop-${sectionIdx}-${questionIdx}" ondragover="allowWordDrop(event)" ondrop="dropWordInBlank(event, ${sectionIdx}, ${questionIdx})" onclick="fillBlankFromSelected(${sectionIdx}, ${questionIdx})">Drop or tap a word here</div><input type="hidden" id="exam-input-${sectionIdx}-${questionIdx}" value="">`;
@@ -2728,7 +3330,7 @@
             return html;
         }
 
-        function showExamSubject(subject) {
+        function showExamSubject(subject, preserveState = false) {
             activeExamSubject = subject;
             document.querySelectorAll('.exam-subject-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.subject === subject);
@@ -2743,7 +3345,9 @@
                 return;
             }
 
-            currentExamSections = buildSectionsForSubject(subject);
+            if (!preserveState || !currentExamSections || currentExamSections.length === 0) {
+                currentExamSections = buildSectionsForSubject(subject);
+            }
             let html = '';
             html += `<div class="exam-hero">`;
             html += `<h3>Grade 1 ${subjectData.title} Practice Quiz</h3>`;
@@ -2811,6 +3415,47 @@
                 if (item.type === 'practice') {
                     feedback.textContent = 'Practice item: self-check using worksheet/notes.';
                     feedback.style.color = '#5b6a7d';
+                    return;
+                }
+                if (item.type === 'poem_recite') {
+                    feedback.textContent = 'Recitation practice: use Listen and Repeat After Me.';
+                    feedback.style.color = '#5b6a7d';
+                    return;
+                }
+                if (item.type === 'word_search') {
+                    feedback.textContent = `Find these words: ${(item.words || []).join(', ')}`;
+                    feedback.style.color = '#5b6a7d';
+                    return;
+                }
+                if (item.type === 'color_label') {
+                    const input = document.getElementById(`exam-input-${sectionIdx}-${questionIdx}`);
+                    const userVal = normalizeExamAnswer(input ? input.value : '');
+                    item.userLabel = input ? input.value : '';
+                    scorable += 1;
+                    if (userVal === normalizeExamAnswer(item.answer)) {
+                        score += 1;
+                        feedback.textContent = 'Correct name!';
+                        feedback.style.color = '#2e9f54';
+                    } else {
+                        feedback.textContent = `Write the diagram name as: ${item.answer}`;
+                        feedback.style.color = '#d94b4b';
+                    }
+                    return;
+                }
+                if (item.type === 'match_lines') {
+                    const expected = item.right || [];
+                    const rightOrder = item.rightOrder || [];
+                    const matches = item.matches || {};
+                    let pairScore = 0;
+                    expected.forEach((word, leftIdx) => {
+                        const matchedRightIdx = matches[leftIdx];
+                        if (matchedRightIdx === undefined) return;
+                        if (rightOrder[matchedRightIdx] === word) pairScore += 1;
+                    });
+                    scorable += expected.length;
+                    score += pairScore;
+                    feedback.textContent = `Matches correct: ${pairScore} / ${expected.length}`;
+                    feedback.style.color = pairScore === expected.length ? '#2e9f54' : '#d94b4b';
                     return;
                 }
                 let correct = false;
