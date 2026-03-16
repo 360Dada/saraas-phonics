@@ -2666,6 +2666,13 @@
                         type: 'poem_recite',
                         q: 'Recitation Practice: Ducks Ditty',
                         audioSrc: 'Ducks_Ditty.mp3',
+                        audioSegments: [
+                            { start: 0, end: 8.26 },
+                            { start: 8.26, end: 15.61 },
+                            { start: 15.61, end: 22.63 },
+                            { start: 22.63, end: 28.63 },
+                            { start: 28.63, end: 37.0 }
+                        ],
                         stanzas: [
                             "All along the backwater,\nThrough the rushes tall,\nDucks are a-dabbling\nUp tails all!",
                             "Ducks’ tails, drakes’ tails,\nYellow feet a-quiver,\nYellow bills all out of sight\nBusy in the river!",
@@ -2673,7 +2680,7 @@
                             "Everyone for what he likes!\nWe like to be\nHeads down, tails up,\nDabbling free!",
                             "High in the blue above\nSwifts whirl and call—\nWe are down a-dabbling\nUp tails all!"
                         ],
-                        hint: 'Listen stanza by stanza, then press Repeat After Me and say it aloud.'
+                        hint: 'Choose a paragraph, then use Play, Pause, or Stop. Voice speed changes the audio playback speed.'
                     }
                 ]
             },
@@ -3214,38 +3221,59 @@
             if (!item || item.type !== 'poem_recite') return;
             item.speed = Number(speed);
             const audio = document.getElementById(`exam-poem-audio-${sectionIdx}-${questionIdx}`);
-            if (audio) audio.playbackRate = item.speed;
+            if (audio) {
+                audio.defaultPlaybackRate = item.speed;
+                audio.playbackRate = item.speed;
+            }
         }
 
-        function speakPoemStanza(sectionIdx, questionIdx, repeatMode = false) {
-            const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
-            if (!item || item.type !== 'poem_recite') return;
-            const stanzaIdx = item.selectedStanza || 0;
-            const stanza = (item.stanzas || [])[stanzaIdx] || '';
-            if (!stanza) return;
-            const utterance = new SpeechSynthesisUtterance(stanza);
-            utterance.rate = Number(item.speed || 0.85);
-            utterance.pitch = repeatMode ? 1.0 : 1.1;
-            speechSynthesis.cancel();
-            speechSynthesis.speak(utterance);
+        function attachPoemSegmentHandler(audio, endTime) {
+            if (!audio) return;
+            if (audio._segmentHandler) {
+                audio.removeEventListener('timeupdate', audio._segmentHandler);
+            }
+            audio._segmentEnd = endTime;
+            audio._segmentHandler = () => {
+                if (audio.currentTime >= audio._segmentEnd) {
+                    audio.pause();
+                    audio.currentTime = audio._segmentStart || 0;
+                }
+            };
+            audio.addEventListener('timeupdate', audio._segmentHandler);
         }
 
         function playPoemAudio(sectionIdx, questionIdx) {
             const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
             if (!item || item.type !== 'poem_recite') return;
-            if (!item.audioSrc) {
-                speakPoemStanza(sectionIdx, questionIdx, false);
-                return;
-            }
+            if (!item.audioSrc) return;
             const audio = document.getElementById(`exam-poem-audio-${sectionIdx}-${questionIdx}`);
             if (!audio) return;
-            speechSynthesis.cancel();
             if (activePoemAudio && activePoemAudio !== audio) {
                 activePoemAudio.pause();
-                activePoemAudio.currentTime = 0;
+                if (activePoemAudio._segmentStart !== undefined) {
+                    activePoemAudio.currentTime = activePoemAudio._segmentStart;
+                } else {
+                    activePoemAudio.currentTime = 0;
+                }
             }
-            audio.playbackRate = Number(item.speed || 0.85);
-            audio.currentTime = 0;
+            const stanzaIdx = item.selectedStanza || 0;
+            const segment = (item.audioSegments || [])[stanzaIdx];
+            const startTime = segment ? segment.start : 0;
+            const endTime = segment ? segment.end : audio.duration;
+            const shouldRestart =
+                audio._activeStanza !== stanzaIdx ||
+                audio.currentTime < startTime ||
+                audio.currentTime >= endTime;
+
+            audio.defaultPlaybackRate = Number(item.speed || 1);
+            audio.playbackRate = Number(item.speed || 1);
+            audio._activeStanza = stanzaIdx;
+            audio._segmentStart = startTime;
+
+            if (shouldRestart) {
+                audio.currentTime = startTime;
+            }
+            attachPoemSegmentHandler(audio, endTime);
             audio.play();
             activePoemAudio = audio;
         }
@@ -3257,16 +3285,24 @@
             if (activePoemAudio === audio) activePoemAudio = null;
         }
 
+        function stopPoemAudio(sectionIdx, questionIdx) {
+            const audio = document.getElementById(`exam-poem-audio-${sectionIdx}-${questionIdx}`);
+            if (!audio) return;
+            audio.pause();
+            audio.currentTime = audio._segmentStart || 0;
+            if (activePoemAudio === audio) activePoemAudio = null;
+        }
+
         function renderPoemRecite(item, sectionIdx, questionIdx) {
             if (typeof item.selectedStanza !== 'number') item.selectedStanza = 0;
-            if (!item.speed) item.speed = 0.85;
+            if (!item.speed) item.speed = 1;
             const stanza = (item.stanzas || [])[item.selectedStanza] || '';
             let html = `<div class="exam-poem-box">`;
             html += `<div class="exam-poem-controls">`;
-            html += `<button type="button" class="exam-action-btn" onclick="playPoemAudio(${sectionIdx}, ${questionIdx})">Listen</button>`;
-            html += `<button type="button" class="exam-action-btn secondary" onclick="pausePoemAudio(${sectionIdx}, ${questionIdx})">Pause Audio</button>`;
-            html += `<button type="button" class="exam-action-btn secondary" onclick="speakPoemStanza(${sectionIdx}, ${questionIdx}, true)">Repeat After Me</button>`;
-            html += `<label class="exam-poem-speed">Voice Speed <input type="range" min="0.6" max="1.1" step="0.05" value="${item.speed}" oninput="setPoemSpeed(${sectionIdx}, ${questionIdx}, this.value)"></label>`;
+            html += `<button type="button" class="exam-action-btn" onclick="playPoemAudio(${sectionIdx}, ${questionIdx})">Play</button>`;
+            html += `<button type="button" class="exam-action-btn secondary" onclick="pausePoemAudio(${sectionIdx}, ${questionIdx})">Pause</button>`;
+            html += `<button type="button" class="exam-action-btn secondary" onclick="stopPoemAudio(${sectionIdx}, ${questionIdx})">Stop</button>`;
+            html += `<label class="exam-poem-speed">Voice Speed <input type="range" min="0.5" max="1.5" step="0.1" value="${item.speed}" oninput="setPoemSpeed(${sectionIdx}, ${questionIdx}, this.value)"></label>`;
             html += `</div>`;
             if (item.audioSrc) {
                 html += `<audio id="exam-poem-audio-${sectionIdx}-${questionIdx}" preload="auto" src="${item.audioSrc}"></audio>`;
@@ -3418,7 +3454,7 @@
                     return;
                 }
                 if (item.type === 'poem_recite') {
-                    feedback.textContent = 'Recitation practice: use Listen and Repeat After Me.';
+                    feedback.textContent = 'Recitation practice: use Play, Pause, and Stop for each paragraph.';
                     feedback.style.color = '#5b6a7d';
                     return;
                 }
