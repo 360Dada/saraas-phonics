@@ -747,9 +747,82 @@
             font-weight: 700;
         }
 
+        .exam-trace-card {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 16px;
+            border: 1px dashed #d7c7aa;
+            border-radius: 16px;
+            background: linear-gradient(180deg, #fffdf7 0%, #fff8eb 100%);
+        }
+
+        .exam-trace-label {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #6a4a1d;
+        }
+
+        .exam-trace-guide {
+            position: relative;
+            padding: 10px 12px;
+            border: 2px dashed #ecd7b0;
+            border-radius: 14px;
+            background: #fff;
+            min-height: 190px;
+            overflow: hidden;
+        }
+
+        .exam-trace-word {
+            font-size: 2rem;
+            line-height: 1.7;
+            letter-spacing: 2px;
+            color: rgba(175, 116, 39, 0.22);
+            text-shadow:
+                0 0 0 rgba(175, 116, 39, 0.22),
+                1px 0 0 rgba(175, 116, 39, 0.18),
+                -1px 0 0 rgba(175, 116, 39, 0.18);
+            user-select: none;
+        }
+
+        .exam-trace-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+            cursor: crosshair;
+        }
+
+        .exam-trace-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .exam-trace-clear {
+            border: 1px solid #d7c7aa;
+            background: #fffaf0;
+            color: #8c5a16;
+            border-radius: 999px;
+            padding: 8px 14px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .exam-trace-note {
+            font-size: 0.92rem;
+            color: #6c7a89;
+            font-weight: 700;
+        }
+
         @media (max-width: 768px) {
             .exam-match-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .exam-trace-word {
+                font-size: 1.6rem;
             }
         }
         
@@ -2736,7 +2809,18 @@
 
                     { type: 'mcq', q: 'चूहा किसमें छिपकर बैठा था?', options: ['रज़ाई में', 'बगीचे में', 'थैले में'], answer: 'रज़ाई में' },
                     { type: 'mcq', q: 'अध्यापिका बच्चों को कहाँ ले गई?', options: ['बगीचे में', 'घर में', 'तालाब में'], answer: 'बगीचे में' },
-                    { type: 'mcq', q: 'बच्चे किसके साथ घूमने आए थे?', options: ['चाचू के साथ', 'माँ के साथ', 'अध्यापक के साथ'], answer: 'चाचू के साथ' }
+                    { type: 'mcq', q: 'बच्चे किसके साथ घूमने आए थे?', options: ['चाचू के साथ', 'माँ के साथ', 'अध्यापक के साथ'], answer: 'चाचू के साथ' },
+
+                    { type: 'trace_word', q: 'हिंदी संख्या १ का शब्द ट्रेस करो।', display: '१ = एक', traceText: 'एक  एक  एक', hint: 'ऊपर दिए गए शब्द को देखकर उंगली या पेंसिल से ट्रेस करो।' },
+                    { type: 'trace_word', q: 'हिंदी संख्या २ का शब्द ट्रेस करो।', display: '२ = दो', traceText: 'दो  दो  दो', hint: 'धीरे-धीरे अक्षरों के ऊपर ट्रेस करो।' },
+                    { type: 'trace_word', q: 'हिंदी संख्या ३ का शब्द ट्रेस करो।', display: '३ = तीन', traceText: 'तीन  तीन  तीन', hint: 'मात्रा और अक्षर दोनों पर ध्यान दो।' },
+                    { type: 'trace_word', q: 'हिंदी संख्या ४ का शब्द ट्रेस करो।', display: '४ = चार', traceText: 'चार  चार  चार', hint: 'शब्द बोलते हुए ट्रेस करो।' },
+                    { type: 'trace_word', q: 'हिंदी संख्या ५ का शब्द ट्रेस करो।', display: '५ = पाँच', traceText: 'पाँच  पाँच  पाँच', hint: 'ँ वाली मात्रा पर ध्यान दो।' },
+                    { type: 'trace_word', q: 'हिंदी संख्या ६ का शब्द ट्रेस करो।', display: '६ = छह', traceText: 'छह  छह  छह', hint: 'हर बार पूरा शब्द ट्रेस करो।' },
+                    { type: 'trace_word', q: 'हिंदी संख्या ७ का शब्द ट्रेस करो।', display: '७ = सात', traceText: 'सात  सात  सात', hint: 'अक्षरों के आकार को ध्यान से देखो।' },
+                    { type: 'trace_word', q: 'हिंदी संख्या ८ का शब्द ट्रेस करो।', display: '८ = आठ', traceText: 'आठ  आठ  आठ', hint: 'पहले देखो, फिर ट्रेस करो।' },
+                    { type: 'trace_word', q: 'हिंदी संख्या ९ का शब्द ट्रेस करो।', display: '९ = नौ', traceText: 'नौ  नौ  नौ', hint: 'शब्द बोलकर ट्रेस करने की कोशिश करो।' },
+                    { type: 'trace_word', q: 'हिंदी संख्या १० का शब्द ट्रेस करो।', display: '१० = दस', traceText: 'दस  दस  दस', hint: 'शब्द का अभ्यास तीन बार करो।' }
                 ]
             },
             'kannada': {
@@ -2827,7 +2911,8 @@
                 { title: '4. अंकों को शब्दों में लिखो', count: 10 },
                 { title: '5. विलोम शब्द', count: 7 },
                 { title: '6. अर्थ लिखो', count: 8 },
-                { title: '7. प्रश्नों के उत्तर', count: 3 }
+                { title: '7. प्रश्नों के उत्तर', count: 3 },
+                { title: '8. हिंदी संख्या शब्द ट्रेस करो', count: 10 }
             ],
             'kannada': [
                 { title: 'I. English Meanings', count: 10 },
@@ -2894,6 +2979,7 @@
         function getQuestionHint(item) {
             if (item.hint) return item.hint;
             if (item.type === 'practice') return 'Hint: Practice question. Write/draw in notebook and self-check.';
+            if (item.type === 'trace_word') return 'Hint: Trace the Hindi number word by following the guide letters.';
             if (item.type === 'text') {
                 const ans = (item.answers && item.answers[0]) || item.answer || '';
                 if (!ans) return 'Hint: Write the most suitable word.';
@@ -3333,9 +3419,155 @@
             return html;
         }
 
+        function resizeTraceCanvas(canvas, sectionIdx, questionIdx) {
+            if (!canvas) return;
+            const dpr = window.devicePixelRatio || 1;
+            const rect = canvas.getBoundingClientRect();
+            canvas.width = Math.max(1, Math.floor(rect.width * dpr));
+            canvas.height = Math.max(1, Math.floor(rect.height * dpr));
+            const ctx = canvas.getContext('2d');
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            ctx.strokeStyle = '#ff7b54';
+            ctx.lineWidth = 5;
+            restoreTraceCanvas(sectionIdx, questionIdx);
+        }
+
+        function saveTraceCanvas(sectionIdx, questionIdx) {
+            const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
+            const canvas = document.getElementById(`exam-trace-canvas-${sectionIdx}-${questionIdx}`);
+            if (!item || item.type !== 'trace_word' || !canvas) return;
+            item.traceImage = canvas.toDataURL('image/png');
+        }
+
+        function restoreTraceCanvas(sectionIdx, questionIdx) {
+            const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
+            const canvas = document.getElementById(`exam-trace-canvas-${sectionIdx}-${questionIdx}`);
+            if (!item || item.type !== 'trace_word' || !canvas) return;
+            const ctx = canvas.getContext('2d');
+            const dpr = window.devicePixelRatio || 1;
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            ctx.strokeStyle = '#ff7b54';
+            ctx.lineWidth = 5;
+            if (!item.traceImage) return;
+            const img = new Image();
+            img.onload = () => {
+                ctx.setTransform(1, 0, 0, 1, 0, 0);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+                ctx.strokeStyle = '#ff7b54';
+                ctx.lineWidth = 5;
+            };
+            img.src = item.traceImage;
+        }
+
+        function clearTraceCanvas(sectionIdx, questionIdx) {
+            const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
+            const canvas = document.getElementById(`exam-trace-canvas-${sectionIdx}-${questionIdx}`);
+            if (!item || item.type !== 'trace_word' || !canvas) return;
+            const ctx = canvas.getContext('2d');
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const dpr = window.devicePixelRatio || 1;
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            ctx.strokeStyle = '#ff7b54';
+            ctx.lineWidth = 5;
+            item.traceImage = '';
+        }
+
+        function initTraceCanvas(sectionIdx, questionIdx) {
+            const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
+            const canvas = document.getElementById(`exam-trace-canvas-${sectionIdx}-${questionIdx}`);
+            if (!item || item.type !== 'trace_word' || !canvas || canvas.dataset.ready === 'true') return;
+
+            resizeTraceCanvas(canvas, sectionIdx, questionIdx);
+            let drawing = false;
+
+            const getPoint = (event) => {
+                const rect = canvas.getBoundingClientRect();
+                return {
+                    x: event.clientX - rect.left,
+                    y: event.clientY - rect.top
+                };
+            };
+
+            const startDraw = (event) => {
+                event.preventDefault();
+                const ctx = canvas.getContext('2d');
+                const point = getPoint(event);
+                drawing = true;
+                ctx.beginPath();
+                ctx.moveTo(point.x, point.y);
+            };
+
+            const draw = (event) => {
+                if (!drawing) return;
+                event.preventDefault();
+                const ctx = canvas.getContext('2d');
+                const point = getPoint(event);
+                ctx.lineTo(point.x, point.y);
+                ctx.stroke();
+            };
+
+            const endDraw = () => {
+                if (!drawing) return;
+                drawing = false;
+                saveTraceCanvas(sectionIdx, questionIdx);
+            };
+
+            canvas.addEventListener('pointerdown', startDraw);
+            canvas.addEventListener('pointermove', draw);
+            canvas.addEventListener('pointerup', endDraw);
+            canvas.addEventListener('pointerleave', endDraw);
+            canvas.addEventListener('pointercancel', endDraw);
+            window.addEventListener('resize', () => resizeTraceCanvas(canvas, sectionIdx, questionIdx));
+            canvas.dataset.ready = 'true';
+        }
+
+        function initializeTraceCanvases() {
+            currentExamSections.forEach((section, sectionIdx) => {
+                (section.questions || []).forEach((item, questionIdx) => {
+                    if (item.type === 'trace_word') {
+                        initTraceCanvas(sectionIdx, questionIdx);
+                    }
+                });
+            });
+        }
+
+        function renderTraceWord(item, sectionIdx, questionIdx) {
+            const traceLine = item.traceText || '';
+            return `
+                <div class="exam-trace-card">
+                    <div class="exam-trace-label">${item.display || ''}</div>
+                    <div class="exam-trace-guide">
+                        <div class="exam-trace-word">${traceLine}</div>
+                        <div class="exam-trace-word">${traceLine}</div>
+                        <canvas id="exam-trace-canvas-${sectionIdx}-${questionIdx}" class="exam-trace-canvas"></canvas>
+                    </div>
+                    <div class="exam-trace-actions">
+                        <button type="button" class="exam-trace-clear" onclick="clearTraceCanvas(${sectionIdx}, ${questionIdx})">Clear</button>
+                    </div>
+                    <div class="exam-trace-note">Tracing practice only. Use this as a guide for handwriting.</div>
+                </div>
+            `;
+        }
+
         function renderExamInput(item, sectionIdx, questionIdx, useWordBank) {
             if (item.type === 'practice') {
                 return `<textarea id="exam-practice-${sectionIdx}-${questionIdx}" class="exam-input" rows="2" placeholder="Write your answer / notes here"></textarea>`;
+            }
+            if (item.type === 'trace_word') {
+                return renderTraceWord(item, sectionIdx, questionIdx);
             }
             if (item.type === 'poem_recite') {
                 return renderPoemRecite(item, sectionIdx, questionIdx);
@@ -3436,6 +3668,7 @@
             html += `</div>`;
 
             container.innerHTML = html;
+            initializeTraceCanvases();
         }
 
         function checkExamSection(sectionIdx) {
@@ -3448,7 +3681,7 @@
 
             section.questions.forEach((item, questionIdx) => {
                 const feedback = document.getElementById(`exam-feedback-${sectionIdx}-${questionIdx}`);
-                if (item.type === 'practice') {
+                if (item.type === 'practice' || item.type === 'trace_word') {
                     feedback.textContent = 'Practice item: self-check using worksheet/notes.';
                     feedback.style.color = '#5b6a7d';
                     return;
