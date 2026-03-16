@@ -763,26 +763,59 @@
             color: #6a4a1d;
         }
 
+        .exam-trace-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 14px;
+        }
+
         .exam-trace-guide {
             position: relative;
             padding: 10px 12px;
             border: 2px dashed #ecd7b0;
             border-radius: 14px;
-            background: #fff;
-            min-height: 190px;
+            background:
+                repeating-linear-gradient(
+                    to bottom,
+                    #fff 0,
+                    #fff 46px,
+                    #d9e9ff 46px,
+                    #d9e9ff 49px
+                );
+            min-height: 420px;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .exam-trace-guide.small {
+            min-height: 320px;
+        }
+
+        .exam-trace-guide-label {
+            position: absolute;
+            top: 10px;
+            left: 12px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #8c6a37;
+            background: rgba(255, 250, 240, 0.95);
+            padding: 4px 8px;
+            border-radius: 999px;
         }
 
         .exam-trace-word {
-            font-size: 2rem;
-            line-height: 1.7;
-            letter-spacing: 2px;
+            font-size: 10rem;
+            line-height: 1;
+            letter-spacing: 4px;
             color: rgba(175, 116, 39, 0.22);
             text-shadow:
                 0 0 0 rgba(175, 116, 39, 0.22),
                 1px 0 0 rgba(175, 116, 39, 0.18),
                 -1px 0 0 rgba(175, 116, 39, 0.18);
             user-select: none;
+            text-align: center;
         }
 
         .exam-trace-canvas {
@@ -798,6 +831,19 @@
             display: flex;
             justify-content: flex-end;
             gap: 10px;
+        }
+
+        .exam-trace-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .exam-trace-progress {
+            font-weight: 700;
+            color: #6a4a1d;
         }
 
         .exam-trace-clear {
@@ -821,8 +867,16 @@
                 grid-template-columns: 1fr;
             }
 
+            .exam-trace-grid {
+                grid-template-columns: 1fr;
+            }
+
             .exam-trace-word {
-                font-size: 1.6rem;
+                font-size: 6rem;
+            }
+
+            .exam-trace-guide.small {
+                min-height: 260px;
             }
         }
         
@@ -1984,6 +2038,7 @@
                     <button class="exam-subject-btn" data-subject="evs" onclick="showExamSubject('evs'); playClickSound();">EVS</button>
                     <button class="exam-subject-btn" data-subject="english" onclick="showExamSubject('english'); playClickSound();">English</button>
                     <button class="exam-subject-btn" data-subject="hindi" onclick="showExamSubject('hindi'); playClickSound();">Hindi</button>
+                    <button class="exam-subject-btn" data-subject="hindi-writing-practice" onclick="showExamSubject('hindi-writing-practice'); playClickSound();">Hindi Writing Practice</button>
                     <button class="exam-subject-btn" data-subject="kannada" onclick="showExamSubject('kannada'); playClickSound();">Kannada</button>
                 </div>
                 <div id="examPrepContent"></div>
@@ -2809,18 +2864,22 @@
 
                     { type: 'mcq', q: 'चूहा किसमें छिपकर बैठा था?', options: ['रज़ाई में', 'बगीचे में', 'थैले में'], answer: 'रज़ाई में' },
                     { type: 'mcq', q: 'अध्यापिका बच्चों को कहाँ ले गई?', options: ['बगीचे में', 'घर में', 'तालाब में'], answer: 'बगीचे में' },
-                    { type: 'mcq', q: 'बच्चे किसके साथ घूमने आए थे?', options: ['चाचू के साथ', 'माँ के साथ', 'अध्यापक के साथ'], answer: 'चाचू के साथ' },
-
-                    { type: 'trace_word', q: 'हिंदी संख्या १ का शब्द ट्रेस करो।', display: '१ = एक', traceText: 'एक  एक  एक', hint: 'ऊपर दिए गए शब्द को देखकर उंगली या पेंसिल से ट्रेस करो।' },
-                    { type: 'trace_word', q: 'हिंदी संख्या २ का शब्द ट्रेस करो।', display: '२ = दो', traceText: 'दो  दो  दो', hint: 'धीरे-धीरे अक्षरों के ऊपर ट्रेस करो।' },
-                    { type: 'trace_word', q: 'हिंदी संख्या ३ का शब्द ट्रेस करो।', display: '३ = तीन', traceText: 'तीन  तीन  तीन', hint: 'मात्रा और अक्षर दोनों पर ध्यान दो।' },
-                    { type: 'trace_word', q: 'हिंदी संख्या ४ का शब्द ट्रेस करो।', display: '४ = चार', traceText: 'चार  चार  चार', hint: 'शब्द बोलते हुए ट्रेस करो।' },
-                    { type: 'trace_word', q: 'हिंदी संख्या ५ का शब्द ट्रेस करो।', display: '५ = पाँच', traceText: 'पाँच  पाँच  पाँच', hint: 'ँ वाली मात्रा पर ध्यान दो।' },
-                    { type: 'trace_word', q: 'हिंदी संख्या ६ का शब्द ट्रेस करो।', display: '६ = छह', traceText: 'छह  छह  छह', hint: 'हर बार पूरा शब्द ट्रेस करो।' },
-                    { type: 'trace_word', q: 'हिंदी संख्या ७ का शब्द ट्रेस करो।', display: '७ = सात', traceText: 'सात  सात  सात', hint: 'अक्षरों के आकार को ध्यान से देखो।' },
-                    { type: 'trace_word', q: 'हिंदी संख्या ८ का शब्द ट्रेस करो।', display: '८ = आठ', traceText: 'आठ  आठ  आठ', hint: 'पहले देखो, फिर ट्रेस करो।' },
-                    { type: 'trace_word', q: 'हिंदी संख्या ९ का शब्द ट्रेस करो।', display: '९ = नौ', traceText: 'नौ  नौ  नौ', hint: 'शब्द बोलकर ट्रेस करने की कोशिश करो।' },
-                    { type: 'trace_word', q: 'हिंदी संख्या १० का शब्द ट्रेस करो।', display: '१० = दस', traceText: 'दस  दस  दस', hint: 'शब्द का अभ्यास तीन बार करो।' }
+                    { type: 'mcq', q: 'बच्चे किसके साथ घूमने आए थे?', options: ['चाचू के साथ', 'माँ के साथ', 'अध्यापक के साथ'], answer: 'चाचू के साथ' }
+                ]
+            },
+            'hindi-writing-practice': {
+                title: 'Hindi Writing Practice',
+                questions: [
+                    { type: 'trace_word', q: 'हिंदी संख्या १ का शब्द ट्रेस करो।', display: '१ = एक', numeralText: '१', traceText: 'एक', hint: 'ऊपर दिए गए शब्द को देखकर उंगली या पेंसिल से ट्रेस करो।' },
+                    { type: 'trace_word', q: 'हिंदी संख्या २ का शब्द ट्रेस करो।', display: '२ = दो', numeralText: '२', traceText: 'दो', hint: 'धीरे-धीरे अक्षरों के ऊपर ट्रेस करो।' },
+                    { type: 'trace_word', q: 'हिंदी संख्या ३ का शब्द ट्रेस करो।', display: '३ = तीन', numeralText: '३', traceText: 'तीन', hint: 'मात्रा और अक्षर दोनों पर ध्यान दो।' },
+                    { type: 'trace_word', q: 'हिंदी संख्या ४ का शब्द ट्रेस करो।', display: '४ = चार', numeralText: '४', traceText: 'चार', hint: 'शब्द बोलते हुए ट्रेस करो।' },
+                    { type: 'trace_word', q: 'हिंदी संख्या ५ का शब्द ट्रेस करो।', display: '५ = पाँच', numeralText: '५', traceText: 'पाँच', hint: 'ँ वाली मात्रा पर ध्यान दो।' },
+                    { type: 'trace_word', q: 'हिंदी संख्या ६ का शब्द ट्रेस करो।', display: '६ = छह', numeralText: '६', traceText: 'छह', hint: 'हर बार पूरा शब्द ट्रेस करो।' },
+                    { type: 'trace_word', q: 'हिंदी संख्या ७ का शब्द ट्रेस करो।', display: '७ = सात', numeralText: '७', traceText: 'सात', hint: 'अक्षरों के आकार को ध्यान से देखो।' },
+                    { type: 'trace_word', q: 'हिंदी संख्या ८ का शब्द ट्रेस करो।', display: '८ = आठ', numeralText: '८', traceText: 'आठ', hint: 'पहले देखो, फिर ट्रेस करो।' },
+                    { type: 'trace_word', q: 'हिंदी संख्या ९ का शब्द ट्रेस करो।', display: '९ = नौ', numeralText: '९', traceText: 'नौ', hint: 'शब्द बोलकर ट्रेस करने की कोशिश करो।' },
+                    { type: 'trace_word', q: 'हिंदी संख्या १० का शब्द ट्रेस करो।', display: '१० = दस', numeralText: '१०', traceText: 'दस', hint: 'शब्द का अभ्यास करो।' }
                 ]
             },
             'kannada': {
@@ -2870,6 +2929,7 @@
         let currentExamSections = [];
         let selectedWordChipId = null;
         let activePoemAudio = null;
+        let writingPracticeIndices = {};
         const examSectionBlueprints = {
             'computer-science': [
                 { title: 'A. Multiple Choice Questions', count: 10 },
@@ -2911,8 +2971,10 @@
                 { title: '4. अंकों को शब्दों में लिखो', count: 10 },
                 { title: '5. विलोम शब्द', count: 7 },
                 { title: '6. अर्थ लिखो', count: 8 },
-                { title: '7. प्रश्नों के उत्तर', count: 3 },
-                { title: '8. हिंदी संख्या शब्द ट्रेस करो', count: 10 }
+                { title: '7. प्रश्नों के उत्तर', count: 3 }
+            ],
+            'hindi-writing-practice': [
+                { title: '1. हिंदी संख्या शब्द ट्रेस करो', count: 10 }
             ],
             'kannada': [
                 { title: 'I. English Meanings', count: 10 },
@@ -2951,8 +3013,9 @@
                 options: item.options ? shuffleArray(item.options) : undefined,
                 answers: item.answers ? [...item.answers] : undefined
             }));
+            const preserveOrder = subject === 'hindi-writing-practice';
             if (!blueprint || blueprint.length === 0) {
-                return [{ title: 'Practice Questions', questions: shuffleArray(sourceQuestions) }];
+                return [{ title: 'Practice Questions', questions: preserveOrder ? sourceQuestions : shuffleArray(sourceQuestions) }];
             }
 
             const sections = [];
@@ -2960,10 +3023,11 @@
             blueprint.forEach((part) => {
                 const chunk = sourceQuestions.slice(cursor, cursor + part.count);
                 cursor += part.count;
-                sections.push({ title: part.title, questions: shuffleArray(chunk) });
+                sections.push({ title: part.title, questions: preserveOrder ? chunk : shuffleArray(chunk) });
             });
             if (cursor < sourceQuestions.length) {
-                sections.push({ title: 'Extra Practice', questions: shuffleArray(sourceQuestions.slice(cursor)) });
+                const extra = sourceQuestions.slice(cursor);
+                sections.push({ title: 'Extra Practice', questions: preserveOrder ? extra : shuffleArray(extra) });
             }
             return sections;
         }
@@ -2990,7 +3054,7 @@
         }
 
         function shouldUseWordBank(subject, item) {
-            return (subject === 'hindi' || subject === 'kannada') && item.type === 'text';
+            return (subject === 'hindi' || subject === 'hindi-writing-practice' || subject === 'kannada') && item.type === 'text';
         }
 
         function hasDevanagari(text) {
@@ -3419,7 +3483,11 @@
             return html;
         }
 
-        function resizeTraceCanvas(canvas, sectionIdx, questionIdx) {
+        function getTraceCanvasId(sectionIdx, questionIdx, slot) {
+            return `exam-trace-canvas-${sectionIdx}-${questionIdx}-${slot}`;
+        }
+
+        function resizeTraceCanvas(canvas, sectionIdx, questionIdx, slot) {
             if (!canvas) return;
             const dpr = window.devicePixelRatio || 1;
             const rect = canvas.getBoundingClientRect();
@@ -3431,19 +3499,20 @@
             ctx.lineJoin = 'round';
             ctx.strokeStyle = '#ff7b54';
             ctx.lineWidth = 5;
-            restoreTraceCanvas(sectionIdx, questionIdx);
+            restoreTraceCanvas(sectionIdx, questionIdx, slot);
         }
 
-        function saveTraceCanvas(sectionIdx, questionIdx) {
+        function saveTraceCanvas(sectionIdx, questionIdx, slot) {
             const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
-            const canvas = document.getElementById(`exam-trace-canvas-${sectionIdx}-${questionIdx}`);
+            const canvas = document.getElementById(getTraceCanvasId(sectionIdx, questionIdx, slot));
             if (!item || item.type !== 'trace_word' || !canvas) return;
-            item.traceImage = canvas.toDataURL('image/png');
+            if (!item.traceImages) item.traceImages = {};
+            item.traceImages[slot] = canvas.toDataURL('image/png');
         }
 
-        function restoreTraceCanvas(sectionIdx, questionIdx) {
+        function restoreTraceCanvas(sectionIdx, questionIdx, slot) {
             const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
-            const canvas = document.getElementById(`exam-trace-canvas-${sectionIdx}-${questionIdx}`);
+            const canvas = document.getElementById(getTraceCanvasId(sectionIdx, questionIdx, slot));
             if (!item || item.type !== 'trace_word' || !canvas) return;
             const ctx = canvas.getContext('2d');
             const dpr = window.devicePixelRatio || 1;
@@ -3454,7 +3523,8 @@
             ctx.lineJoin = 'round';
             ctx.strokeStyle = '#ff7b54';
             ctx.lineWidth = 5;
-            if (!item.traceImage) return;
+            const imageSrc = item.traceImages?.[slot];
+            if (!imageSrc) return;
             const img = new Image();
             img.onload = () => {
                 ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -3466,31 +3536,34 @@
                 ctx.strokeStyle = '#ff7b54';
                 ctx.lineWidth = 5;
             };
-            img.src = item.traceImage;
+            img.src = imageSrc;
         }
 
         function clearTraceCanvas(sectionIdx, questionIdx) {
             const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
-            const canvas = document.getElementById(`exam-trace-canvas-${sectionIdx}-${questionIdx}`);
-            if (!item || item.type !== 'trace_word' || !canvas) return;
-            const ctx = canvas.getContext('2d');
-            ctx.setTransform(1, 0, 0, 1, 0, 0);
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            const dpr = window.devicePixelRatio || 1;
-            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-            ctx.lineCap = 'round';
-            ctx.lineJoin = 'round';
-            ctx.strokeStyle = '#ff7b54';
-            ctx.lineWidth = 5;
-            item.traceImage = '';
+            if (!item || item.type !== 'trace_word') return;
+            ['number', 'word'].forEach((slot) => {
+                const canvas = document.getElementById(getTraceCanvasId(sectionIdx, questionIdx, slot));
+                if (!canvas) return;
+                const ctx = canvas.getContext('2d');
+                ctx.setTransform(1, 0, 0, 1, 0, 0);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const dpr = window.devicePixelRatio || 1;
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+                ctx.strokeStyle = '#ff7b54';
+                ctx.lineWidth = 5;
+            });
+            item.traceImages = {};
         }
 
-        function initTraceCanvas(sectionIdx, questionIdx) {
+        function initTraceCanvas(sectionIdx, questionIdx, slot) {
             const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
-            const canvas = document.getElementById(`exam-trace-canvas-${sectionIdx}-${questionIdx}`);
+            const canvas = document.getElementById(getTraceCanvasId(sectionIdx, questionIdx, slot));
             if (!item || item.type !== 'trace_word' || !canvas || canvas.dataset.ready === 'true') return;
 
-            resizeTraceCanvas(canvas, sectionIdx, questionIdx);
+            resizeTraceCanvas(canvas, sectionIdx, questionIdx, slot);
             let drawing = false;
 
             const getPoint = (event) => {
@@ -3522,7 +3595,7 @@
             const endDraw = () => {
                 if (!drawing) return;
                 drawing = false;
-                saveTraceCanvas(sectionIdx, questionIdx);
+                saveTraceCanvas(sectionIdx, questionIdx, slot);
             };
 
             canvas.addEventListener('pointerdown', startDraw);
@@ -3530,7 +3603,7 @@
             canvas.addEventListener('pointerup', endDraw);
             canvas.addEventListener('pointerleave', endDraw);
             canvas.addEventListener('pointercancel', endDraw);
-            window.addEventListener('resize', () => resizeTraceCanvas(canvas, sectionIdx, questionIdx));
+            window.addEventListener('resize', () => resizeTraceCanvas(canvas, sectionIdx, questionIdx, slot));
             canvas.dataset.ready = 'true';
         }
 
@@ -3538,21 +3611,40 @@
             currentExamSections.forEach((section, sectionIdx) => {
                 (section.questions || []).forEach((item, questionIdx) => {
                     if (item.type === 'trace_word') {
-                        initTraceCanvas(sectionIdx, questionIdx);
+                        initTraceCanvas(sectionIdx, questionIdx, 'number');
+                        initTraceCanvas(sectionIdx, questionIdx, 'word');
                     }
                 });
             });
         }
 
+        function changeWritingPracticeCard(sectionIdx, delta) {
+            if (activeExamSubject !== 'hindi-writing-practice') return;
+            const section = currentExamSections?.[sectionIdx];
+            if (!section || !section.questions || section.questions.length === 0) return;
+            const currentIdx = writingPracticeIndices[sectionIdx] || 0;
+            const nextIdx = Math.max(0, Math.min(section.questions.length - 1, currentIdx + delta));
+            writingPracticeIndices[sectionIdx] = nextIdx;
+            showExamSubject(activeExamSubject, true);
+        }
+
         function renderTraceWord(item, sectionIdx, questionIdx) {
             const traceLine = item.traceText || '';
+            const numeralLine = item.numeralText || '';
             return `
                 <div class="exam-trace-card">
                     <div class="exam-trace-label">${item.display || ''}</div>
-                    <div class="exam-trace-guide">
-                        <div class="exam-trace-word">${traceLine}</div>
-                        <div class="exam-trace-word">${traceLine}</div>
-                        <canvas id="exam-trace-canvas-${sectionIdx}-${questionIdx}" class="exam-trace-canvas"></canvas>
+                    <div class="exam-trace-grid">
+                        <div class="exam-trace-guide small">
+                            <div class="exam-trace-guide-label">Number</div>
+                            <div class="exam-trace-word">${numeralLine}</div>
+                            <canvas id="${getTraceCanvasId(sectionIdx, questionIdx, 'number')}" class="exam-trace-canvas"></canvas>
+                        </div>
+                        <div class="exam-trace-guide">
+                            <div class="exam-trace-guide-label">Word</div>
+                            <div class="exam-trace-word">${traceLine}</div>
+                            <canvas id="${getTraceCanvasId(sectionIdx, questionIdx, 'word')}" class="exam-trace-canvas"></canvas>
+                        </div>
                     </div>
                     <div class="exam-trace-actions">
                         <button type="button" class="exam-trace-clear" onclick="clearTraceCanvas(${sectionIdx}, ${questionIdx})">Clear</button>
@@ -3615,6 +3707,7 @@
 
             if (!preserveState || !currentExamSections || currentExamSections.length === 0) {
                 currentExamSections = buildSectionsForSubject(subject);
+                writingPracticeIndices = {};
             }
             let html = '';
             html += `<div class="exam-hero">`;
@@ -3640,11 +3733,25 @@
                     });
                     html += `</div>`;
                 }
-                section.questions.forEach((item, questionIdx) => {
+                const displayedQuestions = activeExamSubject === 'hindi-writing-practice'
+                    ? [section.questions[writingPracticeIndices[sectionIdx] || 0]].filter(Boolean)
+                    : section.questions;
+                if (activeExamSubject === 'hindi-writing-practice') {
+                    const currentIdx = writingPracticeIndices[sectionIdx] || 0;
+                    html += `<div class="exam-trace-nav">`;
+                    html += `<button class="exam-action-btn secondary" ${currentIdx === 0 ? 'disabled' : ''} onclick="changeWritingPracticeCard(${sectionIdx}, -1); playClickSound();">Previous</button>`;
+                    html += `<div class="exam-trace-progress">Card ${currentIdx + 1} of ${section.questions.length}</div>`;
+                    html += `<button class="exam-action-btn" ${currentIdx === section.questions.length - 1 ? 'disabled' : ''} onclick="changeWritingPracticeCard(${sectionIdx}, 1); playClickSound();">Next</button>`;
+                    html += `</div>`;
+                }
+                displayedQuestions.forEach((item, localQuestionIdx) => {
+                    const questionIdx = activeExamSubject === 'hindi-writing-practice'
+                        ? (writingPracticeIndices[sectionIdx] || 0)
+                        : localQuestionIdx;
                     const useWordBank = shouldUseWordBank(activeExamSubject, item);
                     html += `<div class="exam-question">`;
                     html += `<p>${questionIdx + 1}. ${item.q}</p>`;
-                    if (activeExamSubject === 'hindi' && hasDevanagari(item.q)) {
+                    if ((activeExamSubject === 'hindi' || activeExamSubject === 'hindi-writing-practice') && hasDevanagari(item.q)) {
                         html += `<div class="exam-hinglish">Hinglish: ${toHinglish(item.q)}</div>`;
                     }
                     if (activeExamSubject === 'kannada' && hasKannada(item.q)) {
