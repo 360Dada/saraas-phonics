@@ -315,6 +315,58 @@
             padding: 16px;
         }
 
+        .exam-lesson {
+            background: #fff9e6;
+            border: 2px solid var(--sunshine-yellow);
+            border-radius: 18px;
+            padding: 18px;
+        }
+
+        .exam-lesson h4 {
+            margin: 0 0 10px;
+            font-size: 1.3rem;
+            color: #9b470f;
+            font-family: "Baloo 2", sans-serif;
+        }
+
+        .exam-lesson p {
+            margin: 0 0 10px;
+            color: #3a3a3a;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .exam-lesson table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .exam-lesson th, .exam-lesson td {
+            border: 1px solid #e5d9a8;
+            padding: 6px 10px;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        .exam-lesson th {
+            background: #ffe9a8;
+            color: #6b4a05;
+        }
+
+        .exam-lesson .exam-lesson-tip {
+            background: #fff2c2;
+            border-left: 4px solid var(--coral-pink);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            color: #7a3b57;
+            margin: 0;
+        }
+
         .exam-section-head {
             display: flex;
             justify-content: space-between;
@@ -508,6 +560,46 @@
         .exam-word-chip.used {
             opacity: 0.4;
             cursor: not-allowed;
+        }
+
+        .exam-order-slots {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 10px 0 4px;
+        }
+
+        .exam-order-slot {
+            min-width: 64px;
+            min-height: 40px;
+            border: 2px dashed #9aa8b8;
+            border-radius: 10px;
+            background: #f7f9fb;
+            color: #a3aebb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px 12px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .exam-order-slot.filled {
+            border-style: solid;
+            border-color: #6d7f95;
+            background: #edf3f8;
+            color: #1f2a38;
+        }
+
+        .exam-order-bank {
+            margin: 4px 0 10px;
+            padding: 10px;
+            border: 1px solid #d3dbe4;
+            border-radius: 10px;
+            background: #f7f9fb;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
         }
 
         .exam-match-grid {
@@ -2046,6 +2138,21 @@
                     <div class="game-title">Exam Preparation</div>
                     <p class="game-description">Open subject-wise exam practice</p>
                 </div>
+
+                <div class="game-card" onclick="startGame('concepts')">
+                    <span class="game-icon">📚</span>
+                    <div class="game-title">Concepts</div>
+                    <p class="game-description">Read all the lessons and tips in one place</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Concepts (all lesson cards grouped together) -->
+        <div id="conceptsGame" class="game-screen">
+            <button class="back-btn" onclick="backToMenu(); playClickSound();">⬅ Back to Menu</button>
+            <div class="word-card exam-card">
+                <div class="quiz-question">Concepts</div>
+                <div id="conceptsContent"></div>
             </div>
         </div>
         
@@ -2862,6 +2969,30 @@
                     { type: 'tf', q: 'Cats can only sleep on furniture.', answer: 'False' },
                     { type: 'tf', q: 'Cats sleep in different spots.', answer: 'True' },
 
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Nouns & Common Nouns',
+                        content: `
+                            <p><strong>A noun</strong> is a naming word \u2014 it names a person, animal, place, or thing. Nia, girl, chameleon, garden, cupboard, cat, piano \u2014 all nouns, because they all name something.</p>
+                            <p><strong>A common noun</strong> is a noun that names <em>any</em> person, animal, place, or thing \u2014 not one particular, special one.</p>
+                            <table>
+                                <tr><th>Common noun (general)</th><th>Example</th></tr>
+                                <tr><td>girl</td><td>any girl, not a specific one</td></tr>
+                                <tr><td>pet</td><td>any pet</td></tr>
+                                <tr><td>garden</td><td>any garden</td></tr>
+                                <tr><td>cupboard</td><td>any cupboard</td></tr>
+                            </table>
+                            <p>Compare this to a <strong>proper noun</strong>, which names one specific, special person/place/thing and always starts with a capital letter:</p>
+                            <table>
+                                <tr><th>Common noun</th><th>Proper noun</th></tr>
+                                <tr><td>girl</td><td>Nia</td></tr>
+                                <tr><td>pet</td><td>Coco</td></tr>
+                                <tr><td>city</td><td>Bengaluru</td></tr>
+                            </table>
+                            <p>Example: <em>"Nia fed her pet in the garden."</em> \u2014 Nia = proper noun (one special girl), pet = common noun (any pet), garden = common noun (any garden).</p>
+                            <p class="exam-lesson-tip">Trick: if you could point to lots of different ones and the word still fits, it's a common noun!</p>
+                        `
+                    },
                     { type: 'mcq', q: "Which word is the common noun? 'The girl fed her pet.'", options: ['girl', 'her', 'fed'], answer: 'girl' },
                     { type: 'mcq', q: "Which word is the common noun? 'A chameleon lives in the garden.'", options: ['garden', 'A', 'in'], answer: 'garden' },
                     { type: 'text', q: 'Fill in the correct pronoun (he/she/it/they): Nia has a pet. ______ loves her pet very much.', answers: ['she'] },
@@ -2869,10 +3000,10 @@
                     { type: 'text', q: 'Fill in the correct pronoun: Ravi and Meena are friends. ______ play together.', answers: ['they'] },
                     { type: 'mcq', q: "Which word is the pronoun? 'She loves cats.'", options: ['She', 'loves', 'cats'], answer: 'She' },
 
-                    { type: 'text', q: 'Put these words in order to make a sentence: pet. / has / Nia / a', answers: ['nia has a pet', 'nia has a pet.'] },
-                    { type: 'text', q: 'Put these words in order to make a sentence: colour. / cat / The / orange / an / is', answers: ['the cat is an orange colour', 'the cat is an orange colour.'] },
-                    { type: 'text', q: 'Put these words in order to make a sentence: garden. / plays / boy / the / in / The', answers: ['the boy plays in the garden', 'the boy plays in the garden.'] },
-                    { type: 'text', q: 'Put these words in order to make a sentence: anywhere. / sleep / Cats / can', answers: ['cats can sleep anywhere', 'cats can sleep anywhere.'] },
+                    { type: 'word_order', q: 'Put these words in order to make a sentence.', tokens: ['pet.', 'has', 'Nia', 'a'], correctOrder: ['Nia', 'has', 'a', 'pet.'] },
+                    { type: 'word_order', q: 'Put these words in order to make a sentence.', tokens: ['colour.', 'cat', 'The', 'orange', 'an', 'is'], correctOrder: ['The', 'cat', 'is', 'an', 'orange', 'colour.'] },
+                    { type: 'word_order', q: 'Put these words in order to make a sentence.', tokens: ['garden.', 'plays', 'boy', 'the', 'in', 'The'], correctOrder: ['The', 'boy', 'plays', 'in', 'the', 'garden.'] },
+                    { type: 'word_order', q: 'Put these words in order to make a sentence.', tokens: ['anywhere.', 'sleep', 'Cats', 'can'], correctOrder: ['Cats', 'can', 'sleep', 'anywhere.'] },
 
                     { type: 'mcq', q: "In the sentence 'Nia paints her pet,' what is the subject?", options: ['Nia', 'paints', 'pet'], answer: 'Nia' },
                     { type: 'mcq', q: "In the sentence 'Nia paints her pet,' what is the action word?", options: ['paints', 'Nia', 'pet'], answer: 'paints' },
@@ -2920,6 +3051,19 @@
             'english-sentences': {
                 title: 'English: Sentences',
                 questions: [
+                    {
+                        type: 'lesson',
+                        title: 'Learn: What Is a Sentence?',
+                        content: `
+                            <p>A <strong>sentence</strong> is a group of words that gives a complete idea \u2014 it tells you a whole thought, not just a piece of one.</p>
+                            <table>
+                                <tr><th>Sentence (complete idea)</th><th>Not a sentence (feels unfinished)</th></tr>
+                                <tr><td>The melody is soothing.</td><td>Into my ears</td></tr>
+                                <tr><td>People listen in delight.</td><td>The music enjoy</td></tr>
+                            </table>
+                            <p class="exam-lesson-tip">Trick: read it and ask "Does this tell me a whole idea, or does it feel like something is missing?"</p>
+                        `
+                    },
                     { type: 'mcq', q: 'Is this a sentence or not a sentence? "The melody is soothing."', options: ['Sentence', 'Not a sentence'], answer: 'Sentence' },
                     { type: 'mcq', q: 'Is this a sentence or not a sentence? "Music helps me calm down."', options: ['Sentence', 'Not a sentence'], answer: 'Sentence' },
                     { type: 'mcq', q: 'Is this a sentence or not a sentence? "Music lights up the party."', options: ['Sentence', 'Not a sentence'], answer: 'Sentence' },
@@ -2927,12 +3071,33 @@
                     { type: 'mcq', q: 'Is this a sentence or not a sentence? "Into my ears"', options: ['Sentence', 'Not a sentence'], answer: 'Not a sentence' },
                     { type: 'mcq', q: 'Is this a sentence or not a sentence? "People listen in delight."', options: ['Sentence', 'Not a sentence'], answer: 'Sentence' },
 
-                    { type: 'text', q: 'Put these words in order to make a sentence: good / Marju / pictures / takes', answers: ['marju takes good pictures', 'marju takes good pictures.'] },
-                    { type: 'text', q: 'Put these words in order to make a sentence: subject / she / a / chooses', answers: ['she chooses a subject', 'she chooses a subject.'] },
-                    { type: 'text', q: 'Put these words in order to make a sentence: through / she / looks / the / lens', answers: ['she looks through the lens', 'she looks through the lens.'] },
-                    { type: 'text', q: 'Put these words in order to make a sentence: right / shot / to / get / the / is / hard / It', answers: ['it is hard to get the right shot', 'it is hard to get the right shot.'] },
-                    { type: 'text', q: 'Put these words in order to make a sentence: shutter / she / erases / The', answers: ['she erases the shutter', 'she erases the shutter.'] },
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Sentence Word Order',
+                        content: `
+                            <p>The words in a sentence need to be in the right order, or the sentence stops making sense.</p>
+                            <table>
+                                <tr><th>Jumbled (confusing)</th><th>Correct order (clear)</th></tr>
+                                <tr><td>good Marju pictures takes</td><td>Marju takes good pictures.</td></tr>
+                            </table>
+                            <p class="exam-lesson-tip">Trick: put the subject first (who), then the action (what they do), then the rest of the sentence.</p>
+                        `
+                    },
+                    { type: 'word_order', q: 'Put these words in order to make a sentence.', tokens: ['good', 'Marju', 'pictures', 'takes'], correctOrder: ['Marju', 'takes', 'good', 'pictures'] },
+                    { type: 'word_order', q: 'Put these words in order to make a sentence.', tokens: ['subject', 'she', 'a', 'chooses'], correctOrder: ['she', 'chooses', 'a', 'subject'] },
+                    { type: 'word_order', q: 'Put these words in order to make a sentence.', tokens: ['through', 'she', 'looks', 'the', 'lens'], correctOrder: ['she', 'looks', 'through', 'the', 'lens'] },
+                    { type: 'word_order', q: 'Put these words in order to make a sentence.', tokens: ['right', 'shot', 'to', 'get', 'the', 'is', 'hard', 'It'], correctOrder: ['It', 'is', 'hard', 'to', 'get', 'the', 'right', 'shot'] },
+                    { type: 'word_order', q: 'Put these words in order to make a sentence.', tokens: ['shutter', 'she', 'erases', 'The'], correctOrder: ['she', 'erases', 'The', 'shutter'] },
 
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Sentence Subject',
+                        content: `
+                            <p>The <strong>subject</strong> of a sentence tells us WHO or WHAT the sentence is about \u2014 usually the naming word near the start.</p>
+                            <p>Example: <em>"The cat watches the mouse."</em> \u2014 subject = "The cat" (who the sentence is about).</p>
+                            <p class="exam-lesson-tip">Trick: ask "Who or what is doing something in this sentence?" \u2014 that word is the subject.</p>
+                        `
+                    },
                     { type: 'text', q: 'Fill in the subject: The ______ are waving at us.', answers: ['family'] },
                     { type: 'text', q: 'Fill in the subject: The ______ is smiling.', answers: ['boy'] },
                     { type: 'text', q: 'Fill in the subject: The ______ is wearing a skirt.', answers: ['girl'] },
@@ -2940,6 +3105,15 @@
                     { type: 'text', q: 'Fill in the subject: The ______ is up in the sky.', answers: ['sun'] },
                     { type: 'text', q: 'Fill in the subject: The ______ has two windows.', answers: ['house'] },
 
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Sentence Action',
+                        content: `
+                            <p>Some words in a sentence tell us <strong>what happens</strong> \u2014 this is called the action word (or verb).</p>
+                            <p>Example: <em>"A faucet drips."</em> \u2014 action = "drips" (what happens).</p>
+                            <p class="exam-lesson-tip">Trick: ask "What is happening in this sentence?" \u2014 that word is the action word.</p>
+                        `
+                    },
                     { type: 'text', q: 'Fill in the action word: A broom ______.', answers: ['sweeps'] },
                     { type: 'text', q: 'Fill in the action word: A bell ______.', answers: ['rings'] },
                     { type: 'text', q: 'Fill in the action word: A ball ______.', answers: ['bounces'] },
@@ -2954,6 +3128,15 @@
                         hint: 'Best-guess pairing from the notebook photo \u2014 please double check against the book if possible.'
                     },
 
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Statements & Questions',
+                        content: `
+                            <p>A sentence that <strong>tells</strong> us something is a <strong>statement</strong>. Example: "The weather was cold."</p>
+                            <p>A sentence that <strong>asks</strong> something is a <strong>question</strong>. Example: "Was the weather cold?"</p>
+                            <p class="exam-lesson-tip">Trick: Statements end with a period (.). Questions end with a question mark (?) and often start with words like Did, Was, Will, How, or What.</p>
+                        `
+                    },
                     { type: 'mcq', q: 'Statement or Question? "Mahira jumps into the pool."', options: ['Statement', 'Question'], answer: 'Statement' },
                     { type: 'mcq', q: 'Statement or Question? "It was a cold day."', options: ['Statement', 'Question'], answer: 'Statement' },
                     { type: 'mcq', q: 'Statement or Question? "How did the water feel?"', options: ['Statement', 'Question'], answer: 'Question' },
@@ -2963,11 +3146,34 @@
                     { type: 'mcq', q: 'Statement or Question? "Mahira needed a towel."', options: ['Statement', 'Question'], answer: 'Statement' },
                     { type: 'mcq', q: 'Statement or Question? "Will she swim again tomorrow?"', options: ['Statement', 'Question'], answer: 'Question' },
 
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Capital Letters & End Marks',
+                        content: `
+                            <p>Every sentence begins with a <strong>capital letter</strong>.</p>
+                            <p>A statement ends with a <strong>period ( . )</strong>. A question ends with a <strong>question mark ( ? )</strong>.</p>
+                            <table>
+                                <tr><th>Type</th><th>Example</th></tr>
+                                <tr><td>Statement</td><td>It is time for the competition.</td></tr>
+                                <tr><td>Question</td><td>Are the teams ready?</td></tr>
+                            </table>
+                            <p class="exam-lesson-tip">Trick: check the first letter (capital?) and the last mark (. or ?) every time you write a sentence.</p>
+                        `
+                    },
                     { type: 'mcq', q: 'Which sentence is correctly written?', options: ['It is time for the competition.', 'it is time for the competition'], answer: 'It is time for the competition.' },
                     { type: 'mcq', q: 'Which sentence is correctly written?', options: ['Are the teams ready?', 'are the teams ready'], answer: 'Are the teams ready?' },
                     { type: 'mcq', q: 'Which sentence is correctly written?', options: ['How many teams are in the competition?', 'how many teams are in the competition'], answer: 'How many teams are in the competition?' },
                     { type: 'mcq', q: 'Which sentence is correctly written?', options: ['How many days will they play?', 'how many days will they play'], answer: 'How many days will they play?' },
 
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Commands & Exclamations',
+                        content: `
+                            <p>A <strong>command</strong> is a sentence that tells you what to do. Its subject is "you," but we don't say or write it. Example: "Close the door."</p>
+                            <p>An <strong>exclamation</strong> is a sentence that shows strong feeling, and ends with an exclamation mark ( ! ). Example: "That's wonderful!"</p>
+                            <p class="exam-lesson-tip">Trick: if it's giving an instruction, it's a command. If it's showing excitement or surprise, it's an exclamation!</p>
+                        `
+                    },
                     { type: 'mcq', q: 'Which sentence is a command?', options: ['Close the door.', 'The door is closed.'], answer: 'Close the door.' },
                     { type: 'mcq', q: 'Which sentence is an exclamation?', options: ["That's wonderful!", 'That is nice.'], answer: "That's wonderful!" }
                 ]
@@ -3159,6 +3365,7 @@
             'english-pet-poem': [
                 { title: 'A. Comprehension: Where Is My Pet?', count: 6 },
                 { title: 'B. Understanding the Poem: Cats', count: 10 },
+                { title: 'Learn: Nouns & Common Nouns', count: 1 },
                 { title: 'C. Grammar: Common Nouns & Pronouns', count: 6 },
                 { title: 'D. Grammar: Sentence in Order', count: 4 },
                 { title: 'E. Grammar: Sentence Subject & Action', count: 5 },
@@ -3167,13 +3374,20 @@
                 { title: 'H. Copy the Poem: Cats', count: 5 }
             ],
             'english-sentences': [
+                { title: 'Learn: What Is a Sentence?', count: 1 },
                 { title: 'A. Sentence or Not a Sentence?', count: 6 },
+                { title: 'Learn: Sentence Word Order', count: 1 },
                 { title: 'B. Put the Words in Order', count: 5 },
+                { title: 'Learn: Sentence Subject', count: 1 },
                 { title: 'C. Find the Sentence Subject', count: 6 },
+                { title: 'Learn: Sentence Action', count: 1 },
                 { title: 'D. Find the Sentence Action', count: 5 },
                 { title: 'E. Match the Sentence Parts', count: 1 },
+                { title: 'Learn: Statements & Questions', count: 1 },
                 { title: 'F. Statements & Questions', count: 8 },
+                { title: 'Learn: Capital Letters & End Marks', count: 1 },
                 { title: 'G. Capital Letters & End Marks', count: 4 },
+                { title: 'Learn: Commands & Exclamations', count: 1 },
                 { title: 'H. Commands & Exclamations', count: 2 }
             ],
             'hindi': [
@@ -3211,7 +3425,8 @@
             const cloned = subjectData.questions.map((item) => ({
                 ...item,
                 options: item.options ? shuffleArray(item.options) : undefined,
-                answers: item.answers ? [...item.answers] : undefined
+                answers: item.answers ? [...item.answers] : undefined,
+                tokens: item.tokens ? shuffleArray(item.tokens) : undefined
             }));
             return shuffleArray(cloned);
         }
@@ -3223,7 +3438,8 @@
             const sourceQuestions = subjectData.questions.map((item) => ({
                 ...item,
                 options: item.options ? shuffleArray(item.options) : undefined,
-                answers: item.answers ? [...item.answers] : undefined
+                answers: item.answers ? [...item.answers] : undefined,
+                tokens: item.tokens ? shuffleArray(item.tokens) : undefined
             }));
             const preserveOrder = subject === 'hindi-writing-practice';
             if (!blueprint || blueprint.length === 0) {
@@ -3248,6 +3464,32 @@
             showExamSubject(activeExamSubject);
         }
 
+        function initConceptsGame() {
+            const container = document.getElementById('conceptsContent');
+            if (!container) return;
+            let html = '';
+            let anyLessons = false;
+            Object.keys(examPrepData).forEach(subjectKey => {
+                const subjectData = examPrepData[subjectKey];
+                const lessons = (subjectData.questions || []).filter(item => item.type === 'lesson');
+                if (lessons.length === 0) return;
+                anyLessons = true;
+                html += `<div class="exam-section" style="margin-bottom:18px;">`;
+                html += `<div class="exam-section-head"><h4>${subjectData.title}</h4><span class="exam-count-pill">${lessons.length} concept${lessons.length > 1 ? 's' : ''}</span></div>`;
+                lessons.forEach(lesson => {
+                    html += `<div class="exam-lesson" style="margin-bottom:12px;">`;
+                    html += `<h4>${lesson.title}</h4>`;
+                    html += lesson.content;
+                    html += `</div>`;
+                });
+                html += `</div>`;
+            });
+            if (!anyLessons) {
+                html = '<p class="example-sentence">No concept lessons yet. Check back after new ones are added!</p>';
+            }
+            container.innerHTML = html;
+        }
+
         function normalizeExamAnswer(value) {
             return (value || '').toString().trim().toLowerCase().replace(/\s+/g, ' ');
         }
@@ -3262,11 +3504,13 @@
                 return `Hint: Starts with "${String(ans).trim().charAt(0)}"`;
             }
             if (item.type === 'tf') return 'Hint: Choose True or False.';
+            if (item.type === 'word_order') return 'Hint: Drag or tap each word into the boxes, in the correct order.';
             return 'Hint: Read all options carefully and pick the best one.';
         }
 
         function shouldUseWordBank(subject, item) {
-            return (subject === 'hindi' || subject === 'hindi-writing-practice' || subject === 'kannada') && item.type === 'text';
+            const wordBankSubjects = ['hindi', 'hindi-writing-practice', 'kannada', 'english-pet-poem', 'english-sentences'];
+            return wordBankSubjects.includes(subject) && item.type === 'text';
         }
 
         function hasDevanagari(text) {
@@ -3381,6 +3625,70 @@
             const chip = document.getElementById(selectedWordChipId);
             if (!chip || chip.classList.contains('used')) return;
             placeWordInBlank(sectionIdx, questionIdx, chip.dataset.word || '', chip.id);
+        }
+
+        function placeOrderChipInSlot(sectionIdx, questionIdx, slotIdx, word, chipId) {
+            if (!word || !chipId) return;
+            const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
+            if (!item || item.type !== 'word_order') return;
+            if (!item.slots) item.slots = new Array((item.correctOrder || []).length).fill(null);
+
+            // If this exact chip is already sitting in a different slot, free that slot
+            item.slots = item.slots.map(slot => (slot && slot.chipId === chipId ? null : slot));
+
+            item.slots[slotIdx] = { word, chipId };
+            selectedWordChipId = null;
+            showExamSubject(activeExamSubject, true);
+        }
+
+        function dropOrderChip(event, sectionIdx, questionIdx, slotIdx) {
+            event.preventDefault();
+            const word = event.dataTransfer.getData('text/plain');
+            const chipId = event.dataTransfer.getData('chipId');
+            placeOrderChipInSlot(sectionIdx, questionIdx, slotIdx, word, chipId);
+        }
+
+        function fillOrderSlotFromSelected(sectionIdx, questionIdx, slotIdx) {
+            const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
+            if (!item || item.type !== 'word_order') return;
+            if (!selectedWordChipId) {
+                // Tapping a filled slot with nothing selected returns that word to the bank
+                if (item.slots && item.slots[slotIdx]) {
+                    item.slots[slotIdx] = null;
+                    showExamSubject(activeExamSubject, true);
+                }
+                return;
+            }
+            const chip = document.getElementById(selectedWordChipId);
+            if (!chip) return;
+            placeOrderChipInSlot(sectionIdx, questionIdx, slotIdx, chip.dataset.word || '', chip.id);
+        }
+
+        function clearWordOrder(sectionIdx, questionIdx) {
+            const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
+            if (!item || item.type !== 'word_order') return;
+            item.slots = new Array((item.correctOrder || []).length).fill(null);
+            showExamSubject(activeExamSubject, true);
+        }
+
+        function renderWordOrder(item, sectionIdx, questionIdx) {
+            if (!item.slots) item.slots = new Array((item.correctOrder || []).length).fill(null);
+            let html = `<div class="exam-order-slots">`;
+            item.slots.forEach((slot, slotIdx) => {
+                const filledClass = slot ? ' filled' : '';
+                const label = slot ? slot.word : '\u2013\u2013\u2013';
+                html += `<div class="exam-order-slot${filledClass}" ondragover="allowWordDrop(event)" ondrop="dropOrderChip(event, ${sectionIdx}, ${questionIdx}, ${slotIdx})" onclick="fillOrderSlotFromSelected(${sectionIdx}, ${questionIdx}, ${slotIdx})">${label}</div>`;
+            });
+            html += `</div>`;
+            html += `<div class="exam-order-bank">`;
+            (item.tokens || []).forEach((token, tokenIdx) => {
+                const chipId = `exam-order-chip-${sectionIdx}-${questionIdx}-${tokenIdx}`;
+                const isUsed = item.slots.some(s => s && s.chipId === chipId);
+                html += `<button type="button" id="${chipId}" class="exam-word-chip${isUsed ? ' used' : ''}" data-word="${String(token).replace(/"/g, '&quot;')}" draggable="true" ondragstart="startWordDrag(event)" onclick="selectWordChip('${chipId}')">${token}</button>`;
+            });
+            html += `</div>`;
+            html += `<button type="button" class="exam-action-btn secondary" onclick="clearWordOrder(${sectionIdx}, ${questionIdx}); playClickSound();">Clear</button>`;
+            return html;
         }
 
         function selectMatchLeft(sectionIdx, questionIdx, leftIdx) {
@@ -3885,6 +4193,9 @@
             if (item.type === 'word_search') {
                 return renderWordSearch(item, sectionIdx, questionIdx);
             }
+            if (item.type === 'word_order') {
+                return renderWordOrder(item, sectionIdx, questionIdx);
+            }
             if (useWordBank && item.type === 'text') {
                 return `<div class="exam-drop-zone" id="exam-drop-${sectionIdx}-${questionIdx}" ondragover="allowWordDrop(event)" ondrop="dropWordInBlank(event, ${sectionIdx}, ${questionIdx})" onclick="fillBlankFromSelected(${sectionIdx}, ${questionIdx})">Drop or tap a word here</div><input type="hidden" id="exam-input-${sectionIdx}-${questionIdx}" value="">`;
             }
@@ -3924,12 +4235,14 @@
             }
             let html = '';
             html += `<div class="exam-hero">`;
-            html += `<h3>Grade 1 ${subjectData.title} Practice Quiz</h3>`;
+            const gradeLabel = subjectGradeMap[subject] === 'grade2' ? 'Grade 2' : 'Grade 1';
+            html += `<h3>${gradeLabel} ${subjectData.title} Practice Quiz</h3>`;
             html += `<p>Based on your worksheet sections. Each section has its own submit button and reshuffles on every open/reset.</p>`;
             html += `</div>`;
             currentExamSections.forEach((section, sectionIdx) => {
+                const isLessonOnly = section.questions.every(item => item.type === 'lesson');
                 html += `<div class="exam-section">`;
-                html += `<div class="exam-section-head"><h4>${section.title}</h4><span class="exam-count-pill">${section.questions.length} questions</span></div>`;
+                html += `<div class="exam-section-head"><h4>${section.title}</h4><span class="exam-count-pill">${isLessonOnly ? 'Lesson' : section.questions.length + ' questions'}</span></div>`;
                 const sectionWordBank = [...new Set(
                     section.questions
                         .filter(item => shouldUseWordBank(activeExamSubject, item) && item.answers && item.answers[0])
@@ -3961,6 +4274,13 @@
                     const questionIdx = activeExamSubject === 'hindi-writing-practice'
                         ? (writingPracticeIndices[sectionIdx] || 0)
                         : localQuestionIdx;
+                    if (item.type === 'lesson') {
+                        html += `<div class="exam-lesson">`;
+                        html += `<h4>${item.title}</h4>`;
+                        html += item.content;
+                        html += `</div>`;
+                        return;
+                    }
                     const useWordBank = shouldUseWordBank(activeExamSubject, item);
                     html += `<div class="exam-question">`;
                     html += `<p>${questionIdx + 1}. ${item.q}</p>`;
@@ -3976,10 +4296,12 @@
                     html += `<div class="exam-feedback" id="exam-feedback-${sectionIdx}-${questionIdx}"></div>`;
                     html += `</div>`;
                 });
-                html += `<div class="exam-actions">`;
-                html += `<button class="exam-action-btn" onclick="checkExamSection(${sectionIdx}); playClickSound();">Submit ${section.title}</button>`;
-                html += `</div>`;
-                html += `<div class="exam-section-result" id="exam-section-result-${sectionIdx}"></div>`;
+                if (!isLessonOnly) {
+                    html += `<div class="exam-actions">`;
+                    html += `<button class="exam-action-btn" onclick="checkExamSection(${sectionIdx}); playClickSound();">Submit ${section.title}</button>`;
+                    html += `</div>`;
+                    html += `<div class="exam-section-result" id="exam-section-result-${sectionIdx}"></div>`;
+                }
                 html += `</div>`;
             });
 
@@ -3996,10 +4318,12 @@
             if (!subjectData) return;
             const section = currentExamSections[sectionIdx];
             if (!section || !section.questions || section.questions.length === 0) return;
+            if (section.questions.every(item => item.type === 'lesson')) return;
             let score = 0;
             let scorable = 0;
 
             section.questions.forEach((item, questionIdx) => {
+                if (item.type === 'lesson') return;
                 const feedback = document.getElementById(`exam-feedback-${sectionIdx}-${questionIdx}`);
                 if (item.type === 'practice' || item.type === 'trace_word') {
                     feedback.textContent = 'Practice item: self-check using worksheet/notes.';
@@ -4045,6 +4369,19 @@
                     score += pairScore;
                     feedback.textContent = `Matches correct: ${pairScore} / ${expected.length}`;
                     feedback.style.color = pairScore === expected.length ? '#2e9f54' : '#d94b4b';
+                    return;
+                }
+                if (item.type === 'word_order') {
+                    const correctOrder = item.correctOrder || [];
+                    const slots = item.slots || [];
+                    let wordScore = 0;
+                    correctOrder.forEach((word, idx) => {
+                        if (slots[idx] && slots[idx].word === word) wordScore += 1;
+                    });
+                    scorable += correctOrder.length;
+                    score += wordScore;
+                    feedback.textContent = `Words correct: ${wordScore} / ${correctOrder.length}`;
+                    feedback.style.color = wordScore === correctOrder.length ? '#2e9f54' : '#d94b4b';
                     return;
                 }
                 let correct = false;
@@ -4131,6 +4468,7 @@ function resetExamPrep() {
             else if (game === 'jumble') initJumbleGame();
             else if (game === 'memory') initMemoryGame();
             else if (game === 'examPrep') initExamPrep();
+            else if (game === 'concepts') initConceptsGame();
         }
         
         function backToMenu() {
