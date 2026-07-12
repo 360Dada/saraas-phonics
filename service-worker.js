@@ -1,8 +1,11 @@
 // Service Worker for Phonics Fun App
-const CACHE_NAME = 'phonics-fun-v1';
+const CACHE_NAME = 'phonics-fun-v2';
 const urlsToCache = [
-  './phonics-app-enhanced.html',
-  './manifest.json'
+  './index.html',
+  './manifest.json',
+  './icon.png',
+  './Ducks_Ditty.mp3',
+  './Cats_Poem.mp3'
 ];
 
 // Install event - cache files

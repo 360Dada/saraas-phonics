@@ -263,6 +263,29 @@
             color: #1f2a38;
         }
 
+        .exam-grades {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .exam-grade-btn {
+            font-family: "Baloo 2", sans-serif;
+            border: 2px solid var(--purple-fun);
+            background: #fff;
+            color: var(--purple-fun);
+            border-radius: 999px;
+            padding: 8px 20px;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .exam-grade-btn.active {
+            background: var(--purple-fun);
+            color: #fff;
+        }
+
         .exam-hero {
             background: #ececec;
             border: 2px solid #d3d3d3;
@@ -2032,14 +2055,20 @@
 
             <div class="word-card exam-card">
                 <div class="quiz-question">Exam Preparation</div>
+                <div class="exam-grades">
+                    <button class="exam-grade-btn active" data-grade="grade1" onclick="showExamGrade('grade1'); playClickSound();">Grade 1</button>
+                    <button class="exam-grade-btn" data-grade="grade2" onclick="showExamGrade('grade2'); playClickSound();">Grade 2</button>
+                </div>
                 <div class="exam-subjects">
-                    <button class="exam-subject-btn active" data-subject="computer-science" onclick="showExamSubject('computer-science'); playClickSound();">Computer Science</button>
-                    <button class="exam-subject-btn" data-subject="maths" onclick="showExamSubject('maths'); playClickSound();">Maths</button>
-                    <button class="exam-subject-btn" data-subject="evs" onclick="showExamSubject('evs'); playClickSound();">EVS</button>
-                    <button class="exam-subject-btn" data-subject="english" onclick="showExamSubject('english'); playClickSound();">English</button>
-                    <button class="exam-subject-btn" data-subject="hindi" onclick="showExamSubject('hindi'); playClickSound();">Hindi</button>
-                    <button class="exam-subject-btn" data-subject="hindi-writing-practice" onclick="showExamSubject('hindi-writing-practice'); playClickSound();">Hindi Writing Practice</button>
-                    <button class="exam-subject-btn" data-subject="kannada" onclick="showExamSubject('kannada'); playClickSound();">Kannada</button>
+                    <button class="exam-subject-btn active" data-subject="computer-science" data-grade="grade1" onclick="showExamSubject('computer-science'); playClickSound();">Computer Science</button>
+                    <button class="exam-subject-btn" data-subject="maths" data-grade="grade1" onclick="showExamSubject('maths'); playClickSound();">Maths</button>
+                    <button class="exam-subject-btn" data-subject="evs" data-grade="grade1" onclick="showExamSubject('evs'); playClickSound();">EVS</button>
+                    <button class="exam-subject-btn" data-subject="english" data-grade="grade1" onclick="showExamSubject('english'); playClickSound();">English</button>
+                    <button class="exam-subject-btn" data-subject="english-pet-poem" data-grade="grade2" onclick="showExamSubject('english-pet-poem'); playClickSound();">English: Pets &amp; Poems</button>
+                    <button class="exam-subject-btn" data-subject="english-sentences" data-grade="grade2" onclick="showExamSubject('english-sentences'); playClickSound();">English: Sentences</button>
+                    <button class="exam-subject-btn" data-subject="hindi" data-grade="grade1" onclick="showExamSubject('hindi'); playClickSound();">Hindi</button>
+                    <button class="exam-subject-btn" data-subject="hindi-writing-practice" data-grade="grade1" onclick="showExamSubject('hindi-writing-practice'); playClickSound();">Hindi Writing Practice</button>
+                    <button class="exam-subject-btn" data-subject="kannada" data-grade="grade1" onclick="showExamSubject('kannada'); playClickSound();">Kannada</button>
                 </div>
                 <div id="examPrepContent"></div>
             </div>
@@ -2812,6 +2841,137 @@
                     }
                 ]
             },
+            'english-pet-poem': {
+                title: 'English: Pets & Poems',
+                questions: [
+                    { type: 'mcq', q: "Who is the little girl in the story 'Where Is My Pet?'?", options: ['Nia', 'Meena', 'Priya'], answer: 'Nia' },
+                    { type: 'mcq', q: 'What kind of pet does Nia have?', options: ['a chameleon', 'a cat', 'a dog'], answer: 'a chameleon' },
+                    { type: 'text', q: 'Fill in the blank: On Tuesday, Nia painted her pet ______ colour.', answers: ['orange'] },
+                    { type: 'mcq', q: 'Why is Nia unable to find her pet?', options: ['It changes colour and hides', 'It ran far away', 'It is too big to see'], answer: 'It changes colour and hides' },
+                    { type: 'tf', q: 'A chameleon can change its colour.', answer: 'True' },
+                    { type: 'tf', q: "Nia's pet always stays the same colour.", answer: 'False' },
+
+                    { type: 'mcq', q: 'This describes: a flat piece of furniture with four legs on which we keep our books and study.', options: ['a chair', 'a bed', 'a table'], answer: 'a table' },
+                    { type: 'mcq', q: 'This describes: a musical instrument which has many black and white keys.', options: ['a guitar', 'a piano', 'a flute'], answer: 'a piano' },
+                    { type: 'mcq', q: 'This describes: a place in the room from which you can look outside, and near it you can keep plants or even sit.', options: ['a door', 'a shelf', 'a window-ledge'], answer: 'a window-ledge' },
+                    { type: 'mcq', q: 'This describes: a piece of furniture where you store your clothes, shoes and bags.', options: ['a cupboard', 'a chair', 'a bookshelf'], answer: 'a cupboard' },
+                    { type: 'mcq', q: 'This describes: a pair of coverings for your feet, made of a strong material.', options: ['a pair of socks', 'shoes', 'slippers'], answer: 'shoes' },
+                    { type: 'tf', q: 'Cats are very particular about where they sleep.', answer: 'False' },
+                    { type: 'tf', q: 'Cats sleep on both soft and hard surfaces.', answer: 'True' },
+                    { type: 'tf', q: 'Cats like to sleep only in places with a lot of sunshine.', answer: 'False' },
+                    { type: 'tf', q: 'Cats can only sleep on furniture.', answer: 'False' },
+                    { type: 'tf', q: 'Cats sleep in different spots.', answer: 'True' },
+
+                    { type: 'mcq', q: "Which word is the common noun? 'The girl fed her pet.'", options: ['girl', 'her', 'fed'], answer: 'girl' },
+                    { type: 'mcq', q: "Which word is the common noun? 'A chameleon lives in the garden.'", options: ['garden', 'A', 'in'], answer: 'garden' },
+                    { type: 'text', q: 'Fill in the correct pronoun (he/she/it/they): Nia has a pet. ______ loves her pet very much.', answers: ['she'] },
+                    { type: 'text', q: 'Fill in the correct pronoun: The chameleon is hiding. ______ changed its colour.', answers: ['it'] },
+                    { type: 'text', q: 'Fill in the correct pronoun: Ravi and Meena are friends. ______ play together.', answers: ['they'] },
+                    { type: 'mcq', q: "Which word is the pronoun? 'She loves cats.'", options: ['She', 'loves', 'cats'], answer: 'She' },
+
+                    { type: 'text', q: 'Put these words in order to make a sentence: pet. / has / Nia / a', answers: ['nia has a pet', 'nia has a pet.'] },
+                    { type: 'text', q: 'Put these words in order to make a sentence: colour. / cat / The / orange / an / is', answers: ['the cat is an orange colour', 'the cat is an orange colour.'] },
+                    { type: 'text', q: 'Put these words in order to make a sentence: garden. / plays / boy / the / in / The', answers: ['the boy plays in the garden', 'the boy plays in the garden.'] },
+                    { type: 'text', q: 'Put these words in order to make a sentence: anywhere. / sleep / Cats / can', answers: ['cats can sleep anywhere', 'cats can sleep anywhere.'] },
+
+                    { type: 'mcq', q: "In the sentence 'Nia paints her pet,' what is the subject?", options: ['Nia', 'paints', 'pet'], answer: 'Nia' },
+                    { type: 'mcq', q: "In the sentence 'Nia paints her pet,' what is the action word?", options: ['paints', 'Nia', 'pet'], answer: 'paints' },
+                    { type: 'mcq', q: "In the sentence 'The cat runs fast,' what is the subject?", options: ['cat', 'runs', 'fast'], answer: 'cat' },
+                    { type: 'mcq', q: "In the sentence 'The cat runs fast,' what is the action word?", options: ['runs', 'cat', 'fast'], answer: 'runs' },
+                    { type: 'text', q: 'Fill in the action word: The children ______ outside. (play / plays)', answers: ['play'] },
+
+                    { type: 'mcq', q: "'Nia has a pet chameleon.' — What kind of sentence is this?", options: ['Statement', 'Question', 'Command', 'Exclamation'], answer: 'Statement' },
+                    { type: 'mcq', q: "'What colour is your pet?' — What kind of sentence is this?", options: ['Question', 'Statement', 'Command', 'Exclamation'], answer: 'Question' },
+                    { type: 'mcq', q: "'Please close the cupboard.' — What kind of sentence is this?", options: ['Command', 'Statement', 'Question', 'Exclamation'], answer: 'Command' },
+                    { type: 'mcq', q: "'What a beautiful cat!' — What kind of sentence is this?", options: ['Exclamation', 'Statement', 'Question', 'Command'], answer: 'Exclamation' },
+                    { type: 'mcq', q: "'Did the cat sleep on the piano?' — What kind of sentence is this?", options: ['Question', 'Statement', 'Command', 'Exclamation'], answer: 'Question' },
+                    { type: 'mcq', q: "Which end mark completes this sentence correctly? 'Where is your pet hiding__'", options: ['?', '.', '!'], answer: '?' },
+                    { type: 'mcq', q: "Which end mark completes this sentence correctly? 'Wow, the chameleon changed its colour__'", options: ['!', '.', '?'], answer: '!' },
+                    { type: 'mcq', q: "Which end mark completes this sentence correctly? 'Cats sleep almost anywhere__'", options: ['.', '?', '!'], answer: '.' },
+
+                    {
+                        type: 'poem_recite',
+                        q: 'Recitation Practice: Cats',
+                        audioSrc: 'Cats_Poem.mp3',
+                        audioSegments: [
+                            { start: 0, end: 6.99 },
+                            { start: 6.99, end: 12.98 },
+                            { start: 12.98, end: 20.60 },
+                            { start: 20.60, end: 26.51 },
+                            { start: 26.51, end: 33.33 }
+                        ],
+                        stanzas: [
+                            "Cats sleep\nAnywhere,\nAny table,\nAny chair,",
+                            "Top of piano,\nWindow-ledge,\nIn the middle,\nOn the edge,",
+                            "Open drawer,\nEmpty shoe,\nAnybody's\nLap will do,",
+                            "Fitted in a\nCardboard box,\nIn the cupboard\nWith your frocks\u2014",
+                            "Anywhere!\nThey don't care!\nCats sleep\nAnywhere."
+                        ],
+                        hint: 'Choose a paragraph, then use Play, Pause, or Stop to listen and read along.'
+                    },
+
+                    { type: 'practice', q: 'Copy this verse neatly in your notebook:\n"Cats sleep\nAnywhere,\nAny table,\nAny chair,"', hint: 'Practice item: write it out by hand, then self-check spelling and neatness.' },
+                    { type: 'practice', q: 'Copy this verse neatly in your notebook:\n"Top of piano,\nWindow-ledge,\nIn the middle,\nOn the edge,"', hint: 'Practice item: write it out by hand, then self-check spelling and neatness.' },
+                    { type: 'practice', q: "Copy this verse neatly in your notebook:\n\"Open drawer,\nEmpty shoe,\nAnybody's\nLap will do,\"", hint: 'Practice item: write it out by hand, then self-check spelling and neatness.' },
+                    { type: 'practice', q: 'Copy this verse neatly in your notebook:\n"Fitted in a\nCardboard box,\nIn the cupboard\nWith your frocks\u2014"', hint: 'Practice item: write it out by hand, then self-check spelling and neatness.' },
+                    { type: 'practice', q: "Copy this verse neatly in your notebook:\n\"Anywhere!\nThey don't care!\nCats sleep\nAnywhere.\"", hint: 'Practice item: write it out by hand, then self-check spelling and neatness.' }
+                ]
+            },
+            'english-sentences': {
+                title: 'English: Sentences',
+                questions: [
+                    { type: 'mcq', q: 'Is this a sentence or not a sentence? "The melody is soothing."', options: ['Sentence', 'Not a sentence'], answer: 'Sentence' },
+                    { type: 'mcq', q: 'Is this a sentence or not a sentence? "Music helps me calm down."', options: ['Sentence', 'Not a sentence'], answer: 'Sentence' },
+                    { type: 'mcq', q: 'Is this a sentence or not a sentence? "Music lights up the party."', options: ['Sentence', 'Not a sentence'], answer: 'Sentence' },
+                    { type: 'mcq', q: 'Is this a sentence or not a sentence? "The music enjoy"', options: ['Sentence', 'Not a sentence'], answer: 'Not a sentence' },
+                    { type: 'mcq', q: 'Is this a sentence or not a sentence? "Into my ears"', options: ['Sentence', 'Not a sentence'], answer: 'Not a sentence' },
+                    { type: 'mcq', q: 'Is this a sentence or not a sentence? "People listen in delight."', options: ['Sentence', 'Not a sentence'], answer: 'Sentence' },
+
+                    { type: 'text', q: 'Put these words in order to make a sentence: good / Marju / pictures / takes', answers: ['marju takes good pictures', 'marju takes good pictures.'] },
+                    { type: 'text', q: 'Put these words in order to make a sentence: subject / she / a / chooses', answers: ['she chooses a subject', 'she chooses a subject.'] },
+                    { type: 'text', q: 'Put these words in order to make a sentence: through / she / looks / the / lens', answers: ['she looks through the lens', 'she looks through the lens.'] },
+                    { type: 'text', q: 'Put these words in order to make a sentence: right / shot / to / get / the / is / hard / It', answers: ['it is hard to get the right shot', 'it is hard to get the right shot.'] },
+                    { type: 'text', q: 'Put these words in order to make a sentence: shutter / she / erases / The', answers: ['she erases the shutter', 'she erases the shutter.'] },
+
+                    { type: 'text', q: 'Fill in the subject: The ______ are waving at us.', answers: ['family'] },
+                    { type: 'text', q: 'Fill in the subject: The ______ is smiling.', answers: ['boy'] },
+                    { type: 'text', q: 'Fill in the subject: The ______ is wearing a skirt.', answers: ['girl'] },
+                    { type: 'text', q: 'Fill in the subject: The ______ is wagging its tail.', answers: ['dog'] },
+                    { type: 'text', q: 'Fill in the subject: The ______ is up in the sky.', answers: ['sun'] },
+                    { type: 'text', q: 'Fill in the subject: The ______ has two windows.', answers: ['house'] },
+
+                    { type: 'text', q: 'Fill in the action word: A broom ______.', answers: ['sweeps'] },
+                    { type: 'text', q: 'Fill in the action word: A bell ______.', answers: ['rings'] },
+                    { type: 'text', q: 'Fill in the action word: A ball ______.', answers: ['bounces'] },
+                    { type: 'text', q: 'Fill in the action word: A clock ______.', answers: ['ticks'] },
+                    { type: 'text', q: 'Fill in the action word: A ruler ______.', answers: ['measures'] },
+
+                    {
+                        type: 'match_lines',
+                        q: 'Draw a line to match the two parts of each sentence.',
+                        left: ['A loose shutter', 'The air', 'A squirrel', 'The grass', 'The dust'],
+                        right: ['creaked loudly', 'smelled sweet', 'ran into the cabin', 'grew over the steps', 'covered everything'],
+                        hint: 'Best-guess pairing from the notebook photo \u2014 please double check against the book if possible.'
+                    },
+
+                    { type: 'mcq', q: 'Statement or Question? "Mahira jumps into the pool."', options: ['Statement', 'Question'], answer: 'Statement' },
+                    { type: 'mcq', q: 'Statement or Question? "It was a cold day."', options: ['Statement', 'Question'], answer: 'Statement' },
+                    { type: 'mcq', q: 'Statement or Question? "How did the water feel?"', options: ['Statement', 'Question'], answer: 'Question' },
+                    { type: 'mcq', q: 'Statement or Question? "How long did Mahira stay in the pool?"', options: ['Statement', 'Question'], answer: 'Question' },
+                    { type: 'mcq', q: 'Statement or Question? "She swam for a long time."', options: ['Statement', 'Question'], answer: 'Statement' },
+                    { type: 'mcq', q: 'Statement or Question? "Did she get sick?"', options: ['Statement', 'Question'], answer: 'Question' },
+                    { type: 'mcq', q: 'Statement or Question? "Mahira needed a towel."', options: ['Statement', 'Question'], answer: 'Statement' },
+                    { type: 'mcq', q: 'Statement or Question? "Will she swim again tomorrow?"', options: ['Statement', 'Question'], answer: 'Question' },
+
+                    { type: 'mcq', q: 'Which sentence is correctly written?', options: ['It is time for the competition.', 'it is time for the competition'], answer: 'It is time for the competition.' },
+                    { type: 'mcq', q: 'Which sentence is correctly written?', options: ['Are the teams ready?', 'are the teams ready'], answer: 'Are the teams ready?' },
+                    { type: 'mcq', q: 'Which sentence is correctly written?', options: ['How many teams are in the competition?', 'how many teams are in the competition'], answer: 'How many teams are in the competition?' },
+                    { type: 'mcq', q: 'Which sentence is correctly written?', options: ['How many days will they play?', 'how many days will they play'], answer: 'How many days will they play?' },
+
+                    { type: 'mcq', q: 'Which sentence is a command?', options: ['Close the door.', 'The door is closed.'], answer: 'Close the door.' },
+                    { type: 'mcq', q: 'Which sentence is an exclamation?', options: ["That's wonderful!", 'That is nice.'], answer: "That's wonderful!" }
+                ]
+            },
             'hindi': {
                 title: 'Hindi',
                 questions: [
@@ -2926,6 +3086,38 @@
         };
 
         let activeExamSubject = 'computer-science';
+
+        const subjectGradeMap = {
+            'computer-science': 'grade1',
+            'maths': 'grade1',
+            'evs': 'grade1',
+            'english': 'grade1',
+            'hindi': 'grade1',
+            'hindi-writing-practice': 'grade1',
+            'kannada': 'grade1',
+            'english-pet-poem': 'grade2',
+            'english-sentences': 'grade2'
+        };
+
+        const gradeDefaultSubject = {
+            'grade1': 'computer-science',
+            'grade2': 'english-pet-poem'
+        };
+
+        function syncGradeUI(subject) {
+            const grade = subjectGradeMap[subject] || 'grade1';
+            document.querySelectorAll('.exam-grade-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.grade === grade);
+            });
+            document.querySelectorAll('.exam-subject-btn').forEach(btn => {
+                btn.style.display = (btn.dataset.grade === grade) ? '' : 'none';
+            });
+        }
+
+        function showExamGrade(grade) {
+            const subject = gradeDefaultSubject[grade];
+            if (subject) showExamSubject(subject);
+        }
         let currentExamSections = [];
         let selectedWordChipId = null;
         let activePoemAudio = null;
@@ -2963,6 +3155,26 @@
                 { title: 'VI. Gender Words', count: 8 },
                 { title: 'VII. Colour and Write the Diagram Name', count: 1 },
                 { title: 'VIII. Recitation of Poem', count: 1 }
+            ],
+            'english-pet-poem': [
+                { title: 'A. Comprehension: Where Is My Pet?', count: 6 },
+                { title: 'B. Understanding the Poem: Cats', count: 10 },
+                { title: 'C. Grammar: Common Nouns & Pronouns', count: 6 },
+                { title: 'D. Grammar: Sentence in Order', count: 4 },
+                { title: 'E. Grammar: Sentence Subject & Action', count: 5 },
+                { title: 'F. Kinds of Sentences', count: 8 },
+                { title: 'G. Read & Recite: Cats', count: 1 },
+                { title: 'H. Copy the Poem: Cats', count: 5 }
+            ],
+            'english-sentences': [
+                { title: 'A. Sentence or Not a Sentence?', count: 6 },
+                { title: 'B. Put the Words in Order', count: 5 },
+                { title: 'C. Find the Sentence Subject', count: 6 },
+                { title: 'D. Find the Sentence Action', count: 5 },
+                { title: 'E. Match the Sentence Parts', count: 1 },
+                { title: 'F. Statements & Questions', count: 8 },
+                { title: 'G. Capital Letters & End Marks', count: 4 },
+                { title: 'H. Commands & Exclamations', count: 2 }
             ],
             'hindi': [
                 { title: '1. एक के अनेक शब्द', count: 8 },
@@ -3692,6 +3904,7 @@
 
         function showExamSubject(subject, preserveState = false) {
             activeExamSubject = subject;
+            syncGradeUI(subject);
             document.querySelectorAll('.exam-subject-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.subject === subject);
             });
