@@ -2173,6 +2173,7 @@
                     <button class="exam-subject-btn" data-subject="english" data-grade="grade1" onclick="showExamSubject('english'); playClickSound();">English</button>
                     <button class="exam-subject-btn" data-subject="english-pet-poem" data-grade="grade2" onclick="showExamSubject('english-pet-poem'); playClickSound();">English: Pets &amp; Poems</button>
                     <button class="exam-subject-btn" data-subject="english-sentences" data-grade="grade2" onclick="showExamSubject('english-sentences'); playClickSound();">English: Sentences</button>
+                    <button class="exam-subject-btn" data-subject="evs-me-and-myself" data-grade="grade2" onclick="showExamSubject('evs-me-and-myself'); playClickSound();">EVS: Me and Myself</button>
                     <button class="exam-subject-btn" data-subject="hindi" data-grade="grade1" onclick="showExamSubject('hindi'); playClickSound();">Hindi</button>
                     <button class="exam-subject-btn" data-subject="hindi-writing-practice" data-grade="grade1" onclick="showExamSubject('hindi-writing-practice'); playClickSound();">Hindi Writing Practice</button>
                     <button class="exam-subject-btn" data-subject="kannada" data-grade="grade1" onclick="showExamSubject('kannada'); playClickSound();">Kannada</button>
@@ -2998,8 +2999,14 @@
                                 <tr><th>Repetitive (says the name twice)</th><th>Natural (pronoun replaces the name)</th></tr>
                                 <tr><td>Nia has a pet. Nia loves her pet.</td><td>Nia has a pet. <strong>She</strong> loves her pet.</td></tr>
                             </table>
-                            <p>Here, <em>Nia</em> is the proper noun (the specific name), and <em>She</em> is the pronoun standing in for Nia the second time.</p>
-                            <p class="exam-lesson-tip">Trick: a proper noun is a NAME. A pronoun is a STAND-IN for a name. If the word could be swapped for he/she/it/they/we without changing the meaning, it's a pronoun \u2014 not a proper noun.</p>
+                            <p>Here, <em>Nia</em> is the proper noun (the specific name), <em>She</em> is the pronoun standing in for Nia the second time, and <em>pet</em> is the common noun (any pet, not one special one).</p>
+                            <table>
+                                <tr><th>Word</th><th>Type</th><th>Why</th></tr>
+                                <tr><td>Nia</td><td>Proper noun</td><td>one specific, special girl (capital letter)</td></tr>
+                                <tr><td>pet</td><td>Common noun</td><td>any pet, not one special one</td></tr>
+                                <tr><td>She</td><td>Pronoun</td><td>stands in for "Nia" instead of repeating it</td></tr>
+                            </table>
+                            <p class="exam-lesson-tip">Trick: a proper noun is a NAME. A common noun is a GENERAL word. A pronoun is a STAND-IN for a name. If the word could be swapped for he/she/it/they/we without changing the meaning, it's a pronoun \u2014 not a proper noun.</p>
                         `
                     },
                     { type: 'mcq', q: "Which word is the common noun? 'The girl fed her pet.'", options: ['girl', 'her', 'fed'], answer: 'girl' },
@@ -3191,6 +3198,129 @@
                     { type: 'mcq', q: 'Which sentence is an exclamation?', options: ["That's wonderful!", 'That is nice.'], answer: "That's wonderful!" }
                 ]
             },
+            'evs-me-and-myself': {
+                title: 'EVS: Me and Myself',
+                questions: [
+                    {
+                        type: 'lesson',
+                        title: 'Learn: My Body',
+                        content: `
+                            <p>A part of the body that plays a specific role is called an <strong>organ</strong> \u2014 like the heart, brain, and skin.</p>
+                            <p>Parts of our body that can be seen from the outside, like the eyes, nose, ears, and skin, are called <strong>external organs</strong>. Parts that are inside the body, like the heart, lungs, brain, and stomach, are called <strong>internal organs</strong>.</p>
+                            <p><strong>Sense organs</strong> are the parts of our body that help us feel the things around us:</p>
+                            <table>
+                                <tr><th>Sense Organ</th><th>What It Does</th></tr>
+                                <tr><td>Eyes</td><td>help us see</td></tr>
+                                <tr><td>Ears</td><td>help us hear</td></tr>
+                                <tr><td>Nose</td><td>helps us smell</td></tr>
+                                <tr><td>Tongue</td><td>helps us taste, and also helps in speaking</td></tr>
+                                <tr><td>Skin</td><td>helps us touch and feel things</td></tr>
+                            </table>
+                            <p class="exam-lesson-tip">Fact: Skin is the largest organ in our body!</p>
+                            <p><strong>Limbs:</strong> Arms and legs are called limbs. We have two pairs of limbs \u2014 arms are the upper limbs, legs are the lower limbs.</p>
+                            <p><strong>Inside our body:</strong> The brain is inside our head and controls everything we do, including how we think and speak. The heart pumps blood inside our body \u2014 that thumping feeling on your chest is your heartbeat! The stomach helps in digestion \u2014 the process by which food is broken down into smaller forms so our body can absorb it.</p>
+                            <p class="exam-lesson-tip">Taking care of our sense organs: splash our eyes with clean water (never rub them hard), never put anything into our ears or nose, clean our tongue when we brush our teeth, and wash our hands and bathe daily to keep our skin clean.</p>
+                        `
+                    },
+                    { type: 'mcq', q: 'I hear the bell ringing with my ______.', options: ['nose', 'eyes', 'ears', 'heart'], answer: 'ears' },
+                    { type: 'mcq', q: 'I use my ______ to taste food.', options: ['lungs', 'heart', 'stomach', 'tongue'], answer: 'tongue' },
+                    { type: 'mcq', q: 'Which sense organ helps us to see?', options: ['Eyes', 'Ears', 'Skin'], answer: 'Eyes' },
+                    { type: 'mcq', q: 'Which sense organ helps us to smell things?', options: ['Nose', 'Tongue', 'Ears'], answer: 'Nose' },
+                    { type: 'tf', q: 'Skin is the largest organ in our body.', answer: 'True' },
+                    { type: 'text', q: 'Fill in the blank: Our tongue helps us to taste, and it also helps us in ______.', answers: ['speaking'] },
+
+                    { type: 'mcq', q: 'Which is an example of an external organ?', options: ['Eyes', 'Heart', 'Lungs'], answer: 'Eyes' },
+                    { type: 'mcq', q: 'Which is an example of an internal organ?', options: ['Brain', 'Nose', 'Skin'], answer: 'Brain' },
+                    { type: 'text', q: 'Fill in the blank: Arms and legs are called ______.', answers: ['limbs'] },
+                    { type: 'mcq', q: 'Which are the lower limbs?', options: ['Legs', 'Arms'], answer: 'Legs' },
+                    { type: 'mcq', q: 'Which internal organ controls everything we do, including thinking and speaking?', options: ['Brain', 'Stomach', 'Heart'], answer: 'Brain' },
+                    { type: 'mcq', q: 'Which internal organ pumps blood inside our body?', options: ['Heart', 'Stomach', 'Lungs'], answer: 'Heart' },
+                    { type: 'text', q: 'Fill in the blank: The process by which food is broken down into smaller forms so it can be absorbed by our body is called ______.', answers: ['digestion'] },
+                    {
+                        type: 'match_lines',
+                        q: 'Match the organ to what it does.',
+                        left: ['Pumps blood', 'Helps us to touch and feel things', 'Helps us to think'],
+                        right: ['Heart', 'Skin', 'Brain']
+                    },
+
+                    { type: 'mcq', q: 'What should we do to take care of our eyes?', options: ['Splash them with clean water regularly', 'Rub them hard'], answer: 'Splash them with clean water regularly' },
+                    { type: 'tf', q: 'We should put things into our ears.', answer: 'False' },
+                    { type: 'tf', q: 'We should not put anything into our nose.', answer: 'True' },
+                    { type: 'mcq', q: 'What should we do to keep our tongue clean?', options: ['Clean it regularly when we brush our teeth', 'Never clean it'], answer: 'Clean it regularly when we brush our teeth' },
+                    { type: 'mcq', q: 'What should we do to keep our skin clean?', options: ['Wash hands with soap and water, and bathe every day', 'Never wash our hands'], answer: 'Wash hands with soap and water, and bathe every day' },
+
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Being Healthy',
+                        content: `
+                            <p><strong>Keeping clean:</strong> brush your teeth twice a day, bathe every day with soap and water, wear clean clothes, keep your nails clipped (ask a grown-up), shampoo and comb your hair regularly, and wash your hands with soap and water after using the toilet.</p>
+                            <p><strong>Good eating habits:</strong> wash your hands before and after eating, eat well-cooked and fresh food (stale food can make you fall ill!), eat and drink from clean plates and glasses, rinse your mouth after eating, chew your food well, and eat meals at regular intervals.</p>
+                            <p class="exam-lesson-tip">Fact: World Health Day is celebrated on 7th April every year.</p>
+                            <p><strong>Staying fit:</strong> proper rest and exercise keep us fit. Walking, jogging, running, skipping, swimming, dancing, and yoga are all forms of exercise. Sleeping 7\u20138 hours a night gives us rest.</p>
+                            <p>Games played in an open space, like a park, are <strong>outdoor games</strong> (e.g. cricket, football). Games played inside a room are <strong>indoor games</strong> (e.g. ludo, carrom).</p>
+                            <p><strong>Posture</strong> is the way we hold our body while standing, sitting, or walking. Good posture \u2014 keeping our back and shoulders straight \u2014 keeps our body in proper shape.</p>
+                        `
+                    },
+                    { type: 'mcq', q: 'How many times a day should we brush our teeth?', options: ['Twice a day', 'Once a week'], answer: 'Twice a day' },
+                    { type: 'tf', q: 'We should have a bath every day with soap and water.', answer: 'True' },
+                    { type: 'mcq', q: 'Who should clip your nails?', options: ['A grown-up, using a nail clipper', 'No one, ever'], answer: 'A grown-up, using a nail clipper' },
+                    { type: 'tf', q: 'We should wash our hands with soap and water after using the toilet.', answer: 'True' },
+                    { type: 'text', q: 'Fill in the blank: We should shampoo our ______ regularly and comb it every day.', answers: ['hair'] },
+
+                    { type: 'tf', q: 'Eating stale food can make us fall ill.', answer: 'True' },
+                    { type: 'mcq', q: 'What should we do before and after eating?', options: ['Wash our hands', 'Nothing'], answer: 'Wash our hands' },
+                    { type: 'tf', q: 'We should eat food that has been kept uncovered.', answer: 'False' },
+                    { type: 'mcq', q: 'What should we do after eating?', options: ['Rinse our mouth', 'Nothing'], answer: 'Rinse our mouth' },
+                    { type: 'text', q: 'Fill in the blank: We should eat meals at regular ______.', answers: ['intervals'] },
+                    { type: 'text', q: 'Fill in the blank: World Health Day is celebrated on 7th ______ every year.', answers: ['april'] },
+
+                    { type: 'text', q: 'Fill in the blank: Exercise keeps us ______.', answers: ['fit'] },
+                    { type: 'mcq', q: 'Which of these is a form of exercise?', options: ['Jogging', 'Sleeping all day'], answer: 'Jogging' },
+                    { type: 'mcq', q: 'Games played in an open space, like a park, are called ______ games.', options: ['Outdoor', 'Indoor'], answer: 'Outdoor' },
+                    { type: 'mcq', q: 'Cricket is an example of an ______ game.', options: ['Outdoor', 'Indoor'], answer: 'Outdoor' },
+                    { type: 'mcq', q: 'Ludo and carrom are examples of ______ games.', options: ['Indoor', 'Outdoor'], answer: 'Indoor' },
+                    { type: 'text', q: 'Fill in the blank: We should stand ______ while walking.', answers: ['straight'] },
+                    { type: 'mcq', q: 'The way in which someone holds their body while standing, sitting, or walking is called ______.', options: ['Posture', 'Exercise'], answer: 'Posture' },
+
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Being Safe',
+                        content: `
+                            <p><strong>Safety</strong> is the state of being safe and protected from danger or harm. We must follow safety rules everywhere.</p>
+                            <p><strong>At school:</strong> don't push anyone, stand in a queue for the school bus, don't run in classrooms or corridors, don't jump on tables or desks, and never go near a swimming pool without a grown-up.</p>
+                            <p><strong>At home:</strong> never play with matchsticks, candles, or firecrackers; never touch hot utensils or a hot gas stove; never play with sharp objects like scissors or knives; and never touch an electrical appliance with wet hands \u2014 you could get a shock!</p>
+                            <p><strong>On the road:</strong> always walk on the pavement, cross only at the zebra crossing, and always cross with a grown-up. While riding a bicycle: wear a helmet and hold the handlebar firmly with both hands. In a vehicle: always wear a seat belt and never put any body part out of a moving vehicle.</p>
+                            <p><strong>First aid</strong> is the immediate help given to an injured person before a doctor comes. For a scratch: wash with clean water and cover with a clean cloth. For a burn: cover with a clean towel and tell a grown-up. For an animal bite: wash under clean running water and call a doctor immediately.</p>
+                            <p class="exam-lesson-tip">Trick: Being safe means Stop, Think, and Tell a grown-up.</p>
+                        `
+                    },
+                    { type: 'tf', q: 'We should push others while standing in a line.', answer: 'False' },
+                    { type: 'mcq', q: 'What should we do while boarding or getting off the school bus?', options: ['Stand in a queue', 'Push and rush'], answer: 'Stand in a queue' },
+                    { type: 'tf', q: 'We should run in classrooms, corridors, and on the staircase.', answer: 'False' },
+                    { type: 'mcq', q: 'What should we do before going near a swimming pool?', options: ['Go with a grown-up', 'Go alone'], answer: 'Go with a grown-up' },
+
+                    { type: 'tf', q: 'We should play with matchsticks and firecrackers.', answer: 'False' },
+                    { type: 'mcq', q: 'What might happen if we touch a hot gas stove?', options: ['We may get burns', 'Nothing at all'], answer: 'We may get burns' },
+                    { type: 'tf', q: 'We should play with sharp objects like scissors and knives.', answer: 'False' },
+                    { type: 'mcq', q: 'What can happen if we touch an electrical appliance with wet hands?', options: ['We may get a shock', 'Nothing at all'], answer: 'We may get a shock' },
+                    { type: 'mcq', q: 'What should be used to put out a fire caused by electrical faults?', options: ['Sand or a fire extinguisher', 'Water'], answer: 'Sand or a fire extinguisher' },
+
+                    { type: 'text', q: 'Fill in the blank: We must cross a road only at the ______ crossing.', answers: ['zebra'] },
+                    { type: 'mcq', q: 'Where should we always walk?', options: ['On the pavement', 'In the middle of the road'], answer: 'On the pavement' },
+                    { type: 'mcq', q: 'Who should we cross the road with?', options: ['A grown-up', 'No one'], answer: 'A grown-up' },
+                    { type: 'text', q: 'Fill in the blank: We should hold the handlebar of a bicycle ______, with both hands.', answers: ['firmly'] },
+                    { type: 'tf', q: 'We must always wear a bicycle helmet while riding.', answer: 'True' },
+                    { type: 'mcq', q: 'What must we always wear inside a car?', options: ['A seat belt', 'Nothing special'], answer: 'A seat belt' },
+                    { type: 'mcq', q: 'What does a road sign showing a horn with a line through it mean?', options: ['No horn', 'No parking'], answer: 'No horn' },
+
+                    { type: 'mcq', q: 'Keeping away from danger is called ______.', options: ['Safety', 'Fire'], answer: 'Safety' },
+                    { type: 'mcq', q: 'The basic medical help given to an injured person before the doctor comes is called ______.', options: ['First aid', 'Last aid'], answer: 'First aid' },
+                    { type: 'mcq', q: 'What should we do first when someone gets a scratch?', options: ['Wash the injury with clean water', 'Ignore it'], answer: 'Wash the injury with clean water' },
+                    { type: 'mcq', q: 'What should we do for a burn?', options: ['Cover it with a clean towel and inform a grown-up', 'Rub it hard'], answer: 'Cover it with a clean towel and inform a grown-up' },
+                    { type: 'mcq', q: 'What should we do in case of an animal bite?', options: ['Wash the wound and call a doctor immediately', 'Do nothing'], answer: 'Wash the wound and call a doctor immediately' },
+                    { type: 'tf', q: 'We should crowd around an injured person.', answer: 'False' }
+                ]
+            },
             'hindi': {
                 title: 'Hindi',
                 questions: [
@@ -3315,7 +3445,8 @@
             'hindi-writing-practice': 'grade1',
             'kannada': 'grade1',
             'english-pet-poem': 'grade2',
-            'english-sentences': 'grade2'
+            'english-sentences': 'grade2',
+            'evs-me-and-myself': 'grade2'
         };
 
         const gradeDefaultSubject = {
@@ -3402,6 +3533,21 @@
                 { title: 'G. Capital Letters & End Marks', count: 4 },
                 { title: 'Learn: Commands & Exclamations', count: 1 },
                 { title: 'H. Commands & Exclamations', count: 2 }
+            ],
+            'evs-me-and-myself': [
+                { title: 'Learn: My Body', count: 1 },
+                { title: 'A. Sense Organs', count: 6 },
+                { title: 'B. External And Internal Organs', count: 8 },
+                { title: 'C. Taking Care of Sense Organs', count: 5 },
+                { title: 'Learn: Being Healthy', count: 1 },
+                { title: 'D. Keeping Clean', count: 5 },
+                { title: 'E. Good Eating Habits', count: 6 },
+                { title: 'F. Staying Fit & Posture', count: 7 },
+                { title: 'Learn: Being Safe', count: 1 },
+                { title: 'G. At School', count: 4 },
+                { title: 'H. At Home', count: 5 },
+                { title: 'I. On the Road', count: 7 },
+                { title: 'J. First Aid', count: 6 }
             ],
             'hindi': [
                 { title: '1. एक के अनेक शब्द', count: 8 },
@@ -3522,7 +3668,7 @@
         }
 
         function shouldUseWordBank(subject, item) {
-            const wordBankSubjects = ['hindi', 'hindi-writing-practice', 'kannada', 'english-pet-poem', 'english-sentences'];
+            const wordBankSubjects = ['hindi', 'hindi-writing-practice', 'kannada', 'english-pet-poem', 'english-sentences', 'evs-me-and-myself'];
             return wordBankSubjects.includes(subject) && item.type === 'text';
         }
 
