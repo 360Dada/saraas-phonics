@@ -884,6 +884,16 @@
             gap: 14px;
         }
 
+        .exam-trace-grid.single {
+            grid-template-columns: 1fr;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .exam-trace-word.large {
+            font-size: 12rem;
+        }
+
         .exam-trace-guide {
             position: relative;
             padding: 10px 12px;
@@ -2174,6 +2184,8 @@
                     <button class="exam-subject-btn" data-subject="english-pet-poem" data-grade="grade2" onclick="showExamSubject('english-pet-poem'); playClickSound();">English: Pets &amp; Poems</button>
                     <button class="exam-subject-btn" data-subject="english-sentences" data-grade="grade2" onclick="showExamSubject('english-sentences'); playClickSound();">English: Sentences</button>
                     <button class="exam-subject-btn" data-subject="evs-me-and-myself" data-grade="grade2" onclick="showExamSubject('evs-me-and-myself'); playClickSound();">EVS: Me and Myself</button>
+                    <button class="exam-subject-btn" data-subject="maths-2digit-addition" data-grade="grade2" onclick="showExamSubject('maths-2digit-addition'); playClickSound();">Maths: 2-Digit & Addition</button>
+                    <button class="exam-subject-btn" data-subject="hindi-swar" data-grade="grade2" onclick="showExamSubject('hindi-swar'); playClickSound();">Hindi: Swar (Vowels)</button>
                     <button class="exam-subject-btn" data-subject="hindi" data-grade="grade1" onclick="showExamSubject('hindi'); playClickSound();">Hindi</button>
                     <button class="exam-subject-btn" data-subject="hindi-writing-practice" data-grade="grade1" onclick="showExamSubject('hindi-writing-practice'); playClickSound();">Hindi Writing Practice</button>
                     <button class="exam-subject-btn" data-subject="kannada" data-grade="grade1" onclick="showExamSubject('kannada'); playClickSound();">Kannada</button>
@@ -3321,6 +3333,206 @@
                     { type: 'tf', q: 'We should crowd around an injured person.', answer: 'False' }
                 ]
             },
+            'maths-2digit-addition': {
+                title: 'Maths: 2-Digit Numbers & Addition',
+                questions: [
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Place and Face Value',
+                        content: `
+                            <p>Every 2-digit number has a <strong>tens digit</strong> and a <strong>ones digit</strong>.</p>
+                            <p>The <strong>face value</strong> of a digit is simply the digit itself.</p>
+                            <p>The <strong>place value</strong> of a digit is its value based on where it sits in the number \u2014 the tens digit's place value is (digit \u00d7 10), and the ones digit's place value is just the digit itself.</p>
+                            <table>
+                                <tr><th>Number 47</th><th>Face Value</th><th>Place Value</th></tr>
+                                <tr><td>4 (tens digit)</td><td>4</td><td>40</td></tr>
+                                <tr><td>7 (ones digit)</td><td>7</td><td>7</td></tr>
+                            </table>
+                            <p class="exam-lesson-tip">Trick: Face value never changes. Place value depends on position \u2014 tens digit \u00d7 10, ones digit stays the same.</p>
+                        `
+                    },
+                    { type: 'text', q: 'What is the face value of 5 in 35?', answers: ['5'] },
+                    { type: 'text', q: 'What is the place value of 3 in 35?', answers: ['30'] },
+                    { type: 'text', q: 'What is the face value of 8 in 84?', answers: ['8'] },
+                    { type: 'text', q: 'What is the place value of 8 in 84?', answers: ['80'] },
+                    { type: 'text', q: 'Write 4 tens and 3 ones as a number.', answers: ['43'] },
+                    { type: 'mcq', q: 'In the number 62, what is the tens digit?', options: ['6', '2'], answer: '6' },
+                    { type: 'mcq', q: 'In the number 62, what is the ones digit?', options: ['2', '6'], answer: '2' },
+
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Comparing Numbers',
+                        content: `
+                            <p>To compare two 2-digit numbers, first compare the tens digits. The number with the bigger tens digit is greater. If the tens digits are the same, compare the ones digits.</p>
+                            <p>We use these symbols: <strong>&gt;</strong> means "greater than", <strong>&lt;</strong> means "less than", <strong>=</strong> means "equal to".</p>
+                            <p>Example: 45 vs 38 \u2192 45 &gt; 38, because 4 tens is more than 3 tens. 52 vs 52 \u2192 52 = 52.</p>
+                            <p class="exam-lesson-tip">Trick: Compare the tens digits first. Only look at the ones digits if the tens digits match.</p>
+                        `
+                    },
+                    { type: 'mcq', q: 'Which symbol correctly compares these numbers? 45 ___ 38', options: ['>', '<', '='], answer: '>' },
+                    { type: 'mcq', q: 'Which symbol correctly compares these numbers? 27 ___ 72', options: ['<', '>', '='], answer: '<' },
+                    { type: 'mcq', q: 'Which symbol correctly compares these numbers? 60 ___ 60', options: ['=', '>', '<'], answer: '=' },
+                    { type: 'mcq', q: 'Which number is greater: 58 or 85?', options: ['85', '58'], answer: '85' },
+                    { type: 'mcq', q: 'Which number is smaller: 19 or 91?', options: ['19', '91'], answer: '19' },
+                    { type: 'text', q: 'Fill in the blank with > or <: 73 ______ 37', answers: ['>'] },
+
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Ascending & Descending Numbers',
+                        content: `
+                            <p><strong>Ascending order</strong> means arranging numbers from the smallest to the largest.</p>
+                            <p><strong>Descending order</strong> means arranging numbers from the largest to the smallest.</p>
+                            <p>Example: 12, 45, 30 \u2192 Ascending: 12, 30, 45. Descending: 45, 30, 12.</p>
+                            <p class="exam-lesson-tip">Trick: "Ascending" goes UP like stairs (small to big). "Descending" comes DOWN (big to small).</p>
+                        `
+                    },
+                    { type: 'mcq', q: 'Which set of numbers is in ascending order?', options: ['12, 30, 45', '45, 30, 12'], answer: '12, 30, 45' },
+                    { type: 'mcq', q: 'Which set of numbers is in descending order?', options: ['58, 40, 21', '21, 40, 58'], answer: '58, 40, 21' },
+                    { type: 'mcq', q: 'If arranging 26 and 14 in ascending order, which comes first?', options: ['14', '26'], answer: '14' },
+                    { type: 'mcq', q: 'If arranging 52 and 71 in descending order, which comes first?', options: ['71', '52'], answer: '71' },
+                    { type: 'mcq', q: 'In ascending order, do we start from the smallest or the largest number?', options: ['Smallest', 'Largest'], answer: 'Smallest' },
+                    { type: 'mcq', q: 'In descending order, do we start from the smallest or the largest number?', options: ['Largest', 'Smallest'], answer: 'Largest' },
+
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Odd and Even Numbers',
+                        content: `
+                            <p>An <strong>even number</strong> can be split into two equal groups \u2014 its ones digit is always 0, 2, 4, 6, or 8.</p>
+                            <p>An <strong>odd number</strong> cannot be split into two equal groups \u2014 its ones digit is always 1, 3, 5, 7, or 9.</p>
+                            <p class="exam-lesson-tip">Trick: check only the LAST digit. If it's 0, 2, 4, 6, 8 \u2014 even. If it's 1, 3, 5, 7, 9 \u2014 odd.</p>
+                        `
+                    },
+                    { type: 'mcq', q: 'Is 24 an odd or even number?', options: ['Even', 'Odd'], answer: 'Even' },
+                    { type: 'mcq', q: 'Is 37 an odd or even number?', options: ['Odd', 'Even'], answer: 'Odd' },
+                    { type: 'mcq', q: 'Which of these is an even number?', options: ['48', '53'], answer: '48' },
+                    { type: 'mcq', q: 'Which of these is an odd number?', options: ['65', '80'], answer: '65' },
+                    { type: 'tf', q: '18 is an odd number.', answer: 'False' },
+                    { type: 'tf', q: '31 is an odd number.', answer: 'True' },
+
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Before, After, and Between Numbers',
+                        content: `
+                            <p>The number that comes right <strong>before</strong> a number is one less than it.</p>
+                            <p>The number that comes right <strong>after</strong> a number is one more than it.</p>
+                            <p>A number that comes <strong>between</strong> two numbers lies in the middle of them.</p>
+                            <p>Example: before 50 is 49. After 50 is 51. Between 49 and 51 is 50.</p>
+                            <p class="exam-lesson-tip">Trick: Before = minus 1. After = plus 1.</p>
+                        `
+                    },
+                    { type: 'text', q: 'What number comes before 60?', answers: ['59'] },
+                    { type: 'text', q: 'What number comes after 60?', answers: ['61'] },
+                    { type: 'text', q: 'What number comes between 29 and 31?', answers: ['30'] },
+                    { type: 'text', q: 'What number comes before 100?', answers: ['99'] },
+                    { type: 'text', q: 'What number comes after 89?', answers: ['90'] },
+                    { type: 'text', q: 'What number comes between 44 and 46?', answers: ['45'] },
+
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Addition',
+                        content: `
+                            <p><strong>Addition of 1-digit numbers:</strong> add two small numbers together. Example: 3 + 4 = 7.</p>
+                            <p><strong>Addition of 2-digit numbers:</strong> add the ones digits first, then add the tens digits.</p>
+                            <p>Example: 23 + 15 \u2192 ones: 3 + 5 = 8, tens: 2 + 1 = 3 \u2192 answer: 38.</p>
+                            <p class="exam-lesson-tip">Trick: Always add the ones column first, then the tens column.</p>
+                        `
+                    },
+                    { type: 'text', q: '2 + 3 = ?', answers: ['5'] },
+                    { type: 'text', q: '1 + 5 = ?', answers: ['6'] },
+                    { type: 'text', q: '4 + 3 = ?', answers: ['7'] },
+                    { type: 'text', q: '5 + 3 = ?', answers: ['8'] },
+                    { type: 'text', q: '4 + 5 = ?', answers: ['9'] },
+                    { type: 'text', q: '6 + 4 = ?', answers: ['10'] },
+
+                    { type: 'text', q: '23 + 15 = ?', answers: ['38'] },
+                    { type: 'text', q: '34 + 21 = ?', answers: ['55'] },
+                    { type: 'text', q: '42 + 16 = ?', answers: ['58'] },
+                    { type: 'text', q: '51 + 27 = ?', answers: ['78'] },
+                    { type: 'text', q: '60 + 19 = ?', answers: ['79'] },
+                    { type: 'text', q: '35 + 42 = ?', answers: ['77'] }
+                ]
+            },
+            'hindi-swar': {
+                title: 'Hindi: Swar (Vowels)',
+                questions: [
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Hindi Swar (Vowels)',
+                        content: `
+                            <p>In Hindi, <strong>swar</strong> (\u0938\u094d\u0935\u0930) means vowels \u2014 the letters that can be spoken on their own, without needing another letter. Here are the first 10 swar, in order:</p>
+                            <table>
+                                <tr><th>Swar</th><th>Sounds Like</th></tr>
+                                <tr><td>\u0905</td><td>a (short, as in "up")</td></tr>
+                                <tr><td>\u0906</td><td>aa (long, as in "father")</td></tr>
+                                <tr><td>\u0907</td><td>i (short, as in "sit")</td></tr>
+                                <tr><td>\u0908</td><td>ee (long, as in "see")</td></tr>
+                                <tr><td>\u0909</td><td>u (short, as in "put")</td></tr>
+                                <tr><td>\u090a</td><td>oo (long, as in "moon")</td></tr>
+                                <tr><td>\u090b</td><td>ri (as in "rig")</td></tr>
+                                <tr><td>\u090f</td><td>e (as in "hey")</td></tr>
+                                <tr><td>\u0910</td><td>ai (as in "aisle")</td></tr>
+                                <tr><td>\u0913</td><td>o (as in "go")</td></tr>
+                            </table>
+                            <p class="exam-lesson-tip">Trick: say the order out loud like a little song \u2014 \u0905, \u0906, \u0907, \u0908, \u0909, \u090a, \u090b, \u090f, \u0910, \u0913 \u2014 it helps the sequence stick!</p>
+                            <p>Another way schools teach these letters is with a keyword for each one \u2014 the classic "\u0905 \u0938\u0947 \u0905\u0928\u093e\u0930" (A for pomegranate) style:</p>
+                            <table>
+                                <tr><th>Swar</th><th>Keyword</th></tr>
+                                <tr><td>\u0905</td><td>\u0905\u0928\u093e\u0930 (pomegranate)</td></tr>
+                                <tr><td>\u0906</td><td>\u0906\u092e (mango)</td></tr>
+                                <tr><td>\u0907</td><td>\u0907\u092e\u0932\u0940 (tamarind)</td></tr>
+                                <tr><td>\u0908</td><td>\u0908\u0916 (sugarcane)</td></tr>
+                                <tr><td>\u0909</td><td>\u0909\u0932\u094d\u0932\u0942 (owl)</td></tr>
+                                <tr><td>\u090a</td><td>\u090a\u0928 (wool)</td></tr>
+                                <tr><td>\u090b</td><td>\u090b\u0937\u093f (sage)</td></tr>
+                                <tr><td>\u090f</td><td>\u090f\u0915 (one)</td></tr>
+                                <tr><td>\u0910</td><td>\u0910\u0928\u0915 (glasses)</td></tr>
+                                <tr><td>\u0913</td><td>\u0913\u0916\u0932\u0940 (mortar and pestle)</td></tr>
+                            </table>
+                        `
+                    },
+                    { type: 'mcq', q: 'Which swar sounds like "a" (short)?', options: ['\u0905', '\u0906', '\u0907'], answer: '\u0905' },
+                    { type: 'mcq', q: 'Which swar sounds like "aa" (long)?', options: ['\u0906', '\u0905', '\u0909'], answer: '\u0906' },
+                    { type: 'mcq', q: 'Which swar sounds like "i" (short)?', options: ['\u0907', '\u0908', '\u090f'], answer: '\u0907' },
+                    { type: 'mcq', q: 'Which swar sounds like "ee" (long)?', options: ['\u0908', '\u0907', '\u0913'], answer: '\u0908' },
+                    { type: 'mcq', q: 'Which swar sounds like "u" (short)?', options: ['\u0909', '\u090a', '\u090b'], answer: '\u0909' },
+                    { type: 'mcq', q: 'Which swar sounds like "oo" (long)?', options: ['\u090a', '\u0909', '\u0910'], answer: '\u090a' },
+                    { type: 'mcq', q: 'Which swar sounds like "ri"?', options: ['\u090b', '\u090f', '\u0913'], answer: '\u090b' },
+                    { type: 'mcq', q: 'Which swar sounds like "e"?', options: ['\u090f', '\u0910', '\u0905'], answer: '\u090f' },
+                    { type: 'mcq', q: 'Which swar sounds like "ai"?', options: ['\u0910', '\u090f', '\u0906'], answer: '\u0910' },
+                    { type: 'mcq', q: 'Which swar sounds like "o"?', options: ['\u0913', '\u090a', '\u0907'], answer: '\u0913' },
+
+                    { type: 'mcq', q: 'Which swar do we use for "\u0905\u0928\u093e\u0930" (pomegranate)?', options: ['\u0905', '\u0906', '\u0907'], answer: '\u0905' },
+                    { type: 'mcq', q: 'Which swar do we use for "\u0906\u092e" (mango)?', options: ['\u0906', '\u0905', '\u0909'], answer: '\u0906' },
+                    { type: 'mcq', q: 'Which swar do we use for "\u0907\u092e\u0932\u0940" (tamarind)?', options: ['\u0907', '\u0908', '\u090f'], answer: '\u0907' },
+                    { type: 'mcq', q: 'Which swar do we use for "\u0908\u0916" (sugarcane)?', options: ['\u0908', '\u0907', '\u0913'], answer: '\u0908' },
+                    { type: 'mcq', q: 'Which swar do we use for "\u0909\u0932\u094d\u0932\u0942" (owl)?', options: ['\u0909', '\u090a', '\u090b'], answer: '\u0909' },
+                    { type: 'mcq', q: 'Which swar do we use for "\u090a\u0928" (wool)?', options: ['\u090a', '\u0909', '\u0910'], answer: '\u090a' },
+                    { type: 'mcq', q: 'Which swar do we use for "\u090b\u0937\u093f" (sage)?', options: ['\u090b', '\u090f', '\u0913'], answer: '\u090b' },
+                    { type: 'mcq', q: 'Which swar do we use for "\u090f\u0915" (one)?', options: ['\u090f', '\u0910', '\u0905'], answer: '\u090f' },
+                    { type: 'mcq', q: 'Which swar do we use for "\u0910\u0928\u0915" (glasses)?', options: ['\u0910', '\u090f', '\u0906'], answer: '\u0910' },
+                    { type: 'mcq', q: 'Which swar do we use for "\u0913\u0916\u0932\u0940" (mortar and pestle)?', options: ['\u0913', '\u090a', '\u0907'], answer: '\u0913' },
+
+                    { type: 'mcq', q: 'Which swar comes first in the list?', options: ['\u0905', '\u0906'], answer: '\u0905' },
+                    { type: 'mcq', q: 'Which swar comes right after "\u0905"?', options: ['\u0906', '\u0907'], answer: '\u0906' },
+                    { type: 'mcq', q: 'Which swar comes right after "\u0907"?', options: ['\u0908', '\u0909'], answer: '\u0908' },
+                    { type: 'mcq', q: 'Which swar comes right before "\u090a"?', options: ['\u0909', '\u090b'], answer: '\u0909' },
+                    { type: 'mcq', q: 'Which swar comes right after "\u090b"?', options: ['\u090f', '\u0913'], answer: '\u090f' },
+                    { type: 'mcq', q: 'Which swar comes right after "\u0910"?', options: ['\u0913', '\u0905'], answer: '\u0913' },
+                    { type: 'mcq', q: 'Which swar comes last in this list of the first 10 swar?', options: ['\u0913', '\u0910'], answer: '\u0913' },
+                    { type: 'text', q: 'Fill in the missing swar in order: \u0905, \u0906, \u0907, ______, \u0909', answers: ['\u0908'] },
+
+                    { type: 'trace_letter', q: 'इस स्वर को ट्रेस करो: \u0905', display: '\u0905', letterText: '\u0905', hint: 'ऊपर दिए गए अक्षर को ध्यान से देखकर ट्रेस करो।' },
+                    { type: 'trace_letter', q: 'इस स्वर को ट्रेस करो: \u0906', display: '\u0906', letterText: '\u0906', hint: 'धीरे-धीरे अक्षर के ऊपर ट्रेस करो।' },
+                    { type: 'trace_letter', q: 'इस स्वर को ट्रेस करो: \u0907', display: '\u0907', letterText: '\u0907', hint: 'अक्षर के आकार को ध्यान से देखो।' },
+                    { type: 'trace_letter', q: 'इस स्वर को ट्रेस करो: \u0908', display: '\u0908', letterText: '\u0908', hint: 'मात्रा और अक्षर दोनों पर ध्यान दो।' },
+                    { type: 'trace_letter', q: 'इस स्वर को ट्रेस करो: \u0909', display: '\u0909', letterText: '\u0909', hint: 'पहले देखो, फिर ट्रेस करो।' },
+                    { type: 'trace_letter', q: 'इस स्वर को ट्रेस करो: \u090a', display: '\u090a', letterText: '\u090a', hint: 'हर बार पूरा अक्षर ट्रेस करो।' },
+                    { type: 'trace_letter', q: 'इस स्वर को ट्रेस करो: \u090b', display: '\u090b', letterText: '\u090b', hint: 'अक्षर बोलते हुए ट्रेस करो।' },
+                    { type: 'trace_letter', q: 'इस स्वर को ट्रेस करो: \u090f', display: '\u090f', letterText: '\u090f', hint: 'धीरे-धीरे और सावधानी से ट्रेस करो।' },
+                    { type: 'trace_letter', q: 'इस स्वर को ट्रेस करो: \u0910', display: '\u0910', letterText: '\u0910', hint: 'अक्षर का अभ्यास करो।' },
+                    { type: 'trace_letter', q: 'इस स्वर को ट्रेस करो: \u0913', display: '\u0913', letterText: '\u0913', hint: 'शाबाश! यह आखिरी अक्षर है।' }
+                ]
+            },
             'hindi': {
                 title: 'Hindi',
                 questions: [
@@ -3446,7 +3658,9 @@
             'kannada': 'grade1',
             'english-pet-poem': 'grade2',
             'english-sentences': 'grade2',
-            'evs-me-and-myself': 'grade2'
+            'evs-me-and-myself': 'grade2',
+            'maths-2digit-addition': 'grade2',
+            'hindi-swar': 'grade2'
         };
 
         const gradeDefaultSubject = {
@@ -3548,6 +3762,28 @@
                 { title: 'H. At Home', count: 5 },
                 { title: 'I. On the Road', count: 7 },
                 { title: 'J. First Aid', count: 6 }
+            ],
+            'maths-2digit-addition': [
+                { title: 'Learn: Place and Face Value', count: 1 },
+                { title: 'A. Place And Face Value', count: 7 },
+                { title: 'Learn: Comparing Numbers', count: 1 },
+                { title: 'B. Comparing Numbers', count: 6 },
+                { title: 'Learn: Ascending & Descending Numbers', count: 1 },
+                { title: 'C. Ascending And Descending Numbers', count: 6 },
+                { title: 'Learn: Odd and Even Numbers', count: 1 },
+                { title: 'D. Odd And Even Numbers', count: 6 },
+                { title: 'Learn: Before, After, and Between Numbers', count: 1 },
+                { title: 'E. Before, After and Between Numbers', count: 6 },
+                { title: 'Learn: Addition', count: 1 },
+                { title: 'F. Addition Of 1-Digit Numbers', count: 6 },
+                { title: 'G. Addition Of 2-Digit Numbers', count: 6 }
+            ],
+            'hindi-swar': [
+                { title: 'Learn: Hindi Swar (Vowels)', count: 1 },
+                { title: 'A. Recognise the Swar', count: 10 },
+                { title: 'B. Swar Keywords (\u0905 \u0938\u0947 \u0905\u0928\u093e\u0930)', count: 10 },
+                { title: 'C. Swar Order', count: 8 },
+                { title: 'D. Write the Swar', count: 10 }
             ],
             'hindi': [
                 { title: '1. एक के अनेक शब्द', count: 8 },
@@ -3657,6 +3893,7 @@
             if (item.hint) return item.hint;
             if (item.type === 'practice') return 'Hint: Practice question. Write/draw in notebook and self-check.';
             if (item.type === 'trace_word') return 'Hint: Trace the Hindi number word by following the guide letters.';
+            if (item.type === 'trace_letter') return 'Hint: Trace the letter shown above, following its shape carefully.';
             if (item.type === 'text') {
                 const ans = (item.answers && item.answers[0]) || item.answer || '';
                 if (!ans) return 'Hint: Write the most suitable word.';
@@ -3668,7 +3905,7 @@
         }
 
         function shouldUseWordBank(subject, item) {
-            const wordBankSubjects = ['hindi', 'hindi-writing-practice', 'kannada', 'english-pet-poem', 'english-sentences', 'evs-me-and-myself'];
+            const wordBankSubjects = ['hindi', 'hindi-writing-practice', 'kannada', 'english-pet-poem', 'english-sentences', 'evs-me-and-myself', 'maths-2digit-addition', 'hindi-swar'];
             return wordBankSubjects.includes(subject) && item.type === 'text';
         }
 
@@ -4184,7 +4421,7 @@
         function saveTraceCanvas(sectionIdx, questionIdx, slot) {
             const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
             const canvas = document.getElementById(getTraceCanvasId(sectionIdx, questionIdx, slot));
-            if (!item || item.type !== 'trace_word' || !canvas) return;
+            if (!item || (item.type !== 'trace_word' && item.type !== 'trace_letter') || !canvas) return;
             if (!item.traceImages) item.traceImages = {};
             item.traceImages[slot] = canvas.toDataURL('image/png');
         }
@@ -4192,7 +4429,7 @@
         function restoreTraceCanvas(sectionIdx, questionIdx, slot) {
             const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
             const canvas = document.getElementById(getTraceCanvasId(sectionIdx, questionIdx, slot));
-            if (!item || item.type !== 'trace_word' || !canvas) return;
+            if (!item || (item.type !== 'trace_word' && item.type !== 'trace_letter') || !canvas) return;
             const ctx = canvas.getContext('2d');
             const dpr = window.devicePixelRatio || 1;
             ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -4220,8 +4457,9 @@
 
         function clearTraceCanvas(sectionIdx, questionIdx) {
             const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
-            if (!item || item.type !== 'trace_word') return;
-            ['number', 'word'].forEach((slot) => {
+            if (!item || (item.type !== 'trace_word' && item.type !== 'trace_letter')) return;
+            const slots = item.type === 'trace_letter' ? ['letter'] : ['number', 'word'];
+            slots.forEach((slot) => {
                 const canvas = document.getElementById(getTraceCanvasId(sectionIdx, questionIdx, slot));
                 if (!canvas) return;
                 const ctx = canvas.getContext('2d');
@@ -4240,7 +4478,7 @@
         function initTraceCanvas(sectionIdx, questionIdx, slot) {
             const item = currentExamSections?.[sectionIdx]?.questions?.[questionIdx];
             const canvas = document.getElementById(getTraceCanvasId(sectionIdx, questionIdx, slot));
-            if (!item || item.type !== 'trace_word' || !canvas || canvas.dataset.ready === 'true') return;
+            if (!item || (item.type !== 'trace_word' && item.type !== 'trace_letter') || !canvas || canvas.dataset.ready === 'true') return;
 
             resizeTraceCanvas(canvas, sectionIdx, questionIdx, slot);
             let drawing = false;
@@ -4292,6 +4530,8 @@
                     if (item.type === 'trace_word') {
                         initTraceCanvas(sectionIdx, questionIdx, 'number');
                         initTraceCanvas(sectionIdx, questionIdx, 'word');
+                    } else if (item.type === 'trace_letter') {
+                        initTraceCanvas(sectionIdx, questionIdx, 'letter');
                     }
                 });
             });
@@ -4333,12 +4573,35 @@
             `;
         }
 
+        function renderTraceLetter(item, sectionIdx, questionIdx) {
+            const letterLine = item.letterText || '';
+            return `
+                <div class="exam-trace-card">
+                    <div class="exam-trace-label">${item.display || ''}</div>
+                    <div class="exam-trace-grid single">
+                        <div class="exam-trace-guide">
+                            <div class="exam-trace-guide-label">Letter</div>
+                            <div class="exam-trace-word large">${letterLine}</div>
+                            <canvas id="${getTraceCanvasId(sectionIdx, questionIdx, 'letter')}" class="exam-trace-canvas"></canvas>
+                        </div>
+                    </div>
+                    <div class="exam-trace-actions">
+                        <button type="button" class="exam-trace-clear" onclick="clearTraceCanvas(${sectionIdx}, ${questionIdx})">Clear</button>
+                    </div>
+                    <div class="exam-trace-note">Tracing practice only. Use this as a guide for handwriting.</div>
+                </div>
+            `;
+        }
+
         function renderExamInput(item, sectionIdx, questionIdx, useWordBank) {
             if (item.type === 'practice') {
                 return `<textarea id="exam-practice-${sectionIdx}-${questionIdx}" class="exam-input" rows="2" placeholder="Write your answer / notes here"></textarea>`;
             }
             if (item.type === 'trace_word') {
                 return renderTraceWord(item, sectionIdx, questionIdx);
+            }
+            if (item.type === 'trace_letter') {
+                return renderTraceLetter(item, sectionIdx, questionIdx);
             }
             if (item.type === 'poem_recite') {
                 return renderPoemRecite(item, sectionIdx, questionIdx);
@@ -4484,7 +4747,7 @@
             section.questions.forEach((item, questionIdx) => {
                 if (item.type === 'lesson') return;
                 const feedback = document.getElementById(`exam-feedback-${sectionIdx}-${questionIdx}`);
-                if (item.type === 'practice' || item.type === 'trace_word') {
+                if (item.type === 'practice' || item.type === 'trace_word' || item.type === 'trace_letter') {
                     feedback.textContent = 'Practice item: self-check using worksheet/notes.';
                     feedback.style.color = '#5b6a7d';
                     return;
