@@ -305,6 +305,160 @@
             flex-wrap: wrap;
         }
 
+        .ttt-size-options, .ttt-mode-options {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .ttt-size-card, .ttt-mode-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            background: #fff;
+            border: 3px solid #d3dbe4;
+            border-radius: 18px;
+            padding: 14px 18px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: transform 0.12s ease, border-color 0.12s ease;
+        }
+
+        .ttt-size-card:active, .ttt-mode-card:active {
+            transform: scale(0.96);
+        }
+
+        .ttt-size-card.active {
+            border-color: var(--purple-fun, #C17FFF);
+            background: #f5ecff;
+        }
+
+        .ttt-mode-card.active {
+            border-color: var(--coral-pink, #ff7b54);
+            background: #fff0ee;
+        }
+
+        .ttt-size-card {
+            min-width: 96px;
+        }
+
+        .ttt-size-preview {
+            display: grid;
+            gap: 3px;
+            width: 56px;
+            height: 56px;
+        }
+
+        .ttt-size-preview.size-3 { grid-template-columns: repeat(3, 1fr); }
+        .ttt-size-preview.size-4 { grid-template-columns: repeat(4, 1fr); }
+        .ttt-size-preview.size-5 { grid-template-columns: repeat(5, 1fr); }
+
+        .ttt-size-preview span {
+            background: #ffcb47;
+            border-radius: 3px;
+        }
+
+        .ttt-size-card.active .ttt-size-preview span {
+            background: var(--purple-fun, #C17FFF);
+        }
+
+        .ttt-size-text {
+            font-weight: 800;
+            font-size: 1.05rem;
+            color: #1F4E5F;
+        }
+
+        .ttt-size-sub, .ttt-mode-sub {
+            font-size: 0.78rem;
+            color: #8a95a3;
+        }
+
+        .ttt-mode-card {
+            min-width: 150px;
+            padding: 16px 22px;
+        }
+
+        .ttt-mode-icon {
+            font-size: 2rem;
+        }
+
+        .ttt-mode-text {
+            font-weight: 800;
+            color: #1F4E5F;
+        }
+
+        .ttt-scoreboard {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+
+        .ttt-score-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: 1.05rem;
+            border: 3px solid transparent;
+        }
+
+        .ttt-score-pill.score-x {
+            background: #fff0ee;
+            color: #ff7b54;
+            border-color: #ff7b54;
+        }
+
+        .ttt-score-pill.score-o {
+            background: #eaf3ff;
+            color: #4a90d9;
+            border-color: #4a90d9;
+        }
+
+        .ttt-streak-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(31, 42, 56, 0.55);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 500;
+        }
+
+        .ttt-streak-overlay.hidden {
+            display: none;
+        }
+
+        .ttt-streak-card {
+            background: linear-gradient(160deg, #fff9e6, #ffe9c2);
+            border-radius: 24px;
+            padding: 34px 30px;
+            max-width: 340px;
+            text-align: center;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .ttt-streak-emoji {
+            font-size: 3rem;
+            margin-bottom: 8px;
+        }
+
+        .ttt-streak-title {
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: #1F4E5F;
+            margin-bottom: 8px;
+        }
+
+        .ttt-streak-message {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
         .word-card.exam-card .quiz-question,
         .word-card.exam-card .example-sentence,
         .word-card.exam-card .exam-result,
@@ -2263,28 +2417,73 @@
                 <div id="tttSetup" class="ttt-setup">
                     <div class="ttt-setup-group">
                         <div class="ttt-setup-label">Grid Size</div>
-                        <div class="ttt-setup-options">
-                            <button class="exam-subject-btn active" data-ttt-size="3" onclick="setTttSize(3); playClickSound();">3 \u00d7 3</button>
-                            <button class="exam-subject-btn" data-ttt-size="4" onclick="setTttSize(4); playClickSound();">4 \u00d7 4</button>
-                            <button class="exam-subject-btn" data-ttt-size="5" onclick="setTttSize(5); playClickSound();">5 \u00d7 5</button>
+                        <div class="ttt-size-options">
+                            <button class="ttt-size-card active" data-ttt-size="3" onclick="setTttSize(3); playClickSound();">
+                                <span class="ttt-size-preview size-3">
+                                    <span></span><span></span><span></span>
+                                    <span></span><span></span><span></span>
+                                    <span></span><span></span><span></span>
+                                </span>
+                                <span class="ttt-size-text">3 × 3</span>
+                                <span class="ttt-size-sub">Classic</span>
+                            </button>
+                            <button class="ttt-size-card" data-ttt-size="4" onclick="setTttSize(4); playClickSound();">
+                                <span class="ttt-size-preview size-4">
+                                    <span></span><span></span><span></span><span></span>
+                                    <span></span><span></span><span></span><span></span>
+                                    <span></span><span></span><span></span><span></span>
+                                    <span></span><span></span><span></span><span></span>
+                                </span>
+                                <span class="ttt-size-text">4 × 4</span>
+                                <span class="ttt-size-sub">Trickier</span>
+                            </button>
+                            <button class="ttt-size-card" data-ttt-size="5" onclick="setTttSize(5); playClickSound();">
+                                <span class="ttt-size-preview size-5">
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                </span>
+                                <span class="ttt-size-text">5 × 5</span>
+                                <span class="ttt-size-sub">Challenge!</span>
+                            </button>
                         </div>
                     </div>
                     <div class="ttt-setup-group">
                         <div class="ttt-setup-label">Players</div>
-                        <div class="ttt-setup-options">
-                            <button class="exam-subject-btn active" data-ttt-mode="two-player" onclick="setTttMode('two-player'); playClickSound();">\uD83D\uDC65 2 Players</button>
-                            <button class="exam-subject-btn" data-ttt-mode="vs-computer" onclick="setTttMode('vs-computer'); playClickSound();">\uD83E\uDD16 Vs Computer</button>
+                        <div class="ttt-mode-options">
+                            <button class="ttt-mode-card active" data-ttt-mode="two-player" onclick="setTttMode('two-player'); playClickSound();">
+                                <span class="ttt-mode-icon">👥</span>
+                                <span class="ttt-mode-text">2 Players</span>
+                                <span class="ttt-mode-sub">Take turns together</span>
+                            </button>
+                            <button class="ttt-mode-card" data-ttt-mode="vs-computer" onclick="setTttMode('vs-computer'); playClickSound();">
+                                <span class="ttt-mode-icon">🤖</span>
+                                <span class="ttt-mode-text">Vs Computer</span>
+                                <span class="ttt-mode-sub">You're X, play the AI</span>
+                            </button>
                         </div>
                     </div>
                     <button class="exam-action-btn" onclick="startTicTacToe(); playClickSound();">Start Game</button>
                 </div>
 
                 <div id="tttPlayArea" class="ttt-play-area hidden">
+                    <div id="tttScoreboard" class="ttt-scoreboard"></div>
                     <div id="tttStatus" class="ttt-status"></div>
                     <div id="tttBoard" class="ttt-board"></div>
                     <div class="ttt-controls">
                         <button class="exam-action-btn secondary" onclick="restartTicTacToe(); playClickSound();">Play Again</button>
                         <button class="exam-action-btn secondary" onclick="showTttSetup(); playClickSound();">Change Settings</button>
+                    </div>
+                </div>
+
+                <div id="tttStreakOverlay" class="ttt-streak-overlay hidden">
+                    <div class="ttt-streak-card">
+                        <div class="ttt-streak-emoji">🔥</div>
+                        <div id="tttStreakTitle" class="ttt-streak-title"></div>
+                        <div id="tttStreakMessage" class="ttt-streak-message"></div>
+                        <button class="exam-action-btn" onclick="closeTttStreakCard(); playClickSound();">Keep Playing!</button>
                     </div>
                 </div>
             </div>
@@ -5095,7 +5294,9 @@ function resetExamPrep() {
             computerMark: 'O',
             gameOver: false,
             winner: null,
-            winLine: []
+            winLine: [],
+            scores: { X: 0, O: 0 },
+            streak: { player: null, count: 0 }
         };
 
         function initTicTacToeGame() {
@@ -5105,6 +5306,8 @@ function resetExamPrep() {
         function showTttSetup() {
             document.getElementById('tttSetup').classList.remove('hidden');
             document.getElementById('tttPlayArea').classList.add('hidden');
+            const overlay = document.getElementById('tttStreakOverlay');
+            if (overlay) overlay.classList.add('hidden');
         }
 
         function setTttSize(size) {
@@ -5122,6 +5325,16 @@ function resetExamPrep() {
         }
 
         function startTicTacToe() {
+            tttState.scores = { X: 0, O: 0 };
+            tttState.streak = { player: null, count: 0 };
+            resetTttBoard();
+        }
+
+        function restartTicTacToe() {
+            resetTttBoard();
+        }
+
+        function resetTttBoard() {
             tttState.board = new Array(tttState.size * tttState.size).fill(null);
             tttState.currentPlayer = 'X';
             tttState.gameOver = false;
@@ -5131,10 +5344,16 @@ function resetExamPrep() {
             document.getElementById('tttPlayArea').classList.remove('hidden');
             renderTttBoard();
             updateTttStatus();
+            updateTttScoreboard();
         }
 
-        function restartTicTacToe() {
-            startTicTacToe();
+        function updateTttScoreboard() {
+            const el = document.getElementById('tttScoreboard');
+            if (!el) return;
+            el.innerHTML = `
+                <div class="ttt-score-pill score-x">❌ X: ${tttState.scores.X}</div>
+                <div class="ttt-score-pill score-o">⭕ O: ${tttState.scores.O}</div>
+            `;
         }
 
         function renderTttBoard() {
@@ -5192,14 +5411,40 @@ function resetExamPrep() {
                 renderTttBoard();
                 updateTttStatus();
                 if (result.winner !== 'draw') {
+                    tttState.scores[result.winner] = (tttState.scores[result.winner] || 0) + 1;
+                    if (tttState.streak.player === result.winner) {
+                        tttState.streak.count += 1;
+                    } else {
+                        tttState.streak.player = result.winner;
+                        tttState.streak.count = 1;
+                    }
+                    updateTttScoreboard();
                     playSuccessSound();
                     showConfetti();
+                    if (tttState.streak.count > 0 && tttState.streak.count % 3 === 0) {
+                        setTimeout(() => showTttStreakCard(result.winner, tttState.streak.count), 800);
+                    }
                 }
                 return;
             }
             tttState.currentPlayer = mark === 'X' ? 'O' : 'X';
             renderTttBoard();
             updateTttStatus();
+        }
+
+        function showTttStreakCard(player, streakCount) {
+            const overlay = document.getElementById('tttStreakOverlay');
+            const title = document.getElementById('tttStreakTitle');
+            const message = document.getElementById('tttStreakMessage');
+            if (!overlay) return;
+            const playerName = player === tttState.humanMark && tttState.mode === 'vs-computer' ? 'You' : `Player ${player}`;
+            title.textContent = `${playerName} won ${streakCount} in a row!`;
+            message.textContent = 'Amazing streak! Keep up the great work! \uD83C\uDF1F';
+            overlay.classList.remove('hidden');
+        }
+
+        function closeTttStreakCard() {
+            document.getElementById('tttStreakOverlay').classList.add('hidden');
         }
 
         function getTttLines() {
