@@ -260,7 +260,7 @@
             gap: 8px;
             max-width: 420px;
             margin: 0 auto;
-            aspect-ratio: 1 / 1;
+            width: 100%;
         }
 
         .ttt-cell {
@@ -274,6 +274,10 @@
             cursor: pointer;
             user-select: none;
             transition: transform 0.1s ease;
+            aspect-ratio: 1 / 1;
+            width: 100%;
+            min-width: 0;
+            min-height: 0;
         }
 
         .ttt-cell:active {
@@ -457,6 +461,167 @@
             font-size: 1.05rem;
             color: #555;
             margin-bottom: 20px;
+        }
+
+        /* ===== NEON THEME — scoped to Tic Tac Toe only ===== */
+        #ticTacToeGame .word-card.exam-card {
+            background: radial-gradient(circle at 30% 0%, #1a0b3d 0%, #0a0420 55%, #060213 100%);
+            border: 2px solid #2d1a5e;
+            box-shadow: 0 0 30px rgba(176, 38, 255, 0.25), inset 0 0 40px rgba(0, 240, 255, 0.04);
+        }
+
+        #ticTacToeGame .quiz-question {
+            color: #fff;
+            font-weight: 900;
+            text-shadow:
+                0 0 6px #ff2ec4,
+                0 0 14px #ff2ec4,
+                0 0 26px #b026ff,
+                0 0 2px #fff;
+            letter-spacing: 1px;
+        }
+
+        #ticTacToeGame .ttt-setup-label {
+            color: #00f0ff;
+            text-shadow: 0 0 6px rgba(0, 240, 255, 0.6);
+        }
+
+        #ticTacToeGame .ttt-size-card,
+        #ticTacToeGame .ttt-mode-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid #3a2a6e;
+            box-shadow: 0 0 10px rgba(176, 38, 255, 0.15);
+        }
+
+        #ticTacToeGame .ttt-size-card .ttt-size-text,
+        #ticTacToeGame .ttt-mode-card .ttt-mode-text {
+            color: #fff;
+            text-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+        }
+
+        #ticTacToeGame .ttt-size-sub,
+        #ticTacToeGame .ttt-mode-sub {
+            color: #8b7fc9;
+        }
+
+        #ticTacToeGame .ttt-size-preview span {
+            background: #3a2a6e;
+            box-shadow: none;
+        }
+
+        #ticTacToeGame .ttt-size-card.active {
+            border-color: #00f0ff;
+            background: rgba(0, 240, 255, 0.08);
+            box-shadow: 0 0 18px rgba(0, 240, 255, 0.55), 0 0 34px rgba(0, 240, 255, 0.25);
+        }
+
+        #ticTacToeGame .ttt-size-card.active .ttt-size-preview span {
+            background: #00f0ff;
+            box-shadow: 0 0 6px #00f0ff;
+        }
+
+        #ticTacToeGame .ttt-mode-card.active {
+            border-color: #ff2ec4;
+            background: rgba(255, 46, 196, 0.08);
+            box-shadow: 0 0 18px rgba(255, 46, 196, 0.55), 0 0 34px rgba(255, 46, 196, 0.25);
+        }
+
+        #ticTacToeGame .ttt-mode-icon {
+            filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+        }
+
+        #ticTacToeGame .exam-action-btn {
+            background: #0a0420;
+            border: 2px solid #f9f002;
+            color: #f9f002;
+            text-shadow: 0 0 6px rgba(249, 240, 2, 0.8);
+            box-shadow: 0 0 14px rgba(249, 240, 2, 0.35), inset 0 0 10px rgba(249, 240, 2, 0.08);
+        }
+
+        #ticTacToeGame .exam-action-btn:active {
+            box-shadow: 0 0 22px rgba(249, 240, 2, 0.7), inset 0 0 14px rgba(249, 240, 2, 0.2);
+        }
+
+        #ticTacToeGame .exam-action-btn.secondary {
+            background: #0a0420;
+            border: 2px solid #00f0ff;
+            color: #00f0ff;
+            text-shadow: 0 0 6px rgba(0, 240, 255, 0.8);
+            box-shadow: 0 0 14px rgba(0, 240, 255, 0.3), inset 0 0 10px rgba(0, 240, 255, 0.08);
+        }
+
+        #ticTacToeGame .ttt-status {
+            color: #fff;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 0 0 16px rgba(176, 38, 255, 0.5);
+        }
+
+        #ticTacToeGame .ttt-score-pill.score-x {
+            background: rgba(255, 46, 196, 0.08);
+            color: #ff2ec4;
+            border-color: #ff2ec4;
+            text-shadow: 0 0 6px rgba(255, 46, 196, 0.8);
+            box-shadow: 0 0 14px rgba(255, 46, 196, 0.35);
+        }
+
+        #ticTacToeGame .ttt-score-pill.score-o {
+            background: rgba(0, 240, 255, 0.08);
+            color: #00f0ff;
+            border-color: #00f0ff;
+            text-shadow: 0 0 6px rgba(0, 240, 255, 0.8);
+            box-shadow: 0 0 14px rgba(0, 240, 255, 0.35);
+        }
+
+        #ticTacToeGame .ttt-cell {
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px solid #3a2a6e;
+            box-shadow: 0 0 10px rgba(176, 38, 255, 0.15), inset 0 0 12px rgba(0, 240, 255, 0.04);
+        }
+
+        #ticTacToeGame .ttt-cell.mark-x {
+            color: #ff2ec4;
+            text-shadow: 0 0 8px #ff2ec4, 0 0 18px #ff2ec4, 0 0 30px rgba(255, 46, 196, 0.6);
+        }
+
+        #ticTacToeGame .ttt-cell.mark-o {
+            color: #00f0ff;
+            text-shadow: 0 0 8px #00f0ff, 0 0 18px #00f0ff, 0 0 30px rgba(0, 240, 255, 0.6);
+        }
+
+        #ticTacToeGame .ttt-cell.win-cell {
+            background: rgba(57, 255, 20, 0.08);
+            border-color: #39ff14;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.6), inset 0 0 16px rgba(57, 255, 20, 0.2);
+        }
+
+        #ticTacToeGame .ttt-streak-overlay {
+            background: rgba(3, 1, 15, 0.8);
+        }
+
+        #ticTacToeGame .ttt-streak-card {
+            background: radial-gradient(circle at 30% 0%, #1a0b3d 0%, #0a0420 60%, #060213 100%);
+            border: 2px solid #f9f002;
+            box-shadow: 0 0 30px rgba(249, 240, 2, 0.5), 0 0 60px rgba(176, 38, 255, 0.3);
+        }
+
+        #ticTacToeGame .ttt-streak-emoji {
+            filter: drop-shadow(0 0 10px rgba(249, 240, 2, 0.8));
+        }
+
+        #ticTacToeGame .ttt-streak-title {
+            color: #fff;
+            text-shadow: 0 0 8px #ff2ec4, 0 0 18px #b026ff;
+        }
+
+        #ticTacToeGame .ttt-streak-message {
+            color: #b6a9e6;
+        }
+
+        #ticTacToeGame .back-btn {
+            background: #0a0420;
+            border: 2px solid #b026ff;
+            color: #fff;
+            text-shadow: 0 0 6px rgba(176, 38, 255, 0.8);
+            box-shadow: 0 0 14px rgba(176, 38, 255, 0.35);
         }
 
         .word-card.exam-card .quiz-question,
@@ -5371,7 +5536,31 @@ function resetExamPrep() {
                 cell.onclick = () => handleTttCellClick(idx);
                 board.appendChild(cell);
             });
+            squareUpTttCells();
         }
+
+        function squareUpTttCells() {
+            // Belt-and-suspenders fix: some browsers/webviews don't honour CSS aspect-ratio
+            // on grid items, so compute exact pixel sizes directly as a guaranteed fallback.
+            const board = document.getElementById('tttBoard');
+            if (!board) return;
+            const n = tttState.size;
+            const gapPx = 8;
+            const boardWidth = board.clientWidth;
+            if (!boardWidth) return;
+            const cellSize = Math.floor((boardWidth - gapPx * (n - 1)) / n);
+            board.style.gridAutoRows = cellSize + 'px';
+            Array.from(board.children).forEach((cell) => {
+                cell.style.width = cellSize + 'px';
+                cell.style.height = cellSize + 'px';
+            });
+        }
+
+        window.addEventListener('resize', () => {
+            if (document.getElementById('ticTacToeGame')?.classList.contains('active')) {
+                squareUpTttCells();
+            }
+        });
 
         function updateTttStatus() {
             const status = document.getElementById('tttStatus');
