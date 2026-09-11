@@ -2559,6 +2559,36 @@
                     <div class="game-title">Games</div>
                     <p class="game-description">Take a fun break with a quick game!</p>
                 </div>
+
+                <div class="game-card" onclick="startGame('holidays')">
+                    <span class="game-icon">📅</span>
+                    <div class="game-title">Holidays</div>
+                    <p class="game-description">See upcoming school holidays and breaks</p>
+                </div>
+
+                <div class="game-card" onclick="startGame('termSchedule')">
+                    <span class="game-icon">📆</span>
+                    <div class="game-title">Term Schedule</div>
+                    <p class="game-description">See the exam timetable for this term</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Holidays / Calendar -->
+        <div id="holidaysGame" class="game-screen">
+            <button class="back-btn" onclick="backToMenu(); playClickSound();">⬅ Back to Menu</button>
+            <div class="word-card exam-card">
+                <div class="quiz-question">School Holidays 2026–27</div>
+                <div id="holidaysContent"></div>
+            </div>
+        </div>
+
+        <!-- Term Schedule -->
+        <div id="termScheduleGame" class="game-screen">
+            <button class="back-btn" onclick="backToMenu(); playClickSound();">⬅ Back to Menu</button>
+            <div class="word-card exam-card">
+                <div class="quiz-question">Grade 2: First Term Schedule</div>
+                <div id="termScheduleContent"></div>
             </div>
         </div>
 
@@ -4432,6 +4462,158 @@
             container.innerHTML = html;
         }
 
+        // ============ HOLIDAYS / CALENDAR ============
+        // Source: WisdomWood High academic calendar letter, AY 2026\u201327.
+        // Note: the source letter labels the Ramzan row "March 2026", which is inconsistent with
+        // the surrounding sequence (June 2026 \u2192 ... \u2192 January 2027 \u2192 ...) and the date itself
+        // (10/03/2027). Treated here as "March 2027" \u2014 a likely typo in the original letter.
+        const holidaysData = [
+            { month: 'June 2026', dateLabel: '26 Jun 2026', days: 'Friday', occasion: 'Muharram', note: null, start: '2026-06-26', end: '2026-06-26' },
+            { month: 'August 2026', dateLabel: '15 Aug 2026', days: 'Saturday', occasion: 'Independence Day', note: 'Celebration on campus \u2014 attendance encouraged', start: '2026-08-15', end: '2026-08-15' },
+            { month: 'August 2026', dateLabel: '26 Aug 2026', days: 'Wednesday', occasion: 'Eid-e-Milad', note: null, start: '2026-08-26', end: '2026-08-26' },
+            { month: 'September 2026', dateLabel: '14 Sep 2026', days: 'Monday', occasion: 'Ganesh Chaturthi', note: null, start: '2026-09-14', end: '2026-09-14' },
+            { month: 'October 2026', dateLabel: '2 Oct 2026', days: 'Friday', occasion: 'Gandhi Jayanti', note: null, start: '2026-10-02', end: '2026-10-02' },
+            { month: 'October 2026', dateLabel: '19\u201325 Oct 2026', days: 'Monday\u2013Sunday', occasion: 'Dussehra Vacation', note: 'School reopens Monday, 26th Oct', start: '2026-10-19', end: '2026-10-25' },
+            { month: 'November 2026', dateLabel: '1 Nov 2026', days: 'Sunday', occasion: 'Kannada Rajyotsava', note: null, start: '2026-11-01', end: '2026-11-01' },
+            { month: 'November 2026', dateLabel: '8\u201310 Nov 2026', days: 'Sunday\u2013Tuesday', occasion: 'Diwali Holidays', note: null, start: '2026-11-08', end: '2026-11-10' },
+            { month: 'November 2026', dateLabel: '27 Nov 2026', days: 'Friday', occasion: 'Kanakadasa Jayanthi', note: null, start: '2026-11-27', end: '2026-11-27' },
+            { month: 'December 2026', dateLabel: '24\u201331 Dec 2026', days: 'Thu\u2013Thu', occasion: 'Christmas & Winter Vacation', note: null, start: '2026-12-24', end: '2026-12-31' },
+            { month: 'January 2027', dateLabel: '1\u20133 Jan 2027', days: 'Fri\u2013Sun', occasion: 'New Year Break Continuation', note: 'School reopens Monday, 4th Jan', start: '2027-01-01', end: '2027-01-03' },
+            { month: 'January 2027', dateLabel: '15 Jan 2027', days: 'Friday', occasion: 'Makar Sankranti', note: null, start: '2027-01-15', end: '2027-01-15' },
+            { month: 'January 2027', dateLabel: '26 Jan 2027', days: 'Tuesday', occasion: 'Republic Day', note: 'Celebration on campus \u2014 attendance encouraged', start: '2027-01-26', end: '2027-01-26' },
+            { month: 'March 2027', dateLabel: '10 Mar 2027', days: 'Wednesday', occasion: 'Ramzan', note: null, start: '2027-03-10', end: '2027-03-10' },
+            { month: 'March 2027', dateLabel: '26 Mar 2027', days: 'Friday', occasion: 'Good Friday', note: null, start: '2027-03-26', end: '2027-03-26' }
+        ];
+
+        function initHolidaysGame() {
+            const container = document.getElementById('holidaysContent');
+            if (!container) return;
+
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            const upcoming = holidaysData
+                .map(h => ({ ...h, startDate: new Date(h.start + 'T00:00:00'), endDate: new Date(h.end + 'T00:00:00') }))
+                .filter(h => h.endDate >= today)
+                .sort((a, b) => a.startDate - b.startDate);
+
+            let html = '';
+
+            if (upcoming.length > 0) {
+                const next = upcoming[0];
+                const isOngoing = next.startDate <= today && next.endDate >= today;
+                const daysUntil = Math.round((next.startDate - today) / 86400000);
+                html += `<div class="exam-hero">`;
+                html += `<h3>\uD83C\uDF89 ${isOngoing ? 'Happening Now' : 'Coming Up Next'}</h3>`;
+                html += `<p style="font-size:1.1rem; font-weight:800; margin:4px 0;">${next.occasion}</p>`;
+                html += `<p>${next.dateLabel} (${next.days})${isOngoing ? '' : ` \u2014 in ${daysUntil} day${daysUntil === 1 ? '' : 's'}`}</p>`;
+                if (next.note) html += `<p style="font-style:italic;">${next.note}</p>`;
+                html += `</div>`;
+            }
+
+            const byMonth = {};
+            const monthOrder = [];
+            holidaysData.forEach(h => {
+                if (!byMonth[h.month]) { byMonth[h.month] = []; monthOrder.push(h.month); }
+                byMonth[h.month].push(h);
+            });
+
+            monthOrder.forEach(month => {
+                html += `<div class="exam-section" style="margin-bottom:16px;">`;
+                html += `<div class="exam-section-head"><h4>${month}</h4></div>`;
+                byMonth[month].forEach(h => {
+                    html += `<div style="padding:10px 0; border-bottom:1px solid #e0d7c0;">`;
+                    html += `<div style="font-weight:800; color:#1F4E5F;">${h.occasion}</div>`;
+                    html += `<div style="color:#555; font-size:0.95rem;">${h.dateLabel} \u00b7 ${h.days}</div>`;
+                    if (h.note) html += `<div style="color:#8a6d3b; font-style:italic; font-size:0.9rem; margin-top:2px;">${h.note}</div>`;
+                    html += `</div>`;
+                });
+                html += `</div>`;
+            });
+
+            html += `<div class="exam-lesson">`;
+            html += `<h4>A Few Notes</h4>`;
+            html += `<p>Regular Saturday class schedules for Grades 6\u201310, and any specific weekend instructional days, will be communicated directly by the class teacher before the dates.</p>`;
+            html += `<p>Attendance on Independence Day and Republic Day is highly encouraged, for the flag-hoisting ceremonies and community celebrations. Exact campus timings will be shared closer to each date.</p>`;
+            html += `<p style="font-size:0.85rem; color:#8a95a3;">Source: WisdomWood High academic calendar letter. The Ramzan date's month was corrected from a likely typo in the original letter (labelled "March 2026", but the date 10/03/2027 and its place in the sequence point to March 2027).</p>`;
+            html += `</div>`;
+
+            container.innerHTML = html;
+        }
+
+        // ============ TERM SCHEDULE (EXAM TIMETABLE) ============
+        // Source: WisdomWood High, Grade 2 First Term Schedule letter dated 10 Sept 2026.
+        const termScheduleData = [
+            { date: '2026-09-25', dateLabel: '25 Sep 2026', day: 'Friday', subject: 'English', time: '9:30 AM \u2013 11:00 AM', isHoliday: false },
+            { date: '2026-09-26', dateLabel: '26 Sep 2026', day: 'Saturday', subject: 'Holiday', time: null, isHoliday: true },
+            { date: '2026-09-28', dateLabel: '28 Sep 2026', day: 'Monday', subject: 'Kannada', time: '9:30 AM \u2013 11:00 AM', isHoliday: false },
+            { date: '2026-09-29', dateLabel: '29 Sep 2026', day: 'Tuesday', subject: 'Mathematics', time: '9:30 AM \u2013 11:00 AM', isHoliday: false },
+            { date: '2026-09-30', dateLabel: '30 Sep 2026', day: 'Wednesday', subject: 'Hindi', time: '8:25 AM \u2013 9:25 AM', isHoliday: false },
+            { date: '2026-09-30', dateLabel: '30 Sep 2026', day: 'Wednesday', subject: 'Art', time: '10:00 AM \u2013 11:00 AM', isHoliday: false },
+            { date: '2026-10-01', dateLabel: '1 Oct 2026', day: 'Thursday', subject: 'EVS', time: '9:30 AM \u2013 11:00 AM', isHoliday: false }
+        ];
+
+        function initTermScheduleGame() {
+            const container = document.getElementById('termScheduleContent');
+            if (!container) return;
+
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            // Group entries by date so a day with two subjects (e.g. Hindi + Art) shows together
+            const byDate = {};
+            const dateOrder = [];
+            termScheduleData.forEach(entry => {
+                if (!byDate[entry.date]) { byDate[entry.date] = []; dateOrder.push(entry.date); }
+                byDate[entry.date].push(entry);
+            });
+
+            const nextExamDate = dateOrder.find(d => {
+                const dateObj = new Date(d + 'T00:00:00');
+                const entries = byDate[d];
+                const hasRealExam = entries.some(e => !e.isHoliday);
+                return dateObj >= today && hasRealExam;
+            });
+
+            let html = '';
+
+            if (nextExamDate) {
+                const dateObj = new Date(nextExamDate + 'T00:00:00');
+                const isToday = dateObj.getTime() === today.getTime();
+                const daysUntil = Math.round((dateObj - today) / 86400000);
+                const entries = byDate[nextExamDate].filter(e => !e.isHoliday);
+                html += `<div class="exam-hero">`;
+                html += `<h3>\uD83D\uDCDD ${isToday ? "Today's Exam" : 'Next Exam'}</h3>`;
+                entries.forEach(e => {
+                    html += `<p style="font-size:1.1rem; font-weight:800; margin:4px 0;">${e.subject} \u2014 ${e.time}</p>`;
+                });
+                html += `<p>${entries[0].day}, ${entries[0].dateLabel}${isToday ? '' : ` \u2014 in ${daysUntil} day${daysUntil === 1 ? '' : 's'}`}</p>`;
+                html += `</div>`;
+            } else {
+                html += `<div class="exam-hero"><h3>\u2705 Term Schedule Complete</h3><p>All exams for this term have been covered!</p></div>`;
+            }
+
+            html += `<div class="exam-section">`;
+            html += `<div class="exam-section-head"><h4>Full Timetable</h4></div>`;
+            dateOrder.forEach(d => {
+                const entries = byDate[d];
+                const isPast = new Date(d + 'T00:00:00') < today;
+                entries.forEach(e => {
+                    html += `<div style="padding:10px 0; border-bottom:1px solid #e0d7c0; ${isPast ? 'opacity:0.55;' : ''}">`;
+                    if (e.isHoliday) {
+                        html += `<div style="font-weight:800; color:#8a95a3;">${e.day}, ${e.dateLabel} \u2014 Holiday</div>`;
+                    } else {
+                        html += `<div style="font-weight:800; color:#1F4E5F;">${e.subject}</div>`;
+                        html += `<div style="color:#555; font-size:0.95rem;">${e.day}, ${e.dateLabel} \u00b7 ${e.time}</div>`;
+                    }
+                    html += `</div>`;
+                });
+            });
+            html += `</div>`;
+
+            container.innerHTML = html;
+        }
+
         function normalizeExamAnswer(value) {
             return (value || '').toString().trim().toLowerCase().replace(/\s+/g, ' ');
         }
@@ -5439,6 +5621,8 @@ function resetExamPrep() {
             else if (game === 'examPrep') initExamPrep();
             else if (game === 'concepts') initConceptsGame();
             else if (game === 'games') { /* hub screen, nothing to init */ }
+            else if (game === 'holidays') initHolidaysGame();
+            else if (game === 'termSchedule') initTermScheduleGame();
             else if (game === 'ticTacToe') initTicTacToeGame();
         }
         
