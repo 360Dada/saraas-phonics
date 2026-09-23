@@ -2571,6 +2571,12 @@
                     <div class="game-title">Term Schedule</div>
                     <p class="game-description">See the exam timetable for this term</p>
                 </div>
+
+                <div class="game-card" onclick="startGame('termPortion')">
+                    <span class="game-icon">📘</span>
+                    <div class="game-title">Term Portion</div>
+                    <p class="game-description">See what's covered in this term, by subject</p>
+                </div>
             </div>
         </div>
 
@@ -2580,6 +2586,15 @@
             <div class="word-card exam-card">
                 <div class="quiz-question">School Holidays 2026–27</div>
                 <div id="holidaysContent"></div>
+            </div>
+        </div>
+
+        <!-- Term Portion -->
+        <div id="termPortionGame" class="game-screen">
+            <button class="back-btn" onclick="backToMenu(); playClickSound();">⬅ Back to Menu</button>
+            <div class="word-card exam-card">
+                <div class="quiz-question">Grade 2: First Term Portion</div>
+                <div id="termPortionContent"></div>
             </div>
         </div>
 
@@ -2702,6 +2717,7 @@
                 <div class="exam-grades">
                     <button class="exam-grade-btn active" data-grade="grade1" onclick="showExamGrade('grade1'); playClickSound();">Grade 1</button>
                     <button class="exam-grade-btn" data-grade="grade2" onclick="showExamGrade('grade2'); playClickSound();">Grade 2</button>
+                    <button class="exam-grade-btn" data-grade="grade2-term1" onclick="showExamGrade('grade2-term1'); playClickSound();">Grade 2 - Term 01</button>
                 </div>
                 <div class="exam-subjects">
                     <button class="exam-subject-btn active" data-subject="computer-science" data-grade="grade1" onclick="showExamSubject('computer-science'); playClickSound();">Computer Science</button>
@@ -2713,6 +2729,10 @@
                     <button class="exam-subject-btn" data-subject="evs-me-and-myself" data-grade="grade2" onclick="showExamSubject('evs-me-and-myself'); playClickSound();">EVS: Me and Myself</button>
                     <button class="exam-subject-btn" data-subject="maths-2digit-addition" data-grade="grade2" onclick="showExamSubject('maths-2digit-addition'); playClickSound();">Maths: 2-Digit & Addition</button>
                     <button class="exam-subject-btn" data-subject="hindi-swar" data-grade="grade2" onclick="showExamSubject('hindi-swar'); playClickSound();">Hindi: Swar (Vowels)</button>
+                    <button class="exam-subject-btn" data-subject="hindi-vyanjan" data-grade="grade2-term1" onclick="showExamSubject('hindi-vyanjan'); playClickSound();">Hindi: Vyanjan (Consonants)</button>
+                    <button class="exam-subject-btn" data-subject="maths-subtraction-1000" data-grade="grade2-term1" onclick="showExamSubject('maths-subtraction-1000'); playClickSound();">Maths: Numbers to 1000 & Subtraction</button>
+                    <button class="exam-subject-btn" data-subject="english-nouns-adjectives" data-grade="grade2-term1" onclick="showExamSubject('english-nouns-adjectives'); playClickSound();">English: Nouns & Adjectives</button>
+                    <button class="exam-subject-btn" data-subject="kannada-eli-mattu-simha" data-grade="grade2-term1" onclick="showExamSubject('kannada-eli-mattu-simha'); playClickSound();">Kannada: Mouse & Lion</button>
                     <button class="exam-subject-btn" data-subject="hindi" data-grade="grade1" onclick="showExamSubject('hindi'); playClickSound();">Hindi</button>
                     <button class="exam-subject-btn" data-subject="hindi-writing-practice" data-grade="grade1" onclick="showExamSubject('hindi-writing-practice'); playClickSound();">Hindi Writing Practice</button>
                     <button class="exam-subject-btn" data-subject="kannada" data-grade="grade1" onclick="showExamSubject('kannada'); playClickSound();">Kannada</button>
@@ -4108,6 +4128,241 @@
                     { type: 'trace_letter', q: 'इस स्वर को ट्रेस करो: \u0913', display: '\u0913', letterText: '\u0913', hint: 'शाबाश! यह आखिरी अक्षर है।' }
                 ]
             },
+            'hindi-vyanjan': {
+                title: 'Hindi: Vyanjan (Consonants)',
+                questions: [
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Hindi Vyanjan (Consonants)',
+                        content: `
+                            <p><strong>Vyanjan</strong> (\u0935\u094d\u092f\u0902\u091c\u0928) means consonants \u2014 unlike swar (vowels), they need a vowel sound to be spoken fully. Vyanjan are grouped into "varg" (families) of letters said in a similar way:</p>
+                            <table>
+                                <tr><th>Varg (Group)</th><th>Letters</th></tr>
+                                <tr><td>Ka-varg</td><td>\u0915 \u0916 \u0917 \u0918 \u0919</td></tr>
+                                <tr><td>Cha-varg</td><td>\u091a \u091b \u091c \u091d \u091e</td></tr>
+                                <tr><td>Ta-varg</td><td>\u091f \u0920 \u0921 \u0922 \u0923</td></tr>
+                                <tr><td>Tha-varg</td><td>\u0924 \u0925 \u0926 \u0927 \u0928</td></tr>
+                                <tr><td>Pa-varg</td><td>\u092a \u092b \u092c \u092d \u092e</td></tr>
+                                <tr><td>Antastha</td><td>\u092f \u0930 \u0932 \u0935</td></tr>
+                                <tr><td>Ushma</td><td>\u0936 \u0937 \u0938 \u0939</td></tr>
+                                <tr><td>Sanyukt</td><td>\u0915\u094d\u0937 \u0924\u094d\u0930 \u091c\u094d\u091e \u0936\u094d\u0930</td></tr>
+                            </table>
+                            <p class="exam-lesson-tip">Trick: most varg groups have 5 letters that feel similar in your mouth when you say them \u2014 Sanyukt letters are special because each one is actually two letters joined together!</p>
+                        `
+                    },
+                    { type: 'mcq', q: 'Which letter belongs to the Ka-varg?', options: ['\u0915', '\u091a', '\u091f'], answer: '\u0915' },
+                    { type: 'mcq', q: 'Which of these is NOT part of the Ka-varg?', options: ['\u0917', '\u0925', '\u0916'], answer: '\u0925' },
+                    { type: 'text', q: 'Fill in the missing letter: \u0915, \u0916, \u0917, ______, \u0919', answers: ['\u0918'] },
+                    { type: 'mcq', q: 'How many letters are in the Ka-varg?', options: ['5', '4', '3'], answer: '5' },
+
+                    { type: 'mcq', q: 'Which letter belongs to the Cha-varg?', options: ['\u091c', '\u091f', '\u092a'], answer: '\u091c' },
+                    { type: 'mcq', q: 'Which of these is NOT part of the Cha-varg?', options: ['\u091b', '\u0923', '\u091d'], answer: '\u0923' },
+                    { type: 'text', q: 'Fill in the missing letter: \u091a, \u091b, \u091c, ______, \u091e', answers: ['\u091d'] },
+                    { type: 'mcq', q: 'Which letter comes first in the Cha-varg?', options: ['\u091a', '\u091b'], answer: '\u091a' },
+
+                    { type: 'mcq', q: 'Which letter belongs to the Ta-varg (\u091f)?', options: ['\u0921', '\u0924', '\u0926'], answer: '\u0921' },
+                    { type: 'mcq', q: 'Which of these is NOT part of the Ta-varg (\u091f)?', options: ['\u0920', '\u0927', '\u0922'], answer: '\u0927' },
+                    { type: 'text', q: 'Fill in the missing letter: \u091f, \u0920, \u0921, ______, \u0923', answers: ['\u0922'] },
+                    { type: 'mcq', q: 'Which letter is the last one in the Ta-varg (\u091f)?', options: ['\u0923', '\u0922'], answer: '\u0923' },
+
+                    { type: 'mcq', q: 'Which letter belongs to the Tha-varg (\u0924)?', options: ['\u0926', '\u0921', '\u092c'], answer: '\u0926' },
+                    { type: 'mcq', q: 'Which of these is NOT part of the Tha-varg (\u0924)?', options: ['\u0925', '\u0920', '\u0927'], answer: '\u0920' },
+                    { type: 'text', q: 'Fill in the missing letter: \u0924, \u0925, \u0926, ______, \u0928', answers: ['\u0927'] },
+                    { type: 'mcq', q: 'Which letter comes right after "\u0924" in the Tha-varg?', options: ['\u0925', '\u0926'], answer: '\u0925' },
+
+                    { type: 'mcq', q: 'Which letter belongs to the Pa-varg?', options: ['\u092c', '\u091c', '\u092f'], answer: '\u092c' },
+                    { type: 'mcq', q: 'Which of these is NOT part of the Pa-varg?', options: ['\u092b', '\u092d', '\u0930'], answer: '\u0930' },
+                    { type: 'text', q: 'Fill in the missing letter: \u092a, \u092b, \u092c, ______, \u092e', answers: ['\u092d'] },
+                    { type: 'mcq', q: 'Which letter is the last one in the Pa-varg?', options: ['\u092e', '\u092d'], answer: '\u092e' },
+
+                    { type: 'mcq', q: 'Which letter belongs to Antastha?', options: ['\u0930', '\u0915', '\u0936'], answer: '\u0930' },
+                    { type: 'mcq', q: 'Which of these is NOT part of Antastha?', options: ['\u0932', '\u0935', '\u0939'], answer: '\u0939' },
+                    { type: 'text', q: 'Fill in the missing letter: \u092f, \u0930, ______, \u0935', answers: ['\u0932'] },
+                    { type: 'mcq', q: 'How many letters are in Antastha?', options: ['4', '5'], answer: '4' },
+
+                    { type: 'mcq', q: 'Which letter belongs to Ushma?', options: ['\u0938', '\u092e', '\u0925'], answer: '\u0938' },
+                    { type: 'mcq', q: 'Which of these is NOT part of Ushma?', options: ['\u0936', '\u0937', '\u092f'], answer: '\u092f' },
+                    { type: 'text', q: 'Fill in the missing letter: \u0936, \u0937, ______, \u0939', answers: ['\u0938'] },
+                    { type: 'mcq', q: 'Which letter is the last one in Ushma?', options: ['\u0939', '\u0938'], answer: '\u0939' },
+
+                    { type: 'mcq', q: 'Which is a Sanyukt (combined) letter?', options: ['\u0915\u094d\u0937', '\u0915', '\u0937'], answer: '\u0915\u094d\u0937' },
+                    { type: 'mcq', q: 'Which of these is a Sanyukt letter?', options: ['\u0924\u094d\u0930', '\u0924', '\u0930'], answer: '\u0924\u094d\u0930' },
+                    { type: 'mcq', q: 'Which of these is a Sanyukt letter?', options: ['\u091c\u094d\u091e', '\u091c', '\u091e'], answer: '\u091c\u094d\u091e' },
+                    { type: 'mcq', q: 'Which of these is a Sanyukt letter?', options: ['\u0936\u094d\u0930', '\u0936', '\u0930'], answer: '\u0936\u094d\u0930' },
+
+                    { type: 'trace_letter', q: 'इस अक्षर को ट्रेस करो: \u0915', display: '\u0915', letterText: '\u0915', hint: 'ऊपर दिए गए अक्षर को ध्यान से देखकर ट्रेस करो।' },
+                    { type: 'trace_letter', q: 'इस अक्षर को ट्रेस करो: \u091a', display: '\u091a', letterText: '\u091a', hint: 'धीरे-धीरे अक्षर के ऊपर ट्रेस करो।' },
+                    { type: 'trace_letter', q: 'इस अक्षर को ट्रेस करो: \u091f', display: '\u091f', letterText: '\u091f', hint: 'अक्षर के आकार को ध्यान से देखो।' },
+                    { type: 'trace_letter', q: 'इस अक्षर को ट्रेस करो: \u0924', display: '\u0924', letterText: '\u0924', hint: 'पहले देखो, फिर ट्रेस करो।' },
+                    { type: 'trace_letter', q: 'इस अक्षर को ट्रेस करो: \u092a', display: '\u092a', letterText: '\u092a', hint: 'हर बार पूरा अक्षर ट्रेस करो।' },
+                    { type: 'trace_letter', q: 'इस अक्षर को ट्रेस करो: \u092f', display: '\u092f', letterText: '\u092f', hint: 'अक्षर बोलते हुए ट्रेस करो।' },
+                    { type: 'trace_letter', q: 'इस अक्षर को ट्रेस करो: \u0936', display: '\u0936', letterText: '\u0936', hint: 'धीरे-धीरे और सावधानी से ट्रेस करो।' },
+                    { type: 'trace_letter', q: 'इस अक्षर को ट्रेस करो: \u0915\u094d\u0937', display: '\u0915\u094d\u0937', letterText: '\u0915\u094d\u0937', hint: 'शाबाश! यह दो अक्षर जुड़कर बना है।' }
+                ]
+            },
+            'maths-subtraction-1000': {
+                title: 'Maths: Numbers to 1000 & Subtraction',
+                questions: [
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Numbers up to 1000',
+                        content: `
+                            <p>A 3-digit number has a <strong>hundreds digit</strong>, a <strong>tens digit</strong>, and a <strong>ones digit</strong>.</p>
+                            <table>
+                                <tr><th>Number 347</th><th>Face Value</th><th>Place Value</th></tr>
+                                <tr><td>3 (hundreds)</td><td>3</td><td>300</td></tr>
+                                <tr><td>4 (tens)</td><td>4</td><td>40</td></tr>
+                                <tr><td>7 (ones)</td><td>7</td><td>7</td></tr>
+                            </table>
+                            <p>To compare 3-digit numbers, compare the hundreds digit first, then tens, then ones \u2014 just like with 2-digit numbers.</p>
+                            <p class="exam-lesson-tip">Trick: the number right after 999 is 1000 \u2014 that's when we need a 4th digit!</p>
+                        `
+                    },
+                    { type: 'text', q: 'What is the place value of 3 in 347?', answers: ['300'] },
+                    { type: 'text', q: 'What is the place value of 4 in 347?', answers: ['40'] },
+                    { type: 'text', q: 'What is the face value of 7 in 347?', answers: ['7'] },
+                    { type: 'mcq', q: 'Which number is greater: 456 or 465?', options: ['465', '456'], answer: '465' },
+                    { type: 'mcq', q: 'Which number is smaller: 702 or 720?', options: ['702', '720'], answer: '702' },
+                    { type: 'text', q: 'Write in numerals: five hundred twenty-six', answers: ['526'] },
+                    { type: 'text', q: 'What number comes after 999?', answers: ['1000'] },
+                    { type: 'text', q: 'What number comes before 500?', answers: ['499'] },
+
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Subtraction',
+                        content: `
+                            <p><strong>Subtraction</strong> means taking away one number from another.</p>
+                            <p>Just like addition, subtract the ones column first, then the tens column.</p>
+                            <p>Sometimes the top ones digit is smaller than the digit below it \u2014 then we <strong>borrow</strong> 1 ten from the tens column to make the ones column big enough.</p>
+                            <p>Example: 52 \u2212 27 \u2192 ones: 2 is smaller than 7, so borrow 1 ten (12 \u2212 7 = 5); tens: 4 (after borrowing) \u2212 2 = 2 \u2192 answer: 25.</p>
+                            <p class="exam-lesson-tip">Trick: always start subtracting from the ones column, just like addition.</p>
+                        `
+                    },
+                    { type: 'text', q: '8 \u2212 3 = ?', answers: ['5'] },
+                    { type: 'text', q: '12 \u2212 5 = ?', answers: ['7'] },
+                    { type: 'text', q: '17 \u2212 9 = ?', answers: ['8'] },
+                    { type: 'text', q: '45 \u2212 20 = ?', answers: ['25'] },
+                    { type: 'text', q: '68 \u2212 34 = ?', answers: ['34'] },
+
+                    { type: 'text', q: '52 \u2212 27 = ?', answers: ['25'] },
+                    { type: 'text', q: '83 \u2212 46 = ?', answers: ['37'] },
+                    { type: 'text', q: '91 \u2212 58 = ?', answers: ['33'] },
+                    { type: 'text', q: '125 \u2212 68 = ?', answers: ['57'] },
+                    { type: 'text', q: '300 \u2212 125 = ?', answers: ['175'] },
+
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Addition and Subtraction of Bigger Numbers',
+                        content: `
+                            <p>For 3-digit numbers, line up the hundreds, tens, and ones columns, then add or subtract each column, starting from ones \u2014 carrying or borrowing whenever needed.</p>
+                            <p>Example: 234 + 158 \u2192 ones: 4+8=12 (write 2, carry 1); tens: 3+5+1=9; hundreds: 2+1=3 \u2192 answer: 392.</p>
+                            <p>Example: 500 \u2212 234 \u2192 borrow across the tens and hundreds columns \u2192 answer: 266.</p>
+                            <p class="exam-lesson-tip">Trick: write the bigger number on top, and always work column by column from the right.</p>
+                        `
+                    },
+                    { type: 'text', q: '234 + 158 = ?', answers: ['392'] },
+                    { type: 'text', q: '421 + 359 = ?', answers: ['780'] },
+                    { type: 'text', q: '605 + 287 = ?', answers: ['892'] },
+                    { type: 'text', q: '150 + 275 = ?', answers: ['425'] },
+
+                    { type: 'text', q: '500 \u2212 234 = ?', answers: ['266'] },
+                    { type: 'text', q: '742 \u2212 358 = ?', answers: ['384'] },
+                    { type: 'text', q: '600 \u2212 275 = ?', answers: ['325'] },
+                    { type: 'text', q: '813 \u2212 456 = ?', answers: ['357'] }
+                ]
+            },
+            'english-nouns-adjectives': {
+                title: 'English: Nouns & Adjectives',
+                questions: [
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Countable & Uncountable Nouns',
+                        content: `
+                            <p><strong>Countable nouns</strong> are things we can count one by one \u2014 they have a singular form and a plural form. Example: one apple, two apples.</p>
+                            <p><strong>Uncountable nouns</strong> are things we cannot count individually \u2014 they have no plural form, and we don't put a number directly in front of them. Example: water, rice, sugar, milk.</p>
+                            <table>
+                                <tr><th>Countable</th><th>Uncountable</th></tr>
+                                <tr><td>apple / apples</td><td>water</td></tr>
+                                <tr><td>book / books</td><td>rice</td></tr>
+                                <tr><td>dog / dogs</td><td>sugar</td></tr>
+                            </table>
+                            <p><strong>Plurals:</strong> usually add -s (cat \u2192 cats). Add -es after s/x/ch/sh (box \u2192 boxes). Change y to ies (baby \u2192 babies). Some are irregular (child \u2192 children, man \u2192 men, mouse \u2192 mice).</p>
+                            <p class="exam-lesson-tip">Trick: if you can say "two" of it, it's countable. If it sounds odd to count (like "two waters"), it's uncountable.</p>
+                        `
+                    },
+                    { type: 'mcq', q: 'Which is a countable noun?', options: ['Apple', 'Water'], answer: 'Apple' },
+                    { type: 'mcq', q: 'Which is an uncountable noun?', options: ['Rice', 'Book'], answer: 'Rice' },
+                    { type: 'mcq', q: 'Which is a countable noun?', options: ['Sugar', 'Pencil'], answer: 'Pencil' },
+                    { type: 'mcq', q: 'Which is an uncountable noun?', options: ['Milk', 'Chair'], answer: 'Milk' },
+                    { type: 'tf', q: 'We can say "two waters."', answer: 'False' },
+                    { type: 'tf', q: 'We can say "three books."', answer: 'True' },
+
+                    { type: 'text', q: 'Write the plural of "cat".', answers: ['cats'] },
+                    { type: 'text', q: 'Write the plural of "box".', answers: ['boxes'] },
+                    { type: 'text', q: 'Write the plural of "baby".', answers: ['babies'] },
+                    { type: 'text', q: 'Write the plural of "child".', answers: ['children'] },
+                    { type: 'text', q: 'Write the plural of "mouse".', answers: ['mice'] },
+                    { type: 'mcq', q: 'What is the plural of "man"?', options: ['men', 'mans'], answer: 'men' },
+
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Adjectives',
+                        content: `
+                            <p>An <strong>adjective</strong> is a word that describes a noun. There are different kinds:</p>
+                            <table>
+                                <tr><th>Type</th><th>Tells us</th><th>Examples</th></tr>
+                                <tr><td>Quality</td><td>what kind</td><td>beautiful, tall, red, happy</td></tr>
+                                <tr><td>Number</td><td>how many (exact or general)</td><td>five, many, few, several</td></tr>
+                                <tr><td>Quantity</td><td>how much (for uncountable nouns)</td><td>some, much, little, enough</td></tr>
+                            </table>
+                            <p>Example: "I have <em>five</em> (number) pencils." "She drank <em>some</em> (quantity) milk." "The <em>red</em> (quality) flower smells nice."</p>
+                            <p class="exam-lesson-tip">Trick: Quality = what KIND. Number = how MANY (countable things). Quantity = how MUCH (uncountable things).</p>
+                        `
+                    },
+                    { type: 'mcq', q: 'Which word is an adjective of quality in "The tall boy ran fast"?', options: ['tall', 'boy', 'ran'], answer: 'tall' },
+                    { type: 'mcq', q: 'Which is an adjective of quality?', options: ['Beautiful', 'Five', 'Some'], answer: 'Beautiful' },
+                    { type: 'mcq', q: 'Which word describes the QUALITY of the flower? "The red flower smells nice."', options: ['red', 'flower', 'smells'], answer: 'red' },
+                    { type: 'mcq', q: 'Which word is an adjective of number? "I have five pencils."', options: ['five', 'pencils', 'have'], answer: 'five' },
+                    { type: 'mcq', q: 'Which word is an adjective of quantity? "She drank some milk."', options: ['some', 'milk', 'drank'], answer: 'some' },
+                    { type: 'mcq', q: 'Which is an adjective of number?', options: ['Many', 'Little', 'Red'], answer: 'Many' },
+                    { type: 'mcq', q: 'Which is an adjective of quantity (used with uncountable nouns)?', options: ['Much', 'Five', 'Tall'], answer: 'Much' },
+                    { type: 'mcq', q: '"I have three apples." \u2014 What kind of adjective is "three"?', options: ['Number', 'Quality', 'Quantity'], answer: 'Number' },
+                    { type: 'mcq', q: '"There is little sugar left." \u2014 What kind of adjective is "little"?', options: ['Quantity', 'Number', 'Quality'], answer: 'Quantity' }
+                ]
+            },
+            'kannada-eli-mattu-simha': {
+                title: 'Kannada: \u0c87\u0cb2\u0cbf \u0cae\u0ca4\u0ccd\u0ca4\u0cc1 \u0cb8\u0cbf\u0c82\u0cb9 (Mouse & Lion)',
+                questions: [
+                    {
+                        type: 'lesson',
+                        title: 'Learn: \u0c87\u0cb2\u0cbf \u0cae\u0ca4\u0ccd\u0ca4\u0cc1 \u0cb8\u0cbf\u0c82\u0cb9 (The Mouse and the Lion)',
+                        content: `
+                            <p><strong>Story:</strong> A lion was resting under a tree. A little mouse ran across the lion's body and woke it up. The lion caught the mouse, but the mouse begged for its life, so the lion let it go. Later, the lion got caught in a hunter's net. The mouse heard the lion roaring, came back, and gnawed through the net with its teeth to free the lion. The lion thanked the mouse.</p>
+                            <p class="exam-lesson-tip">Note: this is the classic fable "The Lion and the Mouse" \u2014 the questions below are based on this well-known story and the class quiz, since the exact textbook wording wasn't available.</p>
+                            <p><strong>Grammar \u2014 Adding \u0c85\u0ca8\u0ccd\u0ca8\u0cc1 (annu):</strong> \u0c85\u0ca8\u0ccd\u0ca8\u0cc1 (annu) is added to a noun to show it is the object of an action. A joining sound is inserted depending on how the noun ends:</p>
+                            <table>
+                                <tr><th>Noun ends in</th><th>Insert</th><th>Example</th></tr>
+                                <tr><td>\u0c8e (e)</td><td>\u0caf (ya)</td><td>\u0cac\u0cb2\u0cc6 (bale) + \u0c85\u0ca8\u0ccd\u0ca8\u0cc1 \u2192 \u0cac\u0cb2\u0cc6\u0caf\u0ca8\u0ccd\u0ca8\u0cc1 (baleyannu)</td></tr>
+                                <tr><td>\u0c87 (i)</td><td>\u0caf (ya)</td><td>\u0c87\u0cb2\u0cbf (ili) + \u0c85\u0ca8\u0ccd\u0ca8\u0cc1 \u2192 \u0c87\u0cb2\u0cbf\u0caf\u0ca8\u0ccd\u0ca8\u0cc1 (iliyannu)</td></tr>
+                                <tr><td>\u0c85 (a)</td><td>\u0cb5 (va)</td><td>\u0cb8\u0cbf\u0c82\u0cb9 (simha) + \u0c85\u0ca8\u0ccd\u0ca8\u0cc1 \u2192 \u0cb8\u0cbf\u0c82\u0cb9\u0cb5\u0ca8\u0ccd\u0ca8\u0cc1 (simhavannu)</td></tr>
+                            </table>
+                            <p class="exam-lesson-tip">Trick: words ending in e/i usually take "ya", words ending in "a" usually take "va".</p>
+                        `
+                    },
+                    { type: 'mcq', q: 'ಸಿಂಹವು ಎಲ್ಲಿ ವಿಶ್ರಾಂತಿ ತೆಗೆದುಕೊಳ್ಳುತ್ತಿತ್ತು? (Simhavu elli vishranti tegedukolluttittu? \u2014 Where was the lion resting?)', options: ['ಮರದ ಕೆಳಗೆ (marada kelage \u2014 under the tree)', 'ಬೀದಿಯಲ್ಲಿ (beediyalli \u2014 on the street)', 'ಮನೆಯಲ್ಲಿ (maneyalli \u2014 in the house)'], answer: 'ಮರದ ಕೆಳಗೆ (marada kelage \u2014 under the tree)' },
+                    { type: 'mcq', q: 'ಸಿಂಹ ಎಲ್ಲಿ ಸಿಕ್ಕಿಕೊಂಡಿತು? (Simha elli sikkikondithu? \u2014 Where did the lion get trapped?)', options: ['ಗಾಡಿಯಲ್ಲಿ (gaadiyalli \u2014 in a cart)', 'ಬಲೆಯಲ್ಲಿ (baleyalli \u2014 in a net)', 'ಕಾರಿನಲ್ಲಿ (kaarinalli \u2014 in a car)'], answer: 'ಬಲೆಯಲ್ಲಿ (baleyalli \u2014 in a net)' },
+                    { type: 'mcq', q: 'ಸಿಂಹದ ಮೈ ಮೇಲೆ ____ ಓಡಾಡಲಾರಂಭಿಸಿತು. (Simhada mai mele ____ odaadalaarambhisithu. \u2014 A ____ started running on the lion\'s body.)', options: ['ಬೆಕ್ಕು (bekku \u2014 cat)', 'ಇಲಿ (ili \u2014 mouse)', 'ನಾಯಿ (naayi \u2014 dog)'], answer: 'ಇಲಿ (ili \u2014 mouse)' },
+                    { type: 'mcq', q: 'ಇಲಿ ____ ಪ್ರಾರ್ಥಿಸಿತು. (Ili ____ praarthisithu. \u2014 The mouse pleaded to ____.)', options: ['ಸಿಂಹವನ್ನು (simhavannu \u2014 the lion)', 'ಕರಡಿಯನ್ನು (karadiyannu \u2014 the bear)', 'ನಾಯಿಯನ್ನು (naayiyannu \u2014 the dog)'], answer: 'ಸಿಂಹವನ್ನು (simhavannu \u2014 the lion)' },
+                    { type: 'mcq', q: 'ಇಲಿ ತನ್ನ ____ ಬಲೆಯನ್ನು ಕತ್ತರಿಸಿತು. (Ili tanna ____ baleyannu kattharisithu. \u2014 The mouse cut the net with its ____.)', options: ['ಕಾಲಿನಿಂದ (kaalininda \u2014 with its leg)', 'ಕೈಗಳಿಂದ (kaigalinda \u2014 with its hands)', 'ಹಲ್ಲುಗಳಿಂದ (hallugalinda \u2014 with its teeth)'], answer: 'ಹಲ್ಲುಗಳಿಂದ (hallugalinda \u2014 with its teeth)' },
+                    { type: 'mcq', q: 'ಸಿಂಹವು ಇಲಿಗೆ ____ ಹೇಳಿತು. (Simhavu ilige ____ helithu. \u2014 The lion said ____ to the mouse.)', options: ['ಕೃತಜ್ಞತೆ (kritajnate \u2014 gratitude)', 'ವಂದನೆ (vandane \u2014 greeting)', 'ಅಬಿನಂದನೆ (abinandane \u2014 congratulations)'], answer: 'ಕೃತಜ್ಞತೆ (kritajnate \u2014 gratitude)' },
+
+                    { type: 'mcq', q: 'ಹರಿತ = ____ ಈ ಪದದ ಕನ್ನಡ ಅರ್ಥ. (Haritha = ____ ee padada kannada artha. \u2014 "Haritha" means ____.)', options: ['ಮಂಡಾದ (mandaada)', 'ಚೂಪಾದ (chupaada \u2014 sharp)', 'ಡೊಂಕಾದ (donkaada \u2014 bent)'], answer: 'ಚೂಪಾದ (chupaada \u2014 sharp)' },
+
+                    { type: 'mcq', q: 'ಬಲೆ + ಅನ್ನು = ____ (Bale + annu = ____ \u2014 net + object-marker = ____)', options: ['ಬಲೆಯನ್ನು (baleyannu)', 'ಬಲೆವನ್ನು (balevannu)', 'ಬಲೆಅನ್ನು (baleannu)'], answer: 'ಬಲೆಯನ್ನು (baleyannu)' },
+                    { type: 'mcq', q: 'ಇಲಿ + ಅನ್ನು = ____ (Ili + annu = ____ \u2014 mouse + object-marker = ____)', options: ['ಇಲಿಯನ್ನು (iliyannu)', 'ಇಲಿವನ್ನು (ilivannu)', 'ಇಲಿಅನ್ನು (iliannu)'], answer: 'ಇಲಿಯನ್ನು (iliyannu)' },
+                    { type: 'mcq', q: 'ಸಿಂಹ + ಅನ್ನು = ____ (Simha + annu = ____ \u2014 lion + object-marker = ____)', options: ['ಸಿಂಹವನ್ನು (simhavannu)', 'ಸಿಂಹಯನ್ನು (simhayannu)', 'ಸಿಂಹಅನ್ನು (simhaannu)'], answer: 'ಸಿಂಹವನ್ನು (simhavannu)' }
+                ]
+            },
             'hindi': {
                 title: 'Hindi',
                 questions: [
@@ -4235,12 +4490,17 @@
             'english-sentences': 'grade2',
             'evs-me-and-myself': 'grade2',
             'maths-2digit-addition': 'grade2',
-            'hindi-swar': 'grade2'
+            'hindi-swar': 'grade2',
+            'hindi-vyanjan': 'grade2-term1',
+            'maths-subtraction-1000': 'grade2-term1',
+            'english-nouns-adjectives': 'grade2-term1',
+            'kannada-eli-mattu-simha': 'grade2-term1'
         };
 
         const gradeDefaultSubject = {
             'grade1': 'computer-science',
-            'grade2': 'english-pet-poem'
+            'grade2': 'english-pet-poem',
+            'grade2-term1': 'hindi-vyanjan'
         };
 
         function syncGradeUI(subject) {
@@ -4361,6 +4621,42 @@
                 { title: 'Learn: More Words for Each Swar', count: 1 },
                 { title: 'D. More Words for Each Swar', count: 26 },
                 { title: 'E. Write the Swar', count: 10 }
+            ],
+            'hindi-vyanjan': [
+                { title: 'Learn: Hindi Vyanjan (Consonants)', count: 1 },
+                { title: 'A. Ka-varg', count: 4 },
+                { title: 'B. Cha-varg', count: 4 },
+                { title: 'C. Ta-varg', count: 4 },
+                { title: 'D. Tha-varg', count: 4 },
+                { title: 'E. Pa-varg', count: 4 },
+                { title: 'F. Antastha', count: 4 },
+                { title: 'G. Ushma', count: 4 },
+                { title: 'H. Sanyukt', count: 4 },
+                { title: 'I. Write the Vyanjan', count: 8 }
+            ],
+            'maths-subtraction-1000': [
+                { title: 'Learn: Numbers up to 1000', count: 1 },
+                { title: 'A. Numbers up to 1000', count: 8 },
+                { title: 'Learn: Subtraction', count: 1 },
+                { title: 'B. Basic Subtraction', count: 5 },
+                { title: 'C. Subtraction with Regrouping', count: 5 },
+                { title: 'Learn: Addition and Subtraction of Bigger Numbers', count: 1 },
+                { title: 'D. Addition of Bigger Numbers', count: 4 },
+                { title: 'E. Subtraction of Bigger Numbers', count: 4 }
+            ],
+            'english-nouns-adjectives': [
+                { title: 'Learn: Countable & Uncountable Nouns', count: 1 },
+                { title: 'A. Countable & Uncountable Nouns', count: 6 },
+                { title: 'B. Singular and Plural Nouns', count: 6 },
+                { title: 'Learn: Adjectives', count: 1 },
+                { title: 'C. Adjectives of Quality', count: 3 },
+                { title: 'D. Adjectives of Number & Quantity', count: 6 }
+            ],
+            'kannada-eli-mattu-simha': [
+                { title: 'Learn: \u0c87\u0cb2\u0cbf \u0cae\u0ca4\u0ccd\u0ca4\u0cc1 \u0cb8\u0cbf\u0c82\u0cb9', count: 1 },
+                { title: 'A. Story Comprehension', count: 6 },
+                { title: 'B. Vocabulary', count: 1 },
+                { title: 'C. Grammar \u2014 Adding \u0c85\u0ca8\u0ccd\u0ca8\u0cc1 (annu)', count: 3 }
             ],
             'hindi': [
                 { title: '1. एक के अनेक शब्द', count: 8 },
@@ -4614,6 +4910,100 @@
             container.innerHTML = html;
         }
 
+        // ============ TERM PORTION (SYLLABUS REFERENCE) ============
+        // Source: WisdomWood High, Grade 2 First Term Portion letter dated 18 Aug 2026.
+        const termPortionData = [
+            {
+                subject: 'English',
+                icon: '\uD83D\uDCD6',
+                items: [
+                    { book: 'Communicate with Cambridge (Coursebook)', topic: 'Chapter \u2014 Well Done Polly' },
+                    { book: 'Communicate with Cambridge (Coursebook)', topic: 'Poem \u2014 A Good Boy' },
+                    { book: 'Grammar (Notebook Work)', topic: 'Sentence \u2014 Exclamation, Command, Statement, Question' },
+                    { book: 'Grammar', topic: 'Noun \u2014 Countable, Uncountable, Singular and Plural' },
+                    { book: 'Grammar', topic: 'Adjective \u2014 Quality, Number, Quantity' },
+                    { book: 'Grammar', topic: 'Reading Comprehension' },
+                    { book: 'Grammar', topic: 'Picture Composition' }
+                ]
+            },
+            {
+                subject: 'Hindi',
+                icon: '\uD83D\uDCD6',
+                items: [
+                    { book: null, topic: 'Ka-varg Practice' },
+                    { book: null, topic: 'Cha-varg (\u091a, \u091b, \u091c, \u091d, \u091e)' },
+                    { book: null, topic: 'Ta-varg (\u091f, \u0920, \u0921, \u0922, \u0923)' },
+                    { book: null, topic: 'Tha-varg (\u0924, \u0925, \u0926, \u0927, \u0928)' },
+                    { book: null, topic: 'Pa-varg (\u092a, \u092b, \u092c, \u092d, \u092e)' },
+                    { book: null, topic: 'Antastha (\u092f, \u0930, \u0932, \u0935)' },
+                    { book: null, topic: 'Ushma (\u0936, \u0937, \u0938, \u0939)' },
+                    { book: null, topic: 'Sanyukt (\u0915\u094d\u0937, \u0924\u094d\u0930, \u091c\u094d\u091e, \u0936\u094d\u0930)' }
+                ]
+            },
+            {
+                subject: 'EVS',
+                icon: '\uD83C\uDF31',
+                items: [
+                    { book: 'I Care', topic: 'Chapter \u2014 My Family' },
+                    { book: 'I Care', topic: 'Chapter \u2014 Our Neighbourhood' },
+                    { book: 'I Care', topic: 'Chapter \u2014 My School' },
+                    { book: 'I Care', topic: 'Chapter \u2014 People Who Help Us' }
+                ]
+            },
+            {
+                subject: 'Kannada',
+                icon: '\uD83D\uDCD6',
+                items: [
+                    { book: 'Kannada Bharathi Textbook', topic: 'Ch. 4 \u2014 Eli Mattu Simha' },
+                    { book: 'Kannada Bharathi Textbook', topic: 'Ch. 7 \u2014 Rashtra Pakshi Navilu' },
+                    { book: 'Kannada Bharathi Textbook', topic: 'Grammar \u2014 Varnamaale (\u0c85 to \u0cb3)' },
+                    { book: 'Kannada Bharathi Textbook', topic: 'Grammar \u2014 Gunithaksharagalu (\u0c97, \u0ca6, \u0ca4, \u0ca8, \u0cac)' }
+                ],
+                note: 'Refer: Textbook and Classwork book'
+            },
+            {
+                subject: 'Mathematics',
+                icon: '\u2795',
+                items: [
+                    { book: 'I Did It Mathematics', topic: 'Chapter \u2014 Subtraction' },
+                    { book: 'I Did It Mathematics', topic: 'Chapter \u2014 Numbers up to 1000' },
+                    { book: 'I Did It Mathematics', topic: 'Chapter \u2014 Addition and Subtraction of Bigger Numbers' }
+                ]
+            },
+            {
+                subject: 'Art',
+                icon: '\uD83C\uDFA8',
+                items: [
+                    { book: null, topic: 'Free Drawing' },
+                    { book: null, topic: 'Objects' },
+                    { book: null, topic: 'Nature' },
+                    { book: null, topic: 'Human' },
+                    { book: null, topic: 'Cartoon' }
+                ]
+            }
+        ];
+
+        function initTermPortionGame() {
+            const container = document.getElementById('termPortionContent');
+            if (!container) return;
+
+            let html = '';
+            termPortionData.forEach(subj => {
+                html += `<div class="exam-section" style="margin-bottom:16px;">`;
+                html += `<div class="exam-section-head"><h4>${subj.icon} ${subj.subject}</h4><span class="exam-count-pill">${subj.items.length} topic${subj.items.length > 1 ? 's' : ''}</span></div>`;
+                subj.items.forEach(item => {
+                    html += `<div style="padding:8px 0; border-bottom:1px solid #e0d7c0;">`;
+                    html += `<div style="font-weight:800; color:#1F4E5F;">${item.topic}</div>`;
+                    if (item.book) html += `<div style="color:#8a95a3; font-size:0.85rem;">${item.book}</div>`;
+                    html += `</div>`;
+                });
+                if (subj.note) html += `<div style="margin-top:6px; font-style:italic; color:#8a6d3b; font-size:0.9rem;">${subj.note}</div>`;
+                html += `</div>`;
+            });
+
+            container.innerHTML = html;
+        }
+
         function normalizeExamAnswer(value) {
             return (value || '').toString().trim().toLowerCase().replace(/\s+/g, ' ');
         }
@@ -4634,7 +5024,7 @@
         }
 
         function shouldUseWordBank(subject, item) {
-            const wordBankSubjects = ['hindi', 'hindi-writing-practice', 'kannada', 'english-pet-poem', 'english-sentences', 'evs-me-and-myself', 'maths-2digit-addition', 'hindi-swar'];
+            const wordBankSubjects = ['hindi', 'hindi-writing-practice', 'kannada', 'english-pet-poem', 'english-sentences', 'evs-me-and-myself', 'maths-2digit-addition', 'hindi-swar', 'hindi-vyanjan', 'maths-subtraction-1000', 'english-nouns-adjectives'];
             return wordBankSubjects.includes(subject) && item.type === 'text';
         }
 
@@ -5386,7 +5776,8 @@
             }
             let html = '';
             html += `<div class="exam-hero">`;
-            const gradeLabel = subjectGradeMap[subject] === 'grade2' ? 'Grade 2' : 'Grade 1';
+            const gradeLabelMap = { 'grade1': 'Grade 1', 'grade2': 'Grade 2', 'grade2-term1': 'Grade 2 - Term 01' };
+            const gradeLabel = gradeLabelMap[subjectGradeMap[subject]] || 'Grade 1';
             html += `<h3>${gradeLabel} ${subjectData.title} Practice Quiz</h3>`;
             html += `<p>Based on your worksheet sections. Each section has its own submit button and reshuffles on every open/reset.</p>`;
             html += `</div>`;
@@ -5623,6 +6014,7 @@ function resetExamPrep() {
             else if (game === 'games') { /* hub screen, nothing to init */ }
             else if (game === 'holidays') initHolidaysGame();
             else if (game === 'termSchedule') initTermScheduleGame();
+            else if (game === 'termPortion') initTermPortionGame();
             else if (game === 'ticTacToe') initTicTacToeGame();
         }
         
