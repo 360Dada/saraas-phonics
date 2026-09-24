@@ -2732,6 +2732,7 @@
                     <button class="exam-subject-btn" data-subject="hindi-vyanjan" data-grade="grade2-term1" onclick="showExamSubject('hindi-vyanjan'); playClickSound();">Hindi: Vyanjan (Consonants)</button>
                     <button class="exam-subject-btn" data-subject="maths-subtraction-1000" data-grade="grade2-term1" onclick="showExamSubject('maths-subtraction-1000'); playClickSound();">Maths: Numbers to 1000 & Subtraction</button>
                     <button class="exam-subject-btn" data-subject="english-nouns-adjectives" data-grade="grade2-term1" onclick="showExamSubject('english-nouns-adjectives'); playClickSound();">English: Nouns & Adjectives</button>
+                    <button class="exam-subject-btn" data-subject="english-polly-goodboy" data-grade="grade2-term1" onclick="showExamSubject('english-polly-goodboy'); playClickSound();">English: Polly & A Good Boy</button>
                     <button class="exam-subject-btn" data-subject="kannada-eli-mattu-simha" data-grade="grade2-term1" onclick="showExamSubject('kannada-eli-mattu-simha'); playClickSound();">Kannada: Mouse & Lion</button>
                     <button class="exam-subject-btn" data-subject="hindi" data-grade="grade1" onclick="showExamSubject('hindi'); playClickSound();">Hindi</button>
                     <button class="exam-subject-btn" data-subject="hindi-writing-practice" data-grade="grade1" onclick="showExamSubject('hindi-writing-practice'); playClickSound();">Hindi Writing Practice</button>
@@ -4278,56 +4279,250 @@
                         type: 'lesson',
                         title: 'Learn: Countable & Uncountable Nouns',
                         content: `
-                            <p><strong>Countable nouns</strong> are things we can count one by one \u2014 they have a singular form and a plural form. Example: one apple, two apples.</p>
-                            <p><strong>Uncountable nouns</strong> are things we cannot count individually \u2014 they have no plural form, and we don't put a number directly in front of them. Example: water, rice, sugar, milk.</p>
+                            <p><strong>Countable nouns</strong> are nouns we can count \u2014 boy, cup, pencil, book, table, plate, pen, tree. We can say "six boys," "four cups," "two pencils."</p>
+                            <p><strong>Uncountable nouns</strong> name things we cannot count or usually do not count \u2014 we weigh or measure them instead: rice, wheat, sugar, sand, salt, paper, wood, cloth, water, milk, oil, ink.</p>
                             <table>
-                                <tr><th>Countable</th><th>Uncountable</th></tr>
-                                <tr><td>apple / apples</td><td>water</td></tr>
-                                <tr><td>book / books</td><td>rice</td></tr>
-                                <tr><td>dog / dogs</td><td>sugar</td></tr>
+                                <tr><th>Category</th><th>Uncountable examples</th></tr>
+                                <tr><td>Food</td><td>meat, bread, cheese, toast, butter, honey, tea, coffee, pepper</td></tr>
+                                <tr><td>Sports</td><td>tennis, basketball, football, cricket, hockey, chess</td></tr>
+                                <tr><td>Weather words</td><td>thunder, lightning, snow, rain, ice, wind, light</td></tr>
+                                <tr><td>Other common words</td><td>homework, luggage, furniture, gold, hair, silver, cotton, money, petrol, traffic</td></tr>
                             </table>
-                            <p><strong>Plurals:</strong> usually add -s (cat \u2192 cats). Add -es after s/x/ch/sh (box \u2192 boxes). Change y to ies (baby \u2192 babies). Some are irregular (child \u2192 children, man \u2192 men, mouse \u2192 mice).</p>
-                            <p class="exam-lesson-tip">Trick: if you can say "two" of it, it's countable. If it sounds odd to count (like "two waters"), it's uncountable.</p>
+                            <p>Because we cannot count these things directly, we add a countable "measuring" word: <em>a bottle of oil, a cup of tea, three sacks of rice, two glasses of water, a drop of ink, a bar of soap, a pinch of salt.</em></p>
+                            <p class="exam-lesson-tip">Trick 1 (the "add a number" test): if you can add a number straight in front of a noun (three lions \u2713), it's countable. If it sounds wrong (four wood \u2717), it's uncountable \u2014 you need a measuring word instead.</p>
+                            <p class="exam-lesson-tip">Trick 2 (spotting the measuring word): the measuring word always comes right after "a/an/two/three" and before "of" \u2014 a <u>bottle</u> of oil, two <u>sacks</u> of rice. The countable word is the one you can make plural (bottles, sacks); the uncountable word after "of" never changes.</p>
                         `
                     },
-                    { type: 'mcq', q: 'Which is a countable noun?', options: ['Apple', 'Water'], answer: 'Apple' },
-                    { type: 'mcq', q: 'Which is an uncountable noun?', options: ['Rice', 'Book'], answer: 'Rice' },
-                    { type: 'mcq', q: 'Which is a countable noun?', options: ['Sugar', 'Pencil'], answer: 'Pencil' },
-                    { type: 'mcq', q: 'Which is an uncountable noun?', options: ['Milk', 'Chair'], answer: 'Milk' },
-                    { type: 'tf', q: 'We can say "two waters."', answer: 'False' },
-                    { type: 'tf', q: 'We can say "three books."', answer: 'True' },
-
-                    { type: 'text', q: 'Write the plural of "cat".', answers: ['cats'] },
-                    { type: 'text', q: 'Write the plural of "box".', answers: ['boxes'] },
-                    { type: 'text', q: 'Write the plural of "baby".', answers: ['babies'] },
-                    { type: 'text', q: 'Write the plural of "child".', answers: ['children'] },
-                    { type: 'text', q: 'Write the plural of "mouse".', answers: ['mice'] },
-                    { type: 'mcq', q: 'What is the plural of "man"?', options: ['men', 'mans'], answer: 'men' },
+                    { type: 'mcq', q: 'Which is a countable noun?', options: ['cup', 'milk'], answer: 'cup' },
+                    { type: 'mcq', q: 'Which is an uncountable noun?', options: ['rice', 'book'], answer: 'rice' },
+                    { type: 'text', q: 'Fill in the blank: I want to learn many ______. (languages/French/Hindi)', answers: ['languages'] },
+                    { type: 'text', q: 'Fill in the blank: I do not want the fruit. Can you give me some ______ instead?', answers: ['juice'] },
+                    { type: 'text', q: 'Fill in the blank: How many ______ do you want to eat?', answers: ['biscuits'] },
+                    { type: 'text', q: 'Fill in the blank: Please give me a bottle of ______.', answers: ['oil'] },
+                    { type: 'text', q: 'Fill in the blank: Could you pass me a cup of ______?', answers: ['tea'] },
+                    { type: 'text', q: 'Fill in the blank: We need three sacks of ______.', answers: ['rice'] },
+                    { type: 'mcq', q: 'Is "petrol" countable or uncountable?', options: ['Uncountable', 'Countable'], answer: 'Uncountable' },
 
                     {
                         type: 'lesson',
-                        title: 'Learn: Adjectives',
+                        title: 'Learn: Plural Nouns',
                         content: `
-                            <p>An <strong>adjective</strong> is a word that describes a noun. There are different kinds:</p>
-                            <table>
-                                <tr><th>Type</th><th>Tells us</th><th>Examples</th></tr>
-                                <tr><td>Quality</td><td>what kind</td><td>beautiful, tall, red, happy</td></tr>
-                                <tr><td>Number</td><td>how many (exact or general)</td><td>five, many, few, several</td></tr>
-                                <tr><td>Quantity</td><td>how much (for uncountable nouns)</td><td>some, much, little, enough</td></tr>
-                            </table>
-                            <p>Example: "I have <em>five</em> (number) pencils." "She drank <em>some</em> (quantity) milk." "The <em>red</em> (quality) flower smells nice."</p>
-                            <p class="exam-lesson-tip">Trick: Quality = what KIND. Number = how MANY (countable things). Quantity = how MUCH (uncountable things).</p>
+                            <p>Most nouns form their plural by adding <strong>-s</strong> (cat \u2192 cats). But a few different endings need different rules \u2014 here they are, one at a time, each with its own trick.</p>
+
+                            <p><strong>1. Words ending in -s, -ss, -ch, -sh, -x</strong> \u2014 add <strong>-es</strong>.</p>
+                            <p>Example: bus \u2192 buses, glass \u2192 glasses, fox \u2192 foxes, brush \u2192 brushes, church \u2192 churches.</p>
+                            <p class="exam-lesson-tip">Trick: try saying "buss" fast with just an -s \u2014 it's hard! These endings are already "hissy" or "hard," so English adds a whole extra syllable (-es) to make the plural easy to hear and say.</p>
+
+                            <p><strong>Exception:</strong> when -ch sounds like [k] instead of "ch," just add -s.</p>
+                            <p>Example: stomach \u2192 stomachs (say it \u2014 it sounds like "stoma-k", not "stoma-ch").</p>
+                            <p class="exam-lesson-tip">Trick: say the word out loud. If you hear a hard "k" sound, it just gets -s, not -es.</p>
+
+                            <p><strong>2. Words ending in a vowel + y</strong> \u2014 just add <strong>-s</strong>.</p>
+                            <p>Example: day \u2192 days, key \u2192 keys, boy \u2192 boys.</p>
+                            <p><strong>Words ending in a consonant + y</strong> \u2014 change the y to i, then add <strong>-es</strong>.</p>
+                            <p>Example: baby \u2192 babies, city \u2192 cities.</p>
+                            <p class="exam-lesson-tip">Trick: check the letter right before the "y". A vowel (a, e, i, o, u) is "friendly" \u2014 no change needed, just add -s. A consonant is "shy" \u2014 it needs help, so y changes to i before -es.</p>
+
+                            <p><strong>3. Words ending in -o</strong> \u2014 usually add <strong>-es</strong>, but some just add <strong>-s</strong>.</p>
+                            <p>Example: potato \u2192 potatoes, hero \u2192 heroes  <em>but</em>  photo \u2192 photos, piano \u2192 pianos, zoo \u2192 zoos.</p>
+                            <p class="exam-lesson-tip">Trick: everyday "real-life" -o words (potato, hero, tomato) usually take -es. Shortened or borrowed words (photo, piano, zoo) usually just take -s. When unsure, some words even accept both (mango \u2192 mangos/mangoes) \u2014 both are correct!</p>
+
+                            <p><strong>4. Words ending in -f or -fe</strong> \u2014 usually change f/fe to <strong>v</strong>, then add <strong>-es</strong>, but a few just add <strong>-s</strong>.</p>
+                            <p>Example: thief \u2192 thieves, wife \u2192 wives, knife \u2192 knives  <em>but</em>  roof \u2192 roofs, giraffe \u2192 giraffes.</p>
+                            <p class="exam-lesson-tip">Trick: say the singular word slowly \u2014 an F makes a soft, breathy sound. When we add the plural ending, that breath often turns into a gentle "v" hum, like wind turning into a buzz: leaf \u2192 leaves.</p>
                         `
                     },
-                    { type: 'mcq', q: 'Which word is an adjective of quality in "The tall boy ran fast"?', options: ['tall', 'boy', 'ran'], answer: 'tall' },
-                    { type: 'mcq', q: 'Which is an adjective of quality?', options: ['Beautiful', 'Five', 'Some'], answer: 'Beautiful' },
-                    { type: 'mcq', q: 'Which word describes the QUALITY of the flower? "The red flower smells nice."', options: ['red', 'flower', 'smells'], answer: 'red' },
-                    { type: 'mcq', q: 'Which word is an adjective of number? "I have five pencils."', options: ['five', 'pencils', 'have'], answer: 'five' },
-                    { type: 'mcq', q: 'Which word is an adjective of quantity? "She drank some milk."', options: ['some', 'milk', 'drank'], answer: 'some' },
-                    { type: 'mcq', q: 'Which is an adjective of number?', options: ['Many', 'Little', 'Red'], answer: 'Many' },
-                    { type: 'mcq', q: 'Which is an adjective of quantity (used with uncountable nouns)?', options: ['Much', 'Five', 'Tall'], answer: 'Much' },
-                    { type: 'mcq', q: '"I have three apples." \u2014 What kind of adjective is "three"?', options: ['Number', 'Quality', 'Quantity'], answer: 'Number' },
-                    { type: 'mcq', q: '"There is little sugar left." \u2014 What kind of adjective is "little"?', options: ['Quantity', 'Number', 'Quality'], answer: 'Quantity' }
+                    { type: 'text', q: 'Write the plural of "boy".', answers: ['boys'] },
+                    { type: 'text', q: 'Write the plural of "tray".', answers: ['trays'] },
+                    { type: 'text', q: 'Write the plural of "chimney".', answers: ['chimneys'] },
+                    { type: 'text', q: 'Write the plural of "cherry".', answers: ['cherries'] },
+                    { type: 'text', q: 'Write the plural of "nanny".', answers: ['nannies'] },
+                    { type: 'text', q: 'Write the plural of "daisy".', answers: ['daisies'] },
+                    { type: 'text', q: 'Write the plural of "day".', answers: ['days'] },
+                    { type: 'text', q: 'Write the plural of "baby".', answers: ['babies'] },
+
+                    { type: 'text', q: 'Write the plural of "dish".', answers: ['dishes'] },
+                    { type: 'text', q: 'Write the plural of "pouch".', answers: ['pouches'] },
+                    { type: 'text', q: 'Write the plural of "fox".', answers: ['foxes'] },
+                    { type: 'text', q: 'Write the plural of "brush".', answers: ['brushes'] },
+                    { type: 'text', q: 'Write the plural of "glass".', answers: ['glasses'] },
+                    { type: 'text', q: 'Write the plural of "batch".', answers: ['batches'] },
+                    { type: 'text', q: 'Write the plural of "bench".', answers: ['benches'] },
+                    { type: 'text', q: 'Write the plural of "church".', answers: ['churches'] },
+
+                    { type: 'text', q: 'Write the plural of "potato".', answers: ['potatoes'] },
+                    { type: 'text', q: 'Write the plural of "hero".', answers: ['heroes'] },
+                    { type: 'text', q: 'Write the plural of "piano".', answers: ['pianos'] },
+                    { type: 'text', q: 'Write the plural of "photo".', answers: ['photos'] },
+                    { type: 'text', q: 'Write the plural of "mosquito".', answers: ['mosquitoes'] },
+                    { type: 'text', q: 'Write the plural of "zoo".', answers: ['zoos'] },
+                    { type: 'tf', q: 'The plural of "stomach" is "stomachs" (not "stomaches"), because the -ch here sounds like [k].', answer: 'True' },
+
+                    { type: 'text', q: 'Write the plural of "wife".', answers: ['wives'] },
+                    { type: 'text', q: 'Write the plural of "loaf".', answers: ['loaves'] },
+                    { type: 'text', q: 'Write the plural of "wolf".', answers: ['wolves'] },
+                    { type: 'text', q: 'Write the plural of "knife".', answers: ['knives'] },
+                    { type: 'text', q: 'Write the plural of "elf".', answers: ['elves'] },
+                    { type: 'text', q: 'Write the plural of "roof".', answers: ['roofs'] },
+                    { type: 'text', q: 'Write the plural of "giraffe".', answers: ['giraffes'] },
+
+                    { type: 'mcq', q: 'Which is the correctly spelt plural?', options: ['dishes', 'dishs', 'dishies'], answer: 'dishes' },
+                    { type: 'mcq', q: 'Which is the correctly spelt plural?', options: ['berries', 'berreis', 'berrys'], answer: 'berries' },
+                    { type: 'mcq', q: 'Which is the correctly spelt plural?', options: ['candies', 'candyes', 'candys'], answer: 'candies' },
+                    { type: 'mcq', q: 'Which is the correctly spelt plural?', options: ['lorries', 'lorry', 'lorrys'], answer: 'lorries' },
+                    { type: 'mcq', q: 'Which is the correctly spelt plural?', options: ['puppies', 'puppys', 'puppes'], answer: 'puppies' },
+                    { type: 'mcq', q: 'Which is the correctly spelt plural?', options: ['brushes', 'brushs', 'brushies'], answer: 'brushes' },
+
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Adjectives of Quality, Number & Quantity',
+                        content: `
+                            <p>An <strong>adjective</strong> describes a noun \u2014 a person, place, animal, or thing.</p>
+                            <table>
+                                <tr><th>Type</th><th>Answers the question</th><th>Used with</th><th>Examples</th></tr>
+                                <tr><td>Quality</td><td>of what kind?</td><td>any noun</td><td>round, white, dirty, sweet, kind, beautiful</td></tr>
+                                <tr><td>Number</td><td>how many?</td><td>countable nouns</td><td>one, two, three, all, some, many, few, first, second, most, several, none, too many</td></tr>
+                                <tr><td>Quantity</td><td>how much?</td><td>uncountable nouns</td><td>most, whole, a little, all, full, less, little, enough, any, half</td></tr>
+                            </table>
+                            <p><strong>Quality example:</strong> "What kind of a face did he have?" \u2014 "He had a <em>round</em> face." "What kind of a room did he enter?" \u2014 "He entered a <em>dirty</em> room."</p>
+                            <p class="exam-lesson-tip">Trick for Quality: ask "What KIND is it?" \u2014 the answer describes a feature you could draw or picture (round, white, dirty). If you can picture it, it's Quality.</p>
+
+                            <p><strong>Number example:</strong> "How many people were with him?" \u2014 "There were <em>two</em> people with him."</p>
+                            <p class="exam-lesson-tip">Trick for Number: ask "Can I count it on my fingers?" Number words go with things you CAN count (two people, few players, first prize) \u2014 if you can put "many/few/two" in front of the noun and it sounds right, it's Number.</p>
+
+                            <p><strong>Quantity example:</strong> "Sushil has <em>much</em> patience." (patience is uncountable \u2014 you can't count "one patience, two patiences")</p>
+                            <p class="exam-lesson-tip">Trick for Quantity: ask "Can I measure it, but not count it?" Quantity words go with things you CANNOT count (much patience, little sugar, some milk) \u2014 imagine a measuring cup instead of counting fingers.</p>
+
+                            <p class="exam-lesson-tip">Bonus trick: some words like <em>some, all, enough</em> can be EITHER number or quantity \u2014 it depends on the noun! "Some oranges" (countable \u2192 number). "Some oil" (uncountable \u2192 quantity). Always check the noun first.</p>
+                        `
+                    },
+                    { type: 'mcq', q: 'What kind of a face did he have? "He had a ______ face."', options: ['round', 'two', 'much'], answer: 'round' },
+                    { type: 'mcq', q: 'What kind of a shirt was he wearing? "He was wearing a ______ shirt."', options: ['white', 'first', 'some'], answer: 'white' },
+                    { type: 'mcq', q: 'What kind of a room did he enter? "He entered a ______ room."', options: ['dirty', 'two', 'little'], answer: 'dirty' },
+                    { type: 'mcq', q: 'Which word is an adjective of quality? "Lata has a sweet voice."', options: ['sweet', 'a', 'voice'], answer: 'sweet' },
+                    { type: 'mcq', q: 'Which word is an adjective of quality? "She was a kind queen."', options: ['kind', 'a', 'queen'], answer: 'kind' },
+
+                    { type: 'mcq', q: 'How many people were with him? "There were ______ people with him."', options: ['two', 'round', 'much'], answer: 'two' },
+                    { type: 'mcq', q: 'Which word is an adjective of number? "There are 25 students in my class."', options: ['25', 'students', 'in'], answer: '25' },
+                    { type: 'mcq', q: 'Which is an adjective of number?', options: ['many', 'little', 'red'], answer: 'many' },
+                    { type: 'mcq', q: 'Neil Armstrong was the ______ man to land on the moon.', options: ['first', 'much', 'little'], answer: 'first' },
+                    { type: 'mcq', q: 'Our school got the ______ prize in the drama competition.', options: ['first', 'much', 'some'], answer: 'first' },
+
+                    { type: 'mcq', q: 'How many hours did he take? "He took ______ hours to do so."', options: ['some', 'round', 'first'], answer: 'some' },
+                    { type: 'mcq', q: 'Give me ______ milk. (adjective of quantity)', options: ['some', 'many', 'first'], answer: 'some' },
+                    { type: 'mcq', q: 'Sushil has ______ patience. (patience is uncountable)', options: ['much', 'many', 'first'], answer: 'much' },
+                    { type: 'mcq', q: 'There is ______ sugar left. (sugar is uncountable)', options: ['little', 'few', 'many'], answer: 'little' },
+                    { type: 'mcq', q: 'Which is an adjective of quantity (used with uncountable nouns)?', options: ['much', 'five', 'tall'], answer: 'much' },
+
+                    { type: 'mcq', q: 'It was a ______ day. (Fox and the Grapes)', options: ['bright', 'many', 'much'], answer: 'bright' },
+                    { type: 'mcq', q: 'A fox entered a ______ garden.', options: ['big', 'much', 'few'], answer: 'big' },
+                    { type: 'mcq', q: 'There were ______ bunches of grapes in the garden.', options: ['many', 'much', 'little'], answer: 'many' },
+                    { type: 'mcq', q: 'The fox had not eaten anything since morning. The ______ fox tried to reach them.', options: ['hungry', 'many', 'much'], answer: 'hungry' },
+                    { type: 'mcq', q: 'When he could not reach them, he said, "I don\'t want ______ grapes."', options: ['sour', 'many', 'much'], answer: 'sour' }
+                ]
+            },
+            'english-polly-goodboy': {
+                title: 'English: Well Done, Polly! & A Good Boy',
+                questions: [
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Well Done, Polly!',
+                        content: `
+                            <p>Polly was often late to school \u2014 by Wednesday, it was the third time that week (she kept missing the bus). Her teacher, <strong>Miss Rose</strong>, told her to be more punctual. Because Polly stayed back to finish her class work after the bell rang, she was also late for Games with her games teacher, <strong>Mr Connor</strong>.</p>
+                            <p>Mr Connor announced a race for Saturday at 9 o'clock. But the date was later changed, and Miss Rose announced this on Thursday morning \u2014 which Polly missed, because she was late again that day! On Saturday, Polly arrived at the field to find nobody there \u2014 she had missed the race entirely, held the evening before.</p>
+                            <p>Polly's friend <strong>Ruth</strong> was always on time. Her secret: an alarm clock, and writing down important dates. Two days later, on Polly's birthday, Ruth gave her a gift \u2014 a lovely pink and white alarm clock. Polly promised to change.</p>
+                            <p class="exam-lesson-tip">Ending: every night Polly now sets her alarm and notes down important dates. She's always the first to class \u2014 and Miss Rose says, "Well done, Polly!"</p>
+                            <p class="exam-lesson-tip">Reading trick: when a story confuses you, ask WHO (Polly, Miss Rose, Mr Connor, Ruth), WHEN (Monday-Thursday late, Saturday race day, birthday), and WHAT CHANGED (the race date, and later Polly's habit). Most comprehension questions are really just asking you to find one of these three things.</p>
+                        `
+                    },
+                    { type: 'mcq', q: 'Why was Polly late to school that week?', options: ['She missed the bus', 'She was sick', 'She overslept'], answer: 'She missed the bus' },
+                    { type: 'mcq', q: 'On Wednesday, Polly was late that week for the', options: ['third time', 'fourth time', 'first time'], answer: 'third time' },
+                    { type: 'mcq', q: 'Polly went late for Games class because', options: ['she continued working after the bell rang', 'she forgot her kit', 'she was talking to friends'], answer: 'she continued working after the bell rang' },
+                    { type: 'mcq', q: 'What did Mr Connor announce to the class?', options: ['A race on Saturday at 9 o\u2019clock', 'A test on Monday', 'A holiday on Friday'], answer: 'A race on Saturday at 9 o\u2019clock' },
+                    { type: 'mcq', q: 'The race was actually held on', options: ['Friday evening', 'Saturday at 9 o\u2019clock', 'Sunday morning'], answer: 'Friday evening' },
+                    { type: 'mcq', q: 'Miss Rose told the class about the change of date on', options: ['Thursday morning', 'Friday morning', 'Wednesday evening'], answer: 'Thursday morning' },
+                    { type: 'mcq', q: 'The gift Polly got from Ruth was', options: ['a pink and white alarm clock', 'a black alarm clock', 'a storybook'], answer: 'a pink and white alarm clock' },
+                    { type: 'mcq', q: 'The person who helped Polly become punctual was', options: ['Ruth', 'Miss Rose', 'Mr Connor'], answer: 'Ruth' },
+                    { type: 'tf', q: 'Polly loved Games.', answer: 'True' },
+                    { type: 'tf', q: 'The announcement about the change of date was made on Thursday evening.', answer: 'False' },
+                    { type: 'tf', q: 'Polly changed her habit after she got the alarm clock from Ruth.', answer: 'True' },
+
+                    {
+                        type: 'lesson',
+                        title: 'Learn: A Good Boy',
+                        content: `
+                            <p><em>A Good Boy</em> by R.L. Stevenson:</p>
+                            <p>I woke before the morning,<br>I was happy all the day,<br>I never said an ugly word,<br>but smiled and stuck to play.</p>
+                            <p>And now at last the sun is<br>going down behind the wood,<br>And I am very happy,<br>for I know that I've been good.</p>
+                            <p>My bed is waiting cool and fresh,<br>with linen smooth and fair,<br>And I must be off to sleepy-by,<br>and not forget my prayer.</p>
+                            <p>I know that, till to-morrow I shall see the sun arise,<br>No ugly dream shall fright my mind, no ugly sight my eyes,<br>But slumber hold me tightly till I waken in the dawn,<br>And hear the thrushes singing in the lilacs round the lawn.</p>
+                            <p class="exam-lesson-tip">Vocabulary: slumber = sleep, dawn = when light first appears, thrushes = singing brown birds, at last = finally.</p>
+                            <p class="exam-lesson-tip">Reading trick: this poem has 4 verses, and each one is really answering one question \u2014 verse 1: what kind of day did I have? verse 2: why am I happy? verse 3: what is my bed like? verse 4: what do I expect tonight? Match each fill-in-the-blank question to its verse and the answer is usually right there.</p>
+                        `
+                    },
+                    { type: 'text', q: 'Fill in the blank: I woke before the ______.', answers: ['morning'] },
+                    { type: 'text', q: 'Fill in the blank: I never said an ______ word.', answers: ['ugly'] },
+                    { type: 'text', q: 'Fill in the blank: And now at last the sun is going down behind the ______.', answers: ['wood'] },
+                    { type: 'text', q: 'Fill in the blank: My bed is waiting cool and ______.', answers: ['fresh'] },
+                    { type: 'mcq', q: 'Why was the speaker happy at the end of the day?', options: ['Because he knew he had been good', 'Because he got a gift', 'Because it was his birthday'], answer: 'Because he knew he had been good' },
+                    { type: 'mcq', q: 'What does the speaker hope to hear when he wakes at dawn?', options: ['Thrushes singing in the lilacs', 'Rain falling', 'His alarm clock'], answer: 'Thrushes singing in the lilacs' },
+
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Synonyms & Antonyms',
+                        content: `
+                            <p><strong>Antonyms</strong> are words opposite in meaning. Example: "Polly came <strong>late</strong> to school. Ruth came <strong>early</strong> to school."</p>
+                            <p class="exam-lesson-tip">Trick: "ANTonym" sounds like "ANTI," which means AGAINST. So an antonym is a word that goes AGAINST another word's meaning \u2014 its opposite.</p>
+                            <p><strong>Synonyms</strong> are words similar in meaning. Example: "Polly ran very <strong>fast</strong>. Polly ran very <strong>quickly</strong>."</p>
+                            <p class="exam-lesson-tip">Trick: "SYNonym" starts like "SAME" (syn- actually comes from a word meaning "together/same"). So a synonym is a word that means almost the SAME as another word.</p>
+                            <table>
+                                <tr><th>Word</th><th>Antonym</th></tr>
+                                <tr><td>narrow</td><td>broad</td></tr>
+                                <tr><td>heavy</td><td>light</td></tr>
+                                <tr><td>short</td><td>long</td></tr>
+                                <tr><td>outside</td><td>inside</td></tr>
+                                <tr><td>old</td><td>new</td></tr>
+                            </table>
+                            <table>
+                                <tr><th>Word</th><th>Synonym</th></tr>
+                                <tr><td>big</td><td>large</td></tr>
+                                <tr><td>clean</td><td>tidy</td></tr>
+                                <tr><td>hard</td><td>tough</td></tr>
+                                <tr><td>right</td><td>correct</td></tr>
+                                <tr><td>bright</td><td>shiny</td></tr>
+                            </table>
+                            <p class="exam-lesson-tip">Quick check: if you can swap the word into the same sentence and the meaning barely changes, it's a synonym. If the sentence's meaning completely flips, it's an antonym.</p>
+                        `
+                    },
+                    { type: 'text', q: 'Write the antonym (opposite) of "narrow".', answers: ['broad'] },
+                    { type: 'text', q: 'Write the antonym (opposite) of "heavy".', answers: ['light'] },
+                    { type: 'text', q: 'Write the antonym (opposite) of "short".', answers: ['long'] },
+                    { type: 'text', q: 'Write the antonym (opposite) of "outside".', answers: ['inside'] },
+                    { type: 'text', q: 'Write the antonym (opposite) of "old".', answers: ['new'] },
+                    { type: 'text', q: 'Write the synonym (similar meaning) of "big".', answers: ['large'] },
+                    { type: 'text', q: 'Write the synonym (similar meaning) of "clean".', answers: ['tidy'] },
+                    { type: 'text', q: 'Write the synonym (similar meaning) of "hard".', answers: ['tough'] },
+                    { type: 'text', q: 'Write the synonym (similar meaning) of "right".', answers: ['correct'] },
+                    { type: 'text', q: 'Write the synonym (similar meaning) of "bright".', answers: ['shiny'] },
+
+                    {
+                        type: 'lesson',
+                        title: 'Learn: Personal Pronouns',
+                        content: `
+                            <p>A <strong>pronoun</strong> is a word used in place of a noun, so we don't have to repeat it.</p>
+                            <p>"My brothers are playing cricket. <strong>They</strong> are excited." "The cat is sitting on the wall. <strong>It</strong> is scared to come down." "This book is really good, Suresh. <strong>You</strong> should read it."</p>
+                            <p class="exam-lesson-tip"><strong>I, we, he, she, they, it,</strong> and <strong>you</strong> are called personal pronouns.</p>
+                            <p class="exam-lesson-tip">Trick: read the sentence before it. If a name or noun was just mentioned, and the next sentence could POINT at that same person/thing instead of naming it again, that pointing word is your pronoun. He=one boy, She=one girl, It=one thing/animal, They=more than one, We=me and others, You=the person you're talking to.</p>
+                        `
+                    },
+                    { type: 'mcq', q: 'My brother is a singer. ______ is popular.', options: ['He', 'She'], answer: 'He' },
+                    { type: 'mcq', q: 'Sheela is dancing. ______ is in my class.', options: ['She', 'He'], answer: 'She' },
+                    { type: 'mcq', q: '______ like ice cream.', options: ['I', 'It'], answer: 'I' },
+                    { type: 'mcq', q: 'Peter is a good student. ______ studies hard.', options: ['He', 'She'], answer: 'He' },
+                    { type: 'mcq', q: '______ are happy.', options: ['We', 'He'], answer: 'We' },
+                    { type: 'mcq', q: 'I want that pencil. ______ writes well.', options: ['It', 'They'], answer: 'It' },
+                    { type: 'mcq', q: 'Mary, do ______ want to go to the park?', options: ['you', 'she'], answer: 'you' },
+                    { type: 'mcq', q: '______ are sisters.', options: ['They', 'He'], answer: 'They' }
                 ]
             },
             'kannada-eli-mattu-simha': {
@@ -4494,6 +4689,7 @@
             'hindi-vyanjan': 'grade2-term1',
             'maths-subtraction-1000': 'grade2-term1',
             'english-nouns-adjectives': 'grade2-term1',
+            'english-polly-goodboy': 'grade2-term1',
             'kannada-eli-mattu-simha': 'grade2-term1'
         };
 
@@ -4646,11 +4842,28 @@
             ],
             'english-nouns-adjectives': [
                 { title: 'Learn: Countable & Uncountable Nouns', count: 1 },
-                { title: 'A. Countable & Uncountable Nouns', count: 6 },
-                { title: 'B. Singular and Plural Nouns', count: 6 },
-                { title: 'Learn: Adjectives', count: 1 },
-                { title: 'C. Adjectives of Quality', count: 3 },
-                { title: 'D. Adjectives of Number & Quantity', count: 6 }
+                { title: 'A. Countable & Uncountable Nouns', count: 9 },
+                { title: 'Learn: Plural Nouns', count: 1 },
+                { title: 'B. Plurals: Regular & -y Endings', count: 8 },
+                { title: 'C. Plurals: -s/-ss/-ch/-sh/-x Endings', count: 8 },
+                { title: 'D. Plurals: -o Endings', count: 7 },
+                { title: 'E. Plurals: -f/-fe Endings', count: 7 },
+                { title: 'F. Spot the Correct Spelling', count: 6 },
+                { title: 'Learn: Adjectives of Quality, Number & Quantity', count: 1 },
+                { title: 'G. Adjectives of Quality', count: 5 },
+                { title: 'H. Adjectives of Number', count: 5 },
+                { title: 'I. Adjectives of Quantity', count: 5 },
+                { title: 'J. Fox and the Grapes: Adjectives Practice', count: 5 }
+            ],
+            'english-polly-goodboy': [
+                { title: 'Learn: Well Done, Polly!', count: 1 },
+                { title: 'A. Story Comprehension', count: 11 },
+                { title: 'Learn: A Good Boy', count: 1 },
+                { title: 'B. Poem Comprehension', count: 6 },
+                { title: 'Learn: Synonyms & Antonyms', count: 1 },
+                { title: 'C. Vocabulary Practice', count: 10 },
+                { title: 'Learn: Personal Pronouns', count: 1 },
+                { title: 'D. Pronouns Practice', count: 8 }
             ],
             'kannada-eli-mattu-simha': [
                 { title: 'Learn: \u0c87\u0cb2\u0cbf \u0cae\u0ca4\u0ccd\u0ca4\u0cc1 \u0cb8\u0cbf\u0c82\u0cb9', count: 1 },
@@ -5024,7 +5237,7 @@
         }
 
         function shouldUseWordBank(subject, item) {
-            const wordBankSubjects = ['hindi', 'hindi-writing-practice', 'kannada', 'english-pet-poem', 'english-sentences', 'evs-me-and-myself', 'maths-2digit-addition', 'hindi-swar', 'hindi-vyanjan', 'maths-subtraction-1000', 'english-nouns-adjectives'];
+            const wordBankSubjects = ['hindi', 'hindi-writing-practice', 'kannada', 'english-pet-poem', 'english-sentences', 'evs-me-and-myself', 'maths-2digit-addition', 'hindi-swar', 'hindi-vyanjan', 'maths-subtraction-1000', 'english-nouns-adjectives', 'english-polly-goodboy'];
             return wordBankSubjects.includes(subject) && item.type === 'text';
         }
 
