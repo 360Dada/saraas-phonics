@@ -825,6 +825,79 @@
             background: #fff;
         }
 
+        /* ===== Maths textbook-style questions (Grade 2 Term 1) ===== */
+        .mx-work { display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-start; margin: 6px 0 4px; }
+        .mx-col { display: inline-block; }
+        .mx-col-title { font-family: "Trebuchet MS", Verdana, sans-serif; font-weight: 700; color: #3a6f9a; margin-bottom: 4px; font-size: 0.95rem; }
+        .mx-grid { border-collapse: separate; border-spacing: 0; background: #fff; border: 2px solid #3aa0d8; border-radius: 10px; overflow: hidden; }
+        .mx-grid th { text-align: center; padding: 0; background: #d8eefa; color: #1f5f8b; font-family: "Baloo 2", sans-serif; font-size: 1.15rem; width: 52px; height: 34px; border-left: 1px solid #9fd0ec; }
+        .mx-grid th:first-child, .mx-grid td.mx-op { width: 30px; border-left: 0; background: #eef7fd; }
+        .mx-grid td { text-align: center; height: 46px; border-left: 1px solid #cfe6f4; border-top: 1px solid #cfe6f4; }
+        .mx-grid td.mx-op { font-size: 1.5rem; font-weight: 700; color: #1f5f8b; }
+        .mx-grid td.mx-digit { font-size: 1.55rem; font-family: "Trebuchet MS", Verdana, sans-serif; color: #1f2a38; font-weight: 700; }
+        .mx-grid tr.mx-result-row td { border-top: 3px solid #1f5f8b; background: #fffbea; }
+        .mx-grid tr.mx-scratch-row td, .mx-grid tr.mx-mark-row td { height: 28px; border-top: 0; background: #fbfdff; }
+        .mx-grid tr.mx-mark-row td { color: #d0344f; font-weight: 700; font-size: 0.95rem; }
+        .mx-grid td.mx-cross { text-decoration: line-through; text-decoration-color: #d0344f; text-decoration-thickness: 2px; }
+        .mx-cell { width: 40px; height: 38px; text-align: center; font-size: 1.45rem; font-weight: 700; border: 2px solid #bcd6e8; border-radius: 8px; color: #1f2a38; background: #fff; font-family: "Trebuchet MS", Verdana, sans-serif; }
+        .mx-cell:focus, .mx-exp-input:focus, .mx-dans:focus, .mx-dletter:focus, .mx-blank input:focus { outline: 3px solid #ffb703; outline-offset: 1px; border-color: #ffb703; }
+        .mx-cell-scratch { width: 30px; height: 22px; font-size: 0.8rem; border: 1px dashed #e0a3b2; color: #d0344f; border-radius: 5px; }
+        .mx-grid-show { margin: 6px 0; }
+        .mx-lesson-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; margin: 8px 0 12px; }
+        .mx-lesson-row > div { flex: 1 1 260px; }
+        .mx-lesson-row > div p { margin-bottom: 4px; }
+        .exam-lesson .mx-grid { width: auto; }
+        .exam-lesson .mx-grid td, .exam-lesson .mx-grid th { border-color: #cfe6f4; padding: 0 8px; text-align: center; }
+        .mx-expand { background: #fff; border: 2px solid #3aa0d8; border-radius: 10px; padding: 8px 10px; }
+        .mx-exp-row { display: flex; align-items: center; gap: 6px; height: 46px; font-size: 1.3rem; font-weight: 700; color: #1f5f8b; }
+        .mx-exp-row.mx-result-row { border-top: 3px solid #1f5f8b; }
+        .mx-exp-row .mx-op { width: 18px; }
+        .mx-exp-input { width: 64px; height: 38px; text-align: center; font-size: 1.2rem; font-weight: 700; border: 2px solid #bcd6e8; border-radius: 8px; font-family: "Trebuchet MS", Verdana, sans-serif; }
+        .mx-compare { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 8px 0; }
+        .mx-numbox { min-width: 76px; padding: 10px 14px; background: #fff; border: 2px solid #f1a35c; border-radius: 10px; text-align: center; font-size: 1.5rem; font-weight: 700; font-family: "Trebuchet MS", Verdana, sans-serif; color: #1f2a38; }
+        .mx-sym-group { display: flex; gap: 6px; background: #ffe2c4; border-radius: 999px; padding: 6px; }
+        .mx-sym { width: 46px; height: 46px; border-radius: 50%; border: 2px solid #f1a35c; background: #fff; font-size: 1.5rem; font-weight: 800; color: #9b470f; cursor: pointer; }
+        .mx-sym.active { background: #a14d11; color: #fff; border-color: #a14d11; transform: scale(1.08); }
+        .mx-chart { display: grid; grid-template-columns: repeat(10, minmax(28px, 1fr)); gap: 3px; max-width: 460px; background: #ffe066; padding: 6px; border-radius: 10px; margin: 8px 0; }
+        .mx-chart-cell { background: #fff; border: 1px solid #e6c85a; border-radius: 5px; padding: 6px 0; text-align: center; font-size: 0.95rem; font-family: "Trebuchet MS", Verdana, sans-serif; color: #1f2a38; cursor: pointer; }
+        .mx-chart-static .mx-chart-cell { cursor: default; }
+        .mx-chart-cell.start { background: #ffb703; font-weight: 800; }
+        .mx-chart-cell.path { background: #d8eefa; }
+        .mx-chart-cell.picked { background: #2e9f54; color: #fff; font-weight: 800; }
+        .mx-abacus { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin: 6px 0 10px; }
+        .mx-abacus-svg { width: 220px; max-width: 100%; height: auto; }
+        .mx-abacus-controls { display: flex; gap: 14px; padding-left: 22px; }
+        .mx-abacus-rod { display: flex; flex-direction: column; align-items: center; gap: 4px; width: 46px; }
+        .mx-bead-btn { width: 40px; height: 34px; border-radius: 10px; border: 0; background: #5f7084; color: #fff; font-size: 1.3rem; font-weight: 800; cursor: pointer; }
+        .mx-bead-count { font-weight: 800; font-size: 1.15rem; color: #1f2a38; }
+        .mx-multi { display: grid; gap: 8px; }
+        .mx-multi-row { display: flex; align-items: center; gap: 10px; font-weight: 700; color: #1f2a38; }
+        .mx-multi-row span { min-width: 110px; }
+        .mx-short { width: 140px; }
+        .mx-multi-inline { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+        .mx-big { font-size: 1.35rem; font-weight: 800; color: #1f2a38; }
+        .mx-key { border-collapse: collapse; margin: 6px 0 12px; background: #fff; }
+        .mx-key td, .mx-key th { border: 1px solid #9fb3c8; padding: 5px 10px; text-align: center; font-family: "Trebuchet MS", Verdana, sans-serif; }
+        .mx-key th { background: #d8eefa; }
+        .mx-dwords { display: grid; gap: 12px; }
+        .mx-dword { display: flex; flex-wrap: wrap; gap: 8px; padding: 8px; background: #f7f3ff; border: 2px dashed #c9b6ef; border-radius: 12px; }
+        .mx-dgrid { background: #eef9f1; border-color: #a8d8b6; }
+        .mx-dcard { position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; background: #fff; border: 2px solid #d6d6d6; border-radius: 12px; padding: 8px 10px; min-width: 76px; }
+        .mx-dcard.mx-good { border-color: #2e9f54; background: #eafaf0; }
+        .mx-dcard.mx-bad { border-color: #d94b4b; background: #fdecec; }
+        .mx-dsum { display: flex; flex-direction: column; align-items: flex-end; font-family: "Trebuchet MS", Verdana, sans-serif; font-weight: 700; font-size: 1.1rem; border-bottom: 2px solid #1f2a38; padding-bottom: 2px; }
+        .mx-dans { width: 60px; text-align: center; font-size: 1.05rem; border: 1px solid #bac3cf; border-radius: 6px; padding: 4px; }
+        .mx-dletter { width: 36px; height: 36px; text-align: center; font-size: 1.15rem; font-weight: 800; text-transform: uppercase; border: 2px solid #c9b6ef; border-radius: 50%; }
+        .mx-dtag { position: absolute; top: -10px; right: -8px; width: 26px; height: 26px; border-radius: 50%; background: #2e9f54; color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; }
+        .mx-riddle { margin-top: 14px; }
+        .mx-riddle-q { font-weight: 700; color: #1f2a38; margin-bottom: 6px; }
+        .mx-riddle-words { display: flex; flex-wrap: wrap; gap: 18px; }
+        .mx-riddle-word { display: flex; gap: 6px; }
+        .mx-blank { display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 0.85rem; color: #4d5d73; }
+        .mx-blank input { width: 34px; height: 34px; text-align: center; font-size: 1.1rem; font-weight: 800; text-transform: uppercase; border: 0; border-bottom: 3px solid #1f2a38; background: #fff; }
+        .exam-explain { display: block; margin-top: 4px; color: #4d5d73; font-weight: 600; }
+        .exam-model-answer { display: block; margin-top: 4px; padding: 8px 12px; background: #eef7ee; border-left: 4px solid #2e9f54; border-radius: 8px; color: #2f4a36; font-weight: 600; line-height: 1.5; }
+
         .exam-actions {
             margin-top: 16px;
             display: flex;
@@ -2730,10 +2803,11 @@
                     <button class="exam-subject-btn" data-subject="maths-2digit-addition" data-grade="grade2" onclick="showExamSubject('maths-2digit-addition'); playClickSound();">Maths: 2-Digit & Addition</button>
                     <button class="exam-subject-btn" data-subject="hindi-swar" data-grade="grade2" onclick="showExamSubject('hindi-swar'); playClickSound();">Hindi: Swar (Vowels)</button>
                     <button class="exam-subject-btn" data-subject="hindi-vyanjan" data-grade="grade2-term1" onclick="showExamSubject('hindi-vyanjan'); playClickSound();">Hindi: Vyanjan (Consonants)</button>
-                    <button class="exam-subject-btn" data-subject="maths-subtraction-1000" data-grade="grade2-term1" onclick="showExamSubject('maths-subtraction-1000'); playClickSound();">Maths: Numbers to 1000 & Subtraction</button>
+                    <button class="exam-subject-btn" data-subject="maths-subtraction-1000" data-grade="grade2-term1" onclick="showExamSubject('maths-subtraction-1000'); playClickSound();">Maths: Subtraction &amp; Numbers to 1000</button>
                     <button class="exam-subject-btn" data-subject="english-nouns-adjectives" data-grade="grade2-term1" onclick="showExamSubject('english-nouns-adjectives'); playClickSound();">English: Nouns & Adjectives</button>
                     <button class="exam-subject-btn" data-subject="english-polly-goodboy" data-grade="grade2-term1" onclick="showExamSubject('english-polly-goodboy'); playClickSound();">English: Polly & A Good Boy</button>
                     <button class="exam-subject-btn" data-subject="kannada-eli-mattu-simha" data-grade="grade2-term1" onclick="showExamSubject('kannada-eli-mattu-simha'); playClickSound();">Kannada: Mouse & Lion</button>
+                    <button class="exam-subject-btn" data-subject="evs-term1" data-grade="grade2-term1" onclick="showExamSubject('evs-term1'); playClickSound();">EVS: Family, Neighbourhood, School &amp; Helpers</button>
                     <button class="exam-subject-btn" data-subject="hindi" data-grade="grade1" onclick="showExamSubject('hindi'); playClickSound();">Hindi</button>
                     <button class="exam-subject-btn" data-subject="hindi-writing-practice" data-grade="grade1" onclick="showExamSubject('hindi-writing-practice'); playClickSound();">Hindi Writing Practice</button>
                     <button class="exam-subject-btn" data-subject="kannada" data-grade="grade1" onclick="showExamSubject('kannada'); playClickSound();">Kannada</button>
@@ -3280,6 +3354,853 @@
             ]
         };
         
+
+        // ============ GRADE 2 TERM 1 MATHS (I Did It Mathematics, Ch 3, 4, 5) ============
+        // Built from the textbook pages: Subtraction, Numbers up to 1000,
+        // Addition and Subtraction of Bigger Numbers. Question formats follow the book:
+        // column sums with T/O boxes, expanding, checking by addition, hundreds chart,
+        // abacus, <, =, > boxes, ordering, matching and code-breaking worksheets.
+        function mxSub(top, bottom, extra) { return Object.assign({ type: 'column', op: '-', top, bottom, q: 'Subtract.' }, extra || {}); }
+        function mxAdd(top, bottom, extra) { return Object.assign({ type: 'column', op: '+', top, bottom, q: 'Add.' }, extra || {}); }
+        function mxT(q, answers, hint, explain) {
+            return { type: 'text', q, answers: Array.isArray(answers) ? answers.map(String) : [String(answers)], hint: hint || 'Hint: Work it out in your notebook, then type the answer.', explain };
+        }
+        function mxCmp(a, b) { return { type: 'compare', q: 'Compare. Tap &lt;, = or &gt;.', a, b, answer: a > b ? '>' : (a < b ? '<' : '=') }; }
+        function mxOrder(nums, dir) {
+            const sorted = [...nums].sort((x, y) => dir === 'asc' ? x - y : y - x).map(String);
+            return {
+                type: 'word_order',
+                q: `Arrange in ${dir === 'asc' ? 'ascending order (smallest to greatest)' : 'descending order (greatest to smallest)'}: ${nums.join(', ')}`,
+                tokens: nums.map(String),
+                correctOrder: sorted,
+                hint: dir === 'asc' ? 'Hint: Find the smallest number first. Compare hundreds, then tens, then ones.' : 'Hint: Find the greatest number first. Compare hundreds, then tens, then ones.'
+            };
+        }
+        function mxExpandQ(n) {
+            const s = String(n);
+            const parts = s.split('').map((d, i) => String(Number(d) * Math.pow(10, s.length - 1 - i)));
+            return { type: 'multi', q: `Write in expanded form: <strong>${n}</strong>`, inline: true, prefix: `${n} =`, sep: '+', fields: parts.map(p => ({ answers: [p] })), explain: `${n} = ${parts.join(' + ')}` };
+        }
+        function mxPvFv(numHtml, pv, fv) {
+            return { type: 'multi', q: `Write the place value and face value of the underlined digit: <strong class="mx-big">${numHtml}</strong>`, fields: [{ label: 'Place value', answers: [String(pv)] }, { label: 'Face value', answers: [String(fv)] }], explain: `Place value = ${pv}, face value = ${fv}.` };
+        }
+        function mxChartQ(top, bottom) {
+            const tens = Math.floor(bottom / 10), ones = bottom % 10;
+            const steps = [];
+            if (tens) steps.push(`go up ${tens} step${tens > 1 ? 's' : ''}`);
+            if (ones) steps.push(`move ${ones} step${ones > 1 ? 's' : ''} left`);
+            return { type: 'chart', q: `Use the hundreds chart: <strong>${top} − ${bottom}</strong>. Start at the yellow box, then tap your answer.`, top, answer: top - bottom, hint: `Hint: From ${top}, ${steps.join(', then ')}.` };
+        }
+
+        // Lesson visual helpers (static, for the Learn cards)
+        function mxShow(top, op, bottom, opts) {
+            opts = opts || {};
+            const result = op === '−' ? top - bottom : top + bottom;
+            const places = Math.max(String(top).length, String(bottom).length, String(result).length);
+            const heads = ['H', 'T', 'O'].slice(3 - places);
+            const pad = (n) => { const s = String(n); return Array.from({ length: places }, (_, i) => { const k = i - (places - s.length); return k >= 0 ? s[k] : ''; }); };
+            const marks = opts.marks ? pad('').map((_, i) => opts.marks[i - (places - opts.marks.length)] || '') : null;
+            const cross = opts.cross || [];
+            let h = '<table class="mx-grid mx-grid-show">';
+            h += `<tr><th></th>${heads.map(x => `<th>${x}</th>`).join('')}</tr>`;
+            if (marks) h += `<tr class="mx-mark-row"><td></td>${marks.map(m => `<td>${m}</td>`).join('')}</tr>`;
+            const topDigits = pad(top);
+            h += `<tr><td class="mx-op"></td>${topDigits.map((d, i) => `<td class="mx-digit${cross.includes(i - (places - topDigits.length)) || cross.includes(heads[i]) ? ' mx-cross' : ''}">${d}</td>`).join('')}</tr>`;
+            h += `<tr><td class="mx-op">${op}</td>${pad(bottom).map(d => `<td class="mx-digit">${d}</td>`).join('')}</tr>`;
+            h += `<tr class="mx-result-row"><td></td>${pad(result).map(d => `<td class="mx-digit">${d}</td>`).join('')}</tr>`;
+            h += '</table>';
+            return h;
+        }
+        function mxChartHtml(path, start, end) {
+            let h = '<div class="mx-chart mx-chart-static">';
+            for (let n = 1; n <= 100; n++) {
+                const cls = n === start ? ' start' : (n === end ? ' picked' : (path.includes(n) ? ' path' : ''));
+                h += `<span class="mx-chart-cell${cls}">${n}</span>`;
+            }
+            return h + '</div>';
+        }
+
+        // ===== GRADE 2 TERM 1 EVS (Chapters 4-7: My Family, Our Neighbourhood, My School, People Who Help Us) =====
+        const g2t1EvsSections = [
+            // ---------------- CHAPTER 4: MY FAMILY ----------------
+            { title: 'Learn: Chapter 4 \u2014 My Family', items: [{
+                type: 'lesson', title: 'Chapter 4 \u2014 My Family',
+                content: `
+                    <p><strong>A Special Party:</strong> Rohan Dev lives in <strong>Nagpur</strong>. Today his grandfather, <strong>Hari Dev</strong>, turns <strong>70</strong>. His grandmother is <strong>Sujata Dev</strong>. They are the parents of Rohan's father, and everyone lives together in one house.</p>
+                    <table>
+                        <tr><th>Name</th><th>Relation to Rohan</th></tr>
+                        <tr><td>Hari Dev</td><td>Grandfather (father's father)</td></tr>
+                        <tr><td>Sujata Dev</td><td>Grandmother (father's mother)</td></tr>
+                        <tr><td>Anand Dev</td><td>Father</td></tr>
+                        <tr><td>Sanya Dev</td><td>Mother</td></tr>
+                        <tr><td>Deepa Dev</td><td>Aunt (father's sister) \u2014 a doctor who lives in Delhi</td></tr>
+                    </table>
+                    <p>Aunt Deepa came from Delhi, and the whole family gathered in the Nagpur house to celebrate the birthday together.</p>
+                    <p class="exam-lesson-tip">Fact Corner: Our mother's parents are our <u>maternal</u> grandparents. Our father's parents are our <u>paternal</u> grandparents. (Trick: <strong>M</strong>aternal = <strong>M</strong>other's side. <strong>P</strong>aternal = <strong>P</strong>apa's side.)</p>
+                    <p><strong>What is a family?</strong> A family is a group of people who are <strong>related to each other</strong>.</p>
+                    <p><strong>Kinds of family:</strong></p>
+                    <table>
+                        <tr><th>Kind of family</th><th>Who lives together</th><th>Example</th></tr>
+                        <tr><td>Nuclear family</td><td>Only parents and their children</td><td>Resha lives with her parents.</td></tr>
+                        <tr><td>Joint family</td><td>Grandparents, parents, their children, uncles, aunts and cousins \u2014 many members</td><td>Sherene lives with grandparents, parents, brother, aunts, uncles and three cousins.</td></tr>
+                        <tr><td>Single-parent family</td><td>Children with only <strong>one</strong> of their parents</td><td>Nina lives with her father only.</td></tr>
+                    </table>
+                    <p class="exam-lesson-tip">Trick: "Nuclear" is small like the centre (nucleus) \u2014 just parents + children. "Joint" means joined together \u2014 lots of relatives. "Single" means one \u2014 one parent.</p>
+                    <p><strong>Living together in a family:</strong> Family members take care of each other. They love and support each other. They also share work and responsibilities.</p>
+                    <p class="exam-lesson-tip">Keyword \u2014 Family: a group of people related to each other.</p>
+                    <p><strong>Environment Connect:</strong> Celebrations are fun, but we must celebrate responsibly \u2014 do not make the surroundings dirty, clean up after the party, and do not burst crackers.</p>
+                `
+            }] },
+            { title: 'Ch 4 — A. A Special Party (Story Questions)', items: [
+                { type: 'mcq', q: 'Where does Rohan Dev live?', options: ['Nagpur', 'Delhi', 'Mumbai', 'Bengaluru'], answer: 'Nagpur' },
+                { type: 'mcq', q: 'Whose birthday is being celebrated in the story?', options: ["Rohan's grandfather's", "Rohan's mother's", "Rohan's aunt's", "Rohan's own"], answer: "Rohan's grandfather's" },
+                { type: 'mcq', q: 'How old has Rohan\u2019s grandfather turned?', options: ['70 years', '60 years', '80 years', '50 years'], answer: '70 years' },
+                { type: 'text', q: 'Fill in the blank: Rohan\u2019s aunt Deepa Dev is a ______.', answers: ['doctor'], wordBank: true },
+                { type: 'text', q: 'Fill in the blank: Aunt Deepa lives in ______.', answers: ['Delhi'], wordBank: true },
+                { type: 'tf', q: 'Hari Dev and Sujata Dev are the parents of Rohan\u2019s father.', answer: 'True', explain: 'The story says they are his father\u2019s parents.' },
+                {
+                    type: 'match_lines',
+                    q: 'Match the name with how the person is related to Rohan.',
+                    left: ['Hari Dev', 'Sujata Dev', 'Anand Dev', 'Sanya Dev', 'Deepa Dev'],
+                    right: ['Grandfather', 'Grandmother', 'Father', 'Mother', 'Aunt']
+                }
+            ] },
+            { title: 'Ch 4 — B. Fact Corner: Maternal & Paternal', items: [
+                { type: 'mcq', q: 'The parents of our mother are our ______ grandparents.', options: ['maternal', 'paternal'], answer: 'maternal' },
+                { type: 'mcq', q: 'The parents of our father are our ______ grandparents.', options: ['paternal', 'maternal'], answer: 'paternal' },
+                { type: 'mcq', q: 'Hari Dev is Rohan\u2019s father\u2019s father. So he is Rohan\u2019s ______ grandfather.', options: ['paternal', 'maternal'], answer: 'paternal', explain: 'Father\u2019s side = paternal.' },
+                { type: 'mcq', q: 'Your mother\u2019s sister is your ______.', options: ['aunt', 'uncle', 'cousin', 'grandmother'], answer: 'aunt' }
+            ] },
+            { title: 'Ch 4 — C. Quick Connect: Write T for True or F for False', items: [
+                { type: 'tf', q: 'A family in which parents, grandparents, uncles, aunts and cousins all live together is called a nuclear family.', answer: 'False', explain: 'This is a joint family. A nuclear family has only parents and children.' },
+                { type: 'tf', q: 'In a joint family, the parents and their children live together.', answer: 'False', explain: 'Only parents and children living together is a nuclear family. A joint family has many more members.' },
+                { type: 'tf', q: 'A family is a group of people related to each other.', answer: 'True' },
+                { type: 'tf', q: 'In a single-parent family, children live with one of their parents.', answer: 'True' },
+                { type: 'tf', q: 'Family members share work and responsibilities.', answer: 'True' },
+                { type: 'tf', q: 'We should burst crackers and leave the place dirty after a celebration.', answer: 'False', explain: 'We must clean up after the celebration and not burst crackers.' }
+            ] },
+            { title: 'Ch 4 — D. Choose the Correct Options', items: [
+                { type: 'mcq', q: 'A group of people related to each other is called a ______.', options: ['neighbourhood', 'family', 'building', 'school'], answer: 'family' },
+                { type: 'mcq', q: 'Nina lives with her father only. It is a type of ______.', options: ['one family', 'nuclear family', 'single-parent family', 'joint family'], answer: 'single-parent family' },
+                { type: 'mcq', q: 'Resha lives with her parents. Her family is a ______.', options: ['nuclear family', 'joint family', 'single-parent family'], answer: 'nuclear family' },
+                { type: 'mcq', q: 'Sherene lives with her grandparents, parents, brother, aunts, uncles and three cousins. Her family is a ______.', options: ['joint family', 'nuclear family', 'single-parent family'], answer: 'joint family' },
+                { type: 'mcq', q: 'Which family has the most members?', options: ['Joint family', 'Nuclear family', 'Single-parent family'], answer: 'Joint family' }
+            ] },
+            { title: 'Ch 4 — E. Fill in the Blanks', items: [
+                { type: 'text', q: 'A family is a group of people ______ to each other.', answers: ['related'] },
+                { type: 'text', q: 'In a ______ family, the parents and their children live together.', answers: ['nuclear'] },
+                { type: 'text', q: 'A ______ family has many members.', answers: ['joint'] },
+                { type: 'text', q: 'A family where children live with one of their parents is called a ______ family.', answers: ['single-parent'] },
+                { type: 'text', q: 'Members of a family take ______ of each other.', answers: ['care'] }
+            ] },
+            { title: 'Ch 4 — F. Answer the Following Questions', items: [
+                { type: 'practice', q: 'What is a single-parent family?', hint: 'Hint: Think of Nina, who lives with her father only.', modelAnswer: 'A family where children live with only one of their parents is called a single-parent family.' },
+                { type: 'practice', q: 'What kind of family do you live in?', hint: 'Hint: Count who lives in your house. Only parents and children? Many relatives? One parent?', modelAnswer: 'Example: I live in a nuclear family. I live with my mother, my father and my brother. (Write about your own family \u2014 nuclear, joint or single-parent.)' },
+                { type: 'practice', q: 'What is a family?', modelAnswer: 'A family is a group of people related to each other.' },
+                { type: 'practice', q: 'What is a joint family?', modelAnswer: 'A family in which grandparents, parents, their children, uncles, aunts and cousins live together is called a joint family. A joint family has many members.' },
+                { type: 'practice', q: 'How do members of a family help each other?', modelAnswer: 'Members of a family take care of each other. They love and support each other. They also share work and responsibilities.' }
+            ] },
+            { title: 'Ch 4 — G. Things to Do, Life Skills & Environment Connect', items: [
+                { type: 'practice', q: 'Warm-up: Write a few lines on how you celebrate any festival with your family.', modelAnswer: 'Example: We celebrate Diwali with our family. We clean and decorate our house with diyas and rangoli. We wear new clothes, pray together and share sweets with our neighbours.' },
+                { type: 'practice', q: 'Things to Do: List five tasks you can do every day to help your family members.', modelAnswer: '1. Make my bed. 2. Water the plants. 3. Keep my toys and books in their place. 4. Help set the table for meals. 5. Help grandparents by bringing them water or their spectacles.' },
+                { type: 'practice', q: 'Life Skills: Write about one action that made you feel sorry and which you promised not to do again.', modelAnswer: 'Example: Once I broke my mother\u2019s flower vase while playing ball inside the house. I said sorry to her and promised not to play ball inside the house again.' },
+                { type: 'practice', q: 'Environment Connect: How can you celebrate a festival without making the surroundings dirty?', modelAnswer: 'We should throw waste only in the dustbin, clean up the place after the celebration, use diyas instead of crackers, and not burst crackers.' }
+            ] },
+
+            // ---------------- CHAPTER 5: OUR NEIGHBOURHOOD ----------------
+            { title: 'Learn: Chapter 5 \u2014 Our Neighbourhood', items: [{
+                type: 'lesson', title: 'Chapter 5 \u2014 Our Neighbourhood',
+                content: `
+                    <p>The area around us is called our <strong>surroundings</strong>. The area around our house is called our <strong>neighbourhood</strong>. People who live in our neighbourhood are called our <strong>neighbours</strong>.</p>
+                    <p><strong>Keeping our surroundings clean:</strong> We must not litter. Throw waste and garbage only in a <strong>dustbin</strong>. Do not let water collect around the house \u2014 mosquitoes breed in <strong>standing water</strong> (water that is not flowing) and spread diseases like <strong>malaria</strong>.</p>
+                    <p><strong>Places in our neighbourhood:</strong></p>
+                    <table>
+                        <tr><th>Place</th><th>What happens there</th></tr>
+                        <tr><td>Market</td><td>Has shops that sell the things we need.</td></tr>
+                        <tr><td>School</td><td>We learn new things and play.</td></tr>
+                        <tr><td>Park</td><td>Has many trees and plants; some have swings, slides and a jogging path.</td></tr>
+                        <tr><td>Police station</td><td>Police officers work here and keep our neighbourhood safe.</td></tr>
+                        <tr><td>Post office</td><td>Letters, postcards, money orders and parcels are sent from here. We buy stamps, postcards and envelopes here.</td></tr>
+                        <tr><td>Hospital</td><td>Doctors and nurses treat and take care of people who are ill or injured.</td></tr>
+                        <tr><td>Places of worship</td><td>Church, temple, mosque and gurudwara \u2014 we go there to pray.</td></tr>
+                        <tr><td>Fire station</td><td>Fire engines are kept here. Firefighters use them to put out fire.</td></tr>
+                    </table>
+                    <p><strong>Shops in the market:</strong></p>
+                    <table>
+                        <tr><th>Shop</th><th>We buy</th></tr>
+                        <tr><td>Chemist's shop</td><td>Medicines</td></tr>
+                        <tr><td>Greengrocer</td><td>Fruits and vegetables</td></tr>
+                        <tr><td>Stationery shop</td><td>Pens, pencils and notebooks</td></tr>
+                        <tr><td>Grocery store</td><td>Food items and daily-use things like soap, toothpaste and rice</td></tr>
+                    </table>
+                    <p class="exam-lesson-tip">Fact Corner: The emergency helpline number for fire emergencies in India is 101.</p>
+                    <p class="exam-lesson-tip">Keyword \u2014 Money order: helps us send money from one place to another.</p>
+                    <p class="exam-lesson-tip">Wrap-up: Places around our house make our neighbourhood. People who live in our neighbourhood are our neighbours.</p>
+                `
+            }] },
+            { title: 'Ch 5 — A. Fill in the Blanks (Our Neighbourhood)', items: [
+                { type: 'text', q: 'The area around us is called our ______.', answers: ['surroundings'] },
+                { type: 'text', q: 'The area around our house is called our ______.', answers: ['neighbourhood'] },
+                { type: 'text', q: 'We must throw waste and garbage only in a ______.', answers: ['dustbin'] },
+                { type: 'text', q: 'Mosquitoes breeding in standing water spread diseases like ______.', answers: ['malaria'] },
+                { type: 'text', q: 'A ______ is a place that has shops to sell things.', answers: ['market'] },
+                { type: 'text', q: 'The emergency helpline number for fire emergencies in India is ______.', answers: ['101'] }
+            ] },
+            { title: 'Ch 5 — B. Match the Shop with What We Buy', items: [
+                {
+                    type: 'match_lines',
+                    q: 'Match the shop in Column A with what we buy there in Column B.',
+                    left: ["Chemist's shop", 'Greengrocer', 'Stationery shop', 'Grocery store'],
+                    right: ['Medicines', 'Fruits and vegetables', 'Pens, pencils and notebooks', 'Soap, toothpaste and rice']
+                },
+                {
+                    type: 'match_lines',
+                    q: 'Match the place with what happens there.',
+                    left: ['Hospital', 'Police station', 'Fire station', 'Park'],
+                    right: ['Doctors and nurses treat ill people', 'Police officers work', 'Fire engines are kept', 'Swings, slides and trees']
+                }
+            ] },
+            { title: 'Ch 5 — C. Quick Connect: Answer the Following Questions', items: [
+                { type: 'text', q: 'What are people living in our neighbourhood called?', answers: ['neighbours', 'our neighbours', 'neighbors'], wordBank: false, hint: 'Hint: Starts with "n" \u2014 type one word.' },
+                { type: 'text', q: 'From where can we buy medicines?', answers: ["chemist's shop", 'chemist shop', 'chemist', 'a chemist\u2019s shop', "a chemist's shop", 'from a chemist\u2019s shop', "from a chemist's shop", 'chemist\u2019s shop', 'chemists shop'], wordBank: false, hint: 'Hint: A shop called the c______\u2019s shop.' },
+                { type: 'text', q: 'From where can we buy stamps and postcards?', answers: ['post office', 'a post office', 'the post office', 'from a post office', 'from the post office'], wordBank: false, hint: 'Hint: Two words \u2014 p___ o_____.' }
+            ] },
+            { title: 'Ch 5 — D. Choose the Correct Options', items: [
+                { type: 'mcq', q: 'People who live in our neighbourhood are called our ______.', options: ['neighbours', 'police', 'teachers', 'nurses'], answer: 'neighbours' },
+                { type: 'mcq', q: 'Where do we go to learn new things?', options: ['Hospital', 'Chemist', 'School', 'Post office'], answer: 'School' },
+                { type: 'mcq', q: 'Where do police officers work?', options: ['Post office', 'Police station', 'Fire station', 'School'], answer: 'Police station' },
+                { type: 'mcq', q: 'A money order helps us to ______.', options: ['send money from one place to another', 'buy medicines', 'put out fire', 'play games'], answer: 'send money from one place to another' },
+                { type: 'mcq', q: 'Which of these is a place of worship?', options: ['Gurudwara', 'Market', 'Hospital', 'Fire station'], answer: 'Gurudwara' }
+            ] },
+            { title: 'Ch 5 — E. Write T for True or F for False', items: [
+                { type: 'tf', q: 'We should let water collect around our house.', answer: 'False', explain: 'Standing water lets mosquitoes breed, which spreads malaria.' },
+                { type: 'tf', q: 'Some parks have a jogging path where people can walk or jog.', answer: 'True' },
+                { type: 'tf', q: 'Firefighters use fire engines to put out fire.', answer: 'True' },
+                { type: 'tf', q: 'We buy fruits and vegetables from a stationery shop.', answer: 'False', explain: 'We buy them from a greengrocer.' },
+                { type: 'tf', q: 'Standing water is water that is not flowing.', answer: 'True' }
+            ] },
+            { title: 'Ch 5 — F. Answer the Following Questions', items: [
+                { type: 'practice', q: 'Name any two places in your neighbourhood.', modelAnswer: 'Example: A park and a hospital are two places in my neighbourhood. (You can also write market, school, post office, police station, temple, etc.)' },
+                { type: 'text', q: 'Where do people go to send parcels?', answers: ['post office', 'a post office', 'the post office', 'to the post office', 'to a post office'], wordBank: false, hint: 'Hint: The same place where we buy stamps.' },
+                { type: 'text', q: 'Where do doctors and nurses work?', answers: ['hospital', 'a hospital', 'in a hospital', 'in the hospital', 'the hospital'], wordBank: false, hint: 'Hint: Starts with "h".' },
+                { type: 'practice', q: 'Why should we not let water collect around our house?', modelAnswer: 'Mosquitoes breed in standing water and spread diseases like malaria. So we should not let water collect around our house.' },
+                { type: 'practice', q: 'What is a post office?', modelAnswer: 'A post office is a place from where letters, postcards, money orders and parcels are sent. We also buy stamps, postcards and envelopes at a post office.' }
+            ] },
+            { title: 'Ch 5 — G. Things to Do & Life Skills', items: [
+                { type: 'practice', q: 'Warm-up: Which of these places do you see around your house? A milk booth, a hospital, a school, a post office, a bank.', modelAnswer: 'Write the places you actually see near your home. Example: I see a milk booth and a school around my house.' },
+                { type: 'practice', q: 'Activity Corner: Which places do you visit regularly in your neighbourhood?', modelAnswer: 'Example: I visit my school every day, the park in the evening and the market with my mother on Sundays.' },
+                { type: 'practice', q: 'Life Skills: Anya is new in your neighbourhood. Give her some tips to feel safe.', modelAnswer: 'Carry a torch at night. Do not go out alone after dark. Do not talk to or take things from strangers. Remember your home address and a parent\u2019s phone number. The police station is nearby \u2014 police help keep us safe. Fire helpline: 101.' }
+            ] },
+
+            // ---------------- CHAPTER 6: MY SCHOOL ----------------
+            { title: 'Learn: Chapter 6 \u2014 My School', items: [{
+                type: 'lesson', title: 'Chapter 6 \u2014 My School',
+                content: `
+                    <p><strong>Jyoti</strong> studies at <strong>Roses Public School</strong>. At school we learn to read, write and speak properly. We learn about the world around us \u2014 people and culture \u2014 and also music, dance and painting. We pick up good habits and become helpful members of society.</p>
+                    <p><strong>People who help us at school:</strong></p>
+                    <table>
+                        <tr><th>Person</th><th>What they do</th></tr>
+                        <tr><td>Principal</td><td>Head of the school; in charge of the whole school.</td></tr>
+                        <tr><td>Teachers</td><td>Teach us different subjects and good habits.</td></tr>
+                        <tr><td>Librarian</td><td>Manages the school library and lends us the books we need.</td></tr>
+                        <tr><td>School bus driver</td><td>Drives the school bus to bring us to school and take us home.</td></tr>
+                        <tr><td>Doctor or nurse</td><td>Treats us in the medical room when we feel unwell or get hurt.</td></tr>
+                    </table>
+                    <p class="exam-lesson-tip">Fact Corner: Schools have rooms called science laboratories where students perform experiments.</p>
+                    <p><strong>Activities at school:</strong> We play games and sports and exercise in the <strong>playground</strong> \u2014 this keeps us fresh and fit. Parents, teachers and students celebrate functions like <strong>annual day</strong> and <strong>sports day</strong>. We celebrate festivals with classmates and greet each other.</p>
+                    <p><strong>Taking care of your school:</strong> Do not damage the building and furniture. Keep the school clean \u2014 use dustbins. Do not pluck flowers from the garden. Respect and obey your teachers. Always reach school on time. Never quarrel or fight \u2014 any problem can be solved by talking.</p>
+                    <p class="exam-lesson-tip">Keyword \u2014 Librarian: manages the school library and lends us the books we need.</p>
+                    <p class="exam-lesson-tip">Wrap-up: Many people help us at school. We learn many things at school and develop good habits.</p>
+                `
+            }] },
+            { title: 'Ch 6 — A. Warm-up: Identify the Places in Jyoti\u2019s School', items: [
+                { type: 'text', q: 'Picture 1: A teacher is writing "8 + 7 =" on the blackboard and children are sitting at their desks. This place is the ______.', answers: ['classroom'] },
+                { type: 'text', q: 'Picture 2: An open green ground with a swing and a slide. This place is the ______.', answers: ['playground'] },
+                { type: 'text', q: 'A room with many shelves of books is the ______.', answers: ['library'] },
+                { type: 'text', q: 'We go to the ______ room when we feel unwell or are injured.', answers: ['medical'] }
+            ] },
+            { title: 'Ch 6 — B. Match the Helper with the Work', items: [
+                {
+                    type: 'match_lines',
+                    q: 'Match the person with what they do at school.',
+                    left: ['Principal', 'Teacher', 'Librarian', 'School bus driver', 'Doctor or nurse'],
+                    right: ['Head of the school', 'Teaches us different subjects', 'Lends us books', 'Brings us to school and back home', 'Treats us in the medical room']
+                }
+            ] },
+            { title: 'Ch 6 — C. Choose the Correct Options', items: [
+                { type: 'mcq', q: 'Who among the following manages the library at school?', options: ['Librarian', 'Gardener', 'Nurse', 'Principal'], answer: 'Librarian' },
+                { type: 'mcq', q: 'Where do children play games in school?', options: ['Library', 'Staffroom', 'Playground', 'Medical room'], answer: 'Playground' },
+                { type: 'mcq', q: 'Where do students perform experiments?', options: ['Science laboratory', 'Playground', 'Library', 'Bus'], answer: 'Science laboratory' },
+                { type: 'mcq', q: 'Jyoti studies at ______.', options: ['Roses Public School', 'Lotus Public School', 'Sunflower School'], answer: 'Roses Public School' },
+                { type: 'mcq', q: 'Which of these is a school function?', options: ['Sports day', 'Market day', 'Bank day'], answer: 'Sports day' }
+            ] },
+            { title: 'Ch 6 — D. Choose the Correct Word from the Box', items: [
+                { type: 'text', q: 'We should not ______ the school building.', answers: ['damage'] },
+                { type: 'text', q: 'The ______ is the head of the school.', answers: ['principal'] },
+                { type: 'text', q: 'The ______ gives us the books we need.', answers: ['librarian'] }
+            ] },
+            { title: 'Ch 6 — E. Answer the Following Questions', items: [
+                { type: 'text', q: 'Who teaches us different subjects in our school?', answers: ['teachers', 'teacher', 'our teachers', 'the teachers', 'different teachers'], wordBank: false, hint: 'Hint: Starts with "t".' },
+                { type: 'text', q: 'Who treats us in the medical room?', answers: ['doctor or nurse', 'a doctor or a nurse', 'doctor', 'nurse', 'a doctor', 'a nurse', 'doctor or a nurse', 'the doctor or nurse', 'doctor and nurse', 'doctors and nurses'], wordBank: false, hint: 'Hint: A d_____ or a n____.' },
+                { type: 'practice', q: 'Write any two ways in which we can take care of our school.', modelAnswer: '1. We should not damage the school building and furniture. 2. We should keep our school clean and always use dustbins to throw waste. (Other ways: do not pluck flowers, respect teachers, reach on time, never fight.)' },
+                { type: 'practice', q: 'What do we learn at school?', modelAnswer: 'We learn to read, write and speak properly. We learn about the world around us \u2014 people and culture \u2014 and also music, dance and painting. We also pick up good habits.' }
+            ] },
+            { title: 'Ch 6 — F. Wear Your Thinking Cap! Cross Out the Wrong Actions', items: [
+                { type: 'mcq', q: '\ud83d\udca6 A girl in school uniform is jumping and splashing in a muddy puddle.', options: ['\u2714 Good action', '\u2718 Cross it out'], answer: '\u2718 Cross it out', explain: 'She will make her uniform dirty and may slip.' },
+                { type: 'mcq', q: '\ud83d\uddd1\ufe0f A boy is throwing a banana peel into the dustbin.', options: ['\u2714 Good action', '\u2718 Cross it out'], answer: '\u2714 Good action', explain: 'Always use dustbins to throw waste.' },
+                { type: 'mcq', q: '\ud83c\udf38 A boy says, "I will pluck this flower and take it home."', options: ['\u2714 Good action', '\u2718 Cross it out'], answer: '\u2718 Cross it out', explain: 'We should not pluck flowers from the school garden.' },
+                { type: 'mcq', q: '\u23f0 A girl always reaches school on time.', options: ['\u2714 Good action', '\u2718 Cross it out'], answer: '\u2714 Good action' },
+                { type: 'mcq', q: '\ud83d\ude20 Two boys are fighting over a pencil.', options: ['\u2714 Good action', '\u2718 Cross it out'], answer: '\u2718 Cross it out', explain: 'Any problem can be solved by talking.' }
+            ] },
+            { title: 'Ch 6 — G. Environment Connect & Things to Do', items: [
+                { type: 'mcq', q: 'Rahul and Anjali are eating fruits in the playground. Anjali says, "Rahul, you must not throw the peel on the ground. Somebody might trip on it." Do you agree with Anjali?', options: ['Yes, the peel should go in the dustbin', 'No, it is fine to throw peels on the ground'], answer: 'Yes, the peel should go in the dustbin', explain: 'A peel on the ground makes the place dirty and someone may slip and get hurt.' },
+                { type: 'practice', q: 'Things to Do: Make a chart of dos and don\u2019ts in a school.', modelAnswer: 'DOs: Reach school on time. Keep the school clean. Use dustbins. Respect and obey teachers. DON\u2019Ts: Do not damage furniture. Do not pluck flowers. Do not quarrel or fight.' }
+            ] },
+
+            // ---------------- CHAPTER 7: PEOPLE WHO HELP US ----------------
+            { title: 'Learn: Chapter 7 \u2014 People Who Help Us', items: [{
+                type: 'lesson', title: 'Chapter 7 \u2014 People Who Help Us',
+                content: `
+                    <p>Many people help us in different ways at different places.</p>
+                    <table>
+                        <tr><th>Where</th><th>Helper</th><th>How they help</th></tr>
+                        <tr><td rowspan="4">At school</td><td>Teacher</td><td>Helps us learn new things</td></tr>
+                        <tr><td>Caretaker</td><td>Keeps the school neat and clean</td></tr>
+                        <tr><td>Gardener</td><td>Takes care of plants in the garden</td></tr>
+                        <tr><td>Bus driver</td><td>Drives us safely from home to school and back</td></tr>
+                        <tr><td rowspan="5">At the market</td><td>Greengrocer</td><td>Sells fruits and vegetables</td></tr>
+                        <tr><td>Grocer</td><td>Sells grains, pulses, soap, toothbrush and other daily-use things</td></tr>
+                        <tr><td>Draper</td><td>Sells cloth</td></tr>
+                        <tr><td>Tailor</td><td>Stitches clothes</td></tr>
+                        <tr><td>Carpenter</td><td>Makes and fixes furniture</td></tr>
+                        <tr><td rowspan="4">At the house</td><td>Architect</td><td>Draws the design for a house</td></tr>
+                        <tr><td>Mason</td><td>Builds walls using bricks and cement</td></tr>
+                        <tr><td>Plumber</td><td>Fixes taps and water pipes</td></tr>
+                        <tr><td>Electrician</td><td>Fixes wires, bulbs, fans, etc.</td></tr>
+                        <tr><td rowspan="4">Other helpers</td><td>Postman</td><td>Delivers letters to our house and office</td></tr>
+                        <tr><td>Police</td><td>Help us stay safe in our neighbourhood</td></tr>
+                        <tr><td>Traffic police</td><td>Help us stay safe on roads</td></tr>
+                        <tr><td>Firefighter</td><td>Puts out fire in case of a fire accident</td></tr>
+                    </table>
+                    <p class="exam-lesson-tip">New word \u2014 delivers: takes goods, letters, parcels, etc. to people's houses or places of work.</p>
+                    <p class="exam-lesson-tip">Fact Corner: Firefighters wear a fireproof uniform when they go into a building to put out fire.</p>
+                    <p class="exam-lesson-tip">Trick: GREENgrocer = GREEN things (vegetables & fruits). Grocer = grains and daily-use things. DRAPer = drapes/cloth. PLUMber = PLUMbing (pipes & taps).</p>
+                    <p><strong>Respect:</strong> We must show respect to people who help us \u2014 thank them politely and treat them kindly.</p>
+                `
+            }] },
+            { title: 'Ch 7 — A. Warm-up: Who Should They Go To?', items: [
+                { type: 'text', q: 'Riya wants to get her hair styled. She can go to a ______.', answers: ['hairstylist'] },
+                { type: 'text', q: 'Neha has injured her leg and needs medical help. She should see a ______.', answers: ['doctor'] },
+                { type: 'text', q: 'Rohan wants to get a shirt stitched. He can go to a ______.', answers: ['tailor'] },
+                { type: 'text', q: 'The tap in the kitchen is leaking. We should call a ______.', answers: ['plumber'] }
+            ] },
+            { title: 'Ch 7 — B. Match the Helper with the Work', items: [
+                {
+                    type: 'match_lines',
+                    q: 'Match the helper in Column A with the work in Column B.',
+                    left: ['Architect', 'Mason', 'Draper', 'Carpenter', 'Caretaker'],
+                    right: ['Draws the design for a house', 'Builds walls using bricks and cement', 'Sells cloth', 'Makes and fixes furniture', 'Keeps the school neat and clean']
+                },
+                {
+                    type: 'match_lines',
+                    q: 'Match the helper with how they keep us safe or help us.',
+                    left: ['Postman', 'Traffic police', 'Firefighter', 'Gardener'],
+                    right: ['Delivers letters', 'Keeps us safe on roads', 'Puts out fire', 'Takes care of plants']
+                }
+            ] },
+            { title: 'Ch 7 — C. Quick Connect: Write T for True or F for False', items: [
+                { type: 'tf', q: 'A firefighter helps to put out fire in case of a fire accident.', answer: 'True' },
+                { type: 'tf', q: 'A plumber fixes bulbs and wires.', answer: 'False', explain: 'An electrician fixes bulbs and wires. A plumber fixes taps and water pipes.' },
+                { type: 'tf', q: 'A tailor stitches clothes.', answer: 'True' },
+                { type: 'tf', q: 'A postman sells grains.', answer: 'False', explain: 'A grocer sells grains. A postman delivers letters.' },
+                { type: 'tf', q: 'A greengrocer sells vegetables.', answer: 'True' },
+                { type: 'tf', q: 'Firefighters wear a fireproof uniform when they go into a burning building.', answer: 'True' }
+            ] },
+            { title: 'Ch 7 — D. Subject Corner: Mathematics', items: [
+                { type: 'text', q: 'A postman delivers 56 letters each day. How many letters would he deliver from Monday to Friday?', answers: ['280', '280 letters'], wordBank: false, hint: 'Hint: Monday to Friday is 5 days. Add 56 five times (or 56 \u00d7 5).', explain: '56 + 56 + 56 + 56 + 56 = 280 letters.' }
+            ] },
+            { title: 'Ch 7 — E. Choose the Correct Options', items: [
+                { type: 'mcq', q: 'Who builds walls using bricks and cement?', options: ['Traffic police', 'Mason', 'Doctor', 'Gardener'], answer: 'Mason' },
+                { type: 'mcq', q: 'Priti wants to buy a tube of toothpaste. Who should she go to?', options: ['Greengrocer', 'Grocer', 'Carpenter', 'Doctor'], answer: 'Grocer' },
+                { type: 'mcq', q: 'Who draws the design for a house?', options: ['Architect', 'Plumber', 'Tailor', 'Postman'], answer: 'Architect' },
+                { type: 'mcq', q: 'Who helps us stay safe on roads?', options: ['Traffic police', 'Draper', 'Gardener', 'Mason'], answer: 'Traffic police' },
+                { type: 'mcq', q: 'Who sells cloth?', options: ['Draper', 'Grocer', 'Electrician', 'Caretaker'], answer: 'Draper' }
+            ] },
+            { title: 'Ch 7 — F. Answer the Following Questions', items: [
+                { type: 'practice', q: 'Name any two people who help you at school.', modelAnswer: 'A teacher and a caretaker help me at school. (You can also write gardener, bus driver, librarian, principal, doctor or nurse.)' },
+                { type: 'text', q: 'Who makes and fixes furniture?', answers: ['carpenter', 'a carpenter', 'the carpenter'], wordBank: false, hint: 'Hint: Starts with "c".' },
+                { type: 'practice', q: 'Who is a postman?', modelAnswer: 'A postman delivers letters to our house and office.' }
+            ] },
+            { title: 'Ch 7 — G. Wear Your Thinking Cap! Fill in the Blanks with the Help of Pictures', items: [
+                { type: 'text', q: '\ud83d\udd27\ud83e\uddf0 (A man with a pipe wrench and a tool bag) A ______ fixes broken taps.', answers: ['plumber'] },
+                { type: 'text', q: '\ud83d\udca1\ud83e\ude9c (A man on a stool fixing a light) An ______ fixes faulty wires and machines.', answers: ['electrician'] }
+            ] },
+            { title: 'Ch 7 — H. Life Skills & Things to Do', items: [
+                { type: 'tf', q: 'The electrician fixed a faulty tubelight in your room. Serving water to him is a good response.', answer: 'True' },
+                { type: 'tf', q: 'Thanking him and giving him money is a good response.', answer: 'True' },
+                { type: 'tf', q: 'Throwing money at him is a good response.', answer: 'False', explain: 'This is rude. We must show respect to people who help us.' },
+                { type: 'practice', q: 'Things to Do: Make a list of people who visit your house every day to help you.', modelAnswer: 'Example: milkman, newspaper boy, house help, garbage collector, vegetable seller, postman.' }
+            ] }
+        ];
+
+        const g2t1MathsSections = [
+            // ---------------- CHAPTER 3: SUBTRACTION ----------------
+            { title: 'Learn: What is Subtraction?', items: [{
+                type: 'lesson', title: 'Chapter 3 — Subtraction: What does it mean?',
+                content: `
+                    <p><strong>Subtraction</strong> means <em>taking away</em> one number from another. We use the minus sign <strong>−</strong>.</p>
+                    <p>There are 8 balloons. 3 fly away. How many are left? <strong>8 − 3 = 5</strong>.</p>
+                    <table>
+                        <tr><th>Word</th><th>Meaning</th><th>In 8 − 3 = 5</th></tr>
+                        <tr><td>Minuend</td><td>the number from which we subtract (the big number we start with)</td><td>8</td></tr>
+                        <tr><td>Subtrahend</td><td>the number which is taken away</td><td>3</td></tr>
+                        <tr><td>Difference</td><td>the answer (result) of subtraction</td><td>5</td></tr>
+                    </table>
+                    <p><strong>Order matters in subtraction.</strong> 40 − 18 ✓ is correct, but 18 − 40 ✗ cannot be done with the numbers we know. Always write the bigger number on top.</p>
+                    <p class="exam-lesson-tip">Trick: <strong>M</strong>inuend comes first (it is the <strong>M</strong>ain number), <strong>S</strong>ubtrahend is <strong>S</strong>ubtracted, and the <strong>D</strong>ifference is what is <strong>D</strong>one at the end.</p>
+                ` }] },
+            { title: '3A. Subtraction Words', items: [
+                mxT('In 56 − 9 = 47, which number is the <strong>minuend</strong>?', 56, 'Hint: The number we start with.'),
+                mxT('In 56 − 9 = 47, which number is the <strong>subtrahend</strong>?', 9, 'Hint: The number taken away.'),
+                mxT('In 56 − 9 = 47, which number is the <strong>difference</strong>?', 47, 'Hint: The answer.'),
+                mxT('The result of subtraction is called the ______.', 'difference', 'Hint: It starts with "d".'),
+                mxT('The number from which a number is subtracted is called the ______.', 'minuend', 'Hint: It starts with "m".'),
+                { type: 'tf', q: 'Order of numbers does not matter in subtraction, so 18 − 40 is the same as 40 − 18.', answer: 'False', explain: 'Order matters in subtraction. We write the bigger number first: 40 − 18.' }
+            ] },
+
+            { title: 'Learn: Subtracting a 1-digit Number from a 2-digit Number', items: [{
+                type: 'lesson', title: 'Subtracting a 1-digit number from a 2-digit number',
+                content: `
+                    <p>Write the numbers in <strong>columns</strong>: ones (O) under ones, tens (T) under tens. <strong>Always subtract the ones first</strong>, then the tens.</p>
+                    <p><strong>Without regrouping — 48 − 2</strong></p>
+                    <div class="mx-lesson-row">${mxShow(48, '−', 2)}<div><p>Step 1: Subtract the ones: 8 − 2 = 6.</p><p>Step 2: Bring down the tens: 4.</p><p>So, 48 − 2 = <strong>46</strong>.</p></div></div>
+                    <p><strong>With regrouping (borrowing) — 62 − 3</strong></p>
+                    <div class="mx-lesson-row">${mxShow(62, '−', 3, { marks: ['5', '12'], cross: [0, 1] })}<div><p>Step 1: Ones: 2 is smaller than 3, so we cannot take 3 from 2.</p><p>Step 2: Borrow 1 ten from the tens column. 1 ten = 10 ones. Now ones = 10 + 2 = 12, and tens become 6 − 1 = 5.</p><p>Step 3: 12 − 3 = 9 ones. Bring down 5 tens.</p><p>So, 62 − 3 = <strong>59</strong>.</p></div></div>
+                    <p class="exam-lesson-tip">Trick: Look at the ones column first. If the top digit is smaller, <em>borrow</em> — cross out the tens digit, write one less above it, and put a 1 in front of the ones digit.</p>
+                ` }] },
+            { title: '3B. My Practice Time 1 — Subtract', items: [
+                mxSub(48, 2), mxSub(45, 2), mxSub(27, 4), mxSub(77, 3),
+                mxSub(62, 3), mxSub(26, 9), mxSub(54, 6), mxSub(36, 9)
+            ] },
+            { title: '3C. Arrange in Columns and Subtract', items: [
+                mxSub(94, 2, { arrange: true }), mxSub(16, 3, { arrange: true }), mxSub(28, 4, { arrange: true }), mxSub(30, 5, { arrange: true }),
+                mxSub(73, 7, { arrange: true }), mxSub(14, 6, { arrange: true }), mxSub(47, 9, { arrange: true }), mxSub(64, 8, { arrange: true })
+            ] },
+
+            { title: 'Learn: 2-digit from 2-digit (Without Regrouping)', items: [{
+                type: 'lesson', title: 'Subtracting a 2-digit number from a 2-digit number — without regrouping',
+                content: `
+                    <p><strong>Way 1: By expanding the numbers.</strong> Break each number into tens and ones, subtract tens from tens and ones from ones.</p>
+                    <p>Example: Subtract 27 from 49.</p>
+                    <table>
+                        <tr><th></th><th>Number</th><th>Expanded</th></tr>
+                        <tr><td></td><td>49</td><td>40 + 9</td></tr>
+                        <tr><td>−</td><td>27</td><td>20 + 7</td></tr>
+                        <tr><td></td><td><strong>22</strong></td><td><strong>20 + 2</strong></td></tr>
+                    </table>
+                    <p>40 − 20 = 20 and 9 − 7 = 2. Thus, the difference is <strong>22</strong>.</p>
+                    <p><strong>Way 2: Without expanding.</strong> Subtract 31 from 66.</p>
+                    <div class="mx-lesson-row">${mxShow(66, '−', 31)}<div><p>Step 1: Subtract the ones: 6 − 1 = 5.</p><p>Step 2: Subtract the tens: 6 − 3 = 3.</p><p>Thus, the difference is <strong>35</strong>.</p></div></div>
+                    <p class="exam-lesson-tip">Trick: "Without regrouping" means every top digit is bigger than (or equal to) the digit below it — no borrowing needed!</p>
+                ` }] },
+            { title: '3D. My Practice Time 2 — Subtract by Expanding', items: [
+                mxSub(56, 13, { expand: true, q: 'Subtract by expanding the numbers.' }),
+                mxSub(68, 24, { expand: true, q: 'Subtract by expanding the numbers.' }),
+                mxSub(78, 26, { expand: true, q: 'Subtract by expanding the numbers.' }),
+                mxSub(56, 44, { expand: true, q: 'Subtract by expanding the numbers.' }),
+                mxSub(94, 23, { expand: true, q: 'Subtract by expanding the numbers.' }),
+                mxSub(96, 45, { expand: true, q: 'Subtract by expanding the numbers.' })
+            ] },
+            { title: '3E. My Practice Time 3 — Subtract', items: [
+                mxSub(85, 32), mxSub(96, 34), mxSub(67, 43), mxSub(98, 21),
+                mxSub(67, 24), mxSub(79, 55), mxSub(98, 74), mxSub(89, 37)
+            ] },
+            { title: '3F. Subtract the Following', items: [
+                mxT('57 − 23 = ?', 34, 'Hint: Ones: 7 − 3. Tens: 5 − 2.'),
+                mxT('68 − 25 = ?', 43, 'Hint: Ones: 8 − 5. Tens: 6 − 2.'),
+                mxT('99 − 66 = ?', 33, 'Hint: Ones: 9 − 6. Tens: 9 − 6.'),
+                mxT('45 − 20 = ?', 25, 'Hint: Ones: 5 − 0. Tens: 4 − 2.'),
+                mxT('75 − 43 = ?', 32, 'Hint: Ones: 5 − 3. Tens: 7 − 4.'),
+                mxT('84 − 71 = ?', 13, 'Hint: Ones: 4 − 1. Tens: 8 − 7.')
+            ] },
+
+            { title: 'Learn: 2-digit from 2-digit (With Regrouping)', items: [{
+                type: 'lesson', title: 'Subtracting a 2-digit number — with regrouping',
+                content: `
+                    <p>Example: Subtract 18 from 40.</p>
+                    <div class="mx-lesson-row">${mxShow(40, '−', 18, { marks: ['3', '10'], cross: [0, 1] })}<div>
+                        <p>Step 1: Arrange the numbers vertically.</p>
+                        <p>Step 2: Subtract the ones. 0 is smaller than 8, so borrow 1 ten from the tens column. Regroup 1 ten into 10 ones: 10 + 0 = 10 ones. Now 10 − 8 = 2. Write 2 in the ones column.</p>
+                        <p>Step 3: Subtract the tens. 1 ten was borrowed, so 4 becomes 3. Now 3 − 1 = 2.</p>
+                        <p>Therefore, the difference is <strong>22</strong>.</p>
+                    </div></div>
+                    <p class="exam-lesson-tip">Trick: After you borrow, always remember the tens digit is now <em>one less</em>. Write the new number above it so you don't forget!</p>
+                ` }] },
+            { title: 'Learn: Using Addition to Check Subtraction', items: [{
+                type: 'lesson', title: 'Using addition to check subtraction',
+                content: `
+                    <p>We can check the answer of a subtraction by using <strong>addition</strong>.</p>
+                    <p>Example: Subtract 43 from 68.</p>
+                    <div class="mx-lesson-row">${mxShow(68, '−', 43)}${mxShow(25, '+', 43)}</div>
+                    <p>On adding 25 and 43, the answer is the same as the minuend, that is, 68. Thus, we have done the subtraction correctly.</p>
+                    <p class="exam-lesson-tip">Rule: Difference + Subtrahend = Minuend. If you get back the number you started with, your subtraction is right!</p>
+                ` }] },
+            { title: '3G. My Practice Time 4 — Subtract and Check', items: [
+                mxSub(65, 28, { check: true, q: 'Subtract. Also, check your answer using addition.' }),
+                mxSub(37, 29, { check: true, q: 'Subtract. Also, check your answer using addition.' }),
+                mxSub(66, 48, { check: true, q: 'Subtract. Also, check your answer using addition.' }),
+                mxSub(50, 27, { check: true, q: 'Subtract. Also, check your answer using addition.' })
+            ] },
+            { title: '3H. Arrange in Columns, Subtract and Check', items: [
+                [75, 28], [46, 27], [93, 18], [55, 27], [25, 17], [97, 18], [44, 35], [64, 49], [80, 42]
+            ].map(([a, b]) => mxSub(a, b, { arrange: true, check: true, q: `Arrange in columns and subtract. Also, check using addition: <strong>${a} − ${b}</strong>` })) },
+
+            { title: 'Learn: Maths Trick — Subtraction with Borrowing', items: [{
+                type: 'lesson', title: 'Maths Trick: Subtraction with borrowing',
+                content: `
+                    <p>Let us subtract 47 from 83 the easy way.</p>
+                    <p>Step 1: 47 is near to 5 tens, or 50. So, we add 3 to 47 to make it 50.</p>
+                    <p>Step 2: Add the same number (3) to the minuend (83) too. 83 + 3 = 86.</p>
+                    <p>Step 3: Now subtract 50 from 86, which is easy: 86 − 50 = 36.</p>
+                    <p>Thus, 83 − 47 = <strong>36</strong>.</p>
+                    <p class="exam-lesson-tip">Trick: If you add the <em>same</em> number to both numbers, the difference does not change. Make the smaller number a "round" ten, then subtract!</p>
+                ` }] },
+            { title: '3I. Try the Maths Trick', items: [
+                mxT('To make 47 into 50, we add ______.', 3, 'Hint: 47 + ? = 50'),
+                mxT('For 83 − 47, we also add 3 to 83. 83 + 3 = ______.', 86, 'Hint: Count 3 more after 83.'),
+                mxT('83 − 42 = ?', 41, 'Hint: Add 8 to both numbers: 91 − 50.', '83 + 8 = 91 and 42 + 8 = 50, so 91 − 50 = 41.'),
+                mxT('88 − 43 = ?', 45, 'Hint: Add 7 to both numbers: 95 − 50.', '88 + 7 = 95 and 43 + 7 = 50, so 95 − 50 = 45.'),
+                mxT('54 − 25 = ?', 29, 'Hint: Add 5 to both numbers: 59 − 30.', '54 + 5 = 59 and 25 + 5 = 30, so 59 − 30 = 29.'),
+                mxT('75 − 34 = ?', 41, 'Hint: Add 6 to both numbers: 81 − 40.', '75 + 6 = 81 and 34 + 6 = 40, so 81 − 40 = 41.')
+            ] },
+
+            { title: 'Learn: Compare Using Subtraction', items: [{
+                type: 'lesson', title: 'Compare using subtraction',
+                content: `
+                    <p>Basket A has 11 apples and basket B has 13 apples. Which basket has more apples and by how much?</p>
+                    <p>Match the apples one to one. Basket B has 2 apples with no match, so <strong>Basket B has more</strong>.</p>
+                    <div class="mx-lesson-row">${mxShow(13, '−', 11)}<div><p>Apples in basket B = 13</p><p>Apples in basket A = 11</p><p>Difference = 13 − 11 = 2</p><p>Therefore, Basket B has <strong>2 more</strong> apples than Basket A.</p></div></div>
+                    <p class="exam-lesson-tip">Word clues for subtraction: <em>left, remaining, how many more, how many less, unused, taken away, transferred, will not get.</em></p>
+                ` }] },
+            { title: '3J. Word Problems (On the Farm)', items: [
+                mxT('There were 56 hens on a farm. 9 of them were transferred to another farm. How many hens were left?', 47, 'Hint: "Left" means subtract: 56 − 9.', '56 − 9 = 47 hens were left.'),
+                mxT('A farmer has 23 cows. Another farmer has 15 cows. How many more cows does the first farmer have?', 8, 'Hint: "How many more" means subtract: 23 − 15.', '23 − 15 = 8 more cows.'),
+                mxT('A man bought 20 packets of fodder for his cattle. He used 18 of them. How many packets were unused?', 2, 'Hint: 20 − 18', '20 − 18 = 2 packets were unused.'),
+                mxT('There are 99 animals to feed on a farm. The farmer can feed only 89 animals. How many animals will not get any food?', 10, 'Hint: 99 − 89', '99 − 89 = 10 animals will not get food.'),
+                mxT('There are 74 goats and 36 sheep on the farm. How many more goats are there than sheep?', 38, 'Hint: 74 − 36 (borrow in the ones!)', '74 − 36 = 38 more goats.')
+            ] },
+
+            { title: 'Learn: The Hundreds Chart', items: [{
+                type: 'lesson', title: 'Maths Trick: Subtract using the hundreds chart',
+                content: `
+                    <p>In the hundreds chart, numbers are arranged in rows of 10.</p>
+                    <p>Going <strong>up one step</strong> means subtracting <strong>10</strong>. Going up 5 steps means subtracting 50.</p>
+                    <p>Moving <strong>one step to the left</strong> means subtracting <strong>1</strong>. Moving 3 steps left means subtracting 3.</p>
+                    <p>Example: 77 − 53. Start at 77, go up 5 steps → 27. Then move 3 steps left → 24. So, 77 − 53 = <strong>24</strong>.</p>
+                    ${mxChartHtml([67, 57, 47, 37, 27, 26, 25], 77, 24)}
+                    <p class="exam-lesson-tip">Trick: The tens digit of the number you take away tells you how many steps UP. The ones digit tells you how many steps LEFT.</p>
+                ` }] },
+            { title: '3K. Subtract Using the Hundreds Chart', items: [
+                mxChartQ(45, 23), mxChartQ(67, 12), mxChartQ(43, 24), mxChartQ(22, 15),
+                mxChartQ(34, 11), mxChartQ(56, 42), mxChartQ(63, 13), mxChartQ(35, 10)
+            ] },
+
+            { title: 'Learn: Properties of Subtraction', items: [{
+                type: 'lesson', title: 'Properties of subtraction',
+                content: `
+                    <p><strong>1. Zero property:</strong> 5 lemons on the plate, none is used → still 5 lemons. <strong>5 − 0 = 5</strong>.</p>
+                    <p>When 0 is subtracted from any number, the answer is the number itself. For example, 18 − 0 = 18, 25 − 0 = 25.</p>
+                    <p><strong>2. Subtracting a number from itself:</strong> 7 apples on the plate, 7 apples are eaten → 0 apples. <strong>7 − 7 = 0</strong>.</p>
+                    <p>When a number is subtracted from itself, the difference is always zero. For example, 11 − 11 = 0, 27 − 27 = 0.</p>
+                    <p class="exam-lesson-tip">Trick: Take away nothing → nothing changes. Take away everything → nothing is left!</p>
+                ` }] },
+            { title: '3L. My Practice Time 5 — Use the Properties', items: [
+                mxT('4 − 0 = ___', 4, 'Hint: Taking away 0 changes nothing.'),
+                mxT('6 − 6 = ___', 0, 'Hint: A number minus itself.'),
+                mxT('22 − 0 = ___', 22, 'Hint: Taking away 0 changes nothing.'),
+                mxT('___ − 16 = 0', 16, 'Hint: Which number minus 16 leaves nothing?'),
+                mxT('26 − 0 = ___', 26, 'Hint: Taking away 0 changes nothing.'),
+                mxT('89 − 0 = ___', 89, 'Hint: Taking away 0 changes nothing.'),
+                mxT('___ − 0 = 56', 56, 'Hint: Taking away 0 changes nothing.'),
+                mxT('___ − 0 = 98', 98, 'Hint: Taking away 0 changes nothing.'),
+                mxT('67 − 67 = ___', 0, 'Hint: A number minus itself.'),
+                mxT('98 − 98 = ___', 0, 'Hint: A number minus itself.'),
+                mxT('___ − 12 = 0', 12, 'Hint: Which number minus 12 leaves nothing?'),
+                mxT('___ − 64 = 0', 64, 'Hint: Which number minus 64 leaves nothing?')
+            ] },
+            { title: '3M. My Fun Time — Eggs and the Mother Bird', items: [
+                { type: 'match_lines', q: 'Solve each egg and match it with its answer.', left: ['42 − 11', '66 − 23', '13 − 6', '71 − 9', '78 − 29', '32 − 26', '55 − 37'], right: ['31', '43', '7', '62', '49', '6', '18'], hint: 'Hint: Tap a sum in Column A, then tap its answer in Column B.' },
+                mxT('The mother bird says, "My eggs have the answers 6, 49 and 18." Which egg with answer 49 is hers? Write the subtraction.', ['78 − 29', '78-29', '78 - 29'], 'Hint: Look at your matches above.')
+            ] },
+            { title: '3N. Worksheet — What Did the Hour Hand Tell the Minute Hand?', items: [{
+                type: 'decode', mode: 'inline',
+                q: 'Work out the problems and write the letter for each answer using the table. Read the letters to find the joke!',
+                key: [[25, 'W'], [26, 'I'], [39, 'E'], [68, 'M'], [36, 'L'], [38, 'A'], [44, 'V'], [53, 'T']],
+                words: [
+                    [[46, 21], [63, 24]],
+                    [[77, 52], [66, 40], [94, 58], [72, 36]],
+                    [[90, 22], [50, 11], [54, 15], [77, 24]],
+                    [[56, 18], [96, 43]],
+                    [[67, 14], [70, 45], [67, 28], [90, 54], [88, 44], [87, 48]]
+                ],
+                op: '-',
+                message: 'WE WILL MEET AT TWELVE'
+            }] },
+
+            // ---------------- CHAPTER 4: NUMBERS UP TO 1000 ----------------
+            { title: 'Learn: Numbers up to 1000', items: [{
+                type: 'lesson', title: 'Chapter 4 — Numbers up to 1000',
+                content: `
+                    <p>A 1-digit number (0–9) has one column: <strong>ones</strong>. A 2-digit number (10–99) has two columns: <strong>tens and ones</strong>.</p>
+                    <p>When we add 1 and 99, we get the smallest 3-digit number: <strong>1 + 99 = 100</strong>, read as "one hundred". A 3-digit number has three columns: <strong>hundreds (H), tens (T) and ones (O)</strong>.</p>
+                    <p><strong>10 tens make 100.</strong> 10 hundreds make 1000 (one thousand).</p>
+                    <table>
+                        <tr><th>Number</th><th>Name</th><th>Number</th><th>Name</th></tr>
+                        <tr><td>100</td><td>One hundred</td><td>600</td><td>Six hundred</td></tr>
+                        <tr><td>200</td><td>Two hundred</td><td>700</td><td>Seven hundred</td></tr>
+                        <tr><td>300</td><td>Three hundred</td><td>800</td><td>Eight hundred</td></tr>
+                        <tr><td>400</td><td>Four hundred</td><td>900</td><td>Nine hundred</td></tr>
+                        <tr><td>500</td><td>Five hundred</td><td>1000</td><td>One thousand</td></tr>
+                    </table>
+                    <p><strong>Forming numbers:</strong> 3 hundreds + 1 ten + 6 ones = <strong>316</strong>, read as "three hundred sixteen". 4 hundreds + 2 tens + 3 ones = <strong>423</strong>, read as "four hundred twenty-three".</p>
+                    <p class="exam-lesson-tip">Trick for number names: say the hundreds digit + "hundred", then say the last two digits like a 2-digit number. 4|23 → "four hundred" + "twenty-three".</p>
+                ` }] },
+            { title: '4A. I Look Back — Missing Numbers & Names', items: [
+                mxT('41, 42, ___, 44, 45', 43, 'Hint: Count on by 1.'),
+                mxT('61, 62, 63, 64, 65, ___, 67', 66, 'Hint: Count on by 1.'),
+                mxT('96, 97, 98, 99, ___', 100, 'Hint: What comes after 99?'),
+                mxT('Write the number name for 44.', 'forty-four', 'Hint: forty + four'),
+                mxT('Write the number name for 47.', 'forty-seven', 'Hint: forty + seven'),
+                mxT('Write the number name for 93.', 'ninety-three', 'Hint: ninety + three'),
+                mxT('10 tens = ______', 100, 'Hint: 10, 20, 30 … count 10 tens.'),
+                mxT('Ten hundred = ______', 1000, 'Hint: One thousand.')
+            ] },
+
+            { title: 'Learn: Place Value and Face Value', items: [{
+                type: 'lesson', title: 'Place value and face value',
+                content: `
+                    <p><strong>Place value</strong> is the value of a digit depending upon its place (position) in the number.</p>
+                    <p>Example: In <strong>386</strong> — the place value of 3 is 3 hundreds or <strong>300</strong>, of 8 is 8 tens or <strong>80</strong>, and of 6 is 6 ones or <strong>6</strong>.</p>
+                    <p><strong>Face value</strong> of a digit is its actual value — the digit itself, wherever it sits.</p>
+                    <p>Example: In <strong>129</strong> — the face value of 1 is 1, of 2 is 2, and of 9 is 9.</p>
+                    <table>
+                        <tr><th>Digit in 386</th><th>Place</th><th>Place value</th><th>Face value</th></tr>
+                        <tr><td>3</td><td>Hundreds</td><td>300</td><td>3</td></tr>
+                        <tr><td>8</td><td>Tens</td><td>80</td><td>8</td></tr>
+                        <tr><td>6</td><td>Ones</td><td>6</td><td>6</td></tr>
+                    </table>
+                    <p class="exam-lesson-tip">Trick: Face value = just the digit. Place value = the digit followed by one zero for each place after it. 8 in the tens place → 8 and one zero → 80.</p>
+                ` }] },
+            { title: '4B. Write the Numbers in Words', items: [
+                mxT('Write in words: 124', 'one hundred twenty-four', 'Hint: one hundred + twenty-four'),
+                mxT('Write in words: 389', 'three hundred eighty-nine', 'Hint: three hundred + eighty-nine'),
+                mxT('Write in words: 978', 'nine hundred seventy-eight', 'Hint: nine hundred + seventy-eight'),
+                mxT('Write in words: 259', 'two hundred fifty-nine', 'Hint: two hundred + fifty-nine'),
+                mxT('Write in words: 481', 'four hundred eighty-one', 'Hint: four hundred + eighty-one'),
+                mxT('Write in words: 637', 'six hundred thirty-seven', 'Hint: six hundred + thirty-seven'),
+                mxT('Write in figures: three hundred sixteen', 316, 'Hint: 3 hundreds, 1 ten, 6 ones'),
+                mxT('Write in figures: five hundred twenty-four', 524, 'Hint: 5 hundreds, 2 tens, 4 ones')
+            ] },
+            { title: '4C. Place Value and Face Value', items: [
+                mxPvFv('9<u>4</u>5', 40, 4),
+                mxPvFv('<u>2</u>86', 200, 2),
+                mxPvFv('55<u>4</u>', 4, 4),
+                mxPvFv('7<u>7</u>0', 70, 7),
+                mxPvFv('<u>1</u>47', 100, 1),
+                mxPvFv('61<u>9</u>', 9, 9),
+                mxT('HOTS: What is the difference between the place values of the two 6s in 265 and 16?', 54, 'Hint: In 265, 6 is in the tens place (60). In 16, 6 is in the ones place (6).', '60 − 6 = 54')
+            ] },
+
+            { title: 'Learn: Expanded Form, Standard Form & Abacus', items: [{
+                type: 'lesson', title: 'Expanded form, standard form and the abacus',
+                content: `
+                    <p>The <strong>expanded form</strong> of a number shows it as the sum of the place values of all its digits.</p>
+                    <p>Example: 458 = 4 hundreds + 5 tens + 8 ones = <strong>400 + 50 + 8</strong>.</p>
+                    <p>When a number is written in figures, it is in its <strong>standard form</strong>. Example: 300 + 60 + 8 = <strong>368</strong>.</p>
+                    <p><strong>Showing a 3-digit number on the abacus:</strong> 524 has 5 hundreds, 2 tens and 4 ones. So we put 5 beads on the H rod, 2 beads on the T rod and 4 beads on the O rod.</p>
+                    <div class="mx-lesson-row">${mxAbacusSvg([5, 2, 4])}</div>
+                    <p class="exam-lesson-tip">Trick: If a place has 0 (like the tens in 405), that rod stays empty — no beads! When writing expanded form, you may skip the 0 part: 705 = 700 + 5.</p>
+                ` }] },
+            { title: '4D. Write in Expanded Form', items: [
+                mxExpandQ(432), mxExpandQ(780), mxExpandQ(831), mxExpandQ(120), mxExpandQ(980), mxExpandQ(333)
+            ] },
+            { title: '4E. Write in Standard Form', items: [
+                mxT('400 + 50 + 1 = ___', 451, 'Hint: 4 hundreds, 5 tens, 1 one'),
+                mxT('500 + 30 + 8 = ___', 538, 'Hint: 5 hundreds, 3 tens, 8 ones'),
+                mxT('700 + 5 = ___', 705, 'Hint: There are no tens — write 0 in the tens place.'),
+                mxT('400 + 20 + 5 = ___', 425, 'Hint: 4 hundreds, 2 tens, 5 ones'),
+                mxT('600 + 90 + 6 = ___', 696, 'Hint: 6 hundreds, 9 tens, 6 ones'),
+                mxT('800 + 80 + 8 = ___', 888, 'Hint: 8 hundreds, 8 tens, 8 ones'),
+                mxT('100 + 10 + 6 = ___', 116, 'Hint: 1 hundred, 1 ten, 6 ones'),
+                mxT('400 + 9 = ___', 409, 'Hint: There are no tens — write 0 in the tens place.'),
+                mxT('500 + 10 + 7 = ___', 517, 'Hint: 5 hundreds, 1 ten, 7 ones'),
+                mxT('600 + 10 + 5 = ___', 615, 'Hint: 6 hundreds, 1 ten, 5 ones')
+            ] },
+            { title: '4F. Show and Read on the Abacus', items: [
+                { type: 'abacus_build', q: 'Draw beads to show <strong>405</strong> on the abacus.', answer: 405 },
+                { type: 'abacus_build', q: 'Draw beads to show <strong>532</strong> on the abacus.', answer: 532 },
+                { type: 'abacus_build', q: 'Draw beads to show <strong>109</strong> on the abacus.', answer: 109 },
+                { type: 'abacus_build', q: 'Draw beads to show <strong>670</strong> on the abacus.', answer: 670 },
+                { type: 'abacus_read', q: 'Read the number on the abacus. How will you show 200 + 30 + 6?', digits: [2, 3, 6], answer: 236 },
+                { type: 'abacus_read', q: 'Read the number shown on the abacus.', digits: [5, 2, 4], answer: 524 }
+            ] },
+
+            { title: 'Learn: Comparing Numbers', items: [{
+                type: 'lesson', title: 'Comparing numbers',
+                content: `
+                    <p>Symbols: <strong>&gt;</strong> means "is greater than", <strong>&lt;</strong> means "is less than", <strong>=</strong> means "is equal to".</p>
+                    <p><strong>Different number of digits:</strong> A 3-digit number is always greater than a 2-digit number. Compare 67 and 198 → 198 is greater, so <strong>67 &lt; 198</strong>.</p>
+                    <p><strong>Same number of digits:</strong> Compare the hundreds first. If they are the same, compare the tens. If the tens are also the same, compare the ones.</p>
+                    <table>
+                        <tr><th>Compare</th><th>Look at</th><th>Answer</th></tr>
+                        <tr><td>236 and 436</td><td>Hundreds: 2 &lt; 4</td><td>236 &lt; 436</td></tr>
+                        <tr><td>453 and 442</td><td>Hundreds same, tens: 5 &gt; 4</td><td>453 &gt; 442</td></tr>
+                        <tr><td>724 and 724</td><td>All digits same</td><td>724 = 724</td></tr>
+                    </table>
+                    <p class="exam-lesson-tip">Trick: The open mouth of &lt; or &gt; always eats the bigger number!</p>
+                ` }] },
+            { title: '4G. Compare Using &lt;, &gt; or =', items: [
+                mxCmp(67, 198), mxCmp(356, 680), mxCmp(564, 564), mxCmp(512, 533),
+                mxCmp(329, 329), mxCmp(767, 431), mxCmp(124, 108),
+                mxT('Revathi got 127 marks and Azhar got 92 marks. Who got more marks?', 'Revathi', 'Hint: A 3-digit number is greater than a 2-digit number.', 'Revathi got more marks because 127 > 92.'),
+                mxT('HOTS: Which is more — 3 hundreds 4 tens 6 ones or 3 hundreds 6 tens 4 ones? Write the bigger number.', 364, 'Hint: Write both numbers (346 and 364), then compare the tens.', '346 < 364, so 3 hundreds 6 tens 4 ones is more.')
+            ] },
+
+            { title: 'Learn: Ascending and Descending Order', items: [{
+                type: 'lesson', title: 'Order of numbers',
+                content: `
+                    <p><strong>Ascending order</strong> (increasing): arranging numbers from the <strong>smallest to the greatest</strong>. Example: 461, 542, 668, 871, 932.</p>
+                    <p><strong>Descending order</strong> (decreasing): arranging numbers from the <strong>greatest to the smallest</strong>. Example: 954, 321, 224, 142, 96.</p>
+                    <p>Example: Arrange 642, 666, 231, 981, 578 in ascending order → 231, 578, 642, 666, 981.</p>
+                    <p class="exam-lesson-tip">Trick: <strong>A</strong>scending = climbing up the stairs (small → big). <strong>D</strong>escending = coming <strong>D</strong>own the stairs (big → small). 2-digit numbers are always the smallest in the group!</p>
+                ` }] },
+            { title: '4H. Arrange in Ascending Order', items: [
+                mxOrder([642, 666, 231, 981, 578], 'asc'), mxOrder([679, 131, 304, 458], 'asc'), mxOrder([468, 292, 374, 251], 'asc'),
+                mxOrder([789, 111, 94, 556], 'asc'), mxOrder([369, 742, 681, 46], 'asc'), mxOrder([98, 411, 824, 674], 'asc')
+            ] },
+            { title: '4I. Arrange in Descending Order', items: [
+                mxOrder([773, 150, 50, 684, 298], 'desc'), mxOrder([441, 584, 430, 796], 'desc'), mxOrder([864, 229, 734, 152], 'desc'),
+                mxOrder([231, 58, 656, 987], 'desc'), mxOrder([427, 639, 186, 59], 'desc'), mxOrder([74, 141, 482, 467], 'desc')
+            ] },
+            { title: '4J. My Fun Time — Match Numbers with Names', items: [
+                { type: 'match_lines', q: 'Match the numbers with their number names.', left: ['546', '211', '708', '310', '695'], right: ['Five hundred forty-six', 'Two hundred eleven', 'Seven hundred eight', 'Three hundred ten', 'Six hundred ninety-five'], hint: 'Hint: Tap a number, then tap its name.' },
+                { type: 'match_lines', q: 'Match the numbers with their number names.', left: ['333', '515', '129', '403', '805'], right: ['Three hundred thirty-three', 'Five hundred fifteen', 'One hundred twenty-nine', 'Four hundred three', 'Eight hundred five'], hint: 'Hint: Tap a number, then tap its name.' }
+            ] },
+            { title: '4K. Worksheet — Number Puzzle', items: [
+                mxT('Down 1: Greater than 710 but smaller than 712.', 711, 'Hint: The number between 710 and 712.'),
+                mxT('Down 3: Greater than 396 but smaller than 398.', 397, 'Hint: The number between 396 and 398.'),
+                mxT('Down 4: 900 + 10 + 4', 914, 'Hint: Write it in standard form.'),
+                mxT('Across 2: 1 hundred 2 tens 3 ones', 123, 'Hint: H = 1, T = 2, O = 3'),
+                mxT('Across 5: 7 hundreds 8 tens 1 one', 781, 'Hint: H = 7, T = 8, O = 1'),
+                mxT('I am a three-digit number. My ones digit is 2. My tens digit is five more than my ones digit. My hundreds digit is three less than my tens digit. What number am I?', 472, 'Hint: Ones = 2, tens = 2 + 5, hundreds = tens − 3.', 'Ones = 2, tens = 7, hundreds = 4, so the number is 472.')
+            ] },
+
+            // ---------------- CHAPTER 5: ADDITION AND SUBTRACTION OF BIGGER NUMBERS ----------------
+            { title: 'Learn: Adding Bigger Numbers', items: [{
+                type: 'lesson', title: 'Chapter 5 — Adding 3-digit numbers',
+                content: `
+                    <p>When we add two 2-digit numbers, we can get a 3-digit answer. This happens because we <strong>regroup</strong> (carry over).</p>
+                    <p><strong>Add 78 and 46:</strong></p>
+                    <div class="mx-lesson-row">${mxShow(78, '+', 46, { marks: ['1', ''] })}<div><p>Step 1: Add the ones: 8 + 6 = 14. Write 4 in the ones place and carry over 1 to the tens place.</p><p>Step 2: Add the tens: 7 + 4 + 1 (carry) = 12. Write 2 in the tens place and 1 in the hundreds place.</p><p>Thus, 78 + 46 = <strong>124</strong>.</p></div></div>
+                    <p><strong>Without regrouping — 271 + 624:</strong> ones 1 + 4 = 5, tens 7 + 2 = 9, hundreds 2 + 6 = 8. So, 271 + 624 = <strong>895</strong>.</p>
+                    <p><strong>With regrouping — 456 + 187:</strong></p>
+                    <div class="mx-lesson-row">${mxShow(456, '+', 187, { marks: ['1', '1', ''] })}<div><p>Ones: 6 + 7 = 13 → write 3, carry 1.</p><p>Tens: 5 + 8 + 1 = 14 → write 4, carry 1.</p><p>Hundreds: 4 + 1 + 1 = 6.</p><p>Thus, 456 + 187 = <strong>643</strong>.</p></div></div>
+                    <p class="exam-lesson-tip">Remember: 14 ones = 1 ten + 4 ones, and 18 tens = 1 hundred + 8 tens. Whenever a column adds up to 10 or more, write the ones digit and carry the 1 to the next column.</p>
+                ` }] },
+            { title: '5A. I Look Back — Add or Subtract', items: [
+                mxAdd(51, 7), mxAdd(64, 5), mxAdd(91, 5), mxAdd(39, 3), mxAdd(74, 8), mxSub(46, 3),
+                mxAdd(72, 26), mxSub(34, 2), mxSub(79, 56), mxSub(99, 33), mxSub(68, 37), mxSub(59, 42)
+            ] },
+            { title: '5B. Revathi\'s Test — 2-digit + 2-digit', items: [
+                mxAdd(78, 46), mxAdd(64, 96), mxAdd(78, 91), mxAdd(98, 56), mxAdd(44, 87), mxAdd(69, 47)
+            ] },
+            { title: '5C. My Practice Time 1 — Add', items: [
+                mxAdd(64, 63), mxAdd(90, 10), mxAdd(41, 75), mxAdd(27, 96),
+                mxAdd(707, 51), mxAdd(633, 63), mxAdd(222, 34), mxAdd(122, 70),
+                mxAdd(525, 9), mxAdd(518, 36), mxAdd(634, 217), mxAdd(159, 321),
+                mxAdd(374, 198), mxAdd(741, 168), mxAdd(487, 136), mxAdd(334, 169)
+            ] },
+            { title: '5D. Arrange in Columns and Add', items: [
+                [432, 11], [648, 32], [793, 117], [236, 321], [368, 347], [246, 178]
+            ].map(([a, b]) => mxAdd(a, b, { arrange: true, q: `Arrange in columns and add: <strong>${a} + ${b}</strong>` })) },
+            { title: '5E. Addition Word Problems', items: [
+                mxT('There are 323 passengers travelling in a ship. 241 more passengers join them. What is the total number of passengers in the ship?', 564, 'Hint: "Join" and "total" mean add: 323 + 241.', '323 + 241 = 564 passengers.'),
+                mxT('In a cruise liner, 264 passengers are going to Sri Lanka and 66 passengers are going to Lakshadweep. How many passengers are travelling to both places?', 330, 'Hint: 264 + 66 (carry twice!)', '264 + 66 = 330 passengers.'),
+                mxT('There are 211 containers in ship A and 375 containers in ship B. How many containers are there in all?', 586, 'Hint: 211 + 375', '211 + 375 = 586 containers.'),
+                mxT('There are 476 boats in dockyard A and 374 boats in dockyard B. How many boats are there in all?', 850, 'Hint: 476 + 374', '476 + 374 = 850 boats.'),
+                mxT('Maths in My Life: In a school, 243 trees were planted by boys and 321 trees by girls. How many trees were planted in all?', 564, 'Hint: 243 + 321', '243 + 321 = 564 trees.')
+            ] },
+            { title: '5F. Maths Tricks & HOTS — Addition', items: [
+                mxT('Adding three 2-digit numbers: 25 + 34 + 52 = ?', 111, 'Hint: Tens: 2 + 3 + 5 = 10. Ones: 5 + 4 + 2 = 11.', 'Tens make 100, ones make 11 → 111.'),
+                mxT('32 + 45 + 33 = ?', 110, 'Hint: Tens: 3 + 4 + 3 = 10. Ones: 2 + 5 + 3 = 10.', '100 + 10 = 110'),
+                mxT('30 + 67 + 45 = ?', 142, 'Hint: Tens: 3 + 6 + 4 = 13. Ones: 0 + 7 + 5 = 12.', '130 + 12 = 142'),
+                mxT('Add hundreds, tens and ones separately: 245 + 340 = ?', 585, 'Hint: 200 + 300, 40 + 40, 5 + 0'),
+                mxT('164 + 233 = ?', 397, 'Hint: 100 + 200, 60 + 30, 4 + 3'),
+                mxT('467 + 233 = ?', 700, 'Hint: 400 + 200 = 600, 60 + 30 = 90, 7 + 3 = 10'),
+                mxT('345 + 154 = ?', 499, 'Hint: 300 + 100, 40 + 50, 5 + 4'),
+                mxT('HOTS: Add 3 hundreds 2 ones and 2 hundreds 6 tens 3 ones.', 565, 'Hint: 302 + 263', '302 + 263 = 565'),
+                mxT('HOTS: Add 1 hundred 3 tens 1 one and 6 tens 4 ones.', 195, 'Hint: 131 + 64', '131 + 64 = 195'),
+                mxT('HOTS: Add 5 hundreds 4 tens 7 ones and 1 hundred 2 tens 1 one.', 668, 'Hint: 547 + 121', '547 + 121 = 668'),
+                mxT('HOTS: Add 6 hundreds 2 tens 3 ones and 1 hundred 9 tens 7 ones.', 820, 'Hint: 623 + 197', '623 + 197 = 820'),
+                mxT('HOTS: Add 4 hundreds 3 tens 4 ones and 1 hundred 8 tens 6 ones.', 620, 'Hint: 434 + 186', '434 + 186 = 620')
+            ] },
+
+            { title: 'Learn: Subtracting 3-digit Numbers', items: [{
+                type: 'lesson', title: 'Subtracting 3-digit numbers',
+                content: `
+                    <p><strong>Without regrouping — Subtract 362 from 784:</strong></p>
+                    <div class="mx-lesson-row">${mxShow(784, '−', 362)}<div><p>Step 1: Write the numbers in columns.</p><p>Step 2: Ones: 4 − 2 = 2.</p><p>Step 3: Tens: 8 − 6 = 2.</p><p>Step 4: Hundreds: 7 − 3 = 4.</p><p>Thus, 784 − 362 = <strong>422</strong>.</p></div></div>
+                    <p><strong>With regrouping — Subtract 378 from 762:</strong></p>
+                    <div class="mx-lesson-row">${mxShow(762, '−', 378, { marks: ['6', '15', '12'], cross: [0, 1, 2] })}<div><p>Step 1: Ones: 2 &lt; 8, so borrow 1 ten. 12 − 8 = 4.</p><p>Step 2: Tens: 1 ten was borrowed, so 6 became 5. 5 &lt; 7, so borrow 1 hundred. 15 − 7 = 8.</p><p>Step 3: Hundreds: 7 became 6. 6 − 3 = 3.</p><p>Thus, 762 − 378 = <strong>384</strong>.</p></div></div>
+                    <p><strong>Borrowing across a zero — 900 − 254:</strong> the ones and tens are both 0, so borrow 1 hundred first (9 → 8, tens become 10), then borrow 1 ten (tens 10 → 9, ones become 10). 10 − 4 = 6, 9 − 5 = 4, 8 − 2 = 6 → <strong>646</strong>.</p>
+                    <p class="exam-lesson-tip">Trick: Check every column from right to left: "Is the top smaller? Then borrow!" Check your answer by adding: 384 + 378 = 762 ✓</p>
+                ` }] },
+            { title: '5G. My Practice Time 2 — Subtract', items: [
+                mxSub(742, 1), mxSub(698, 5), mxSub(568, 37), mxSub(939, 27),
+                mxSub(797, 97), mxSub(639, 129), mxSub(478, 367), mxSub(699, 289)
+            ] },
+            { title: '5H. Subtract with Regrouping', items: [
+                mxSub(460, 151), mxSub(630, 540), mxSub(423, 233), mxSub(220, 125), mxSub(318, 230),
+                mxSub(812, 613), mxSub(643, 457), mxSub(651, 483), mxSub(900, 254)
+            ] },
+            { title: '5I. Maths Tricks & HOTS — Subtraction', items: [
+                mxT('Subtract by breaking the smaller number: 196 − 135 = ?', 61, 'Hint: 196 − 100 = 96, 96 − 30 = 66, 66 − 5 = ?', '196 − 100 − 30 − 5 = 61'),
+                mxT('144 − 124 = ?', 20, 'Hint: 144 − 100 = 44, 44 − 20 = 24, 24 − 4 = ?', '144 − 100 − 20 − 4 = 20'),
+                mxT('467 − 333 = ?', 134, 'Hint: 467 − 300 = 167, 167 − 30 = 137, 137 − 3 = ?', '467 − 300 − 30 − 3 = 134'),
+                mxT('645 − 514 = ?', 131, 'Hint: 645 − 500 = 145, 145 − 10 = 135, 135 − 4 = ?', '645 − 500 − 10 − 4 = 131'),
+                mxT('HOTS: Subtract 3 hundreds 2 ones from 3 hundreds 2 tens 9 ones.', 27, 'Hint: 329 − 302', '329 − 302 = 27'),
+                mxT('HOTS: Subtract 6 hundreds 2 tens 4 ones from 8 hundreds 3 tens 5 ones.', 211, 'Hint: 835 − 624', '835 − 624 = 211'),
+                mxT('HOTS: Subtract 2 hundreds 5 tens 6 ones from 5 hundreds 9 tens 3 ones.', 337, 'Hint: 593 − 256', '593 − 256 = 337'),
+                mxT('HOTS: Subtract 3 hundreds 8 tens 6 ones from 8 hundreds 2 tens 3 ones.', 437, 'Hint: 823 − 386', '823 − 386 = 437'),
+                mxT('HOTS: Subtract 7 hundreds 7 tens 8 ones from 9 hundreds 3 tens 2 ones.', 154, 'Hint: 932 − 778', '932 − 778 = 154')
+            ] },
+            { title: '5J. Word Problems — Journey from New Delhi to Pune', items: [
+                mxT('There were 672 passengers in a train from New Delhi to Pune. 21 passengers got down at Mathura. How many passengers were left in the train?', 651, 'Hint: 672 − 21', '672 − 21 = 651 passengers.'),
+                mxT('There were 457 passengers in the train. 368 passengers got down at Gwalior. How many passengers are left in the train now?', 89, 'Hint: 457 − 368 (borrow twice!)', '457 − 368 = 89 passengers.'),
+                mxT('Out of a total of 672 passengers, 61 got down at Bhopal. How many passengers were left in the train?', 611, 'Hint: 672 − 61', '672 − 61 = 611 passengers.'),
+                mxT('At Lalitpur, there were 841 passengers in the train. 346 got down at Mumbai. How many passengers are left now?', 495, 'Hint: 841 − 346', '841 − 346 = 495 passengers.'),
+                mxT('There were 768 passengers in the train. Before reaching Pune, 279 got down at Kopargaon. How many passengers reached Pune?', 489, 'Hint: 768 − 279', '768 − 279 = 489 passengers.')
+            ] },
+            { title: '5K. Worksheet — How Much Do You Know About Your Country?', items: [{
+                type: 'decode', mode: 'key',
+                q: 'Solve each problem. Each problem has a letter. Write the letter above its answer to find the answers to the questions.',
+                problems: [
+                    [364, '+', 22, 'I'], [726, '+', 36, 'D'], [492, '+', 211, 'A'], [888, '+', 111, 'S'],
+                    [686, '+', 144, 'L'], [197, '+', 583, 'E'], [869, '+', 108, 'N'], [829, '-', 169, 'O'],
+                    [362, '-', 94, 'H'], [628, '-', 117, 'W'], [458, '-', 46, 'G'], [412, '-', 377, 'K'], [613, '-', 476, 'T']
+                ],
+                riddles: [
+                    { q: 'National river of India', words: [[137, 268, 780], [412, 703, 977, 412, 780, 999]] },
+                    { q: 'Capital of India', words: [[977, 780, 511], [762, 780, 830, 268, 386]] },
+                    { q: 'In which city is the famous Howrah Bridge?', words: [[35, 660, 830, 35, 703, 137, 703]] }
+                ]
+            }] },
+            { title: '5L. Worksheet — Think and Solve', items: [
+                mxT('Veena has 103 stamps, Abhay has 235 stamps and Bulbul has 175 stamps. Which two children have 278 stamps together?', ['Veena and Bulbul', 'Bulbul and Veena'], 'Hint: Try adding each pair: 103 + 235, 103 + 175, 235 + 175.', '103 + 175 = 278, so Veena and Bulbul.'),
+                mxT('There were 525 passengers in a train. 314 got down at Pune. Then 213 joined at Mumbai. How many passengers were in the train at Mumbai?', 424, 'Hint: First 525 − 314, then add 213.', '525 − 314 = 211, and 211 + 213 = 424 passengers.'),
+                { type: 'multi', q: 'Write your answer 424 in expanded form.', inline: true, prefix: '424 =', sep: '+', fields: [{ answers: ['400'] }, { answers: ['20'] }, { answers: ['4'] }], explain: '424 = 400 + 20 + 4' }
+            ] }
+        ];
 
         const examPrepData = {
             'computer-science': {
@@ -4202,75 +5123,14 @@
                 ]
             },
             'maths-subtraction-1000': {
-                title: 'Maths: Numbers to 1000 & Subtraction',
-                questions: [
-                    {
-                        type: 'lesson',
-                        title: 'Learn: Numbers up to 1000',
-                        content: `
-                            <p>A 3-digit number has a <strong>hundreds digit</strong>, a <strong>tens digit</strong>, and a <strong>ones digit</strong>.</p>
-                            <table>
-                                <tr><th>Number 347</th><th>Face Value</th><th>Place Value</th></tr>
-                                <tr><td>3 (hundreds)</td><td>3</td><td>300</td></tr>
-                                <tr><td>4 (tens)</td><td>4</td><td>40</td></tr>
-                                <tr><td>7 (ones)</td><td>7</td><td>7</td></tr>
-                            </table>
-                            <p>To compare 3-digit numbers, compare the hundreds digit first, then tens, then ones \u2014 just like with 2-digit numbers.</p>
-                            <p class="exam-lesson-tip">Trick: the number right after 999 is 1000 \u2014 that's when we need a 4th digit!</p>
-                        `
-                    },
-                    { type: 'text', q: 'What is the place value of 3 in 347?', answers: ['300'] },
-                    { type: 'text', q: 'What is the place value of 4 in 347?', answers: ['40'] },
-                    { type: 'text', q: 'What is the face value of 7 in 347?', answers: ['7'] },
-                    { type: 'mcq', q: 'Which number is greater: 456 or 465?', options: ['465', '456'], answer: '465' },
-                    { type: 'mcq', q: 'Which number is smaller: 702 or 720?', options: ['702', '720'], answer: '702' },
-                    { type: 'text', q: 'Write in numerals: five hundred twenty-six', answers: ['526'] },
-                    { type: 'text', q: 'What number comes after 999?', answers: ['1000'] },
-                    { type: 'text', q: 'What number comes before 500?', answers: ['499'] },
-
-                    {
-                        type: 'lesson',
-                        title: 'Learn: Subtraction',
-                        content: `
-                            <p><strong>Subtraction</strong> means taking away one number from another.</p>
-                            <p>Just like addition, subtract the ones column first, then the tens column.</p>
-                            <p>Sometimes the top ones digit is smaller than the digit below it \u2014 then we <strong>borrow</strong> 1 ten from the tens column to make the ones column big enough.</p>
-                            <p>Example: 52 \u2212 27 \u2192 ones: 2 is smaller than 7, so borrow 1 ten (12 \u2212 7 = 5); tens: 4 (after borrowing) \u2212 2 = 2 \u2192 answer: 25.</p>
-                            <p class="exam-lesson-tip">Trick: always start subtracting from the ones column, just like addition.</p>
-                        `
-                    },
-                    { type: 'text', q: '8 \u2212 3 = ?', answers: ['5'] },
-                    { type: 'text', q: '12 \u2212 5 = ?', answers: ['7'] },
-                    { type: 'text', q: '17 \u2212 9 = ?', answers: ['8'] },
-                    { type: 'text', q: '45 \u2212 20 = ?', answers: ['25'] },
-                    { type: 'text', q: '68 \u2212 34 = ?', answers: ['34'] },
-
-                    { type: 'text', q: '52 \u2212 27 = ?', answers: ['25'] },
-                    { type: 'text', q: '83 \u2212 46 = ?', answers: ['37'] },
-                    { type: 'text', q: '91 \u2212 58 = ?', answers: ['33'] },
-                    { type: 'text', q: '125 \u2212 68 = ?', answers: ['57'] },
-                    { type: 'text', q: '300 \u2212 125 = ?', answers: ['175'] },
-
-                    {
-                        type: 'lesson',
-                        title: 'Learn: Addition and Subtraction of Bigger Numbers',
-                        content: `
-                            <p>For 3-digit numbers, line up the hundreds, tens, and ones columns, then add or subtract each column, starting from ones \u2014 carrying or borrowing whenever needed.</p>
-                            <p>Example: 234 + 158 \u2192 ones: 4+8=12 (write 2, carry 1); tens: 3+5+1=9; hundreds: 2+1=3 \u2192 answer: 392.</p>
-                            <p>Example: 500 \u2212 234 \u2192 borrow across the tens and hundreds columns \u2192 answer: 266.</p>
-                            <p class="exam-lesson-tip">Trick: write the bigger number on top, and always work column by column from the right.</p>
-                        `
-                    },
-                    { type: 'text', q: '234 + 158 = ?', answers: ['392'] },
-                    { type: 'text', q: '421 + 359 = ?', answers: ['780'] },
-                    { type: 'text', q: '605 + 287 = ?', answers: ['892'] },
-                    { type: 'text', q: '150 + 275 = ?', answers: ['425'] },
-
-                    { type: 'text', q: '500 \u2212 234 = ?', answers: ['266'] },
-                    { type: 'text', q: '742 \u2212 358 = ?', answers: ['384'] },
-                    { type: 'text', q: '600 \u2212 275 = ?', answers: ['325'] },
-                    { type: 'text', q: '813 \u2212 456 = ?', answers: ['357'] }
-                ]
+                title: 'Maths: Subtraction, Numbers up to 1000 & Bigger Numbers',
+                looseAnswers: true,
+                questions: g2t1MathsSections.flatMap(section => section.items)
+            },
+            'evs-term1': {
+                title: 'EVS: My Family, Neighbourhood, School & People Who Help Us',
+                looseAnswers: true,
+                questions: g2t1EvsSections.flatMap(section => section.items)
             },
             'english-nouns-adjectives': {
                 title: 'English: Nouns & Adjectives',
@@ -4690,7 +5550,8 @@
             'maths-subtraction-1000': 'grade2-term1',
             'english-nouns-adjectives': 'grade2-term1',
             'english-polly-goodboy': 'grade2-term1',
-            'kannada-eli-mattu-simha': 'grade2-term1'
+            'kannada-eli-mattu-simha': 'grade2-term1',
+            'evs-term1': 'grade2-term1'
         };
 
         const gradeDefaultSubject = {
@@ -4830,16 +5691,8 @@
                 { title: 'H. Sanyukt', count: 4 },
                 { title: 'I. Write the Vyanjan', count: 8 }
             ],
-            'maths-subtraction-1000': [
-                { title: 'Learn: Numbers up to 1000', count: 1 },
-                { title: 'A. Numbers up to 1000', count: 8 },
-                { title: 'Learn: Subtraction', count: 1 },
-                { title: 'B. Basic Subtraction', count: 5 },
-                { title: 'C. Subtraction with Regrouping', count: 5 },
-                { title: 'Learn: Addition and Subtraction of Bigger Numbers', count: 1 },
-                { title: 'D. Addition of Bigger Numbers', count: 4 },
-                { title: 'E. Subtraction of Bigger Numbers', count: 4 }
-            ],
+            'maths-subtraction-1000': g2t1MathsSections.map(section => ({ title: section.title, count: section.items.length })),
+            'evs-term1': g2t1EvsSections.map(section => ({ title: section.title, count: section.items.length })),
             'english-nouns-adjectives': [
                 { title: 'Learn: Countable & Uncountable Nouns', count: 1 },
                 { title: 'A. Countable & Uncountable Nouns', count: 9 },
@@ -5223,6 +6076,8 @@
 
         function getQuestionHint(item) {
             if (item.hint) return item.hint;
+            if (MX_TYPES.includes(item.type)) return mxHint(item);
+            if (item.type === 'practice' && item.modelAnswer) return 'Hint: Write your answer, then press Submit to see a sample answer.';
             if (item.type === 'practice') return 'Hint: Practice question. Write/draw in notebook and self-check.';
             if (item.type === 'trace_word') return 'Hint: Trace the Hindi number word by following the guide letters.';
             if (item.type === 'trace_letter') return 'Hint: Trace the letter shown above, following its shape carefully.';
@@ -5237,8 +6092,10 @@
         }
 
         function shouldUseWordBank(subject, item) {
-            const wordBankSubjects = ['hindi', 'hindi-writing-practice', 'kannada', 'english-pet-poem', 'english-sentences', 'evs-me-and-myself', 'maths-2digit-addition', 'hindi-swar', 'hindi-vyanjan', 'maths-subtraction-1000', 'english-nouns-adjectives', 'english-polly-goodboy'];
-            return wordBankSubjects.includes(subject) && item.type === 'text';
+            const wordBankSubjects = ['hindi', 'hindi-writing-practice', 'kannada', 'english-pet-poem', 'english-sentences', 'evs-me-and-myself', 'maths-2digit-addition', 'hindi-swar', 'hindi-vyanjan', 'english-nouns-adjectives', 'english-polly-goodboy', 'evs-term1'];
+            if (item.type !== 'text') return false;
+            if (item.wordBank !== undefined) return !!item.wordBank;
+            return wordBankSubjects.includes(subject);
         }
 
         function hasDevanagari(text) {
@@ -5925,7 +6782,372 @@
             `;
         }
 
+        // ============ MATHS (TEXTBOOK-STYLE) QUESTION TYPES ============
+        const MX_TYPES = ['column', 'compare', 'chart', 'abacus_read', 'abacus_build', 'multi', 'decode'];
+        const MX_HEADS = ['H', 'T', 'O'];
+
+        function mxItem(s, q) { return currentExamSections?.[s]?.questions?.[q]; }
+        function mxId(s, q, key, i) { return `mx-${s}-${q}-${key}${i === undefined ? '' : '-' + i}`; }
+        function mxOpSym(op) { return op === '-' ? '\u2212' : '+'; }
+        function mxAnswer(item) { return item.op === '-' ? item.top - item.bottom : item.top + item.bottom; }
+        function mxPad(n, places) {
+            const s = String(n);
+            return Array.from({ length: places }, (_, i) => { const k = i - (places - s.length); return k >= 0 ? s[k] : ''; });
+        }
+        function mxPlacesFor(...nums) { return Math.max(...nums.map(n => String(n).length)); }
+        function mxLoose(v) {
+            return normalizeExamAnswer(v).replace(/\band\b/g, '').replace(/[\s\-\u2013\u2212,.]/g, '');
+        }
+
+        function mxCellInput(el) {
+            el.value = el.value.replace(/[^0-9]/g, '').slice(0, el.maxLength > 0 ? el.maxLength : 1);
+            if (el.value && !el.classList.contains('mx-cell-scratch')) {
+                // Children work from the ones column leftwards, so hop to the box on the left.
+                const prevTd = el.closest('td')?.previousElementSibling;
+                const prev = prevTd ? prevTd.querySelector('input.mx-cell') : null;
+                if (prev) prev.focus();
+            }
+        }
+
+        function mxGrid(s, q, places, rows, title) {
+            const heads = MX_HEADS.slice(3 - places);
+            let h = `<div class="mx-col">`;
+            if (title) h += `<div class="mx-col-title">${title}</div>`;
+            h += `<table class="mx-grid"><tr><th></th>${heads.map(x => `<th>${x}</th>`).join('')}</tr>`;
+            rows.forEach(r => {
+                const cls = r.kind === 'scratch' ? 'mx-scratch-row' : (r.result ? 'mx-result-row' : '');
+                h += `<tr class="${cls}"><td class="mx-op">${r.op || ''}</td>`;
+                const digits = r.kind === 'fixed' ? mxPad(r.value, places) : null;
+                for (let i = 0; i < places; i++) {
+                    if (r.kind === 'fixed') {
+                        h += `<td class="mx-digit">${digits[i]}</td>`;
+                    } else {
+                        const scratch = r.kind === 'scratch';
+                        h += `<td><input id="${mxId(s, q, r.key, i)}" class="mx-cell${scratch ? ' mx-cell-scratch' : ''}" inputmode="numeric" maxlength="${scratch ? 2 : 1}" autocomplete="off" aria-label="${scratch ? 'Carry or borrow' : 'Digit'} ${heads[i]}" oninput="mxCellInput(this)"></td>`;
+                    }
+                }
+                h += `</tr>`;
+            });
+            h += `</table></div>`;
+            return h;
+        }
+
+        function mxRead(s, q, key, places) {
+            const vals = [];
+            for (let i = 0; i < places; i++) {
+                const el = document.getElementById(mxId(s, q, key, i));
+                vals.push(el ? el.value.trim() : '');
+            }
+            while (vals.length && vals[0] === '') vals.shift();
+            if (!vals.length) return null;
+            if (vals.some(v => v === '')) return NaN;
+            return Number(vals.join(''));
+        }
+        function mxVal(s, q, key) {
+            const el = document.getElementById(mxId(s, q, key));
+            const v = el ? el.value.replace(/[^0-9]/g, '') : '';
+            return v === '' ? null : Number(v);
+        }
+
+        function renderMxColumn(item, s, q) {
+            const ans = mxAnswer(item);
+            const places = mxPlacesFor(item.top, item.bottom, ans);
+            const sym = mxOpSym(item.op);
+            const rows = [{ kind: 'scratch', key: 's' }];
+            if (item.arrange) {
+                rows.push({ kind: 'input', key: 't' });
+                rows.push({ kind: 'input', key: 'b', op: sym });
+            } else {
+                rows.push({ kind: 'fixed', value: item.top });
+                rows.push({ kind: 'fixed', value: item.bottom, op: sym });
+            }
+            rows.push({ kind: 'input', key: 'a', result: true });
+            let html = `<div class="mx-work">`;
+            html += mxGrid(s, q, places, rows, item.check || item.expand ? (item.op === '-' ? 'Subtract' : 'Add') : '');
+            if (item.expand) {
+                const box = (key) => `<input id="${mxId(s, q, key)}" class="mx-exp-input" inputmode="numeric" autocomplete="off" aria-label="Expanded part">`;
+                html += `<div class="mx-col"><div class="mx-col-title">Expand</div><div class="mx-expand">`;
+                html += `<div class="mx-exp-row"><span class="mx-op"></span>${box('e1a')}<span>+</span>${box('e1b')}</div>`;
+                html += `<div class="mx-exp-row"><span class="mx-op">${sym}</span>${box('e2a')}<span>+</span>${box('e2b')}</div>`;
+                html += `<div class="mx-exp-row mx-result-row"><span class="mx-op"></span>${box('e3a')}<span>+</span>${box('e3b')}</div>`;
+                html += `</div></div>`;
+            }
+            if (item.check) {
+                const cp = mxPlacesFor(ans, item.bottom, item.top);
+                html += mxGrid(s, q, cp, [
+                    { kind: 'scratch', key: 'cs' },
+                    { kind: 'input', key: 'ct' },
+                    { kind: 'fixed', value: item.bottom, op: '+' },
+                    { kind: 'input', key: 'cc', result: true }
+                ], 'Check by adding');
+            }
+            html += `</div>`;
+            return html;
+        }
+
+        function checkMxColumn(item, s, q) {
+            const ans = mxAnswer(item);
+            const places = mxPlacesFor(item.top, item.bottom, ans);
+            const sym = mxOpSym(item.op);
+            const problems = [];
+            if (item.arrange) {
+                if (mxRead(s, q, 't', places) !== item.top || mxRead(s, q, 'b', places) !== item.bottom) problems.push('Write the numbers in the right columns (ones under ones).');
+            }
+            const userAns = mxRead(s, q, 'a', places);
+            if (userAns !== ans) problems.push(`The answer should be ${ans}.`);
+            if (item.expand) {
+                const tt = Math.floor(item.top / 10) * 10, to = item.top % 10;
+                const bt = Math.floor(item.bottom / 10) * 10, bo = item.bottom % 10;
+                const rt = Math.floor(ans / 10) * 10, ro = ans % 10;
+                const exp = [['e1a', tt], ['e1b', to], ['e2a', bt], ['e2b', bo], ['e3a', rt], ['e3b', ro]];
+                if (exp.some(([k, v]) => mxVal(s, q, k) !== v)) problems.push(`Expanded: ${tt} + ${to} ${sym} ${bt} + ${bo} = ${rt} + ${ro}.`);
+            }
+            if (item.check) {
+                const cp = mxPlacesFor(ans, item.bottom, item.top);
+                if (mxRead(s, q, 'ct', cp) !== ans || mxRead(s, q, 'cc', cp) !== item.top) problems.push(`Check: ${ans} + ${item.bottom} = ${item.top}.`);
+            }
+            const sentence = `${item.top} ${sym} ${item.bottom} = ${ans}`;
+            if (!problems.length) {
+                return { score: 1, total: 1, msg: `Correct! ${sentence}${item.check ? ` and ${ans} + ${item.bottom} = ${item.top} \u2713` : ''}` };
+            }
+            return { score: 0, total: 1, msg: `Not yet. ${problems.join(' ')} (${sentence})` };
+        }
+
+        function renderMxCompare(item, s, q) {
+            const esc = (x) => x === '<' ? '&lt;' : (x === '>' ? '&gt;' : x);
+            let h = `<div class="mx-compare"><span class="mx-numbox">${item.a}</span><div class="mx-sym-group" role="group" aria-label="Choose a sign">`;
+            ['<', '=', '>'].forEach(sym => {
+                h += `<button type="button" class="mx-sym${item.picked === sym ? ' active' : ''}" data-sym="${esc(sym)}" onclick="mxPickSym(this, ${s}, ${q})">${esc(sym)}</button>`;
+            });
+            h += `</div><span class="mx-numbox">${item.b}</span></div>`;
+            return h;
+        }
+        function mxPickSym(btn, s, q) {
+            const item = mxItem(s, q);
+            if (!item) return;
+            item.picked = btn.dataset.sym;
+            btn.parentElement.querySelectorAll('.mx-sym').forEach(b => b.classList.toggle('active', b === btn));
+            if (typeof playClickSound === 'function') playClickSound();
+        }
+
+        function renderMxChart(item, s, q) {
+            let h = `<div class="mx-chart">`;
+            for (let n = 1; n <= 100; n++) {
+                const cls = (n === item.top ? ' start' : '') + (item.picked === n ? ' picked' : '');
+                h += `<button type="button" class="mx-chart-cell${cls}" onclick="mxPickChart(this, ${s}, ${q}, ${n})">${n}</button>`;
+            }
+            return h + `</div>`;
+        }
+        function mxPickChart(btn, s, q, n) {
+            const item = mxItem(s, q);
+            if (!item) return;
+            item.picked = n;
+            btn.parentElement.querySelectorAll('.mx-chart-cell').forEach(b => b.classList.toggle('picked', b === btn));
+        }
+
+        function mxAbacusSvg(digits) {
+            const colors = ['#e84a8a', '#f39c34', '#2fae6a'];
+            const xs = [50, 110, 170];
+            let svg = `<svg class="mx-abacus-svg" viewBox="0 0 220 230" role="img" aria-label="Abacus showing ${digits.join(' ')}">`;
+            xs.forEach(x => { svg += `<rect x="${x - 3}" y="12" width="6" height="186" rx="3" fill="#8a6a4e"/>`; });
+            xs.forEach((x, r) => {
+                for (let b = 0; b < (digits[r] || 0); b++) {
+                    const y = 186 - b * 19;
+                    svg += `<ellipse cx="${x}" cy="${y}" rx="17" ry="9" fill="${colors[r]}" stroke="rgba(0,0,0,.25)"/>`;
+                }
+            });
+            svg += `<rect x="10" y="196" width="200" height="28" rx="6" fill="#7b4a2e"/>`;
+            ['H', 'T', 'O'].forEach((l, r) => { svg += `<text x="${xs[r]}" y="216" text-anchor="middle" font-size="16" font-weight="700" fill="#fff" font-family="Trebuchet MS, sans-serif">${l}</text>`; });
+            return svg + `</svg>`;
+        }
+        function renderMxAbacusBuild(item, s, q) {
+            if (!item.beads) item.beads = [0, 0, 0];
+            let h = `<div class="mx-abacus" id="${mxId(s, q, 'abacus')}">${mxAbacusSvg(item.beads)}<div class="mx-abacus-controls">`;
+            ['H', 'T', 'O'].forEach((l, r) => {
+                h += `<div class="mx-abacus-rod"><button type="button" class="mx-bead-btn" aria-label="Add bead to ${l}" onclick="mxBead(${s}, ${q}, ${r}, 1)">+</button><span class="mx-bead-count">${item.beads[r]}</span><button type="button" class="mx-bead-btn" aria-label="Remove bead from ${l}" onclick="mxBead(${s}, ${q}, ${r}, -1)">\u2212</button></div>`;
+            });
+            return h + `</div></div>`;
+        }
+        function mxBead(s, q, rod, delta) {
+            const item = mxItem(s, q);
+            if (!item) return;
+            if (!item.beads) item.beads = [0, 0, 0];
+            item.beads[rod] = Math.min(9, Math.max(0, item.beads[rod] + delta));
+            const box = document.getElementById(mxId(s, q, 'abacus'));
+            if (box) box.outerHTML = renderMxAbacusBuild(item, s, q);
+        }
+        function renderMxAbacusRead(item, s, q) {
+            return `<div class="mx-abacus">${mxAbacusSvg(item.digits)}</div><input type="text" id="${mxId(s, q, 'ab')}" class="exam-input" inputmode="numeric" placeholder="Write the number">`;
+        }
+
+        function renderMxMulti(item, s, q) {
+            if (item.inline) {
+                let h = `<div class="mx-multi-inline">${item.prefix ? `<span class="mx-big">${item.prefix}</span>` : ''}`;
+                item.fields.forEach((f, i) => {
+                    if (i > 0) h += `<span class="mx-big">${item.sep || '+'}</span>`;
+                    h += `<input type="text" id="${mxId(s, q, 'f', i)}" class="mx-exp-input" inputmode="numeric" autocomplete="off" aria-label="Part ${i + 1}">`;
+                });
+                return h + `</div>`;
+            }
+            let h = `<div class="mx-multi">`;
+            item.fields.forEach((f, i) => {
+                h += `<label class="mx-multi-row"><span>${f.label}</span><input type="text" id="${mxId(s, q, 'f', i)}" class="exam-input mx-short" autocomplete="off"></label>`;
+            });
+            return h + `</div>`;
+        }
+        function checkMxMulti(item, s, q) {
+            const ok = item.fields.every((f, i) => {
+                const el = document.getElementById(mxId(s, q, 'f', i));
+                const v = mxLoose(el ? el.value : '');
+                return f.answers.map(mxLoose).includes(v);
+            });
+            const correct = item.explain || item.fields.map(f => `${f.label ? f.label + ': ' : ''}${f.answers[0]}`).join(', ');
+            return ok ? { score: 1, total: 1, msg: `Correct! ${correct}` } : { score: 0, total: 1, msg: `Correct answer: ${correct}` };
+        }
+
+        function mxDecodeCard(a, op, b, s, q, idx, letter) {
+            let h = `<div class="mx-dcard" id="${mxId(s, q, 'card', idx)}">`;
+            if (letter) h += `<span class="mx-dtag">${letter}</span>`;
+            h += `<div class="mx-dsum"><span>${a}</span><span>${mxOpSym(op)} ${b}</span></div>`;
+            h += `<input type="text" id="${mxId(s, q, 'ans', idx)}" class="mx-dans" inputmode="numeric" autocomplete="off" aria-label="Answer">`;
+            if (!letter) h += `<input type="text" id="${mxId(s, q, 'let', idx)}" class="mx-dletter" maxlength="1" autocomplete="off" aria-label="Letter">`;
+            return h + `</div>`;
+        }
+        function renderMxDecode(item, s, q) {
+            let h = '';
+            if (item.mode === 'inline') {
+                h += `<table class="mx-key"><tr>${item.key.map(k => `<td>${k[0]}</td>`).join('')}</tr><tr>${item.key.map(k => `<th>${k[1]}</th>`).join('')}</tr></table>`;
+                let idx = 0;
+                h += `<div class="mx-dwords">`;
+                item.words.forEach(word => {
+                    h += `<div class="mx-dword">`;
+                    word.forEach(([a, b]) => { h += mxDecodeCard(a, item.op, b, s, q, idx++); });
+                    h += `</div>`;
+                });
+                return h + `</div>`;
+            }
+            h += `<div class="mx-dword mx-dgrid">`;
+            item.problems.forEach(([a, op, b, letter], i) => { h += mxDecodeCard(a, op, b, s, q, i, letter); });
+            h += `</div>`;
+            let bi = 0;
+            item.riddles.forEach((r, ri) => {
+                h += `<div class="mx-riddle"><div class="mx-riddle-q">${r.q}</div><div class="mx-riddle-words">`;
+                r.words.forEach(word => {
+                    h += `<div class="mx-riddle-word">`;
+                    word.forEach(n => {
+                        h += `<label class="mx-blank"><input type="text" id="${mxId(s, q, 'r' + ri, bi++)}" maxlength="1" autocomplete="off" aria-label="Letter for ${n}"><span>${n}</span></label>`;
+                    });
+                    h += `</div>`;
+                });
+                h += `</div></div>`;
+            });
+            return h;
+        }
+        function checkMxDecode(item, s, q) {
+            let score = 0, total = 0;
+            const mark = (idx, ok) => { const c = document.getElementById(mxId(s, q, 'card', idx)); if (c) { c.classList.toggle('mx-good', ok); c.classList.toggle('mx-bad', !ok); } };
+            if (item.mode === 'inline') {
+                const keyMap = Object.fromEntries(item.key);
+                let idx = 0;
+                item.words.forEach(word => word.forEach(([a, b]) => {
+                    const ans = item.op === '-' ? a - b : a + b;
+                    const ansEl = document.getElementById(mxId(s, q, 'ans', idx));
+                    const ok = !!ansEl && ansEl.value.trim() === String(ans);
+                    const letEl = document.getElementById(mxId(s, q, 'let', idx));
+                    const letOk = letEl && letEl.value.trim().toUpperCase() === keyMap[ans];
+                    total += 1;
+                    if (ok && letOk) score += 1;
+                    mark(idx, ok && letOk);
+                    idx++;
+                }));
+                return { score, total, msg: `Cards correct: ${score} / ${total}. The hour hand said: "${item.message}!"` };
+            }
+            const valueToLetter = {};
+            item.problems.forEach(([a, op, b, letter], i) => {
+                const ans = op === '-' ? a - b : a + b;
+                valueToLetter[ans] = letter;
+                const el = document.getElementById(mxId(s, q, 'ans', i));
+                const ok = el && el.value.trim() === String(ans);
+                total += 1;
+                if (ok) score += 1;
+                mark(i, ok);
+            });
+            let bi = 0;
+            const answers = [];
+            item.riddles.forEach((r, ri) => {
+                let allOk = true;
+                const words = r.words.map(word => word.map(n => {
+                    const el = document.getElementById(mxId(s, q, 'r' + ri, bi++));
+                    if (!el || el.value.trim().toUpperCase() !== valueToLetter[n]) allOk = false;
+                    return valueToLetter[n];
+                }).join(''));
+                total += 1;
+                if (allOk) score += 1;
+                answers.push(`${r.q}: ${words.join(' ')}`);
+            });
+            return { score, total, msg: `Score: ${score} / ${total}. Answers \u2014 ${answers.join('; ')}.` };
+        }
+
+        function renderMxInput(item, s, q) {
+            if (item.type === 'column') return renderMxColumn(item, s, q);
+            if (item.type === 'compare') return renderMxCompare(item, s, q);
+            if (item.type === 'chart') return renderMxChart(item, s, q);
+            if (item.type === 'abacus_build') return renderMxAbacusBuild(item, s, q);
+            if (item.type === 'abacus_read') return renderMxAbacusRead(item, s, q);
+            if (item.type === 'multi') return renderMxMulti(item, s, q);
+            if (item.type === 'decode') return renderMxDecode(item, s, q);
+            return '';
+        }
+
+        function mxCheck(item, s, q) {
+            if (item.type === 'column') return checkMxColumn(item, s, q);
+            if (item.type === 'multi') return checkMxMulti(item, s, q);
+            if (item.type === 'decode') return checkMxDecode(item, s, q);
+            if (item.type === 'compare') {
+                const ok = item.picked === item.answer;
+                const sentence = `${item.a} ${item.answer} ${item.b}`;
+                return { score: ok ? 1 : 0, total: 1, msg: ok ? `Correct! ${sentence}` : `Correct answer: ${sentence}` };
+            }
+            if (item.type === 'chart') {
+                const ok = item.picked === item.answer;
+                return { score: ok ? 1 : 0, total: 1, msg: ok ? `Correct! ${item.top} \u2212 ${item.top - item.answer} = ${item.answer}` : `Correct answer: ${item.top} \u2212 ${item.top - item.answer} = ${item.answer}` };
+            }
+            if (item.type === 'abacus_build') {
+                const val = item.beads ? item.beads[0] * 100 + item.beads[1] * 10 + item.beads[2] : 0;
+                const d = mxPad(item.answer, 3);
+                const ok = val === item.answer;
+                return { score: ok ? 1 : 0, total: 1, msg: ok ? 'Correct beads!' : `You showed ${val}. For ${item.answer}: H = ${d[0]}, T = ${d[1]}, O = ${d[2]} beads.` };
+            }
+            if (item.type === 'abacus_read') {
+                const ok = mxVal(s, q, 'ab') === item.answer;
+                return { score: ok ? 1 : 0, total: 1, msg: ok ? 'Correct!' : `Correct answer: ${item.answer} (${item.digits[0]} hundreds, ${item.digits[1]} tens, ${item.digits[2]} ones)` };
+            }
+            return { score: 0, total: 0, msg: '' };
+        }
+
+        function mxHint(item) {
+            if (item.type === 'column') {
+                let h;
+                if (item.arrange) h = 'Hint: Write ones under ones and tens under tens. Start from the ones column.';
+                else if (item.op === '-') h = 'Hint: Start with the ones column. If the top digit is smaller, borrow 1 from the next column. Use the small boxes for borrowing.';
+                else h = 'Hint: Start with the ones column. If a column adds up to 10 or more, carry 1 to the next column.';
+                if (item.expand) h = 'Hint: Break each number into tens + ones, e.g. 56 = 50 + 6. Subtract tens from tens and ones from ones.';
+                if (item.check) h += ' Then add your answer and the number you took away \u2014 you should get the top number.';
+                return h;
+            }
+            if (item.type === 'compare') return 'Hint: Compare hundreds first, then tens, then ones.';
+            if (item.type === 'chart') return 'Hint: Go up one row for every ten, then move left one box for every one.';
+            if (item.type === 'abacus_build') return 'Hint: Tap + and \u2212 to put the right number of beads on H, T and O.';
+            if (item.type === 'abacus_read') return 'Hint: Count the beads on H, T and O.';
+            if (item.type === 'multi') return 'Hint: Fill in every box.';
+            if (item.type === 'decode') return 'Hint: Solve each sum first, then find the matching letter.';
+            return '';
+        }
+
         function renderExamInput(item, sectionIdx, questionIdx, useWordBank) {
+            if (MX_TYPES.includes(item.type)) {
+                return renderMxInput(item, sectionIdx, questionIdx);
+            }
             if (item.type === 'practice') {
                 return `<textarea id="exam-practice-${sectionIdx}-${questionIdx}" class="exam-input" rows="2" placeholder="Write your answer / notes here"></textarea>`;
             }
@@ -5976,6 +7198,18 @@
 
             const container = document.getElementById('examPrepContent');
             if (!container) return;
+
+            // Keep what the child has typed when the page re-renders for a match/order tap.
+            const savedValues = {};
+            const savedZones = {};
+            const savedRadios = [];
+            if (preserveState) {
+                container.querySelectorAll('input[id], textarea[id]').forEach(el => {
+                    if (el.type !== 'radio' && el.type !== 'checkbox') savedValues[el.id] = el.value;
+                });
+                container.querySelectorAll('.exam-drop-zone[id]').forEach(el => { savedZones[el.id] = el.innerHTML; });
+                container.querySelectorAll('input[type="radio"]:checked').forEach(el => savedRadios.push([el.name, el.value]));
+            }
 
             const subjectData = examPrepData[subject];
             if (!subjectData) {
@@ -6065,6 +7299,13 @@
             html += `</div>`;
 
             container.innerHTML = html;
+            if (preserveState) {
+                Object.entries(savedValues).forEach(([id, value]) => { const el = document.getElementById(id); if (el) el.value = value; });
+                Object.entries(savedZones).forEach(([id, value]) => { const el = document.getElementById(id); if (el) el.innerHTML = value; });
+                savedRadios.forEach(([name, value]) => {
+                    container.querySelectorAll(`input[type="radio"][name="${name}"]`).forEach(el => { if (el.value === value) el.checked = true; });
+                });
+            }
             initializeTraceCanvases();
         }
 
@@ -6083,6 +7324,9 @@
                 if (item.type === 'practice' || item.type === 'trace_word' || item.type === 'trace_letter') {
                     feedback.textContent = 'Practice item: self-check using worksheet/notes.';
                     feedback.style.color = '#5b6a7d';
+                    if (item.modelAnswer) {
+                        feedback.innerHTML = `<span class="exam-model-answer"><strong>Sample answer:</strong> ${item.modelAnswer}</span>`;
+                    }
                     return;
                 }
                 if (item.type === 'poem_recite') {
@@ -6139,14 +7383,24 @@
                     feedback.style.color = wordScore === correctOrder.length ? '#2e9f54' : '#d94b4b';
                     return;
                 }
+                if (MX_TYPES.includes(item.type)) {
+                    const r = mxCheck(item, sectionIdx, questionIdx);
+                    scorable += r.total;
+                    score += r.score;
+                    feedback.textContent = r.msg;
+                    if (item.explain && item.type !== 'multi') feedback.innerHTML += `<span class="exam-explain">${item.explain}</span>`;
+                    feedback.style.color = r.score === r.total ? '#2e9f54' : '#d94b4b';
+                    return;
+                }
                 let correct = false;
                 scorable += 1;
 
                 if (item.type === 'text') {
                     const input = document.getElementById(`exam-input-${sectionIdx}-${questionIdx}`);
                     const userVal = normalizeExamAnswer(input ? input.value : '');
-                    const answers = (item.answers || [item.answer]).map(normalizeExamAnswer);
-                    correct = answers.includes(userVal);
+                    const useLoose = !!(subjectData.looseAnswers || item.loose);
+                    const answers = (item.answers || [item.answer]).map(useLoose ? mxLoose : normalizeExamAnswer);
+                    correct = answers.includes(useLoose ? mxLoose(input ? input.value : '') : userVal);
                 } else {
                     const picked = document.querySelector(`input[name="exam-q-${sectionIdx}-${questionIdx}"]:checked`);
                     const selected = normalizeExamAnswer(picked ? picked.value : '');
@@ -6162,6 +7416,7 @@
                     feedback.textContent = `Correct answer: ${correctAnswer}`;
                     feedback.style.color = '#d94b4b';
                 }
+                if (item.explain) feedback.innerHTML += `<span class="exam-explain">${item.explain}</span>`;
             });
 
             const result = document.getElementById(`exam-section-result-${sectionIdx}`);
